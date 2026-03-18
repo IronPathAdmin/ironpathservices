@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pricing | Iron Path Services</title>
+<meta name="description" content="Complete, transparent pricing for all Iron Path Services. No hidden fees. No surprises. Ever."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600;1,700&family=Lora:ital,wght@0,400;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+
+:root{--bark:#2C1F0F;--soil:#3A2410;--rust:#A84B1F;--amber:#C8782A;--wheat:#E8C98A;--cream:#F7F0E3;--pale:#F0E8D8;--light:#FBF6EE;--white:#FFFDF8;--text:#1E130A;--muted:#6B5744;--stone:#8C7B6B;--border:rgba(74,46,20,0.12)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--light);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:space-between;padding:14px 56px;background:rgba(44,31,15,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,120,42,0.18);transition:padding 0.3s}
+.nav-brand{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--wheat);text-decoration:none;letter-spacing:0.02em}
+.nav-brand span{color:var(--amber)}
+.nav-links{display:flex;gap:22px;list-style:none;align-items:center}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(232,201,138,0.65);text-decoration:none;transition:color 0.2s;padding:4px 0;border-bottom:1px solid transparent}
+.nav-links a:hover,.nav-links a.active{color:var(--wheat);border-bottom-color:var(--amber)}
+.nav-cta{background:var(--rust)!important;color:var(--cream)!important;padding:8px 18px;border-radius:3px;border-bottom:none!important}
+.nav-cta:hover{background:var(--amber)!important;color:var(--bark)!important}
+.float-social{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:200;display:flex;flex-direction:column}
+.fs-item{display:flex;align-items:center;justify-content:center;width:40px;height:40px;text-decoration:none;transition:width 0.2s}
+.fs-item svg{width:16px;height:16px;flex-shrink:0;color:#fff}
+.fs-fb{background:#1877F2}.fs-ig{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}.fs-wa{background:#25D366}.fs-ph{background:var(--rust)}
+.fs-item:hover{width:50px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;padding:13px 26px;border-radius:3px;border:none;cursor:pointer;transition:all 0.2s}
+.btn svg{width:13px;height:13px;flex-shrink:0;transition:transform 0.2s}
+.btn:hover svg{transform:translateX(3px)}
+.btn-rust{background:var(--rust);color:var(--cream)}.btn-rust:hover{background:var(--amber);color:var(--bark)}
+.btn-outline{background:transparent;border:1px solid rgba(232,201,138,0.3);color:var(--wheat)}.btn-outline:hover{border-color:var(--amber);color:var(--amber)}
+.btn-dark{background:var(--bark);color:var(--wheat)}.btn-dark:hover{background:var(--soil)}
+.btn-outline-dark{background:transparent;border:1px solid rgba(74,46,20,0.2);color:var(--muted)}.btn-outline-dark:hover{border-color:var(--rust);color:var(--rust)}
+.btn-sm{padding:9px 18px;font-size:11px}
+.sec{padding:88px 64px}.sec-alt{background:var(--cream)}.sec-dark{background:var(--bark)}.sec-soil{background:var(--soil)}.sec-white{background:var(--white)}
+.sec-inner{max-width:1160px;margin:0 auto}
+.eyebrow{font-size:10px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.eyebrow::before{content:'';display:block;width:22px;height:1px;background:var(--amber)}
+h2{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,50px);font-weight:700;line-height:1.08;color:var(--bark);margin-bottom:12px}
+h2 em{font-style:italic;color:var(--rust)}
+.sec-dark h2,.sec-soil h2{color:var(--cream)}.sec-dark h2 em,.sec-soil h2 em{color:var(--amber)}
+.sec-dark .eyebrow,.sec-soil .eyebrow{color:var(--amber)}.sec-dark .eyebrow::before,.sec-soil .eyebrow::before{background:var(--amber)}
+.lead{font-family:'Lora',serif;font-size:16px;line-height:1.78;color:var(--muted);max-width:560px;margin-bottom:44px}
+.sec-dark .lead,.sec-soil .lead{color:rgba(232,201,138,0.6)}
+.r{opacity:0;transform:translateY(20px);transition:opacity 0.55s ease,transform 0.55s ease}
+.r.v{opacity:1;transform:none}
+.r2{opacity:0;transform:translateX(-16px);transition:opacity 0.5s ease,transform 0.5s ease}
+.r2.v{opacity:1;transform:none}
+.trust-bar{background:var(--soil);padding:15px 64px;display:flex;flex-wrap:wrap;border-bottom:2px solid var(--amber)}
+.ti{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:var(--wheat);opacity:0.78;padding:5px 24px 5px 0;margin-right:24px;border-right:1px solid rgba(200,120,42,0.18)}
+.ti:last-child{border-right:none;margin-right:0}
+.ti svg{color:var(--amber);flex-shrink:0;width:12px;height:12px}
+footer{background:var(--bark);border-top:1px solid rgba(200,120,42,0.14);padding:52px 64px 28px;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
+.foot-brand{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--wheat);margin-bottom:8px}
+.foot-brand span{color:var(--amber)}
+.foot-tagline{font-family:'Lora',serif;font-style:italic;font-size:12px;color:rgba(200,120,42,0.5);margin-bottom:14px}
+.foot-contact a{display:block;font-size:12px;color:rgba(232,201,138,0.5);text-decoration:none;margin-bottom:5px;transition:color 0.2s}
+.foot-contact a:hover{color:var(--wheat)}
+.foot-col h4{font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--amber);margin-bottom:12px}
+.foot-col ul{list-style:none}
+.foot-col ul li{font-size:12px;color:rgba(232,201,138,0.4);margin-bottom:6px}
+.foot-col ul li a{color:rgba(232,201,138,0.4);text-decoration:none;transition:color 0.2s}
+.foot-col ul li a:hover{color:var(--wheat)}
+.foot-socials{display:flex;gap:10px;margin-top:14px}
+.foot-soc{width:32px;height:32px;border-radius:3px;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:opacity 0.2s}
+.foot-soc:hover{opacity:0.8}
+.foot-soc svg{width:15px;height:15px;color:#fff}
+.foot-bottom{grid-column:1/-1;border-top:1px solid rgba(200,120,42,0.1);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.foot-bottom p{font-size:11px;color:rgba(200,120,42,0.28)}
+.mc-band{background:var(--soil);padding:40px 64px;display:flex;gap:48px;align-items:center;flex-wrap:wrap;border-top:1px solid rgba(200,120,42,0.15)}
+.mc-text h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--wheat);margin-bottom:4px}
+.mc-text h3 em{font-style:italic;color:var(--amber)}
+.mc-text p{font-size:13px;color:rgba(232,201,138,0.55);font-family:'Lora',serif;font-style:italic}
+.mc-form{display:flex;flex:1;min-width:280px;max-width:480px}
+.mc-input{flex:1;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);background:var(--cream);border:1px solid rgba(200,120,42,0.3);border-right:none;padding:12px 16px;border-radius:3px 0 0 3px;outline:none;transition:border-color 0.2s}
+.mc-input:focus{border-color:var(--amber)}
+.mc-btn{background:var(--rust);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:12px 20px;border:none;border-radius:0 3px 3px 0;cursor:pointer;transition:background 0.2s;white-space:nowrap}
+.mc-btn:hover{background:var(--amber);color:var(--bark)}
+.mc-success{display:none;font-size:13px;color:var(--amber);font-family:'Lora',serif;font-style:italic}
+@media(max-width:960px){nav{padding:14px 24px}.nav-links{display:none}.sec{padding:64px 28px}.trust-bar{padding:12px 24px}.ti{font-size:10px;padding:4px 13px 4px 0;margin-right:13px}footer{grid-template-columns:1fr;padding:44px 28px 24px}.mc-band{padding:32px 28px}.float-social{display:none}}
+@media(max-width:600px){.mc-form{flex-direction:column}.mc-input{border-right:1px solid rgba(200,120,42,0.3);border-bottom:none;border-radius:3px 3px 0 0}.mc-btn{border-radius:0 0 3px 3px}}
+
+.price-hero{min-height:300px;background:var(--bark);position:relative;display:flex;align-items:flex-end;padding:0 64px 52px;overflow:hidden}
+.price-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(0.22) saturate(0.6)}
+.price-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(44,31,15,0.98),rgba(44,31,15,0.4))}
+.price-hero-content{position:relative;max-width:660px}
+.price-hero h1{font-family:'Playfair Display',serif;font-size:clamp(40px,5.5vw,66px);font-weight:900;line-height:0.98;color:var(--cream);margin-bottom:14px}
+.price-hero h1 em{font-style:italic;color:var(--amber)}
+.price-hero p{font-family:'Lora',serif;font-size:16px;line-height:1.72;color:rgba(232,201,138,0.65);max-width:480px}
+.ptabs{display:flex;flex-wrap:wrap;border-bottom:2px solid var(--border);background:var(--white);position:sticky;top:62px;z-index:100}
+.ptab{padding:14px 20px;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--stone);cursor:pointer;border:none;border-bottom:2px solid transparent;margin-bottom:-2px;background:none;font-family:'DM Sans',sans-serif;transition:color 0.2s,border-color 0.2s}
+.ptab:hover{color:var(--rust)}
+.ptab.active{color:var(--rust);border-bottom-color:var(--rust);font-weight:600}
+.ppanel{display:none}
+.ppanel.active{display:block}
+.ptable-wrap{background:var(--white);padding:48px 64px}
+.ptable-hero{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-bottom:32px}
+.ptable-img{aspect-ratio:16/7;background-size:cover;background-position:center;border-radius:3px;overflow:hidden}
+.ptable-info h3{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,36px);font-weight:700;color:var(--bark);margin-bottom:10px;line-height:1.08}
+.ptable-info h3 em{font-style:italic;color:var(--rust)}
+.ptable-info p{font-family:'Lora',serif;font-size:14px;line-height:1.78;color:var(--muted);margin-bottom:10px}
+.ptable-start{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--rust);display:block}
+.ptable-start-lbl{font-size:10px;color:var(--stone);letter-spacing:0.06em;text-transform:uppercase}
+table.pt{width:100%;border-collapse:collapse;margin-bottom:14px}
+table.pt thead tr{background:var(--bark)}
+table.pt thead th{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--wheat);padding:11px 14px;text-align:left;border-bottom:2px solid var(--amber)}
+table.pt tbody tr{border-bottom:1px solid var(--border);transition:background 0.15s}
+table.pt tbody tr:nth-child(even){background:var(--light)}
+table.pt tbody tr:hover{background:var(--pale)}
+table.pt td{font-size:13px;padding:10px 14px;color:var(--muted);line-height:1.4}
+table.pt td:first-child{font-weight:500;color:var(--bark)}
+table.pt td:nth-child(2){font-family:'Playfair Display',serif;font-weight:700;font-size:14px;color:var(--rust);white-space:nowrap}
+.table-note{font-family:'Lora',serif;font-style:italic;font-size:12px;color:var(--stone);padding:12px 16px;background:rgba(168,75,31,0.06);border-left:3px solid var(--amber);border-radius:0 3px 3px 0;margin-top:6px}
+.sub-heading{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--bark);margin:24px 0 8px}
+.addon-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.addon-block h4{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--bark);margin-bottom:10px}
+.addon-list{border:1px solid var(--border);background:var(--white)}
+.addon-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px;border-bottom:1px solid var(--border);transition:background 0.15s}
+.addon-row:last-child{border-bottom:none}
+.addon-row:hover{background:var(--pale)}
+.addon-name{font-size:13px;font-weight:500;color:var(--bark);flex:1}
+.addon-note{font-size:11px;color:var(--stone)}
+.addon-rate{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--rust);white-space:nowrap;margin-left:8px}
+.disc-list{border:1px solid var(--border);background:var(--white);max-width:680px}
+.disc-row{display:flex;align-items:center;gap:14px;padding:11px 14px;border-bottom:1px solid var(--border);transition:background 0.15s}
+.disc-row:last-child{border-bottom:none}
+.disc-row:hover{background:var(--pale)}
+.disc-badge{background:rgba(168,75,31,0.1);border:1px solid rgba(168,75,31,0.2);padding:3px 10px;border-radius:2px;font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--rust);white-space:nowrap;flex-shrink:0}
+.disc-name{font-size:13px;font-weight:500;color:var(--bark);display:block}
+.disc-elig{font-size:11px;color:var(--stone)}
+.pay-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border:1px solid var(--border);margin-bottom:18px}
+.pay-card{background:var(--white);padding:24px 20px;text-align:center;transition:background 0.2s}
+.pay-card:hover{background:var(--pale)}
+.pay-icon{width:44px;height:44px;background:rgba(168,75,31,0.08);border:1px solid rgba(168,75,31,0.18);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;color:var(--rust)}
+.pay-icon svg{width:18px;height:18px}
+.pay-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--bark);margin-bottom:4px}
+.pay-desc{font-size:12px;color:var(--muted);line-height:1.55}
+.pdf-bar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;padding:20px 24px;background:var(--bark);border-radius:3px;margin-top:28px}
+.pdf-bar p{font-family:'Lora',serif;font-style:italic;font-size:13px;color:rgba(232,201,138,0.65)}
+@media(max-width:960px){.ptable-hero{grid-template-columns:1fr}.price-hero{padding:0 28px 40px}.ptable-wrap{padding:32px 28px}.addon-grid{grid-template-columns:1fr}.pay-grid{grid-template-columns:1fr 1fr}.ptabs{top:56px}}
+@media(max-width:600px){.pay-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="float-social">
+  <a href="https://www.facebook.com/share/1AdC4PEsEi/" target="_blank" class="fs-item fs-fb" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+  <a href="https://www.instagram.com/ironpathservices" target="_blank" class="fs-item fs-ig" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+  <a href="https://wa.me/15098837231" target="_blank" class="fs-item fs-wa" title="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.954-1.418A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg></a>
+  <a href="tel:5098837231" class="fs-item fs-ph" title="Call Us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.22 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16z"/></svg></a>
+</div>
+<nav id="navbar">
+  <a href="index.html" class="nav-brand">Iron<span>Path</span> Services</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#process">Process</a></li>
+    <li><a href="index.html#faq">FAQ</a></li>
+    <li><a href="index.html#area">Area</a></li>
+    <li><a href="index.html#quote" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+<div class="trust-bar">
+  <div class="ti"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Locally Owned</div>
+  <div class="ti"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Licensed &amp; Insured</div>
+  <div class="ti"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Same-Day Available</div>
+  <div class="ti"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>Residential &amp; Commercial</div>
+  <div class="ti"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>WA State Licensed</div>
+</div>
+
+<div class="price-hero">
+  <div class="price-hero-bg" style="background-image:url('img-pipes.jpg')"></div>
+  <div class="price-hero-overlay"></div>
+  <div class="price-hero-content r">
+    <div class="eyebrow">Transparent Pricing</div>
+    <h1>No surprises. <em>Ever.</em></h1>
+    <p>Every rate, fee, and surcharge that could appear on your invoice is listed here. We provide a written quote before any work begins. What we quote is what you pay.</p>
+  </div>
+</div>
+
+<div class="ptabs" id="ptabs">
+  <button class="ptab active" onclick="showP('junk',this)">Junk Removal</button>
+  <button class="ptab" onclick="showP('clean',this)">Cleaning</button>
+  <button class="ptab" onclick="showP('scrap',this)">Scrap &amp; Metal</button>
+  <button class="ptab" onclick="showP('fw',this)">Firewood</button>
+  <button class="ptab" onclick="showP('vend',this)">Vending &amp; ATM</button>
+  <button class="ptab" onclick="showP('addon',this)">Fees &amp; Add-Ons</button>
+  <button class="ptab" onclick="showP('disc',this)">Discounts</button>
+  <button class="ptab" onclick="showP('pay',this)">Payment</button>
+</div>
+
+<!-- JUNK -->
+<div class="ppanel active" id="p-junk">
+  <div class="ptable-wrap">
+    <div class="ptable-hero r"><div class="ptable-img" style="background-image:url('img-junkyard.jpg')"></div><div class="ptable-info"><h3>Junk <em>Removal</em></h3><p>Fast, responsible removal for homes and businesses. From a single item to a full estate cleanout — we handle the heavy lifting.</p><span class="ptable-start">From $80</span><span class="ptable-start-lbl">Starting rate · Free quotes</span></div></div>
+    <div class="sub-heading r">Residential</div>
+    <table class="pt r"><thead><tr><th>Service</th><th>Price</th><th>Notes</th></tr></thead><tbody>
+      <tr><td>Minimum Pickup (1–2 items)</td><td>From $80</td><td>Includes dump fees &amp; labor</td></tr>
+      <tr><td>Truck Bed Load</td><td>$185</td><td>Silverado 1500 standard bed</td></tr>
+      <tr><td>1/4 Trailer Load</td><td>$335</td><td>Available within 60 days</td></tr>
+      <tr><td>1/2 Trailer Load</td><td>$590</td><td>Available within 60 days</td></tr>
+      <tr><td>3/4 Trailer Load</td><td>$845</td><td>Available within 60 days</td></tr>
+      <tr><td>Full Trailer Load</td><td>$1,075</td><td>Available within 60 days</td></tr>
+    </tbody></table>
+    <div class="sub-heading r">Commercial</div>
+    <table class="pt r"><thead><tr><th>Service</th><th>Price</th><th>Notes</th></tr></thead><tbody>
+      <tr><td>Minimum Pickup (1–2 items)</td><td>From $125</td><td>Business / site jobs</td></tr>
+      <tr><td>Truck Bed Load</td><td>$225</td><td>Silverado 1500 standard bed</td></tr>
+      <tr><td>1/4 Trailer Load</td><td>$400</td><td>On-site assessment</td></tr>
+      <tr><td>1/2 Trailer Load</td><td>$700</td><td>On-site assessment</td></tr>
+      <tr><td>3/4 Trailer Load</td><td>$975</td><td>On-site assessment</td></tr>
+      <tr><td>Full Trailer Load</td><td>$1,250</td><td>On-site assessment</td></tr>
+    </tbody></table>
+    <div class="sub-heading r">Large Items</div>
+    <table class="pt r"><thead><tr><th>Item</th><th>Residential</th><th>Commercial</th></tr></thead><tbody>
+      <tr><td>Mattress / Box Spring</td><td>$50</td><td>$65</td></tr>
+      <tr><td>Couch / Loveseat</td><td>$100–$160</td><td>$140–$210</td></tr>
+      <tr><td>Refrigerator</td><td>$100</td><td>$130</td></tr>
+      <tr><td>Washer / Dryer</td><td>$90</td><td>$115</td></tr>
+      <tr><td>Hot Tub (cut &amp; haul)</td><td>$475–$800</td><td>$600–$1,000</td></tr>
+      <tr><td>Upright Piano</td><td>$375–$700</td><td>$500–$850</td></tr>
+      <tr><td>Small Shed Demolition</td><td>From $525</td><td>From $650</td></tr>
+      <tr><td>Concrete / Dirt / Roofing</td><td>By weight — quoted on-site</td><td>By weight — custom quote</td></tr>
+    </tbody></table>
+    <div class="sub-heading r">Add-Ons</div>
+    <table class="pt r"><thead><tr><th>Add-On</th><th>Fee</th></tr></thead><tbody>
+      <tr><td>Stairs / Difficult Access (per floor)</td><td>+$25–$50</td></tr>
+      <tr><td>Dense / Heavy Material Surcharge</td><td>+$75–$150</td></tr>
+      <tr><td>Appliance Refrigerant Disposal (required by law)</td><td>+$25–$35</td></tr>
+      <tr><td>Same-Day Priority</td><td>+$75</td></tr>
+      <tr><td>After-Hours Service</td><td>+15% of total</td></tr>
+    </tbody></table>
+    <p class="table-note r">All add-on fees communicated before work begins. Hazardous materials, chemicals, biohazard waste, and heavy construction debris not accepted.</p>
+  </div>
+</div>
+
+<!-- CLEANING -->
+<div class="ppanel" id="p-clean">
+  <div class="ptable-wrap">
+    <div class="ptable-hero r"><div class="ptable-img" style="background-image:url('img-tractor.jpg');filter:brightness(0.85)"></div><div class="ptable-info"><h3>Cleaning <em>Services</em></h3><p>Professional residential and commercial cleaning. All supplies provided. WA Food Worker Card held by all cleaning staff.</p><span class="ptable-start">From $120</span><span class="ptable-start-lbl">Starting rate · Custom quotes available</span></div></div>
+    <div class="sub-heading r">Residential Packages</div>
+    <table class="pt r"><thead><tr><th>Package</th><th>Price</th><th>Base Time</th><th>Add'l Cleaner Rate</th></tr></thead><tbody>
+      <tr><td>Standard Clean</td><td>$120</td><td>2 hrs</td><td>$45/hr each</td></tr>
+      <tr><td>Deep Clean</td><td>$265</td><td>3 hrs</td><td>$50/hr each</td></tr>
+      <tr><td>Move-Out Clean</td><td>$340</td><td>4 hrs</td><td>$50/hr each</td></tr>
+    </tbody></table>
+    <div class="sub-heading r">Commercial</div>
+    <table class="pt r"><thead><tr><th>Service</th><th>Price</th><th>Notes</th></tr></thead><tbody>
+      <tr><td>Commercial Space</td><td>$0.15–$0.35/sq ft</td><td>Quoted by scope</td></tr>
+      <tr><td>Lodge / STR Turnover</td><td>$30–$50/room</td><td>Same-day turnaround available</td></tr>
+      <tr><td>Office / Retail Recurring</td><td>Custom Quote</td><td>Monthly — custom scope</td></tr>
+      <tr><td>Post-Construction Cleanup</td><td>Custom Quote</td><td>Per sq ft or flat rate</td></tr>
+    </tbody></table>
+    <div class="sub-heading r">Add-Ons &amp; Discounts</div>
+    <table class="pt r"><thead><tr><th>Add-On / Discount</th><th>Amount</th><th>Notes</th></tr></thead><tbody>
+      <tr><td>First-Time / Heavily Soiled Fee</td><td>+$50–$100</td><td>Communicated before work begins</td></tr>
+      <tr><td>Pet Hair / Animal Fee</td><td>+$25–$50</td><td>Communicated before work begins</td></tr>
+      <tr><td>Interior Window Cleaning</td><td>+$15–$40</td><td>Per home size</td></tr>
+      <tr><td>Additional Cleaner Hours</td><td>+$45–$50/hr</td><td>Per extra cleaner hour beyond base</td></tr>
+      <tr><td>Recurring Weekly/Biweekly Discount</td><td>−10% every visit</td><td>Applied automatically — no codes needed</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<!-- SCRAP -->
+<div class="ppanel" id="p-scrap">
+  <div class="ptable-wrap">
+    <div class="ptable-hero r"><div class="ptable-img" style="background-image:url('img-scrap.jpg')"></div><div class="ptable-info"><h3>Scrap &amp; <em>Metal Removal</em></h3><p>WA State Licensed Scrap Metal Supplier. Responsible recycling on every load. Whether a load qualifies as free depends on metal type and current recycler rates — confirmed before scheduling.</p><span class="ptable-start">From Free</span><span class="ptable-start-lbl">Qualifying loads at no charge</span></div></div>
+    <table class="pt r"><thead><tr><th>Service</th><th>Residential</th><th>Commercial</th></tr></thead><tbody>
+      <tr><td>Qualifying Scrap Load</td><td>Free</td><td>Free / Custom</td></tr>
+      <tr><td>Light Scrap Pickup</td><td>$100 minimum</td><td>$130 minimum</td></tr>
+      <tr><td>Appliance Removal (each)</td><td>From $50</td><td>From $65</td></tr>
+      <tr><td>Large Volume / Commercial Haul</td><td>Custom Quote</td><td>Custom Quote</td></tr>
+    </tbody></table>
+    <p class="table-note r">Pricing varies by metal type, quantity, and current market rates. Licensed scrap metal supplier — fully WA State compliant. Responsible recycling included.</p>
+  </div>
+</div>
+
+<!-- FIREWOOD -->
+<div class="ppanel" id="p-fw">
+  <div class="ptable-wrap">
+    <div class="ptable-hero r"><div class="ptable-img" style="background-image:url('img-firewood.jpg')"></div><div class="ptable-info"><h3>Firewood <em>Sales</em></h3><p>Seasoned hardwood — ready to burn. Delivery available throughout the Methow Valley and Okanogan County.</p><span class="ptable-start">From $8</span><span class="ptable-start-lbl">Bundle pricing · Delivery available valley-wide</span></div></div>
+    <table class="pt r"><thead><tr><th>Product</th><th>Price</th><th>Notes</th></tr></thead><tbody>
+      <tr><td>Campfire Bundle</td><td>$8</td><td>Pick-up or delivery</td></tr>
+      <tr><td>1/2 Cord</td><td>$225</td><td>Seasoned, delivered</td></tr>
+      <tr><td>Full Cord</td><td>$400</td><td>Seasoned, delivered</td></tr>
+      <tr><td>Bulk Order (10+ cords)</td><td>10% off</td><td>Discount applied automatically</td></tr>
+      <tr><td>Stacking Add-On (small)</td><td>$40</td><td>Up to 1 face cord</td></tr>
+      <tr><td>Stacking Add-On (large)</td><td>$60–$80</td><td>Full cord, based on access</td></tr>
+      <tr><td>Delivery Fee (outside standard area)</td><td>Quoted at booking</td><td>Confirmed before you commit</td></tr>
+    </tbody></table>
+    <p class="table-note r">Seasoned hardwood — ready to burn. Pre-orders accepted for fall/winter seasonal planning. Delivery to Winthrop, Twisp, Mazama, Carlton, Methow, Brewster, Pateros and surrounding areas.</p>
+  </div>
+</div>
+
+<!-- VENDING -->
+<div class="ppanel" id="p-vend">
+  <div class="ptable-wrap">
+    <div class="ptable-hero r"><div class="ptable-img" style="background-image:url('img-vending.jpg')"></div><div class="ptable-info"><h3>Vending &amp; <em>ATM Services</em></h3><p>We place, stock, and maintain vending machines and ATMs for businesses across the valley. Zero upfront cost — and you earn passive revenue.</p><span class="ptable-start">No Cost</span><span class="ptable-start-lbl">To host business · 30% revenue share to you</span></div></div>
+    <table class="pt r"><thead><tr><th>Service</th><th>Rate</th><th>Details</th></tr></thead><tbody>
+      <tr><td>Vending Machine Placement</td><td>No cost to you</td><td>We supply &amp; install the machine</td></tr>
+      <tr><td>ATM Placement</td><td>No cost to you</td><td>We supply &amp; install the ATM</td></tr>
+      <tr><td>Restocking &amp; Maintenance</td><td>Fully included</td><td>Handled entirely by our team</td></tr>
+      <tr><td>Revenue to Your Location</td><td>30% of net sales</td><td>Paid to you — zero effort</td></tr>
+      <tr><td>Revenue to Iron Path Services</td><td>70%</td><td>We handle everything</td></tr>
+      <tr><td>Custom Product Selection</td><td>Included</td><td>Tailored to your location</td></tr>
+      <tr><td>Corporate Setup Fee (if required)</td><td>$500–$1,000 one-time</td><td>Only if entity setup needed — discussed upfront</td></tr>
+      <tr><td>Contract Term</td><td>12 months standard</td><td>Flexible terms available</td></tr>
+    </tbody></table>
+    <p class="table-note r">No upfront cost to the hosting business. Ideal for offices, lodges, shops, ranches, and any high-traffic location. Revenue share discussed during your setup call.</p>
+  </div>
+</div>
+
+<!-- FEES & ADD-ONS -->
+<div class="ppanel" id="p-addon">
+  <div class="ptable-wrap">
+    <div class="eyebrow r">Additional Charges</div>
+    <h3 style="font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--bark);margin-bottom:10px" class="r">Fees &amp; <em style="font-style:italic;color:var(--rust)">Add-Ons</em></h3>
+    <p style="font-family:'Lora',serif;font-size:14px;line-height:1.75;color:var(--muted);max-width:560px;margin-bottom:28px" class="r">Every additional charge is disclosed upfront before we book your job. You will never see a surprise line item on your invoice.</p>
+    <div class="addon-grid r">
+      <div class="addon-block">
+        <h4>Scheduling &amp; Priority Fees</h4>
+        <div class="addon-list">
+          <div class="addon-row"><div><div class="addon-name">Same-Day Priority Service</div><div class="addon-note">When requested</div></div><span class="addon-rate">+$75</span></div>
+          <div class="addon-row"><div><div class="addon-name">After-Hours Service</div><div class="addon-note">Outside normal business hours</div></div><span class="addon-rate">+15%</span></div>
+          <div class="addon-row"><div><div class="addon-name">Cancellation &lt; 24 hrs</div><div class="addon-note">Covers dispatch costs</div></div><span class="addon-rate">$35 flat</span></div>
+          <div class="addon-row"><div><div class="addon-name">No-Show / Lockout Fee</div><div class="addon-note">If we cannot access the site</div></div><span class="addon-rate">$50 flat</span></div>
+        </div>
+        <h4 style="margin-top:20px">Fuel Surcharge — Winthrop Gas Prices</h4>
+        <div class="addon-list">
+          <div class="addon-row"><div><div class="addon-name">Below $3.75 / gal</div></div><span class="addon-rate">None</span></div>
+          <div class="addon-row"><div><div class="addon-name">$3.75 – $4.25 / gal</div></div><span class="addon-rate">+3%</span></div>
+          <div class="addon-row"><div><div class="addon-name">$4.26 – $4.75 / gal</div></div><span class="addon-rate">+5%</span></div>
+          <div class="addon-row"><div><div class="addon-name">Above $4.75 / gal</div></div><span class="addon-rate">+8%</span></div>
+        </div>
+      </div>
+      <div class="addon-block">
+        <h4>Travel Fees</h4>
+        <div class="addon-list">
+          <div class="addon-row"><div><div class="addon-name">Winthrop &amp; Twisp</div></div><span class="addon-rate">Included</span></div>
+          <div class="addon-row"><div><div class="addon-name">Mazama / Carlton</div></div><span class="addon-rate">+$25/trip</span></div>
+          <div class="addon-row"><div><div class="addon-name">Brewster / Pateros</div></div><span class="addon-rate">+$45/trip</span></div>
+          <div class="addon-row"><div><div class="addon-name">30+ miles from Winthrop</div></div><span class="addon-rate">$2.25/mile</span></div>
+        </div>
+        <h4 style="margin-top:20px">WA State Sales Tax</h4>
+        <div class="addon-list">
+          <div class="addon-row"><div><div class="addon-name">Winthrop</div></div><span class="addon-rate">8.5%</span></div>
+          <div class="addon-row"><div><div class="addon-name">Twisp</div></div><span class="addon-rate">8.7%</span></div>
+          <div class="addon-row"><div><div class="addon-name">Pateros</div></div><span class="addon-rate">8.6%</span></div>
+          <div class="addon-row"><div><div class="addon-name">Brewster</div></div><span class="addon-rate">8.4%</span></div>
+          <div class="addon-row"><div><div class="addon-name">Okanogan County Unincorp.</div><div class="addon-note">Mazama, Carlton, Methow, rural</div></div><span class="addon-rate">8.0%</span></div>
+        </div>
+        <p style="font-size:11px;color:var(--stone);margin-top:8px;font-family:'DM Sans',sans-serif;line-height:1.55">Sales tax is a legal requirement (WAC 458-20-173) — not a fee set by Iron Path Services. Always shown as a separate line item on every invoice.</p>
+      </div>
+    </div>
+    <div style="margin-top:20px;padding:14px 18px;background:rgba(168,75,31,0.06);border:1px solid rgba(168,75,31,0.15);border-radius:3px" class="r">
+      <p style="font-size:13px;color:var(--muted);line-height:1.65"><strong style="color:var(--bark)">Billing Policy:</strong> 50% deposit required at contract signing. Remaining 50% due after job completion and your approval. Quoted price is final — no post-job additions, ever. Quote valid for 30 days.</p>
+    </div>
+  </div>
+</div>
+
+<!-- DISCOUNTS -->
+<div class="ppanel" id="p-disc">
+  <div class="ptable-wrap">
+    <div class="eyebrow r">Save More</div>
+    <h3 style="font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--bark);margin-bottom:10px" class="r">Discount <em style="font-style:italic;color:var(--rust)">Programs</em></h3>
+    <p style="font-family:'Lora',serif;font-size:14px;line-height:1.75;color:var(--muted);max-width:580px;margin-bottom:8px" class="r">Nine discount programs to honor service, loyalty, and community. Maximum of two programs may be stacked per job. Discounts applied to pre-tax subtotal only.</p>
+    <div class="disc-list r">
+      <div class="disc-row"><span class="disc-badge">$15 credit</span><div><span class="disc-name">Pay in Full Upfront</span><span class="disc-elig">Pay full invoice before or at job start — cash, check, or card</span></div></div>
+      <div class="disc-row"><span class="disc-badge">$25 credit</span><div><span class="disc-name">Referral Credit</span><span class="disc-elig">Refer a customer who books and completes a paid job — credit applied to your next invoice</span></div></div>
+      <div class="disc-row"><span class="disc-badge">10% forever</span><div><span class="disc-name">VIP Loyalty (5th visit+)</span><span class="disc-elig">Auto-applied after your 5th completed paid visit. Never expires.</span></div></div>
+      <div class="disc-row"><span class="disc-badge">10% off</span><div><span class="disc-name">Senior Discount (65+)</span><span class="disc-elig">Self-identified at booking — valid on all residential services</span></div></div>
+      <div class="disc-row"><span class="disc-badge">10% off</span><div><span class="disc-name">Veteran / Military</span><span class="disc-elig">Active duty, reserve, and veterans — valid on all residential services</span></div></div>
+      <div class="disc-row"><span class="disc-badge">$10 credit</span><div><span class="disc-name">Google Review Credit</span><span class="disc-elig">Leave a verified Google review after your completed job — show us at your next booking</span></div></div>
+      <div class="disc-row"><span class="disc-badge">Variable</span><div><span class="disc-name">Off-Peak Scheduling Discount</span><span class="disc-elig">Applied at Iron Path's discretion during slow periods — always disclosed at booking, never after</span></div></div>
+      <div class="disc-row"><span class="disc-badge">−10%/visit</span><div><span class="disc-name">Recurring Cleaning Discount</span><span class="disc-elig">Weekly or biweekly cleaning schedule — applied automatically, no codes needed</span></div></div>
+      <div class="disc-row"><span class="disc-badge">Variable</span><div><span class="disc-name">Donation / Resale Credit</span><span class="disc-elig">When your items are donatable or resellable — communicated at pickup, always in your favor</span></div></div>
+    </div>
+    <p class="table-note r" style="margin-top:12px">Senior and veteran discounts cannot be combined with each other (one identity discount per job). All percentage discounts apply to pre-tax subtotal only. Credits do not apply to sales tax. VIP status tracked automatically per customer account.</p>
+  </div>
+</div>
+
+<!-- PAYMENT -->
+<div class="ppanel" id="p-pay">
+  <div class="ptable-wrap">
+    <div class="eyebrow r">How to Pay</div>
+    <h3 style="font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--bark);margin-bottom:10px" class="r">Payment <em style="font-style:italic;color:var(--rust)">Methods</em></h3>
+    <p style="font-family:'Lora',serif;font-size:14px;line-height:1.75;color:var(--muted);max-width:560px;margin-bottom:28px" class="r">We make it easy to pay however works best for you. 50% deposit locks in your job. Remaining 50% collected after completion and your approval.</p>
+    <div class="pay-grid r">
+      <div class="pay-card"><div class="pay-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div><div class="pay-name">Credit / Debit Card</div><p class="pay-desc">Visa, Mastercard, AmEx, Discover — processed through QuickBooks secure payments</p></div>
+      <div class="pay-card"><div class="pay-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="pay-name">Cash</div><p class="pay-desc">Always accepted. Receipt provided on request.</p></div>
+      <div class="pay-card"><div class="pay-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div class="pay-name">Check</div><p class="pay-desc">Personal and business checks payable to Iron Path Services LLC</p></div>
+      <div class="pay-card"><div class="pay-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div><div class="pay-name">Venmo</div><p class="pay-desc">Username provided at time of booking</p></div>
+      <div class="pay-card"><div class="pay-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><div class="pay-name">PayPal</div><p class="pay-desc">Accepted for deposits and final payments</p></div>
+      <div class="pay-card"><div class="pay-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div><div class="pay-name">Cash App</div><p class="pay-desc">$cashtag provided at time of booking</p></div>
+    </div>
+    <div style="background:rgba(168,75,31,0.06);border:1px solid rgba(168,75,31,0.15);padding:18px 22px;border-radius:3px;max-width:660px" class="r">
+      <p style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--bark);margin-bottom:6px">Our Payment Promise</p>
+      <p style="font-size:13px;font-weight:300;color:var(--muted);line-height:1.75">50% deposit is collected when you sign your contract — this locks in your date. The remaining 50% is due only after the job is fully completed and you've confirmed satisfaction. We take before and after photos of every job. No approval, no final payment — that's our guarantee.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PDF DOWNLOAD BAR -->
+<div class="sec" style="background:var(--light);padding-top:40px;padding-bottom:40px">
+  <div class="sec-inner">
+    <div class="pdf-bar r">
+      <p>Download our complete pricing guide — all services, fees, and discount programs in one printable document.</p>
+      <a href="data:application/pdf;base64,JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUiAvRjMgNCAwIFIgL0Y0IDcgMCBSCj4+CmVuZG9iagoyIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMSAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjMgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EtQm9sZCAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjIgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iago0IDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhLU9ibGlxdWUgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YzIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKNSAwIG9iago8PAovQ29udGVudHMgMTUgMCBSIC9NZWRpYUJveCBbIDAgMCA2MTIgNzkyIF0gL1BhcmVudCAxNCAwIFIgL1Jlc291cmNlcyA8PAovRm9udCAxIDAgUiAvUHJvY1NldCBbIC9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUkgXQo+PiAvUm90YXRlIDAgL1RyYW5zIDw8Cgo+PiAKICAvVHlwZSAvUGFnZQo+PgplbmRvYmoKNiAwIG9iago8PAovQ29udGVudHMgMTYgMCBSIC9NZWRpYUJveCBbIDAgMCA2MTIgNzkyIF0gL1BhcmVudCAxNCAwIFIgL1Jlc291cmNlcyA8PAovRm9udCAxIDAgUiAvUHJvY1NldCBbIC9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUkgXQo+PiAvUm90YXRlIDAgL1RyYW5zIDw8Cgo+PiAKICAvVHlwZSAvUGFnZQo+PgplbmRvYmoKNyAwIG9iago8PAovQmFzZUZvbnQgL1N5bWJvbCAvTmFtZSAvRjQgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iago4IDAgb2JqCjw8Ci9Db250ZW50cyAxNyAwIFIgL01lZGlhQm94IFsgMCAwIDYxMiA3OTIgXSAvUGFyZW50IDE0IDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iago5IDAgb2JqCjw8Ci9Db250ZW50cyAxOCAwIFIgL01lZGlhQm94IFsgMCAwIDYxMiA3OTIgXSAvUGFyZW50IDE0IDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iagoxMCAwIG9iago8PAovQ29udGVudHMgMTkgMCBSIC9NZWRpYUJveCBbIDAgMCA2MTIgNzkyIF0gL1BhcmVudCAxNCAwIFIgL1Jlc291cmNlcyA8PAovRm9udCAxIDAgUiAvUHJvY1NldCBbIC9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUkgXQo+PiAvUm90YXRlIDAgL1RyYW5zIDw8Cgo+PiAKICAvVHlwZSAvUGFnZQo+PgplbmRvYmoKMTEgMCBvYmoKPDwKL0NvbnRlbnRzIDIwIDAgUiAvTWVkaWFCb3ggWyAwIDAgNjEyIDc5MiBdIC9QYXJlbnQgMTQgMCBSIC9SZXNvdXJjZXMgPDwKL0ZvbnQgMSAwIFIgL1Byb2NTZXQgWyAvUERGIC9UZXh0IC9JbWFnZUIgL0ltYWdlQyAvSW1hZ2VJIF0KPj4gL1JvdGF0ZSAwIC9UcmFucyA8PAoKPj4gCiAgL1R5cGUgL1BhZ2UKPj4KZW5kb2JqCjEyIDAgb2JqCjw8Ci9QYWdlTW9kZSAvVXNlTm9uZSAvUGFnZXMgMTQgMCBSIC9UeXBlIC9DYXRhbG9nCj4+CmVuZG9iagoxMyAwIG9iago8PAovQXV0aG9yIChcKGFub255bW91c1wpKSAvQ3JlYXRpb25EYXRlIChEOjIwMjYwMzE4MTIxMTM2KzAwJzAwJykgL0NyZWF0b3IgKFwodW5zcGVjaWZpZWRcKSkgL0tleXdvcmRzICgpIC9Nb2REYXRlIChEOjIwMjYwMzE4MTIxMTM2KzAwJzAwJykgL1Byb2R1Y2VyIChSZXBvcnRMYWIgUERGIExpYnJhcnkgLSBcKG9wZW5zb3VyY2VcKSkgCiAgL1N1YmplY3QgKFwodW5zcGVjaWZpZWRcKSkgL1RpdGxlIChcKGFub255bW91c1wpKSAvVHJhcHBlZCAvRmFsc2UKPj4KZW5kb2JqCjE0IDAgb2JqCjw8Ci9Db3VudCA2IC9LaWRzIFsgNSAwIFIgNiAwIFIgOCAwIFIgOSAwIFIgMTAgMCBSIDExIDAgUiBdIC9UeXBlIC9QYWdlcwo+PgplbmRvYmoKMTUgMCBvYmoKPDwKL0ZpbHRlciBbIC9BU0NJSTg1RGVjb2RlIC9GbGF0ZURlY29kZSBdIC9MZW5ndGggMTgyNQo+PgpzdHJlYW0KR2IiLyg+dTA2OCdSZi5HPlpJTzZYV1dWamZXY05sQytDZGZtP1duMl9GcDcmOVxOJm5SaCorLnFuNWFwTnU9K0tASVpsbyNuVU0yaklHT1dZTy5NWyE+aUxCb203R1ZTNTgsMiM2S1Jxb0czOEdHVkhnYXBYPm5QTywxPzAkZ2RMa2YtKDRhXl1CNWNQXjxgVzY0IkonZkIjbi4mJGllbDZtRjhhNkgnNCpKW2xcaDxSQWMmPWRtLlhUTkshMFIsKDk9MFJqUFwrIyYsPD1vWkEtJTskYnRhIjFzUExGUz5yZmdgM2ZiXExlcEtOLUQ1KCVZUiZxXVg1UF9EdGpIMFs3YlFmWUsxTmE2ak5jPlwlRDptTCt0P2kwUVlkRFpbM2dWXFQiaFVlOVokSzxKRTdNaXAwcz1AVmxuWHNqRiJPLTN0N1Y1azopSVRIMkorKjFMaF5CUS4/V0Q9RDJIYVJzQSRCOSNNLzwrayxtalVib24+WD1hKENrcFVFZFsrK0poaFlkOiolSipZVS81XmEub0hBM3NKSjBMTFAkKj0rZSMjTFstPzVMTjhaJSZRTlN1Lk9iW28sMF9SUU4pMVZkNDosLXJbcjNiM0lIO2BTYWVsKFJbKm5RcnF0aSdvSjFOK2MnP0pANVtLblJoLVAuUEVcLihlUigtcXUtWnM6bSI9S1RGXyIiXyc+WyowWGJtU2QncVUpXUlyPz01MzVfQ1RmZUhPMDNXT3FfaThZUnApbj1RaWBLXipsOTxdXURuZGMiVS1BcmZWJGU8Pk9cYCVhWnBqWUk6P14ucVlTXSlma1RfcEgpQnEoUmBQXCc+T28/OFBjVGtDWytxc1s8Z0FkRy5bPEw+TDk9QVdfJiRHRGdeQVVXPV9Fc0plSkFRUSx1aHMoPDVUZVlUMCVrLWlFZUZYZ2ZlMT9XMT9Ub05kIzJldTo3V2EkV1BlVVhTXy5sNjldZlNBJ1w7QWh0bTFfPjEvZWRdb1QmaGVSallwIWc7bk4mRVxqZUUiXEo3Tj5FZGlbQ1w9ZzA9MkFmc2tUJidENl9zVV8pOG00biNBK0ZDODs0cWY0UEdoTSFPPks7YmY4cEBoMFE1cWQ/ZmJFMXVMKkxnb0xRYDhoUWVEbFM0QlJAI0BCI2NPQycxSzhFSVMjSSosQTtFaUZWUV9RV2E3NF5xRGgwQlw7XUJeMiNDRllFJyNIIVBSN2FwJl1YWT5sVFgtMjdpSjRxX2toJjo1QGVJOidDIzRBW1ZpIWg2UHRnOyNcKCJrUDFkLjJMSDNUJUdidC9fKjwoSiJFMEZuQjwpVEc3X1csazYnQChTIl4uYTFUZGwkWyYtPTI8XytkMVRFX25dU0k5QUojITQ7ZUVLPy0hQzlAIk4yKTJyV1BYKi5HOlMqTCF1LTJbYz8rUlk1O1tAZGtfJz1WXGxqVCYhbjRfOUZgZz9dZE1uZDBtYFBHZCtXMDMmUEdJNCksVkYkITEvL01oKyR1KVZSNHMlQzklUiMmYlxLWDBsQUQmJDpUPnI2Ii1sUjsrRzVFSURRai1LTiw8WGlfZ108TU8ycixXXkNNUGFbX2VqKlNxRmcsLE1CcHNrdDFOR202Xm1AOHBkPDdDJShZJWt0M21halkhbURqRCk6TzpXViVVNCpiYTo4QiU3YW06P1ZBSiZXZHUySkpRWmUlaGk/UWMwJl89Jzo2TCg9U1kiJVxXMVU9dTVQM1BuV0NpWS9PUEROL0thZ2BZL3EoQFpzJCNtPyVEKSs8PzJNbGEiUmtKW05jdSwkcTQ9b11OZ0ViOzYqbmMoOVFbK2dLR24rYTlhKzMsPUg9S1tCX1xjKl89LD9ta2RJXlxFZiNrZi1SQEk6XSZgYnM8N3VXTW5eVXFKV21IUyhlJiNbPT1iYl9XMlZAO2hNRj8jWWlVdGZdTmFQQW5pKHM6YVQ6X0dkJy1udWxnJS07J24zVkEoaWstbUVFLFQxWmZJZF0pVW1EX2NnRUYyXlc5WFduczVCSCJFN3NEJFhAZGlPVWkwKj9lTDhXayk5Y2hsbHMsb2klM0BaOiRvWTRmJW8sMEBFU2opbj8lUjBfV2RDcCVRLyZJLXNSZW4nPTc5OTtub0NPLTc+JUxRT1wmI2UsXTZxNzFZRF8xanE6LC5VckBmVTc+T1JbL0clXyIjO2dyQTE7Skc2XFpDRUwjKFJPQjdSInJOP2xjZU8nVTVlWUYmZVZMV3FMSmJrK2lMT1o9Q1VuQDdTNVFWcFdqQVpucVFCZU1zZXNEKE1iK2I+P0UvOjE6KGJZPUo5LmoxY28lXEcpJV1NZFd0cG9UQEgkWiVBJFZGNGtPJDYwbD10Lk5TMWdeZGZobXBfamsyPC1nQC0uU2xpKkJAQkNuc04/ZF0sXmNaTiQ4RFEkJ1tBZVxPSWZbPFVBVG5+PmVuZHN0cmVhbQplbmRvYmoKMTYgMCBvYmoKPDwKL0ZpbHRlciBbIC9BU0NJSTg1RGVjb2RlIC9GbGF0ZURlY29kZSBdIC9MZW5ndGggMjMzNAo+PgpzdHJlYW0KR2IhI149YGA9VyZxOVNZa1FnTFZCPGwtKk1vVD06RGAwWzdmZjZGS25yYWZCSmgwWUI2MzBaaXI5cSwyOTtGdUBqQWA2ZU0lQltSRExIcV0hKDRRQD9XLWVCWFQ3M1JpVSRqT0tZaGdAS0tDME5KJiI6SD0kTmxaWzhYUnBsJmo9OSpeM0ZQZk8rNWxRLlU0JzVTMnBPXD1qPWlLKSc9ZDopSXE+MyZtVlBJRmxBNEFxMCk5NkZ1YlY4Iy1ybS5abylULTAiOmJcbSdQRD5kIiw1TXNqR2NeM3A5XD9bY2pJcGYtX28qKCNLSSldX3VfIVRmUlRkYm91Z1kjJENHNm8kOmBxUSE6K2IucTVrMVUidCEkSV80SnFPPyUtImIuUHJQaVUyUScsISw/Qz90KVZGWDFZUmElPkwqcGJZPl01JTZvQ3I6LFIvLDk/WS5UdD1tYzdMOWFgbk8/RS9pTmY8Q0dYcVBBWnNaczAuRDVhc2ZNY2JmOy5oVC1eVmRQSC4qcGZmPU5HbWNtRlAyVTtWUUk3O1ZXKVhORF45NkpVPkhzaihTJ2lcJ2RoSGlVNW5saEc4YF5PPi1dP1MrcF1bXzBtako0ZldpSW8uQyomMj1CdUZcbjwiQlUyYHNPYz9CYS03Vz9aNThoUUoiXDU0dWs7XyxQP1pXSlRNM2lPayonJCo2Ul1uMio2Z0VnTGU1OWhaTC9vWmRlXykmUF1NMl1UQW01MilpbkRjaCNIKDchVlJtSkBYcCY1XDQ8MD8vV2UzPGZTRmJca05QRkZEU2U9aE82P1tuPDwpKjR1VVVJWTRNcHVmc1IjO1wjJEk9WUJHXyF1XjY7TCVzUT1vcD5cZHI4X3FPV3IhW1MxLzAtU0xtQCQndDYnZDJLTyZURF9ILi5INV9TMy8zOWwoYEYxb2ZDb0VyRUA2S09tVmsxazkzRDR0UCROJUJdYGplOW1tPGdwbz0yJk1INj9pWWdqOnNFKT8jaU5TKSh1P15odCxuNjRDRmsuUTpsSF1TKSZIZWRfUTI8PC9dLGxaY1klK21aQVk+bFNeO1YqbGc/cEAtPEEhUFAlXDlhU0M6QVBqVi1gOj9DSk5aJktAUFtgQnJNSzIvU1kqInE2XllxRVI+QDtoanJnO1NbRTtwZkNTSVNmREdnQCttbztVXEpiSEEwO1g5WkFEMk1WPEchOCw0b21HPlkwYSdSQUlQSDFjUWFbSFomSnI8OUAvKjI9ZkpjJz1fViczXVZROil1UE9INC9rSmBTQEY8WzImSjNQMF4/JDhTNixgKHFHXjxNJitOJVdBRGFEOjVGVixQNWYuQk86UUF0U1YhLms/KkJTY1k5SlxCMitQNlNOKGMhWzMqa2hhbUpWM0ZlQl42OD1JLV86X0dcKlEhLSJkPiJZXlUmKHNebmwqOTlgSmdyV1gtMm1HOFxwJ1FsJzROR2hlYTlJR09VVT1LZmxrc0M9LShLJHVvWl1tc0EjLF01JicrNnApLV1eXDZjQGtJY1FVYyo+ZGUxNmRaSkFGMl1bVHRIYjMpKF1wYDRnaDVnNF0vWE1yJVs/NiJ0WihBc0RlIz41cEdULk4mbUAkZWgyaz1eNGxZLCw/KG9vNTs4JHNZJz9eNFBAVk1IbiI+KmAvVkoyajlYVFo+Uj1BbklmXFRVQmZGMnBMXEdoU0lxPXAlZlthQjhPVCwtU1NVT0toL0NKR25OV3FkXCN1Q1ktQ0MwQl8pPkg6TjtPWTBKdFVsQFo9VCwzRDJZJWoxaltMVjFSbDRfSE5CWl8pNlJzYEssVm1yN2RuLkheUUguWC5JZ0MsLE0uIlIrKmQvW1lQVWBicVA/YldPJ0AhRVosRnE7JjZISVJfKzknZHQhZkVFO1A1XikuOHBSZSNWNihxdFU7MlprQHJsQSpVa3M7VFQmZURrMmA1S1Y7IzNpPU1fODxuR1deaFZfZ24oXl8+SGRyVS8+OTNRMyU3LmlLM0YnSEM2S09jaD8+SC00KUwlVGUwb1EqLG4xQyhZLksrRC8zaSUnTnFMO0J1SzFLXlNlOzlpYEM7QzpTdSIwb1lTNikpRTw4NDtvNFYuYi47Zmt1J2dVRUInK2Y1R05WSSQhUGgrbzcmUHJyWGNlaDE7LmBiJ15zOyVpJU0yVWw2TXAlXjw6aUhWTHNpWzxKbmZpTXVVYlFVa0RablMyR2JVVls/Jl11VU5bXis7JkxfczlVI1VYP2Y1L2cwT1NBaT1CMypARWRFJE5VV1svVCFnZkxGaGdlYDguM2IlVXRdKiQ0RSdjNmBYODZgUzYoSS0pOEZdME5HNDk6OSFvPyY2NGw/ZS5aPVk8L0cxQStLRXMiR0FOKC0sNSJNbFguLkZcRnMwSlNZUjA/YmBfZTFNKzJUR1kiNDhRTllsPzFdUWp1JERbYjUnYywydHE4N2csRCskZG4oNyZQXFp0L1gzI0JKSXJESS4wcz86V1lVV1NLPWZfLjJLWGduQT4lc1trKVwhXUROWGxIJy02ISItdD5VUk5zcl5zbGFgbFBkLXU/YkE0TCopNlRjTF1OL0ooXDBCblUtPUxPPF5LMzE1OEsjIik0LEhKTSlIPVdGcWVcOyhJWFEtMTkkPDIvRkRbIiM8PjJrW1ctRXNCYS8qOGlrMWtJKGxgNTNTK0VQVE5Jb0kla2hFTjMqWiJcTFhaYjU1Q1JRPikkOE5LSyg1KyshV2tEY0Bib2cxMy1AQVFKO040OyNEdWpzSXEoREdHcm5SM1Y5aVxpRFJVXl4uIUFkPFtZczVXK241Rzg+R2NKZGE1czdkIT1yUyY9JSZLXScyTSxkVl9ZVyFrUUE4IUZzJlJKczxgbjVMNjlCPj5mNTVBVzEzUUlrNSpbXVtlLCMtL0M6JC1jXis/VFY/XFVXLTxlOV5kK21oJm10V0IoRiJhT05YYEtmNFZ1N3IyJlVWPFs2OU1kTVRAKXEzMmJhMChoRW1IQU0oQWgkPzctSERvTilxZjc+aGBSZEIyKERfQ0skZS1bc09iJGUqSGNaNypJYTo7YG1sPCNzXkJyL1U3SjJaQ0leLDZFJlhKPUAhJVZgcm1YVkE8IT42Oj5xdX4+ZW5kc3RyZWFtCmVuZG9iagoxNyAwIG9iago8PAovRmlsdGVyIFsgL0FTQ0lJODVEZWNvZGUgL0ZsYXRlRGVjb2RlIF0gL0xlbmd0aCAyMTEyCj4+CnN0cmVhbQpHYiIvKD4+czw4J1JvNEhTLVJkJEtPP0EscldsKTBnKiRuKy07OChDLCZBajM/cz1UJ0wyTUhnTyhBJWZmZDIzOjlQLklPP28+TkMzcjNyb29CQU5VYD1GXFFkZlNJYyUvKC87Ji4zJmsrTVFtUmZiKy4qW2U0P21mVWRZUFBzSCRFLGZDOmw2JUBERzxpT2kxJE5WQ1xLakA7OkVMOHVKRWcjKUxMXyE1bnFOMmBWXCM0X2UrYFtHIUxnLHNMcGVYQjleRTQmJ15IYDNbMzJWTCYnOyhAJyooITQuLU4xNl9fMi5TNVV1QDghQ2FjJ0UwV2FVWDk8YV90PVRQbC0vREdTV19CLT8mPEBYS0RJS2pGLGlVJEIyIUFuZzswRDowMGBURmxVTTRMbT5xM1MxLjI8c0NlTF4mPVYwPzgoZUFJX2BnUyNvRlBLNlxrRTxVWk45SnRxOy4zUC0oJiQ7Ukc9R205JW9PKFszQGljb1QzaS03NVZMIzpQbmdeZlgoZ1ZlNlQ9P107QyhHUyUqTUsiSmZMZCthVDNTQTRvOThTQFAuPnNvTDdFVEAlcE9eXjtEVmdAUD0nMzBOal5fVWJeNyJBVWZDNTQ4S2hVbSNVMSFmVyheYjlfblRcM2BTU104Xkw0VnUnWktPTi9UUmBLYXJbO1FiS04pbkNiIlVbLWJGR246UGFASG5hUHVXKFBFbUdDO048PSkwaXRUQEdROTVgUjg6ZVhrQjsnJFcuY2VNPHQjcytlU0VqOiQ5bFpkcGUkal4uQk1NTlNpclNlNUJeTUssamRdVWdPQTxTSE9EXFc4VGsvMCcqImsxJHJYXXQiZzI+YltVTSY1I3U7TTpjc1BfJG87ZDhIRzlDY3NAR1FxPk5BUG5gKWQ8MFE2W3JwaUN0Rz85WiJ1bmI/W3VMKVs9VzBrTTBfY0RnSyFZcFFhc29cYUk2OUpYTiVUN2lzS2V0K3QrYjUxOnFcTGxObUQ5cmROWENpa1M5LXAvayozSi5xYTg5QiJyVVpqVWRKMyorWyZWVFV1aVJYMkhIRmA1Z0BVTCU3J10oJWlKcFtyKDRedEBMREEkTidEIzolKGQiL0MkQE1vRGg3LEJSIkZgTzspRCJNKXI6W1xeZVFjVjg0Sz5PI0NeYTlpLTkkZzg7ZyRFXDg0RE1Tc0pqSylNJjQ3YT5oVD9zTVljYDNUalMpVWhNN1BqajtZRjRmPSRKTFkvRDBWVypFIjE9VDg4LW81UEQ2VyhHJSEyS2FMZE8+bTkrWj5ZZTBVQW0lb0pBI20zITBKXltUJy0yXCpnR2A/cHAjcXQ/c2I9QCQ0JlJnKikxU2BJakguVCVIRjZPdGlcS3Ajc2ZZJllKPT0vbVlGNTM8Q2NeYFlaSTVuPmBecWwuKEghMCtSQyk+Vldvcz9JOjlmWzEsaTpSLikvZEFqcykxNjEkMCc3YWVeYWJeJWM2OzRAPz1qcW4maDhOMVlFZy5GP0lKW1ZpYW4rXVEqMFdVO2tWYzZNVHNCKEFiY2Q+PEhzJjtcUFU2VkRRQGxxWlIzXy5idXFzWVFrOzowakJfYkBYSWk2Ty1oTWM4RihGdWRHMDg+bURWa1o/Tig0TG5aIUMuTSxyNDZiRVFgcFJbcigmPSJWZ1Y6TG9eL2trOis/cDQ2Jk9VKk5pUnE0JHAsc0UuSUxNajkxcGYoQShHWjxnO0pSRVhXNyE9QilDVVJnTlpOYCJNNig+VjliYV82SFA3UmNWR15GUT5NOW1bJEFsTnMtcDc5J2lGQlApTEk9Pjc6SzAhcDU8PDkrTEUlaE8qS1VpLVAwN0JfIltAJmdTS0JdNlduS18sb1FaWFBBYTUmR19Gc18qIkZLKz9vV3NHST5KKW9bST9FTFxDWT1kaDhOZylubm05SHRoKmFpOS5gQlZWcFZgQ1JhcnJtdExEUyRBbjpZSTdJLm5bIlFnQjFaKmFOVSVqVjMoaD9jdTk7dCs3SyRaXW1NKnI3WFVgYERtWCg3JjFIYmlabigyImkmaVtlOyIvYEVGJFYkIW9HMCRNNGA+ci5WTE1rIS9KOnBSWE1RVmBaMVhxZXRZVD1zXGpkSVluJV5gNzpNNW82YUQvdTYsdV1vLU4oLl1kMDVySkVxaz9dYls6Rlo5KyxNPmRJPEc3UkwrKkBtTzhsKSdcTjVUVC47OzxRMiUsdTEhKjhNYk5DPWc6QGppYyo4Lz1vT2ZkJzYwYkJjZDZPTGRmYmtYaT4sRFlKREZmRDtQQyUsJiZIMnAzM2wlL144Y3FyL2ZHOkwyZyUrN1BRayYhP3QkWWRqW0hZLVNrVWIjJiI+XV00cEVSYltRZGMsW1VtN2s0czojL2B1UiM0J3RkTmE1MCNrMkxxQTpAVm9sJFtqTzNPXylDPCdcZS85QWhUMjNSYzdJSlQrXnQuVXRWVV9EaG45SV1mUk50alZZWVtlJ1kpP0xfOmgvVk1oLGoxWiROSlNzMEc6a0dsMGxGcSlTPShcOzczOm4xbDNuIUQrcmZKRSxDZmQrLmk1dWxJV2gmcFVuYEJTLEVkaChTXXR1JytbbUJBLWxQMmhVLCVoMTZJW0s2Ii42OzxzNyx1VjBKUy5fLGUodVdtXVMnMTRxU1s3NHI+ay5nTSlVUUxdV29vYUFQX0AmaFFJJFJoQWpDTDQ7JWpZK2dgYEtzN0gqMCFmY1BcSnViNEVLRyFmZE9wUWI0UF1uSDhXbTYuUCJXLFdrb11HcFhdQExcSW5LOTUnJiQkY2RBSWpCQSQ9MzMqUSttW0A8OEwzOCInRFo3Y2N0fj5lbmRzdHJlYW0KZW5kb2JqCjE4IDAgb2JqCjw8Ci9GaWx0ZXIgWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3RoIDIwNDQKPj4Kc3RyZWFtCkdiIi8oPj5zOTknUm80SFM7NEk9OTJSITxeLTBwNFtTKk03W1ViMEgpLiV1ayZAXSo1ZytxQFJmQytpP0VDZHFaQ0ErQE1BLG1kcDduOTIzY2hDIj81azMkdGhiYWFNQygpY1EwT1BtPztkYjFfKHIoamBgczpLMz1PWWBxPVFzZnRSIm5JOiVKSDh1KyhYIkYiUTIlKTMjbHVMXFVzKTshdGtnVEAwMCFgJChsUD1mPEx0QSQuJUBOQGExVllxY15wZSljKF1yJjkqI0tMT3VjMiNpai8lX1krO1U8ZUdZK1NaIVtpJjYrSlQicVJlTyE9OW5YQEBZM25XRFZuOShrNywsbzM1TEZMbkskZm1KJ2cmW0NyP1E+blhPIzUmLWpNPzljO1NtWVw1aVQkVmRdLmopW2I1NU0iWkgnWk5CVigrOFNpOCFQW0NSZVxKO3RxS3FiYyIzSTs7XFE9NWpRYGpcQ2VXNyNQYjVAZFkuXnNAQiVHYTI4TVY/VShtb21xNygrbl9pTl0jY1pYWUJVWEJRaU9zQ1RPOyxVMD1BMTJEJT9FXTl1Oy1CbSJtc2pYWUxcRWltLUokbExRb0k7IklGZCtwa1MpPEFhSFY2Qi1MNUlEVVNwIjpTQjYhV0YnMDRJTkNvTFVhZ2hyPjxOXFZeVmBIYighVGhcXzViNyR1Sy83NFJFM0FjJDMqTXMxclFrbTxpZU9UbW1hRU9OIW46PmM6YlwqZCxaMCoraz1bVkthPChiU1RHbGRzY0tANy88dVs4VWpXKiwqImRiIzcnX0JHVTE9IkcybyVGI2gwUlVFOVZccnEoO01tIWpOUyJWMi5IakdHUmxGRDhVL19gci5EbHVoY1M4NTZBZExtYFQxZ1xdam0oM11gJ21XQCJvX2BPVlxmSTUhNC5YUiVZKTI0T01JXDkzWVBWJj5UZ2BkLj5RNWZkN21fYk0pVDlMWTpWLEA/SWROLVFFSmNjP0VeZWNnW2RzJ0QpRSpgPiw3VXEoNW0lMz1MZlBUKDZDVDI9dEo3NC9GXSxAbGRCTjlMTnMvc0Q1ZzBGJGg1MTU2Q3UnZWBgOS9aJFNjJi1EKlpgcXA8VyRZaic5b04wI2c2JlxYUTw4Q1FpPUVOMl9pOm1nKnQiTFhSdV9kdWtpVTlXYiVFZEMmSUhOSjJFXmxUb2g/TCJQKnVfV10jLXApViJWcEAzbD9pUXJoPT0sJVNDYTBdTztRTkZeMlM0Y09hXW0rOmNCT1leOFU6ZT42RzQ5PDplK00/RzFnTF5LI0k7VTJZMHF1NUI3K3FGYy4mT18vQj9KZEQ0L2wsVysrP3MkS21jMGcvKSIwa1JPbFozSjdSLGZLKVRIXFgmbGEzPWlnZTNhVSQwInQwImYmZT8/QClVMzpUO2cmIy0+ZidWYmxlSkFlTCtOJ0giPFQjU25DSSpWYUVJa11ydFE2LWZhPFZSM14mVGByRSReNjRKaUhBXEVsOEUpTzJFRUpWcExRMyVoLz40SWEtJFA9TmohLGFabkotOjdqYWZgK3A+LCteNChGSWx0LFxnaVV0O2FnXkM0LEpPLWVuWmVaUEdEKk4tbiNdaU5eNTdMYXI9cHU9ZilXUHAoMjYmRVQuKy00M2tvZUA+X3IyJCEwMWxEMCo/aSU8SDZYPWdeVTYlJlRdTkc5ITckb0UmPyZlYyZSOCMxYUkrSVpTWXRDTilbVmJHUzlALiM7RGdNWykicGw4O1I8YCtxSFBUMyJYKWIocyxZPUk0PjNNSzU0Yy0pSVdpQG44JmJHPWo9I3BiOmUvVkdvTyhSN0InJD9gUj9nTy0qVzRWVEVeLCc9YmhQcEZPcDtHVWowRiUrMFByIkA3WkcmY25kKFFVSj44JlNkW3BGRWJlMDdaZl1VcWI0Si5dPlItJ0dsTjsrQCY8P2ItKClWPyVlM2d1QV82OC9GaFxYMUlIJUcqQSRVWm9MXDhTaTRfJkZdL2I5Om0mUV5LJFg2QGhjJ08vcCc2NmFwMGZZJnFzIlJfJ2ZNTixNLTFjcWEuYzlOYGQyKXFfLlc/bj9nY2JKXEU5YU5TKixkOCwxKj81UyNQbTM4Z2xCKy5WKjAmTGhLVkttQ1A6TWs2SyllZCczc2wyMitoLyRrNTsxSkFjWV0mYDAhLlYoRFY0X15RUUNlRG1GZ0ovVldZXC5AZXIvJkglWUBQNTVFaltjcl9sPUQmNWZtOXBQb1dQKGQuQUVdNlV0NFg/M3FZLWI+QWdaJ2FKNFZRXiQhaFdKTUpXJFksZDQqNGIsY2JHXiRiUS8lPjRHRStHbmhec0c/J2E6RmIsNmImQyIrRl4iaFlQSyJGKVRTPSFeIVBmUGEvRXBHJ0dmMWsyK19yS1E9YCtnImsoKU5QIkhqXG07bWAibkZQNjBXTCgzVklrRlBnbCQlOjkmV15XVFNjZXBdNEJgJnV0VDc+UUplUmRWKUFLXVRiZV87dC5hIUgnY2JvZFglJF9QITxgcDFjdFZITi1XdGYhMU5GOClmOkQkXyEhTCw9cGlfJ2VtbVRnMi51K0dFLkVybzMsbEluUUpkbWJBX2A/WTgmYUBYVzhoZl1fJyxfZzImXzZkVVNATUYxYmQoYDslbjFsVWFZSWhoMWZUPG5rSiljLlJNZlFASiozXDwpRVg2YzU2K0UnJUhHXiRPOHJOOSo5YklXY2gmJVBwKj4oTFZNY3E+fj5lbmRzdHJlYW0KZW5kb2JqCjE5IDAgb2JqCjw8Ci9GaWx0ZXIgWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3RoIDI2MDEKPj4Kc3RyZWFtCkdiIWwhYkJEVyInJkVGOEM9L0kwb04yTSZuW1diKzovQ1YoVkEhMSlDcVA8SWFDN2dUQyhjYzRxPilPJnBvbikwQVU3dDYpKFVnZSElXGc6JFdTIjArbE1AOGtqTiRfbjl0Zjc0cVx0UGBcU2EvajIoS3RJTW5kVkZba15nNUpZOmNOPnJTaCpTQj1xLFMmVDhTPXJHRChrPXNVciFCKCw0JSFlWlI9S3JFPz4vWjAyRWsqO2NiRWMmTkZcMj5fPmdPYEpzVDw+JSk0KjghMFAxbi5faiQsS2lrVkghZzhNSzRPKj1JSkU5XjNMZi1SXU1jSDUoJUNeImMiSi1cRVcmbC1cbkZpc2RqKj1mMHJhQ29ZNC1uRTwvOWlmK1FJPjdTTjUqOipCL240a2AnSDMpZEBRJDUjKEEoQW8kOiJUaVBuV0NmJEdfTz5dTmw8NzppamU5MypJdVpTXmosOSJuK1NvK2BvOk9RSidFW2xPKnFMdUIwSm0sNykyKiQ5PTZmXTw/RSIjMnROciNoWkNsNmU0WktLJ1lNUGlAajZwQEZbYzgpQj5QaTVDMF9dKGNdblUmKGEsTTUkUCYqZ21GZ2s/QE1qaXRlbkJhKCFzcyZPaFU3YF4lQGIrZERhZmdhbTZuM1k/MXRlNnRvbGRYYWMmOVFtLVxgYEFoTmxoakAjOVZzJCZpOCw+QUlGIlRhMVk+K1AyMUZwNzUiJ241OCNFViZVWjleOEQzKVZFSm1nQ2leOzFzOUg0YCpaRz9iNUNdPzlwPC5jV2VLcmcpXGU/QU4xRWxzWSJKbE9Ucy43PyprUm5fXEcqKjhTYShjSkBOTDYtPlhtTnIuclU3ITtcPjI+XiRzI3NFLUddTT9aITs2YFVlN2BDZ20lUiNdLCo+VVlERGxFRzFTJkBHLyRXM0xTTWAmc0IwJU1ScmFBSDQvWWZJLHNfZSYlSFBPQW1uL2VPUDlKWydDcCMwKilYOjQqYG00IlBFYmhMTEhpYEJXY24wKClnTyw+bVFDIitPZSk5Z2w2I1duOiVOZFhHWypATEk+Wyw/QT5Rajs3PEJiSUxfXjVaJjdJXTcjI11UW0JndSktSnJ0VU1yWzxidCM8O2VfXTNSbitTVWNvJWIuUkxtL0U2MzIlLyMnV3VwU3BMKWZWWV9CMmZsOGpQOmg8bTInbVw7XEwxVEttI0dKPlgmOWZtJys/cmFEIm5abSRBPXNucFEjMWkrTydlZWxSWE5ibDw/Q0ZvUFVkTkQpSV5gVmw/JklySW1IMUZ0JzFFMXVtYTUqWU50WVt1SmIvdDEhJEFpcyZyN0FnTSZOWl85RGMjVS4vQT4pTyFzNkZEZjshKTpoODUsZUFNL01ILichWkBFZ3VARDVyUk5vV0szR205STBEZk0oamxuRVBDXStjak9rW19rdS1HIlpPS1VxcWhuOVtqaC5pR1VEInBiXDh0KmtsPUpta0M/X1U6RDpYcWlRIiE2VilOM2deZ0ctXDtqNVxUYiQwQEAnWSNKKERUai4pLFFcWS5wZkZoOUs0OlQ5ajcpaF41SWdNUVdfbFdMNGhXXVohLlE7KDQ7ZDgiX0JRUjY2Wy1YSCslXi1pI2wrPil1LjtgKTg4OVZZYkwpXlk0YjchL0BpNWcsdWxENSFcW1pNQkRNWCtwSGltS2FKXW1yK1I4SkxtSlstZzxfKz1vZVxwPmtoRVM7K2d1W1BxJWdORzZdcEJdZVcjUCZTOyIlOCtCLVpmWmFoa3JzKDQiL0FRT0ByYkpbJigyTTZcMnUmJF0wX3JNPHQrM25zOixhW3RQcm1cZUApbj9LaTlwI2dATWEnLzw6bDpiXDgkc1QyYyZLZDBRLzcpL0wlM0FmOUI/Rk0sS1o1UHQnRFY+Km1UJDVhIkksJmFaOFxFWF9fODRoTiMwUUFHK1w/UzVVJyddKzlkYjxUO1tnM0ZqNWRtQXU1aCNHY3RlJ2gkMkhtWmg3Uz03IzYxaTtfWWE3MUc2M04vIV9gV0RFSUE0Z2NScWdeXSpwRVkvSCcrOC8tIWdJNiEnXz4sTGxaVm0mRUY6ZlhZUTojJVswMi5pTCZzNjs9NUlrYz1vTVRcVkw2IVwhUSRrRUg1UTtAWkIyNmM8W29gY0JqOV80IyUuRTZJbj9aKzBscyE2KktcMyc0Tz8vKWNjb25sZjFFXStsNDtrRDBTVj8pbEFlQys3aWJBImFJVjZROnQiRSgmPlNFaj5XcGtoa0VedU5OdXBsb0E+LUEwUmJUTlIyVko9M2ZtUkUwS2hAOVVkdEt1KyQraUM6T2RSOHJrYE5uIlloKCNnaytFNlZINT9iXEZjS2x0N1Y/U2UmJT1mc19PVV9qLzNSLi5DUy5Fa1wzS1UkZitLVz1CLD9JKWZzKzEnWVkxTT9IJFBLYGowYi1rbyxAVzg7LzdWXCxvPWNwIV1gcXRHNVJfR2paUWc/LU9NRURcW000ak9FPmRJLyhSa21xJGtcP0Zob1VyJ2RvOyFpQ1BtXiZeVkVeYVM6Xj5bUjEmMTEzZjpEU15UWnE/TFUzRWI7Z2lucVI5LzNtQHFTcj5aW1NjWyxQLTMmUEJqdV4hSS1aUTxbOkkqYVJVQCcjTlE3SSpxYSc6SGVdKmh0Yy4qMmI7YD9VdDo+RkxPUl1SaCsoImYlRWk3amRicVNjIik6MUd0WGJLcG5IUk9UMWVSSnJQLSZTcGcvYXE2ZE4hZF43XXBKazs9ST8jKTxhRj5eV0dZY1txZy82VS45X1ghWVZKPzxtXDVjZks3U1M2XmQ7Sm01JXM/XjglciJRIlUmUUZATEJQPiRlL2lcXVkqO0RZPEhaTWNoPUVJJ0IrSU9bWzBaJ0Y2V3NVNV0kSnFPNEhoW1hoLidfYlpUOGkxVUZtZkM9ME1WNzNsRih1J1pzUTYjOWk4JCNCLnFCSEZdcSYlOHUhWGhISSpaWThMT15hKFEjKWMoXUtPcSNjJEdwWmBvTUpUT25bcytIM1k0WEJLSGdaVmFDZi9lczVYPnE2dTY8Lmc6ZSg1RD9hQy1OcEtAS3BrKiJnWWRXIkdfaGchMSZIcWMqZnJoU2tBWVJBJ1dwWjlSPmNsLEpPRW9CMkkxI1pIWE8pcDQ8aEkmVSIrPFxubCleY2JYWD1PZSVVL29hci1AWUsvJ3BTdF5xXVI2TyEqRkhfcCxvT3NRRXJVTkJuTTBqIU5SLDZjWiMhdTRLMXI5WFA9MTdhNldsJDlpRUVPSFklIm9zR1E2Q3Q+Wzw9YT1GX2ltVlQ8OHBzMWcjV0hcO1AiVWRLOl9laDk+J1ZCcmopOkpBSXE5JGw+cz5WOkpOXDFmQCpqWSFtNjZEM1klLl1WK0VlX000WjwqNS47LnA6aUxKZk04XS1gMStFW3FYS3RdTlpWaSRob1MmKy0jVVdWbSNILzpUQUVIRi42XERCRSYyNUlRPF9+PmVuZHN0cmVhbQplbmRvYmoKMjAgMCBvYmoKPDwKL0ZpbHRlciBbIC9BU0NJSTg1RGVjb2RlIC9GbGF0ZURlY29kZSBdIC9MZW5ndGggMTEyNgo+PgpzdHJlYW0KR2F0PSk5NjhpRyZBSUkzbSVOZXBSMj5yaSYwdCNRUyNKTDZXI1tzI2osNVJwIkE/Km5KZyFFcW9eQkJsKy83aDBsO2Vsc2VAdEo/W24/bz4wLEQ5JyJpLjw3cGlzYy5FRUdDKycxQldWIVBeNCFoZSZ0IU4lIysxaS5PXG8jUlooM1JvdFNvLjNXO15FNEZnR0MnME9jQjEvUj9AS01ASywsI1ghLFFBV0RLUXVUdSdHNzFGLDBEbD4zQ2AoJTBVO2NLU0FlQTgqcFZaLDpFdFZjRUNlIjtHXmhbZSVdPDZlLGQ4aC1yaGphP103KCIuLVduKUkwYlQ8ZS5ab0FKP2UxV1dAUydcPUEiZ29KI2pvYnRVZlphLmEjcTw8QzxGQ2dBIkdwVWAnJF5ALTZIXnBoM2JlJ0tuNjg0MEE1J1w1cyc9cXAsT1deRF9DY1w9W1lYLENWQEw2cTB0Jlc4KUEzQEVrLEFBYiRkbCZbWUQyaENtMkM2RkdZVU5lMl5LUz9eVDlUKlMqVEtCaDdfYjJkPGVuV3JJWEQrPlcyVnIzNCRsOjJnKzg2OWJVJmk7R0pXQmhUN3I6KVFdOCRtWkZCRXFvNSYlIzhGUllkPFFoTTJzW1AlV2JRamIhQUBIITlLY0VvKkFxVWNKO2hnLlJrNDgmXm9dNS1eS11BLCEvTm4zMm0jQ0YwTl4qNi05XzlpOz11MSpKPSJDOF5icEw6LVVXOkBJTm1pSyMxKDZVW2whclJyRCpxTnFAWkc5KT82bT4vZDRVLG5bdFhVbU5WRV4oOGs5TTRgaylkcytPQ2pjPEtqRjxTazxxVnNoND5UX2tXWFI+ciFaREZWcGIhRDUuOGdGQnIkYjlQKzZXVihcW1BeMiMjP1liUyNeZUBcY0BTYXJlZilucmM/J2dQPj8mLlFSNFNOdUs7WWs3Xy9ySDFWUjprKFddRj8lYUA/MFRdPFNtLzRGdG9eKD9bO3QwWUxlKjUjaCtTYl9ySUJLVHRBRjAzN3VqSSdLRTBOUDVkUjUiayRoPj0sPE8+TWkoJGRSLVthMWpoaEZmIVUvNUEiYjl1cEI0aGtNNVNwRiVKLSg/MXVaTksrKUw2U2AnKVYrcVRqK25AJk5VL0U4MCpUUnIoRSQlc18yIlAwT2NHYk06XC8lMWBacCVOPSp1KTRyaWpmYXRabk4+XilRJD5JTj9cQmpDMSdwbyJmZihpKTBSaD1jajopVDFZb3AwNWVrQDAsJ1IhdTspLmpHQCFJL25jWjc8ZW5ecnBdKXIlLmVpLFdPZFFhQmM6OCY0Q1pBQGUyMiNCZyJRQ2ZlW0RRZGdZc2FBImUhak9BNmlqPCkpXiRFXFhkS0omQS9cXTBlPSo0M2V0PktvUktzYWk5bW43L0M6JitPSlAxWGtIXGgjR11dN10vPFRONkEpMDJhWC04Il9HckVCLUglYDtZYElSOmEiJj9CaF5fb15Lb0FVJE1SL0krN0UjRVp+PmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDIxCjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDA2MSAwMDAwMCBuIAowMDAwMDAwMTIyIDAwMDAwIG4gCjAwMDAwMDAyMjkgMDAwMDAgbiAKMDAwMDAwMDM0MSAwMDAwMCBuIAowMDAwMDAwNDU2IDAwMDAwIG4gCjAwMDAwMDA2NTEgMDAwMDAgbiAKMDAwMDAwMDg0NiAwMDAwMCBuIAowMDAwMDAwOTIzIDAwMDAwIG4gCjAwMDAwMDExMTggMDAwMDAgbiAKMDAwMDAwMTMxMyAwMDAwMCBuIAowMDAwMDAxNTA5IDAwMDAwIG4gCjAwMDAwMDE3MDUgMDAwMDAgbiAKMDAwMDAwMTc3NSAwMDAwMCBuIAowMDAwMDAyMDU2IDAwMDAwIG4gCjAwMDAwMDIxNDggMDAwMDAgbiAKMDAwMDAwNDA2NSAwMDAwMCBuIAowMDAwMDA2NDkxIDAwMDAwIG4gCjAwMDAwMDg2OTUgMDAwMDAgbiAKMDAwMDAxMDgzMSAwMDAwMCBuIAowMDAwMDEzNTI0IDAwMDAwIG4gCnRyYWlsZXIKPDwKL0lEIApbPDllZDYwN2M2MzE1ODUxNGIzYzczYWM4OGY0OTMzNjk2Pjw5ZWQ2MDdjNjMxNTg1MTRiM2M3M2FjODhmNDkzMzY5Nj5dCiUgUmVwb3J0TGFiIGdlbmVyYXRlZCBQREYgZG9jdW1lbnQgLS0gZGlnZXN0IChvcGVuc291cmNlKQoKL0luZm8gMTMgMCBSCi9Sb290IDEyIDAgUgovU2l6ZSAyMQo+PgpzdGFydHhyZWYKMTQ3NDIKJSVFT0YK" download="IronPath_Customer_Pricing.pdf" class="btn btn-rust">
+        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Pricing PDF
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="mc-band">
+  <div class="mc-text"><h3>Stay in the <em>loop.</em></h3><p>Valley news, seasonal specials, and service updates.</p></div>
+  <div style="flex:1;min-width:280px;max-width:500px">
+    <div class="mc-form" id="mcForm">
+      <input type="email" class="mc-input" id="mcEmail" placeholder="your@email.com"/>
+      <button class="mc-btn" onclick="mcSubmit()">Subscribe</button>
+    </div>
+    <div class="mc-success" id="mcSuccess">Thanks! You're on the list. 🌲</div>
+    <p style="font-size:10px;color:rgba(200,120,42,0.35);margin-top:6px;font-family:'DM Sans',sans-serif">No spam. Unsubscribe anytime. Powered by Mailchimp.</p>
+  </div>
+</div>
+<footer>
+  <div>
+    <div class="foot-brand">Iron<span>Path</span> Services</div>
+    <div class="foot-tagline">A Path Forged In Trust</div>
+    <div class="foot-contact">
+      <a href="tel:5098837231">(509) 883-7231</a>
+      <a href="mailto:support@ironpathservices.com">support@ironpathservices.com</a>
+      <a href="https://www.ironpathservices.com">IronPathServices.com</a>
+      <a>Winthrop, WA 98862</a>
+    </div>
+    <div class="foot-socials">
+      <a href="https://www.facebook.com/share/1AdC4PEsEi/" target="_blank" class="foot-soc" style="background:#1877F2"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="https://www.instagram.com/ironpathservices" target="_blank" class="foot-soc" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      <a href="https://wa.me/15098837231" target="_blank" class="foot-soc" style="background:#25D366"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.954-1.418A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg></a>
+      <a href="tel:5098837231" class="foot-soc" style="background:var(--rust)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.22 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16z"/></svg></a>
+    </div>
+  </div>
+  <div class="foot-col"><h4>Services</h4><ul><li>Junk Removal</li><li>Scrap &amp; Metal Removal</li><li>Cleaning Services</li><li>Firewood Sales</li><li>Vending Machines</li><li>ATM Placement</li></ul></div>
+  <div class="foot-col"><h4>Service Area</h4><ul><li>Winthrop · Twisp · Mazama</li><li>Carlton · Methow · Pateros</li><li>Brewster · Monse · Ophir</li><li>Malott · Chillowist</li><li>Okanogan · Omak</li></ul></div>
+  <div class="foot-col"><h4>Connect</h4><ul>
+    <li><a href="https://www.facebook.com/share/1AdC4PEsEi/" target="_blank">Facebook</a></li>
+    <li><a href="https://www.instagram.com/ironpathservices" target="_blank">Instagram</a></li>
+    <li><a href="https://wa.me/15098837231" target="_blank">WhatsApp</a></li>
+    <li><a href="tel:5098837231">(509) 883-7231</a></li>
+    <li><a href="mailto:support@ironpathservices.com">Email Us</a></li>
+    <li><a href="pricing.html">Pricing Page</a></li>
+  </ul></div>
+  <div class="foot-bottom"><p>© 2026 Iron Path Services LLC · Winthrop, WA · All rights reserved</p><p>Licensed &amp; Insured · Washington State</p></div>
+</footer>
+
+<script>
+function showP(id,btn){
+  document.querySelectorAll('.ppanel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.ptab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('p-'+id).classList.add('active');
+  btn.classList.add('active');
+  document.querySelectorAll('#p-'+id+' .r:not(.v)').forEach(el=>ro.observe(el));
+}
+
+function mcSubmit(){
+  const em=document.getElementById('mcEmail');
+  if(!em||!em.value.includes('@')){if(em)em.style.borderColor='var(--rust)';return;}
+  document.getElementById('mcForm').style.display='none';
+  document.getElementById('mcSuccess').style.display='block';
+}
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');ro.unobserve(x.target)}})},{threshold:0.08});
+document.querySelectorAll('.r').forEach(el=>ro.observe(el));
+const ro2=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){const d=parseInt(x.target.dataset.delay||0);setTimeout(()=>x.target.classList.add('v'),d);ro2.unobserve(x.target)}})},{threshold:0.1});
+document.querySelectorAll('.r2').forEach(el=>ro2.observe(el));
+window.addEventListener('scroll',()=>{const n=document.getElementById('navbar');if(n)n.style.padding=window.scrollY>60?'10px 56px':'14px 56px'});
+
+</script>
+</body>
+</html>
