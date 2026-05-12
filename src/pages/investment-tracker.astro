@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+
+const current = 50;
+const goal = 5000;
+const percent = Math.min(100, Math.round((current / goal) * 100));
+const goals = [5000, 10000, 15000, 20000, 25000, 30000];
+---
+
+<BaseLayout title="Methow Valley Investment Strategy Tracker" description="Iron Path Services community reinvestment tracker for Methow Valley goals.">
+  <PageHero eyebrow="Investment Tracker" title="A tree that fills as <em>the valley grows.</em>" lead="Launch total starts at $50. When a goal is reached, the tracker moves to the next goal." />
+
+  <section class="section">
+    <div class="container grid two" style="align-items: center;">
+      <div class="card sand">
+        <div class="eyebrow">Current Progress</div>
+        <h2>${current.toLocaleString()} raised</h2>
+        <p class="lead">Current goal: ${goal.toLocaleString()}</p>
+        <div style="height: 24px; background: rgba(59,109,17,0.16); border-radius: 999px; overflow: hidden;">
+          <div style={`width: ${Math.max(percent, 2)}%; height: 100%; background: linear-gradient(90deg, var(--leaf), var(--forest));`}></div>
+        </div>
+        <p>{percent}% of first goal</p>
+      </div>
+      <div class="card sand" style="min-height: 430px; display: grid; place-items: end center;">
+        <svg viewBox="0 0 260 380" width="260" height="380" aria-labelledby="tracker-title">
+          <title id="tracker-title">Donation tree tracker</title>
+          <path d="M130 336 C108 250 132 190 124 100" fill="none" stroke="#854F0B" stroke-width="18" stroke-linecap="round"/>
+          <path d="M126 138 C76 130 48 98 34 64 M134 172 C192 158 210 112 230 84 M128 220 C78 218 48 250 30 282 M138 245 C184 236 212 270 232 310" fill="none" stroke="#854F0B" stroke-width="8" stroke-linecap="round"/>
+          <circle cx="52" cy="62" r="30" fill="#97C459" opacity="0.35"/>
+          <circle cx="224" cy="80" r="35" fill="#97C459" opacity="0.35"/>
+          <circle cx="36" cy="282" r="32" fill="#97C459" opacity="0.35"/>
+          <circle cx="226" cy="310" r="34" fill="#97C459" opacity="0.35"/>
+          <rect x="20" y={360 - percent * 2.8} width="220" height={percent * 2.8} fill="#3B6D11" opacity="0.22"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="section sand">
+    <div class="container">
+      <div class="eyebrow">Goal Ladder</div>
+      <h2>Milestones from $5,000 <em>and beyond.</em></h2>
+      <div class="grid three" style="margin-top: 28px;">
+        {goals.map((item) => (
+          <div class="card">
+            <h3>${item.toLocaleString()}</h3>
+            <p>{item === goal ? 'Current goal' : 'Future goal'}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

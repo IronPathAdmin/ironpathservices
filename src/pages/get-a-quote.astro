@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { contact } from '../data/site';
+---
+
+<BaseLayout title="Get a Quote" description="Request a free estimate from Iron Path Services.">
+  <PageHero eyebrow="Get a Quote" title="Tell us what needs <em>doing.</em>" lead="No obligation, no pressure. Send details and we will follow up quickly with next steps." />
+
+  <section class="section">
+    <div class="container grid two" style="align-items: start;">
+      <div class="card sand">
+        <h3>Direct contact</h3>
+        <p>Prefer to reach out directly? Call, text, WhatsApp, email, Instagram, or Facebook.</p>
+        <p><a href={contact.phoneHref}>{contact.phone}</a></p>
+        <p><a href={`mailto:${contact.supportEmail}`}>{contact.supportEmail}</a></p>
+        <p><a href={contact.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a></p>
+        <p><a href={contact.instagram} target="_blank" rel="noreferrer">{contact.instagramLabel}</a></p>
+        <p><a href={contact.facebook} target="_blank" rel="noreferrer">{contact.facebookLabel}</a></p>
+      </div>
+      <ContactForm type="quote" title="Request a Free Estimate" />
+    </div>
+  </section>
+
+  <section class="section sand compact">
+    <div class="container grid two">
+      <div class="card">
+        <h3>Review form</h3>
+        <p>Reviews are collected on the Reviews page, then manually approved before publishing.</p>
+        <a class="btn secondary" href="/reviews/">Submit a Review</a>
+      </div>
+      <div class="card">
+        <h3>Printable pricing PDF</h3>
+        <p>Use the current pricing PDF until the updated sheet is ready.</p>
+        <a class="btn secondary" href="/downloads/ironpath-customer-pricing.pdf" download>Download PDF</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">Additional Forms</div>
+      <h2>Evaluation, volunteer, and image <em>approval.</em></h2>
+      <div class="grid three" style="margin-top: 28px; align-items: start;">
+        <ContactForm type="evaluation" title="Evaluation Form" intro="Use this for post-job feedback, site evaluations, or service improvement notes." />
+        <ContactForm type="volunteer" title="Volunteer Form" intro="Tell us about your interest in the Iron Path Volunteer Program." />
+        <ContactForm type="image" title="Image Approval Form" intro="Use this to approve or restrict use of photos for website and social media." />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

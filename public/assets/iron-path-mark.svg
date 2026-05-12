@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 180" role="img" aria-labelledby="title desc">
+  <title id="title">Iron Path Services shield and torch mark</title>
+  <desc id="desc">A bronze shield with a lit torch, used as a temporary vector mark.</desc>
+  <defs>
+    <linearGradient id="shield" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fafafa"/>
+      <stop offset="0.45" stop-color="#3a3a36"/>
+      <stop offset="1" stop-color="#10100e"/>
+    </linearGradient>
+    <linearGradient id="flame" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#fff6a4"/>
+      <stop offset="0.45" stop-color="#ff8a00"/>
+      <stop offset="1" stop-color="#c62600"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="42%" r="50%">
+      <stop offset="0" stop-color="#ffb22c" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#ffb22c" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <path d="M80 169C38 155 14 121 14 37c22-2 45-9 66-21 21 12 44 19 66 21 0 84-24 118-66 132Z" fill="url(#shield)" stroke="#080807" stroke-width="6"/>
+  <path d="M30 51h100M38 92h84M80 23v131M45 42l70 98M115 42l-70 98" stroke="#f5f0e8" stroke-opacity="0.48" stroke-width="5"/>
+  <circle cx="80" cy="82" r="53" fill="url(#glow)"/>
+  <path d="M78 15c21 24-10 31 15 55 5-21 26-32 9-59 31 22 32 58 10 80-15 15-49 13-63-4-20-23 1-49 29-72Z" fill="url(#flame)" stroke="#f26b00" stroke-width="3"/>
+  <path d="M62 78h36l-8 78H70l-8-78Z" fill="#2b2b2b" stroke="#111" stroke-width="4"/>
+  <path d="M58 71h44v16H58z" fill="#1a1a1a" stroke="#0d0d0d" stroke-width="4"/>
+  <circle cx="80" cy="78" r="5" fill="#f4c965"/>
+  <path d="M80 104c13 17 12 35 0 50-12-15-13-33 0-50Z" fill="url(#flame)"/>
+</svg>

@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { services } from '../data/site';
+---
+
+<BaseLayout title="Products & Services" description="In-depth Iron Path Services offerings for cleaning, junk removal, secure document shredding, firewood, products, vending, and ATMs.">
+  <PageHero eyebrow="Products & Services" title="Practical services, <em>community-minded</em> products." lead="A deeper look at each branch of Iron Path Services. Scrap metal service has been removed from this overhaul." />
+
+  <section class="section">
+    <div class="container grid" style="gap: 34px;">
+      {services.map((service) => (
+        <article class="card reveal" id={service.slug}>
+          <div class="grid two" style="align-items: center;">
+            <div>
+              <div class="eyebrow">{service.price}</div>
+              <h2>{service.title}</h2>
+              <p class="lead">{service.description}</p>
+              <ul>
+                {service.bullets.map((bullet) => <li>{bullet}</li>)}
+              </ul>
+              <a class="btn" href="/get-a-quote/">Request This Service</a>
+            </div>
+            <div class="image-card" style={`background-image: url('${service.image}');`} role="img" aria-label={`${service.title} placeholder image`}></div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section sand">
+    <div class="container">
+      <div class="eyebrow">Products</div>
+      <h2>Reclaimed, recycled, <em>ready to use.</em></h2>
+      <div class="grid five" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 18px; margin-top: 28px;">
+        {['Blazers Fire Starters', 'Recycled Wood Bundles', 'Individual Fire Bundles', 'Campfire Bundles', 'Refurbished Items', 'Optional Donations'].map((item) => (
+          <div class="card sand reveal">
+            <h3>{item}</h3>
+            <p>Launch content placeholder. Final product photos and availability can be added before launch.</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

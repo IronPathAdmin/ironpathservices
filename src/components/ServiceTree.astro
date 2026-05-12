@@ -1,0 +1,52 @@
+---
+import { services } from '../data/site';
+---
+
+<div class="service-tree" aria-label="Iron Path Services branches">
+  <svg class="tree-svg" viewBox="0 0 1100 900" aria-hidden="true" focusable="false">
+    <ellipse cx="520" cy="160" rx="260" ry="110" fill="#c0dd97" opacity="0.2" />
+    <ellipse cx="670" cy="320" rx="310" ry="120" fill="#97c459" opacity="0.18" />
+    <ellipse cx="420" cy="480" rx="280" ry="130" fill="#c0dd97" opacity="0.18" />
+    <path d="M540 52 C500 170 580 280 535 395 C500 490 560 610 520 790" fill="none" stroke="#854F0B" stroke-width="15" stroke-linecap="round" />
+    <path d="M546 74 C520 186 560 290 538 410 C520 520 540 650 524 775" fill="none" stroke="#4A1B0C" stroke-width="5" stroke-linecap="round" opacity="0.4" />
+    <path d="M538 160 C660 150 720 90 820 94" fill="none" stroke="#854F0B" stroke-width="7" stroke-linecap="round" />
+    <path d="M535 285 C410 280 315 220 230 220" fill="none" stroke="#854F0B" stroke-width="7" stroke-linecap="round" />
+    <path d="M540 405 C660 410 755 358 850 372" fill="none" stroke="#854F0B" stroke-width="7" stroke-linecap="round" />
+    <path d="M530 540 C410 560 325 500 230 528" fill="none" stroke="#854F0B" stroke-width="7" stroke-linecap="round" />
+    <path d="M526 675 C660 680 745 620 840 652" fill="none" stroke="#854F0B" stroke-width="7" stroke-linecap="round" />
+    <path d="M520 790 C450 820 390 830 320 850 M520 790 C590 825 660 840 740 855 M520 800 C485 840 455 858 410 872 M520 800 C560 840 600 860 650 878" fill="none" stroke="#854F0B" stroke-width="6" stroke-linecap="round" opacity="0.68" />
+    {[
+      [828, 92],
+      [220, 220],
+      [858, 372],
+      [220, 528],
+      [848, 652],
+    ].map(([cx, cy]) => (
+      <g>
+        <ellipse cx={cx} cy={cy} rx="30" ry="18" fill="#639922" transform={`rotate(-18 ${cx} ${cy})`} />
+        <ellipse cx={cx + 24} cy={cy - 8} rx="26" ry="16" fill="#3B6D11" transform={`rotate(18 ${cx + 24} ${cy - 8})`} />
+        <ellipse cx={cx - 20} cy={cy + 8} rx="24" ry="15" fill="#97C459" transform={`rotate(34 ${cx - 20} ${cy + 8})`} />
+      </g>
+    ))}
+    <ellipse cx="90" cy="120" rx="14" ry="8" fill="#97C459" opacity="0.48" transform="rotate(30 90 120)" />
+    <ellipse cx="1010" cy="188" rx="13" ry="7" fill="#639922" opacity="0.45" transform="rotate(-28 1010 188)" />
+    <ellipse cx="970" cy="750" rx="16" ry="8" fill="#97C459" opacity="0.42" transform="rotate(12 970 750)" />
+    <ellipse cx="120" cy="760" rx="13" ry="7" fill="#3B6D11" opacity="0.42" transform="rotate(-12 120 760)" />
+  </svg>
+
+  {services.map((service, index) => (
+    <article class="card sand branch-card reveal">
+      <div class="service-badge">{index + 1}</div>
+      <h3><em>{service.title}</em></h3>
+      <p>{service.summary}</p>
+      <a class="service-card-link" href={`/products-services/#${service.slug}`}>Follow this branch -></a>
+    </article>
+  ))}
+</div>
+
+<div class="section compact green" style="border-radius: 30px; margin-top: 20px;">
+  <div class="container" style="display: flex; gap: 22px; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+    <h2 style="font-size: clamp(28px, 3vw, 42px);"><em>Rooted in trust.</em> Every branch leads back to community.</h2>
+    <a class="btn" href="/get-a-quote/">Get a Free Quote</a>
+  </div>
+</div>

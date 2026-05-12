@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { founderLetter, initiatives } from '../data/site';
+---
+
+<BaseLayout title="About" description="A letter from Benji and the story of Iron Path Services in the Methow Valley.">
+  <PageHero eyebrow="Who We Are" title="A letter from <em>Benji.</em>" lead="Iron Path Services was founded in March 2026 in the Methow Valley by Benji, Adrian, and Sarah." />
+
+  <section class="section">
+    <div class="container grid two" style="align-items: start;">
+      <div>
+        <div class="placeholder-photo">Founder and team photo placeholder</div>
+        <div class="grid three" style="margin-top: 18px;">
+          {[
+            ['Benji', 'Founder & Strategy Architect'],
+            ['Adrian', 'Operations Architect'],
+            ['Sarah', 'Client Experience Architect'],
+          ].map(([name, role]) => (
+            <div class="card sand">
+              <h3>{name}</h3>
+              <p>{role}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <article class="card sand">
+        {founderLetter.map((paragraph) => <p>{paragraph}</p>)}
+        <p><strong>- Benji</strong><br />Founder & Strategy Architect, Iron Path Services</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="container">
+      <div class="eyebrow">Five Commitments</div>
+      <h2>Built on the <em>valley.</em></h2>
+      <div class="grid three" style="margin-top: 28px;">
+        {initiatives.slice(0, 5).map((item) => (
+          <div class="card reveal">
+            <h3>{item.title}</h3>
+            <p>{item.summary}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
