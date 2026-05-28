@@ -21,6 +21,10 @@ export const googleForms = {
   customerReview: 'https://forms.gle/V3KNfNb3soMkNpeDA',
 };
 
+export const externalLinks = {
+  googleReview: 'https://g.page/r/CZXFURd6BbjgEAE/review',
+};
+
 export const formLinks = [
   {
     title: 'General Service Quote Request',

@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import ContactForm from '../components/ContactForm.astro';
-import { googleForms, reviews } from '../data/site';
+import { externalLinks, googleForms, reviews } from '../data/site';
 ---
 
 <BaseLayout title="Reviews" description="Iron Path Services customer reviews, review submission, Google reviews link, star ratings, and review of the week.">
@@ -34,7 +34,10 @@ import { googleForms, reviews } from '../data/site';
         <div class="eyebrow">Submit a Review</div>
         <h2>Manual approval, <em>then publish.</em></h2>
         <p class="lead">Submitted reviews are routed to admin first. After approval, they can be added to the live review list and future flip book.</p>
-        <a class="btn secondary" href={googleForms.customerReview} target="_blank" rel="noreferrer">Open Review Google Form</a>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a class="btn" href={externalLinks.googleReview} target="_blank" rel="noreferrer">Leave a Google Review</a>
+          <a class="btn secondary" href={googleForms.customerReview} target="_blank" rel="noreferrer">Website Review Form</a>
+        </div>
       </div>
       <ContactForm type="review" title="Review Submission" intro="Your review will be sent for manual approval before it appears on the website." googleFormUrl={googleForms.customerReview} />
     </div>
