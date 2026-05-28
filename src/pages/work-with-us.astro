@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import ContactForm from '../components/ContactForm.astro';
+import GoogleFormLinks from '../components/GoogleFormLinks.astro';
+import { googleForms } from '../data/site';
 ---
 
 <BaseLayout title="Work With Us" description="B2B opportunities with Iron Path Services, vending and ATM placement, referral partnerships, and website partner options.">
@@ -29,7 +31,15 @@ import ContactForm from '../components/ContactForm.astro';
         <h2>Tell us what you want <em>to build.</em></h2>
         <p class="lead">This form routes to admin now and can be connected to a dedicated B2B Google Form when ready.</p>
       </div>
-      <ContactForm type="general" title="B2B Inquiry" />
+      <ContactForm type="general" title="B2B Inquiry" googleFormUrl={googleForms.referralPartner} />
+    </div>
+  </section>
+
+  <section class="section compact">
+    <div class="container">
+      <div class="eyebrow">Partner Forms</div>
+      <h2>Start with the right <em>application.</em></h2>
+      <GoogleFormLinks columns="two" titles={['Vending / ATM Placement Inquiry', 'Referral Partner Application']} />
     </div>
   </section>
 </BaseLayout>

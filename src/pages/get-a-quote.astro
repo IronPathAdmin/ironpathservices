@@ -2,7 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import ContactForm from '../components/ContactForm.astro';
-import { contact } from '../data/site';
+import GoogleFormLinks from '../components/GoogleFormLinks.astro';
+import { contact, googleForms } from '../data/site';
 ---
 
 <BaseLayout title="Get a Quote" description="Request a free estimate from Iron Path Services.">
@@ -19,7 +20,15 @@ import { contact } from '../data/site';
         <p><a href={contact.instagram} target="_blank" rel="noreferrer">{contact.instagramLabel}</a></p>
         <p><a href={contact.facebook} target="_blank" rel="noreferrer">{contact.facebookLabel}</a></p>
       </div>
-      <ContactForm type="quote" title="Request a Free Estimate" />
+      <ContactForm type="quote" title="Request a Free Estimate" googleFormUrl={googleForms.generalQuote} />
+    </div>
+  </section>
+
+  <section class="section sand compact">
+    <div class="container">
+      <div class="eyebrow">Official Google Forms</div>
+      <h2>Send the right request <em>to Workspace.</em></h2>
+      <GoogleFormLinks columns="four" />
     </div>
   </section>
 
@@ -28,7 +37,7 @@ import { contact } from '../data/site';
       <div class="card">
         <h3>Review form</h3>
         <p>Reviews are collected on the Reviews page, then manually approved before publishing.</p>
-        <a class="btn secondary" href="/reviews/">Submit a Review</a>
+        <a class="btn secondary" href={googleForms.customerReview} target="_blank" rel="noreferrer">Open Review Form</a>
       </div>
       <div class="card">
         <h3>Printable pricing PDF</h3>
@@ -43,8 +52,8 @@ import { contact } from '../data/site';
       <div class="eyebrow">Additional Forms</div>
       <h2>Evaluation, volunteer, and image <em>approval.</em></h2>
       <div class="grid three" style="margin-top: 28px; align-items: start;">
-        <ContactForm type="evaluation" title="Evaluation Form" intro="Use this for post-job feedback, site evaluations, or service improvement notes." />
-        <ContactForm type="volunteer" title="Volunteer Form" intro="Tell us about your interest in the Iron Path Volunteer Program." />
+        <ContactForm type="evaluation" title="Evaluation Form" intro="Use this for post-job feedback, site evaluations, or service improvement notes." googleFormUrl={googleForms.generalQuote} />
+        <ContactForm type="volunteer" title="Volunteer Form" intro="Tell us about your interest in the Iron Path Volunteer Program." googleFormUrl={googleForms.volunteerProgram} />
         <ContactForm type="image" title="Image Approval Form" intro="Use this to approve or restrict use of photos for website and social media." />
       </div>
     </div>

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
+import GoogleFormLinks from '../components/GoogleFormLinks.astro';
 import { initiatives } from '../data/site';
 ---
 
@@ -37,6 +38,14 @@ import { initiatives } from '../data/site';
           <li>Follow local burn bans and county guidance.</li>
         </ul>
       </div>
+    </div>
+  </section>
+
+  <section class="section sand">
+    <div class="container">
+      <div class="eyebrow">Community Forms</div>
+      <h2>Volunteer or submit a <em>community need.</em></h2>
+      <GoogleFormLinks columns="two" titles={['Volunteer Program Application', 'Methow Valley Community Need Submission']} />
     </div>
   </section>
 </BaseLayout>

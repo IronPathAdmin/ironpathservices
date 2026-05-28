@@ -1,7 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import { services } from '../data/site';
+import { googleForms, services } from '../data/site';
+
+const serviceForms = {
+  cleaning: googleForms.generalQuote,
+  'junk-removal': googleForms.generalQuote,
+  'document-shredding': googleForms.paperShredding,
+  firewood: googleForms.firewoodOrder,
+  'vending-atm': googleForms.vendingAtm,
+};
 ---
 
 <BaseLayout title="Products & Services" description="In-depth Iron Path Services offerings for cleaning, junk removal, secure document shredding, firewood, products, vending, and ATMs.">
@@ -19,7 +27,10 @@ import { services } from '../data/site';
               <ul>
                 {service.bullets.map((bullet) => <li>{bullet}</li>)}
               </ul>
-              <a class="btn" href="/get-a-quote/">Request This Service</a>
+              <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <a class="btn" href={serviceForms[service.slug]} target="_blank" rel="noreferrer">Open Google Form</a>
+                <a class="btn secondary" href="/get-a-quote/">Estimate Page</a>
+              </div>
             </div>
             <div class="image-card" style={`background-image: url('${service.image}');`} role="img" aria-label={`${service.title} placeholder image`}></div>
           </div>

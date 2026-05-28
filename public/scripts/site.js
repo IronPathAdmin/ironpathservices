@@ -1,9 +1,9 @@
 const googleFormEndpoints = {
-  quote: '',
-  review: '',
+  quote: 'https://forms.gle/d1u58XK3wpbYDrcD6',
+  review: 'https://forms.gle/V3KNfNb3soMkNpeDA',
   newsletter: '',
-  general: '',
-  volunteer: '',
+  general: 'https://forms.gle/d1u58XK3wpbYDrcD6',
+  volunteer: 'https://forms.gle/eTywiDqx76tG19zw5',
   evaluation: '',
   image: '',
 };
@@ -56,21 +56,12 @@ function initForms() {
       event.preventDefault();
       const status = form.querySelector('.status');
       const data = Object.fromEntries(new FormData(form).entries());
-      const endpoint = googleFormEndpoints[form.dataset.formType || 'general'];
+      const googleFormUrl =
+        form.dataset.googleForm || googleFormEndpoints[form.dataset.formType || 'general'];
 
-      if (endpoint) {
-        try {
-          await fetch(endpoint, {
-            method: 'POST',
-            mode: 'no-cors',
-            body: new FormData(form),
-          });
-          form.reset();
-          if (status) status.textContent = 'Submitted. Thank you - we will follow up soon.';
-          return;
-        } catch (error) {
-          if (status) status.textContent = 'Google Forms could not be reached. Opening email fallback.';
-        }
+      if (googleFormUrl && status) {
+        status.textContent =
+          'Opening your email app. For Google Workspace routing, use the Google Form button on this form.';
       } else if (status) {
         status.textContent = 'Opening your email app with the request addressed to Iron Path.';
       }

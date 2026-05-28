@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
+import { googleForms } from '../data/site';
 
 const current = 50;
 const goal = 5000;
@@ -21,6 +22,9 @@ const goals = [5000, 10000, 15000, 20000, 25000, 30000];
           <div style={`width: ${Math.max(percent, 2)}%; height: 100%; background: linear-gradient(90deg, var(--leaf), var(--forest));`}></div>
         </div>
         <p>{percent}% of first goal</p>
+        <a class="btn" href={googleForms.communityNeed} target="_blank" rel="noreferrer">
+          Submit a Community Need
+        </a>
       </div>
       <div class="card sand" style="min-height: 430px; display: grid; place-items: end center;">
         <svg viewBox="0 0 260 380" width="260" height="380" aria-labelledby="tracker-title">

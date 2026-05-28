@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
+import { googleForms } from '../data/site';
 ---
 
 <BaseLayout title="Local Businesses We Support" description="A launch-ready directory placeholder for Methow Valley businesses supported by Iron Path Services.">
@@ -15,6 +16,18 @@ import PageHero from '../components/PageHero.astro';
           <p>Placeholder for a Methow Valley business we support, why we recommend them, and how to contact them.</p>
         </article>
       ))}
+    </div>
+  </section>
+
+  <section class="section sand compact">
+    <div class="container" style="display: flex; justify-content: space-between; gap: 20px; align-items: center; flex-wrap: wrap;">
+      <div>
+        <div class="eyebrow">Referral Ecosystem</div>
+        <h2>Want to be listed?</h2>
+      </div>
+      <a class="btn" href={googleForms.referralPartner} target="_blank" rel="noreferrer">
+        Open Referral Partner Form
+      </a>
     </div>
   </section>
 </BaseLayout>

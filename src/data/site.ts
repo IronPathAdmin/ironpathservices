@@ -10,6 +10,60 @@ export const contact = {
   facebookLabel: 'Iron Path Services',
 };
 
+export const googleForms = {
+  generalQuote: 'https://forms.gle/d1u58XK3wpbYDrcD6',
+  firewoodOrder: 'https://forms.gle/WQLiw38JNapzAdTE6',
+  vendingAtm: 'https://forms.gle/NkjWbquUTVtQyoUY9',
+  paperShredding: 'https://forms.gle/9bvEneuDMWGYH7677',
+  volunteerProgram: 'https://forms.gle/eTywiDqx76tG19zw5',
+  referralPartner: 'https://forms.gle/SZZtc3cAAzJrhW3j6',
+  communityNeed: 'https://forms.gle/Njyob5HgRTThAn256',
+  customerReview: 'https://forms.gle/V3KNfNb3soMkNpeDA',
+};
+
+export const formLinks = [
+  {
+    title: 'General Service Quote Request',
+    href: googleForms.generalQuote,
+    description: 'Use this for cleaning, junk removal, multi-service jobs, and general estimates.',
+  },
+  {
+    title: 'Firewood Order',
+    href: googleForms.firewoodOrder,
+    description: 'Order campfire bundles, individual bundles, cords, and recycled fire products.',
+  },
+  {
+    title: 'Vending / ATM Placement Inquiry',
+    href: googleForms.vendingAtm,
+    description: 'Start a host-location conversation for vending machines or ATMs.',
+  },
+  {
+    title: 'Secure Paper Shredding',
+    href: googleForms.paperShredding,
+    description: 'Request secure paper shredding and certificates of destruction.',
+  },
+  {
+    title: 'Volunteer Program Application',
+    href: googleForms.volunteerProgram,
+    description: 'Apply for the Iron Path Volunteer Program.',
+  },
+  {
+    title: 'Referral Partner Application',
+    href: googleForms.referralPartner,
+    description: 'Apply to join the local referral ecosystem.',
+  },
+  {
+    title: 'Methow Valley Community Need Submission',
+    href: googleForms.communityNeed,
+    description: 'Submit a community need for the investment strategy tracker.',
+  },
+  {
+    title: 'Customer Review Submission',
+    href: googleForms.customerReview,
+    description: 'Submit a customer review for manual approval before publishing.',
+  },
+];
+
 export const navItems = [
   { label: 'Home', href: '/' },
   { label: 'Services', href: '/products-services/' },

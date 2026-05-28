@@ -5,12 +5,14 @@ interface Props {
   type?: 'quote' | 'review' | 'newsletter' | 'general' | 'volunteer' | 'evaluation' | 'image';
   title?: string;
   intro?: string;
+  googleFormUrl?: string;
 }
 
 const {
   type = 'quote',
   title = 'Tell Us About Your Request',
-  intro = 'Submissions are prepared for email routing now and can be connected to Google Forms once final form URLs are available.',
+  intro = 'Use this embedded form for an email fallback, or open the official Google Form for Workspace routing.',
+  googleFormUrl,
 } = Astro.props;
 ---
 
@@ -19,6 +21,7 @@ const {
   data-form-type={type}
   data-admin-email={contact.adminEmail}
   data-support-email={contact.supportEmail}
+  data-google-form={googleFormUrl}
 >
   <h3>{title}</h3>
   <p style="color: var(--muted); line-height: 1.7;">{intro}</p>
@@ -94,9 +97,16 @@ const {
   </div>
 
   <div class="form-note">
-    Requests are addressed to {contact.adminEmail} and copied for operations review. Google Forms
-    endpoints can be added in <code>public/scripts/site.js</code> when the final forms are created.
+    Email fallback requests are addressed to {contact.adminEmail} and copied for operations review.
+    {googleFormUrl && ' For Google Workspace routing, use the official Google Form link below.'}
   </div>
-  <button class="btn" type="submit">Send Request</button>
+  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+    <button class="btn" type="submit">Send by Email</button>
+    {googleFormUrl && (
+      <a class="btn secondary" href={googleFormUrl} target="_blank" rel="noreferrer">
+        Open Google Form
+      </a>
+    )}
+  </div>
   <p class="status" role="status" aria-live="polite"></p>
 </form>

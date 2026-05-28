@@ -2,7 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ServiceTree from '../components/ServiceTree.astro';
 import ContactForm from '../components/ContactForm.astro';
-import { contact, faqs, reviews, serviceAreas } from '../data/site';
+import GoogleFormLinks from '../components/GoogleFormLinks.astro';
+import { contact, faqs, googleForms, reviews, serviceAreas } from '../data/site';
 ---
 
 <BaseLayout title="Iron Path Services | Methow Valley" description="A complete Iron Path Services website overhaul for Methow Valley services, community initiatives, pricing, reviews, and quotes.">
@@ -117,7 +118,23 @@ import { contact, faqs, reviews, serviceAreas } from '../data/site';
           Forms once your Workspace form URLs are ready.
         </p>
       </div>
-      <ContactForm type="quote" title="Tell Us About Your Job" />
+      <ContactForm type="quote" title="Tell Us About Your Job" googleFormUrl={googleForms.generalQuote} />
+    </div>
+  </section>
+
+  <section class="section sand compact">
+    <div class="container">
+      <div class="eyebrow">Official Google Forms</div>
+      <h2>Choose the fastest <em>request path.</em></h2>
+      <GoogleFormLinks
+        columns="four"
+        titles={[
+          'General Service Quote Request',
+          'Firewood Order',
+          'Vending / ATM Placement Inquiry',
+          'Secure Paper Shredding',
+        ]}
+      />
     </div>
   </section>
 </BaseLayout>
