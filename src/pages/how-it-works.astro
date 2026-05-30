@@ -4,7 +4,7 @@ import PageHero from '../components/PageHero.astro';
 import { processSteps } from '../data/site';
 ---
 
-<BaseLayout title="How It Works" description="How Iron Path Services handles quotes, transparency, deposits, donations, recycled fire starters, and follow-up.">
+<BaseLayout title="How It Works" description="How Iron Path Services handles quotes, transparency, payment terms, donations, recycled fire starters, and follow-up.">
   <PageHero eyebrow="How It Works" title="Simple, honest, <em>documented.</em>" lead="A clear path from first contact to final approval." />
 
   <section class="section">
@@ -12,7 +12,7 @@ import { processSteps } from '../data/site';
       <div>
         <div class="eyebrow">Our Process</div>
         <h2>Eight steps, <em>no guessing.</em></h2>
-        <p class="lead">50% deposit locks in your date. The remaining 50% is collected only after completion and approval.</p>
+        <p class="lead">Invoice timing and any required deposit are agreed before work begins. Quoted prices are final with no post-job additions.</p>
       </div>
       <div class="grid">
         {processSteps.map(([title, text], index) => (
