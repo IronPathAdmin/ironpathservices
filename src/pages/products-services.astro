@@ -32,7 +32,19 @@ const serviceForms = {
                 <a class="btn secondary" href="/get-a-quote/">Estimate Page</a>
               </div>
             </div>
-            <div class="image-card" style={`background-image: url('${service.image}');`} role="img" aria-label={`${service.title} placeholder image`}></div>
+            <div>
+              <div class="image-card" style={`background-image: url('${service.image}');`} role="img" aria-label={`${service.title} image`}></div>
+              {'gallery' in service && Array.isArray(service.gallery) && (
+                <div class="service-gallery" aria-label={`${service.title} image gallery`}>
+                  {service.gallery.map((image) => (
+                    <figure class="service-gallery-item">
+                      <div class="service-gallery-image" style={`background-image: url('${image.src}');`} role="img" aria-label={image.alt}></div>
+                      <figcaption>{image.alt}</figcaption>
+                    </figure>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </article>
       ))}

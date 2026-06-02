@@ -136,7 +136,21 @@ export const services = [
   {
     title: 'Document Shredding',
     slug: 'document-shredding',
-    image: '/assets/img-pipes.jpg',
+    image: '/assets/photos/shredding/paper-record-stacks.jpg',
+    gallery: [
+      {
+        src: '/assets/photos/shredding/paper-record-stacks.jpg',
+        alt: 'Stacks of paper records prepared for secure shredding',
+      },
+      {
+        src: '/assets/photos/shredding/archive-paper-stacks.jpg',
+        alt: 'Bundled archive paperwork before secure destruction',
+      },
+      {
+        src: '/assets/photos/shredding/colorful-shredded-paper.jpg',
+        alt: 'Colorful shredded paper after document destruction',
+      },
+    ],
     summary:
       'On-site shredding, off-site shredding, security guarantee, and certificates of destruction.',
     description:

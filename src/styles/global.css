@@ -538,9 +538,38 @@ em {
 .image-card {
   min-height: 320px;
   border-radius: 28px;
-  background: center/cover;
+  background:
+    linear-gradient(135deg, rgba(245, 240, 232, 0.48), rgba(46, 74, 48, 0.16)),
+    center/cover;
   box-shadow: var(--shadow);
   border: 1px solid rgba(245, 240, 232, 0.34);
+}
+
+.service-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.service-gallery-item {
+  margin: 0;
+}
+
+.service-gallery-image {
+  min-height: 112px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background:
+    linear-gradient(135deg, rgba(245, 240, 232, 0.5), rgba(46, 74, 48, 0.16)),
+    center/cover;
+}
+
+.service-gallery-item figcaption {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.35;
 }
 
 .placeholder-photo {
