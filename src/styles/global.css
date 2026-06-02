@@ -1,18 +1,33 @@
 :root {
-  --copper: #854f0b;
-  --bronze: #ba7517;
-  --brown: #412402;
-  --mid-brown: #633806;
-  --forest: #3b6d11;
-  --leaf: #639922;
-  --light-leaf: #97c459;
-  --sand: #faeeda;
-  --cream: #eaf3de;
-  --paper: #fffaf1;
-  --ink: #1c1309;
-  --muted: #735434;
-  --line: rgba(133, 79, 11, 0.22);
-  --shadow: 0 24px 70px rgba(65, 36, 2, 0.16);
+  /* Primary */
+  --color-iron-forest: #1c2b1e;
+  --color-methow-ember: #d4601a;
+  --color-forge-steel: #3a3d3e;
+  --color-dark-walnut: #3b1f0e;
+
+  /* Supporting */
+  --color-birch-white: #f5f0e8;
+  --color-pine-shadow: #2e4a30;
+  --color-river-stone: #8a8c7a;
+
+  /* Brown Accents */
+  --color-ponderosa-bark: #5c3317;
+  --color-saddle-brown: #7a4828;
+
+  --copper: var(--color-methow-ember);
+  --bronze: var(--color-methow-ember);
+  --brown: var(--color-iron-forest);
+  --mid-brown: var(--color-ponderosa-bark);
+  --forest: var(--color-iron-forest);
+  --leaf: var(--color-pine-shadow);
+  --light-leaf: var(--color-river-stone);
+  --sand: var(--color-birch-white);
+  --cream: var(--color-birch-white);
+  --paper: var(--color-birch-white);
+  --ink: var(--color-iron-forest);
+  --muted: var(--color-forge-steel);
+  --line: rgba(92, 51, 23, 0.22);
+  --shadow: 0 24px 70px rgba(28, 43, 30, 0.16);
 }
 
 *,
@@ -79,8 +94,8 @@ textarea {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(65, 36, 2, 0.96);
-  border-bottom: 1px solid rgba(250, 238, 218, 0.18);
+  background: rgba(28, 43, 30, 0.96);
+  border-bottom: 1px solid rgba(245, 240, 232, 0.18);
   backdrop-filter: blur(18px);
 }
 
@@ -117,7 +132,7 @@ textarea {
   font-size: 9px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(250, 238, 218, 0.68);
+  color: rgba(245, 240, 232, 0.68);
   margin-top: 1px;
 }
 
@@ -129,7 +144,7 @@ textarea {
 }
 
 .desktop-nav a {
-  color: rgba(250, 238, 218, 0.76);
+  color: rgba(245, 240, 232, 0.76);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.09em;
@@ -158,8 +173,8 @@ textarea {
   margin-left: auto;
   width: 44px;
   height: 44px;
-  border: 1px solid rgba(250, 238, 218, 0.24);
-  background: rgba(250, 238, 218, 0.08);
+  border: 1px solid rgba(245, 240, 232, 0.24);
+  background: rgba(245, 240, 232, 0.08);
   color: var(--sand);
   border-radius: 999px;
   cursor: pointer;
@@ -277,7 +292,7 @@ em {
 
 .dark .lead,
 .green .lead {
-  color: rgba(250, 238, 218, 0.74);
+  color: rgba(245, 240, 232, 0.74);
 }
 
 .btn {
@@ -308,13 +323,13 @@ em {
 
 .btn.secondary {
   background: transparent;
-  border-color: rgba(133, 79, 11, 0.3);
+  border-color: rgba(92, 51, 23, 0.3);
   color: var(--brown);
 }
 
 .dark .btn.secondary,
 .green .btn.secondary {
-  border-color: rgba(250, 238, 218, 0.36);
+  border-color: rgba(245, 240, 232, 0.36);
   color: var(--sand);
 }
 
@@ -348,8 +363,8 @@ em {
 }
 
 .dark .card {
-  background: rgba(250, 238, 218, 0.08);
-  border-color: rgba(250, 238, 218, 0.16);
+  background: rgba(245, 240, 232, 0.08);
+  border-color: rgba(245, 240, 232, 0.16);
   color: var(--sand);
 }
 
@@ -366,7 +381,7 @@ em {
 
 .dark .card p,
 .dark .card li {
-  color: rgba(250, 238, 218, 0.72);
+  color: rgba(245, 240, 232, 0.72);
 }
 
 .hero {
@@ -384,7 +399,7 @@ em {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(65, 36, 2, 0.92), rgba(65, 36, 2, 0.48)),
+    linear-gradient(90deg, rgba(28, 43, 30, 0.92), rgba(28, 43, 30, 0.48)),
     var(--hero-image, url("/assets/img-firewood.jpg")) center/cover;
 }
 
@@ -410,7 +425,7 @@ em {
 }
 
 .hero .lead {
-  color: rgba(250, 238, 218, 0.82);
+  color: rgba(245, 240, 232, 0.82);
   margin: 22px 0 34px;
 }
 
@@ -454,7 +469,7 @@ em {
 .page-hero {
   padding: 112px 24px 64px;
   background:
-    radial-gradient(circle at 12% 10%, rgba(186, 117, 23, 0.22), transparent 34%),
+    radial-gradient(circle at 12% 10%, rgba(212, 96, 26, 0.22), transparent 34%),
     linear-gradient(135deg, var(--brown), #2d1b06);
   color: var(--sand);
 }
@@ -465,7 +480,7 @@ em {
 }
 
 .page-hero .lead {
-  color: rgba(250, 238, 218, 0.76);
+  color: rgba(245, 240, 232, 0.76);
 }
 
 .service-tree {
@@ -525,18 +540,18 @@ em {
   border-radius: 28px;
   background: center/cover;
   box-shadow: var(--shadow);
-  border: 1px solid rgba(250, 238, 218, 0.34);
+  border: 1px solid rgba(245, 240, 232, 0.34);
 }
 
 .placeholder-photo {
   min-height: 280px;
   display: grid;
   place-items: center;
-  border: 1px dashed rgba(133, 79, 11, 0.38);
+  border: 1px dashed rgba(92, 51, 23, 0.38);
   border-radius: 26px;
   background:
-    linear-gradient(135deg, rgba(250, 238, 218, 0.82), rgba(234, 243, 222, 0.82)),
-    radial-gradient(circle at top left, rgba(151, 196, 89, 0.4), transparent 38%);
+    linear-gradient(135deg, rgba(245, 240, 232, 0.82), rgba(245, 240, 232, 0.82)),
+    radial-gradient(circle at top left, rgba(46, 74, 48, 0.4), transparent 38%);
   color: var(--mid-brown);
   text-align: center;
   padding: 24px;
@@ -609,7 +624,7 @@ input,
 select,
 textarea {
   width: 100%;
-  border: 1px solid rgba(133, 79, 11, 0.28);
+  border: 1px solid rgba(92, 51, 23, 0.28);
   background: var(--paper);
   color: var(--ink);
   border-radius: 14px;
@@ -632,7 +647,7 @@ textarea:focus {
   margin: 14px 0 18px;
   padding: 14px;
   border-radius: 16px;
-  background: rgba(59, 109, 17, 0.09);
+  background: rgba(46, 74, 48, 0.09);
   color: var(--muted);
   line-height: 1.6;
   font-size: 14px;
@@ -654,7 +669,7 @@ textarea:focus {
   align-items: center;
   overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(255, 250, 241, 0.28), rgba(250, 238, 218, 0.94)),
+    linear-gradient(180deg, rgba(245, 240, 232, 0.28), rgba(245, 240, 232, 0.94)),
     radial-gradient(circle at 40% 12%, rgba(255, 255, 255, 0.78) 0 4%, transparent 4.5%),
     radial-gradient(circle at 58% 24%, rgba(255, 255, 255, 0.62) 0 5%, transparent 5.5%),
     linear-gradient(135deg, #f6f0df, #e8dcc2);
@@ -667,8 +682,8 @@ textarea:focus {
   height: 230px;
   background:
     linear-gradient(135deg, transparent 0 38%, rgba(89, 112, 91, 0.36) 38.5% 54%, transparent 54.5%),
-    linear-gradient(28deg, transparent 0 44%, rgba(65, 36, 2, 0.18) 44.5% 58%, transparent 58.5%),
-    linear-gradient(to top, rgba(59, 109, 17, 0.22), transparent);
+    linear-gradient(28deg, transparent 0 44%, rgba(28, 43, 30, 0.18) 44.5% 58%, transparent 58.5%),
+    linear-gradient(to top, rgba(46, 74, 48, 0.22), transparent);
   pointer-events: none;
 }
 
@@ -705,10 +720,10 @@ textarea:focus {
   align-items: center;
   margin: 24px 0;
   padding: 22px;
-  border: 1px solid rgba(65, 36, 2, 0.2);
+  border: 1px solid rgba(28, 43, 30, 0.2);
   border-radius: 14px;
-  background: rgba(255, 250, 241, 0.78);
-  box-shadow: 0 16px 46px rgba(65, 36, 2, 0.16);
+  background: rgba(245, 240, 232, 0.78);
+  box-shadow: 0 16px 46px rgba(28, 43, 30, 0.16);
   backdrop-filter: blur(8px);
 }
 
@@ -746,7 +761,7 @@ textarea:focus {
   width: 100%;
   height: 1px;
   margin: 10px 0 14px;
-  background: rgba(65, 36, 2, 0.18);
+  background: rgba(28, 43, 30, 0.18);
 }
 
 .tracker-ring {
@@ -758,7 +773,7 @@ textarea:focus {
   border-radius: 999px;
   background:
     radial-gradient(circle at center, var(--paper) 0 54%, transparent 55%),
-    conic-gradient(var(--forest) var(--progress), rgba(65, 36, 2, 0.16) 0);
+    conic-gradient(var(--forest) var(--progress), rgba(28, 43, 30, 0.16) 0);
 }
 
 .tracker-ring span {
@@ -791,7 +806,7 @@ textarea:focus {
   position: relative;
   z-index: 3;
   width: min(620px, 100%);
-  filter: drop-shadow(0 18px 28px rgba(65, 36, 2, 0.22));
+  filter: drop-shadow(0 18px 28px rgba(28, 43, 30, 0.22));
 }
 
 .tracker-mountain {
@@ -822,9 +837,9 @@ textarea:focus {
   width: 118px;
   height: 360px;
   transform: translateX(-50%) rotate(34deg);
-  border-left: 30px solid rgba(250, 238, 218, 0.92);
+  border-left: 30px solid rgba(245, 240, 232, 0.92);
   border-radius: 100% 0 0 0;
-  filter: drop-shadow(0 2px 0 rgba(65, 36, 2, 0.18));
+  filter: drop-shadow(0 2px 0 rgba(28, 43, 30, 0.18));
 }
 
 .tracker-scale {
@@ -847,7 +862,7 @@ textarea:focus {
 
 .tracker-scale .scale-line {
   height: 3px;
-  border-top: 3px dashed rgba(65, 36, 2, 0.45);
+  border-top: 3px dashed rgba(28, 43, 30, 0.45);
 }
 
 .tracker-scale strong {
@@ -867,7 +882,7 @@ textarea:focus {
 }
 
 .tracker-scale .next .scale-line {
-  border-color: rgba(59, 109, 17, 0.76);
+  border-color: rgba(46, 74, 48, 0.76);
 }
 
 .pill-list {
@@ -880,8 +895,8 @@ textarea:focus {
 }
 
 .pill-list li {
-  background: rgba(186, 117, 23, 0.12);
-  border: 1px solid rgba(186, 117, 23, 0.22);
+  background: rgba(212, 96, 26, 0.12);
+  border: 1px solid rgba(212, 96, 26, 0.22);
   color: var(--brown);
   border-radius: 999px;
   padding: 9px 14px;
@@ -891,7 +906,7 @@ textarea:focus {
 
 .site-footer {
   background: var(--brown);
-  color: rgba(250, 238, 218, 0.76);
+  color: rgba(245, 240, 232, 0.76);
   padding: 58px 24px 28px;
 }
 
@@ -915,7 +930,7 @@ textarea:focus {
 
 .footer-grid a {
   display: block;
-  color: rgba(250, 238, 218, 0.7);
+  color: rgba(245, 240, 232, 0.7);
   text-decoration: none;
   margin: 7px 0;
 }
@@ -928,7 +943,7 @@ textarea:focus {
   width: min(1160px, 100%);
   margin: 34px auto 0;
   padding-top: 20px;
-  border-top: 1px solid rgba(250, 238, 218, 0.16);
+  border-top: 1px solid rgba(245, 240, 232, 0.16);
   display: flex;
   justify-content: space-between;
   gap: 16px;
@@ -978,7 +993,7 @@ textarea:focus {
     inset: 67px 0 auto;
     background: var(--brown);
     padding: 20px 24px 28px;
-    border-bottom: 1px solid rgba(250, 238, 218, 0.16);
+    border-bottom: 1px solid rgba(245, 240, 232, 0.16);
   }
 
   body.menu-open .mobile-nav {
@@ -993,7 +1008,7 @@ textarea:focus {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     padding: 10px 0;
-    border-bottom: 1px solid rgba(250, 238, 218, 0.12);
+    border-bottom: 1px solid rgba(245, 240, 232, 0.12);
   }
 
   .grid.three,
