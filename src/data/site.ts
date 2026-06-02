@@ -136,7 +136,8 @@ export const services = [
   {
     title: 'Document Shredding',
     slug: 'document-shredding',
-    image: '/assets/photos/shredding/paper-record-stacks.jpg',
+    image: '/assets/img-pipes.jpg',
+    galleryReady: false,
     gallery: [
       {
         src: '/assets/photos/shredding/paper-record-stacks.jpg',
