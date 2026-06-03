@@ -1,0 +1,15 @@
+{
+  "name": "Iron Path Services",
+  "short_name": "Iron Path",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#1C2B1E",
+  "background_color": "#F5F0E8",
+  "display": "standalone"
+}

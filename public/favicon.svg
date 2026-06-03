@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Iron Path Services favicon</title>
+  <rect width="512" height="512" rx="96" fill="#1C2B1E"/>
+  <path d="M256 445C155 409 94 328 94 112c58-5 112-22 162-52 50 30 104 47 162 52 0 216-61 297-162 333Z" fill="#F5F0E8" opacity="0.96"/>
+  <path d="M256 421C169 388 119 317 119 137c49-7 96-22 137-47 41 25 88 40 137 47 0 180-50 251-137 284Z" fill="#3A3D3E"/>
+  <path d="M144 178h224M156 266h200M256 104v298M178 153l156 220M334 153 178 373" stroke="#F5F0E8" stroke-opacity="0.35" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="256" cy="236" r="132" fill="#D4601A" opacity="0.2"/>
+  <path d="M247 76c57 60-28 83 40 140 10-51 72-78 23-145 85 57 86 149 27 204-43 40-135 36-174-10-55-65 4-131 84-189Z" fill="#D4601A"/>
+  <path d="M253 95c25 48-24 68 23 112 2-31 38-51 17-93 45 42 43 91 10 121-24 22-76 20-98-6-32-37 1-86 48-134Z" fill="#F5F0E8" opacity="0.55"/>
+  <path d="M206 238h100l-24 176h-52l-24-176Z" fill="#1C2B1E" stroke="#F5F0E8" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M194 212h124v46H194z" fill="#3B1F0E" stroke="#F5F0E8" stroke-width="10" stroke-linejoin="round"/>
+  <circle cx="256" cy="234" r="13" fill="#D4601A"/>
+  <path d="M256 296c34 45 32 88 0 124-32-36-34-79 0-124Z" fill="#D4601A"/>
+</svg>

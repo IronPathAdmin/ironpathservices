@@ -28,7 +28,9 @@ const pageTitle = title.includes('Iron Path Services') ? title : `${title} | Iro
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url.href} />
     <title>{pageTitle}</title>
-    <link rel="icon" href="/assets/iron-path-mark.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
+    <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
