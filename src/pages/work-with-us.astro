@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import ContactForm from '../components/ContactForm.astro';
+import GoogleFormLinks from '../components/GoogleFormLinks.astro';
+import { googleForms } from '../data/site';
+---
+
+<BaseLayout title="Work With Us" description="B2B opportunities with Iron Path Services, vending and ATM placement, referral partnerships, and website partner options.">
+  <PageHero eyebrow="Work With Us" title="B2B opportunities <em>with a local operator.</em>" lead="Partner with Iron Path for vending, ATMs, recurring cleaning, commercial cleanouts, referral relationships, and website placement." />
+
+  <section class="section">
+    <div class="container grid three">
+      {[
+        ['Vending & ATM Hosting', 'Add a machine at no upfront cost and receive 30% of net sales.'],
+        ['Commercial Services', 'Cleaning, junk removal, secure shredding, and property support for local businesses.'],
+        ['Put Us On Your Website', 'Partner badges, referral language, and preferred vendor listings can be provided.'],
+      ].map(([title, text]) => (
+        <article class="card sand reveal">
+          <h3>{title}</h3>
+          <p>{text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section sand">
+    <div class="container grid two" style="align-items: start;">
+      <div>
+        <div class="eyebrow">Partnership Request</div>
+        <h2>Tell us what you want <em>to build.</em></h2>
+        <p class="lead">This form routes to admin now and can be connected to a dedicated B2B Google Form when ready.</p>
+      </div>
+      <ContactForm type="general" title="B2B Inquiry" googleFormUrl={googleForms.referralPartner} />
+    </div>
+  </section>
+
+  <section class="section compact">
+    <div class="container">
+      <div class="eyebrow">Partner Forms</div>
+      <h2>Start with the right <em>application.</em></h2>
+      <GoogleFormLinks columns="two" titles={['Vending / ATM Placement Inquiry', 'Referral Partner Application']} />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,25 @@
+---
+import { formLinks } from '../data/site';
+
+interface Props {
+  titles?: string[];
+  columns?: 'two' | 'three' | 'four';
+}
+
+const { titles, columns = 'four' } = Astro.props;
+const links = titles?.length
+  ? formLinks.filter((link) => titles.includes(link.title))
+  : formLinks;
+---
+
+<div class={`grid ${columns}`}>
+  {links.map((link) => (
+    <article class="card sand reveal">
+      <h3>{link.title}</h3>
+      <p>{link.description}</p>
+      <a class="btn secondary" href={link.href} target="_blank" rel="noreferrer">
+        Open Google Form
+      </a>
+    </article>
+  ))}
+</div>

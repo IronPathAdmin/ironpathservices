@@ -1,0 +1,44 @@
+---
+import { navItems } from '../data/site';
+
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+const isCurrent = (href: string) =>
+  href === '/' ? currentPath === '/' : currentPath.startsWith(href);
+---
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="/" aria-label="Iron Path Services home">
+      <img class="brand-mark" src="/assets/iron-path-mark.svg" alt="" aria-hidden="true" />
+      <span>
+        Iron Path Services
+        <small>A Path Forged In Trust</small>
+      </span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      {navItems.map((item) => (
+        <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+          {item.label}
+        </a>
+      ))}
+      <a class="nav-quote" href="/get-a-quote/">Get a Quote</a>
+    </nav>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav">
+      <span aria-hidden="true">Menu</span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    {navItems.map((item) => (
+      <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+        {item.label}
+      </a>
+    ))}
+    <a href="/get-a-quote/">Get a Quote</a>
+  </nav>
+</header>

@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { discounts, fees, pricingTables } from '../data/site';
+---
+
+<BaseLayout title="Pricing" description="Transparent pricing, fees, add-ons, discounts, payment terms, and printable pricing PDF for Iron Path Services.">
+  <PageHero eyebrow="Transparent Pricing" title="No surprises. <em>Ever.</em>" lead="Effective June 1, 2026. Every rate, surcharge, and tax that could appear on an invoice is listed before work begins." />
+
+  <section class="section">
+    <div class="container">
+      <div class="grid two">
+        <div class="card sand">
+          <h3>Community Donation Pledge</h3>
+          <p>A meaningful percentage of profits is pledged toward Methow Valley businesses, schools, parks, and community needs.</p>
+        </div>
+        <div class="card sand">
+          <h3>Payment Policy</h3>
+          <p>Accepted methods include cash, check, and on-site card payments. Invoice timing is agreed before work begins, and quoted prices are final with no post-job additions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {pricingTables.map((table) => (
+    <section class="section compact">
+      <div class="container">
+        <div class="eyebrow">{table.title}</div>
+        <h2>{table.title} <em>pricing.</em></h2>
+        <p class="lead">{table.note}</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Item</th><th>Rate</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+              {table.rows.map((row) => (
+                <tr>{row.map((cell) => <td>{cell}</td>)}</tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="section sand">
+    <div class="container grid two">
+      <div>
+        <div class="eyebrow">Fees & Add-ons</div>
+        <h2>Always disclosed <em>upfront.</em></h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Fee</th><th>Amount</th></tr></thead>
+            <tbody>{fees.map((row) => <tr><td>{row[0]}</td><td>{row[1]}</td></tr>)}</tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow">Discounts</div>
+        <h2>Programs that <em>give back.</em></h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Discount</th><th>Eligibility</th></tr></thead>
+            <tbody>{discounts.map((row) => <tr><td>{row[0]}</td><td>{row[1]}</td></tr>)}</tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section green compact">
+    <div class="container" style="display: flex; justify-content: space-between; gap: 20px; align-items: center; flex-wrap: wrap;">
+      <div>
+        <div class="eyebrow">Printable PDF</div>
+        <h2>Download the current pricing sheet.</h2>
+      </div>
+      <a class="btn" href="/downloads/ironpath-customer-pricing.pdf" download>Download Pricing PDF</a>
+    </div>
+  </section>
+</BaseLayout>

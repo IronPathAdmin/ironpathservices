@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import GoogleFormLinks from '../components/GoogleFormLinks.astro';
+import { initiatives } from '../data/site';
+---
+
+<BaseLayout title="Initiatives" description="Iron Path Services community initiatives: Green Initiative, Red Carpet Initiative, investment strategy, volunteer program, referral ecosystem, and SolarPunk vision.">
+  <PageHero eyebrow="Initiatives" title="Service work with <em>roots.</em>" lead="The long-term commitments that make Iron Path more than a service company." />
+
+  <section class="section">
+    <div class="container grid three">
+      {initiatives.map((initiative) => (
+        <article class="card sand reveal">
+          <h3>{initiative.title}</h3>
+          <p>{initiative.summary}</p>
+          <ul>
+            {initiative.details.map((detail) => <li>{detail}</li>)}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="container grid two" style="align-items: center;">
+      <div>
+        <div class="eyebrow">Wildfire Safety</div>
+        <h2>Safety is part of the <em>path.</em></h2>
+        <p class="lead">Firewood, cleanup, and valley work all intersect with wildfire awareness. We will publish company-specific safety guidance before launch.</p>
+      </div>
+      <div class="card">
+        <h3>What customers can do</h3>
+        <ul>
+          <li>Keep burnable material clear from structures.</li>
+          <li>Use safe storage practices for firewood and paper products.</li>
+          <li>Ask about cleanup options before fire season.</li>
+          <li>Follow local burn bans and county guidance.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section sand">
+    <div class="container">
+      <div class="eyebrow">Community Forms</div>
+      <h2>Volunteer or submit a <em>community need.</em></h2>
+      <GoogleFormLinks columns="two" titles={['Volunteer Program Application', 'Methow Valley Community Need Submission']} />
+    </div>
+  </section>
+</BaseLayout>

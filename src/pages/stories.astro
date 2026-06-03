@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { storyCards } from '../data/site';
+---
+
+<BaseLayout title="Stories" description="Iron Path Services community blog for job stories, community moments, and inspirational stories.">
+  <PageHero eyebrow="Stories" title="The Iron Path <em>community blog.</em>" lead="A launch-ready home for job stories, community moments, photos, and reflections once real images are uploaded." />
+
+  <section class="section">
+    <div class="container grid three">
+      {storyCards.map((story) => (
+        <article class="card sand reveal">
+          <div class="placeholder-photo" style="margin-bottom: 18px;">Photo placeholder</div>
+          <h3>{story.title}</h3>
+          <p>{story.text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

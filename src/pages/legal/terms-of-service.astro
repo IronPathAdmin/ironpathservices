@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import { contact } from '../../data/site';
+---
+
+<BaseLayout title="Terms of Service" description="Terms of Service for Iron Path Services.">
+  <PageHero eyebrow="Legal" title="Terms of <em>Service.</em>" lead="Drafted for launch review. Last updated May 12, 2026." />
+
+  <section class="section">
+    <article class="narrow card sand">
+      <p>These Terms of Service describe general website and service expectations for Iron Path Services LLC. Final job terms may also be governed by written estimates, invoices, contracts, or signed agreements.</p>
+      <h3>Website use</h3>
+      <p>You agree to use this website lawfully and not to interfere with its operation, submit false information, or misuse forms or contact channels.</p>
+      <h3>Estimates and pricing</h3>
+      <p>Website pricing is informational and may change. Written estimates are based on scope, access, volume, travel, taxes, fees, disposal needs, and availability. Known fees are disclosed before booking.</p>
+      <h3>Deposits and payment</h3>
+      <p>Payment timing, invoice timing, and any required deposit are agreed before work begins. Accepted methods may include cash, check, and on-site card payments. Quoted prices are final unless the scope changes and the customer approves the change in writing.</p>
+      <h3>Scheduling and cancellations</h3>
+      <p>We make reasonable efforts to meet scheduled times, but weather, access, safety conditions, and operational needs may require adjustments. Cancellations under 24 hours may be subject to a dispatch fee when disclosed during booking.</p>
+      <h3>Service limitations</h3>
+      <p>Iron Path Services does not handle hazardous materials, biohazard waste, asbestos, certain chemicals, heavy construction debris, plumbing, electrical, structural, or other trade-licensed work unless explicitly stated in writing and legally permitted.</p>
+      <h3>Customer responsibilities</h3>
+      <p>Customers are responsible for providing accurate information, safe access, permissions to enter the property, and disclosure of hazards or special requirements.</p>
+      <h3>Photos, reviews, and content</h3>
+      <p>Job photos may be used for internal documentation. Public use of identifiable images requires approval. Review submissions may be edited for clarity, screened for authenticity, and published only after manual approval.</p>
+      <h3>Limitation of liability</h3>
+      <p>To the fullest extent permitted by law, Iron Path Services is not liable for indirect, incidental, or consequential damages arising from website use or services. Nothing here limits rights that cannot be limited by law.</p>
+      <h3>Changes</h3>
+      <p>We may update these terms as the business grows. Continued use of the website after updates means you accept the revised terms.</p>
+      <h3>Contact</h3>
+      <p>Questions can be sent to <a href={`mailto:${contact.adminEmail}`}>{contact.adminEmail}</a> or <a href={`mailto:${contact.supportEmail}`}>{contact.supportEmail}</a>.</p>
+    </article>
+  </section>
+</BaseLayout>

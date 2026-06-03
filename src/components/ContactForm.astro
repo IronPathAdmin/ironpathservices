@@ -1,0 +1,112 @@
+---
+import { contact, services } from '../data/site';
+
+interface Props {
+  type?: 'quote' | 'review' | 'newsletter' | 'general' | 'volunteer' | 'evaluation' | 'image';
+  title?: string;
+  intro?: string;
+  googleFormUrl?: string;
+}
+
+const {
+  type = 'quote',
+  title = 'Tell Us About Your Request',
+  intro = 'Use this embedded form for an email fallback, or open the official Google Form for Workspace routing.',
+  googleFormUrl,
+} = Astro.props;
+---
+
+<form
+  class="form-box js-smart-form"
+  data-form-type={type}
+  data-admin-email={contact.adminEmail}
+  data-support-email={contact.supportEmail}
+  data-google-form={googleFormUrl}
+>
+  <h3>{title}</h3>
+  <p style="color: var(--muted); line-height: 1.7;">{intro}</p>
+  <div class="form-grid">
+    <div class="field">
+      <label for={`${type}-name`}>Full name</label>
+      <input id={`${type}-name`} name="name" autocomplete="name" required />
+    </div>
+    <div class="field">
+      <label for={`${type}-phone`}>Phone</label>
+      <input id={`${type}-phone`} name="phone" autocomplete="tel" />
+    </div>
+    <div class="field">
+      <label for={`${type}-email`}>Email</label>
+      <input id={`${type}-email`} name="email" type="email" autocomplete="email" required />
+    </div>
+    <div class="field">
+      <label for={`${type}-contact`}>Preferred contact</label>
+      <select id={`${type}-contact`} name="preferred_contact">
+        <option>Phone call</option>
+        <option>Text message</option>
+        <option>WhatsApp</option>
+        <option>Email</option>
+        <option>Any</option>
+      </select>
+    </div>
+
+    {type === 'quote' && (
+      <>
+        <div class="field">
+          <label for="quote-service">Service needed</label>
+          <select id="quote-service" name="service" required>
+            <option value="">Select a service</option>
+            {services.map((service) => <option>{service.title}</option>)}
+            <option>Multiple services</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="quote-date">Preferred date</label>
+          <input id="quote-date" name="preferred_date" type="date" />
+        </div>
+        <div class="field full">
+          <label for="quote-address">Service address</label>
+          <input id="quote-address" name="address" placeholder="Street, city, state" required />
+        </div>
+      </>
+    )}
+
+    {type === 'review' && (
+      <>
+        <div class="field">
+          <label for="review-rating">Star rating</label>
+          <select id="review-rating" name="rating" required>
+            <option>5 stars</option>
+            <option>4 stars</option>
+            <option>3 stars</option>
+            <option>2 stars</option>
+            <option>1 star</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="review-service">Service received</label>
+          <input id="review-service" name="service_received" />
+        </div>
+      </>
+    )}
+
+    <div class="field full">
+      <label for={`${type}-message`}>Message</label>
+      <textarea id={`${type}-message`} name="message" required></textarea>
+    </div>
+  </div>
+
+  <div class="form-note">
+    Email fallback requests are addressed to {contact.adminEmail} and copied for operations review.
+    {googleFormUrl && ' For Google Workspace routing, use the official Google Form link below.'}
+  </div>
+  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+    <button class="btn" type="submit">Send by Email</button>
+    {googleFormUrl && (
+      <a class="btn secondary" href={googleFormUrl} target="_blank" rel="noreferrer">
+        Open Google Form
+      </a>
+    )}
+  </div>
+  <p class="status" role="status" aria-live="polite"></p>
+</form>

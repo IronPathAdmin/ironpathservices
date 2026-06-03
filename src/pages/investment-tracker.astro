@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { googleForms } from '../data/site';
+
+const current = 50;
+const totalGoal = 30000;
+const percent = Math.min(100, (current / totalGoal) * 100);
+const visualPercent = Math.max(percent, 1);
+const percentLabel = percent < 1 ? percent.toFixed(1) : Math.round(percent).toString();
+const milestones = [
+  { amount: 5000, title: 'Seed Fund', note: 'First local impact pool' },
+  { amount: 10000, title: 'School Support Fund', note: 'Youth and classroom needs' },
+  { amount: 15000, title: 'Local Business Micro-Grants', note: 'Small business support' },
+  { amount: 20000, title: 'Community Outreach', note: 'Direct valley support' },
+  { amount: 25000, title: 'Volunteer Program Expansion', note: 'More tools and supplies' },
+  { amount: 30000, title: 'Major Valley Impact Projects', note: 'Large community needs' },
+];
+const nextMilestone = milestones.find((milestone) => current < milestone.amount) ?? milestones[milestones.length - 1];
+---
+
+<BaseLayout title="Methow Valley Investment Strategy Tracker" description="Iron Path Services community reinvestment tracker for Methow Valley goals.">
+  <section class="tracker-hero">
+    <div class="tracker-copy">
+      <div class="eyebrow">Methow Valley Investment Strategy</div>
+      <h1>The Iron Path <span>to a stronger community</span></h1>
+      <p>
+        Every contribution helps pave the path toward a stronger Methow Valley. Together, we grow
+        opportunity, support local initiatives, and build a better future for all.
+      </p>
+      <div class="tracker-panel" aria-label="Current community investment progress">
+        <div>
+          <span class="tracker-label">Total Contributions</span>
+          <strong>${current.toLocaleString()}</strong>
+          <span class="tracker-divider"></span>
+          <span class="tracker-label">Next Milestone</span>
+          <b>${nextMilestone.amount.toLocaleString()}</b>
+          <small>{nextMilestone.title}</small>
+        </div>
+        <div
+          class="tracker-ring"
+          style={`--progress: ${visualPercent * 3.6}deg;`}
+          aria-label={`${percentLabel}% of $${totalGoal.toLocaleString()} goal`}
+        >
+          <span>{percentLabel}%</span>
+          <small>of ${totalGoal.toLocaleString()} goal</small>
+        </div>
+      </div>
+      <a class="btn" href={googleForms.communityNeed} target="_blank" rel="noreferrer">
+        Submit a Community Need
+      </a>
+    </div>
+
+    <div class="tracker-art" aria-hidden="true">
+      <svg class="tracker-tree" viewBox="0 0 620 520" focusable="false">
+        <path d="M310 470 C280 360 320 285 302 182" fill="none" stroke="#5b3c1b" stroke-width="34" stroke-linecap="round" />
+        <path d="M306 204 C202 190 140 128 84 60 M318 228 C444 196 494 120 548 62 M306 280 C202 276 138 330 72 392 M326 318 C420 304 478 368 552 430" fill="none" stroke="#6b4b28" stroke-width="14" stroke-linecap="round" />
+        <path d="M302 160 C242 122 210 76 206 18 M324 156 C386 116 420 70 424 18 M288 238 C218 232 168 202 126 160 M338 260 C410 248 464 212 506 168" fill="none" stroke="#6b4b28" stroke-width="10" stroke-linecap="round" />
+        {Array.from({ length: 78 }).map((_, index) => {
+          const angle = (index * 137.5) % 360;
+          const radius = 82 + (index % 6) * 24;
+          const cx = 310 + Math.cos((angle * Math.PI) / 180) * radius;
+          const cy = 150 + Math.sin((angle * Math.PI) / 180) * radius * 0.72;
+          return (
+            <ellipse
+              cx={cx}
+              cy={cy}
+              rx="10"
+              ry="5"
+              fill={index % 3 === 0 ? '#1C2B1E' : index % 3 === 1 ? '#2E4A30' : '#8A8C7A'}
+              opacity="0.72"
+              transform={`rotate(${angle} ${cx} ${cy})`}
+            />
+          );
+        })}
+      </svg>
+      <div class="tracker-mountain mountain-one"></div>
+      <div class="tracker-mountain mountain-two"></div>
+      <div class="tracker-path"></div>
+    </div>
+
+    <ol class="tracker-scale" aria-label="Investment milestones">
+      {milestones.slice().reverse().map((milestone) => (
+        <li class={current >= milestone.amount ? 'reached' : milestone.amount === nextMilestone.amount ? 'next' : ''}>
+          <span class="scale-line"></span>
+          <strong>${milestone.amount.toLocaleString()}</strong>
+          <small>{milestone.title}</small>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="section sand">
+    <div class="container">
+      <div class="eyebrow">Milestone Path</div>
+      <h2>From first seed money to <em>major valley impact.</em></h2>
+      <div class="grid three" style="margin-top: 28px;">
+        {milestones.map((milestone) => (
+          <article class={`card ${milestone.amount === nextMilestone.amount ? 'sand' : ''}`}>
+            <h3>${milestone.amount.toLocaleString()}</h3>
+            <p><strong>{milestone.title}</strong></p>
+            <p>{milestone.note}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

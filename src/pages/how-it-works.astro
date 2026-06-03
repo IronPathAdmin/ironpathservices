@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { processSteps } from '../data/site';
+---
+
+<BaseLayout title="How It Works" description="How Iron Path Services handles quotes, transparency, payment terms, donations, recycled fire starters, and follow-up.">
+  <PageHero eyebrow="How It Works" title="Simple, honest, <em>documented.</em>" lead="A clear path from first contact to final approval." />
+
+  <section class="section">
+    <div class="container grid two" style="align-items: start;">
+      <div>
+        <div class="eyebrow">Our Process</div>
+        <h2>Eight steps, <em>no guessing.</em></h2>
+        <p class="lead">Invoice timing and any required deposit are agreed before work begins. Quoted prices are final with no post-job additions.</p>
+      </div>
+      <div class="grid">
+        {processSteps.map(([title, text], index) => (
+          <div class="card sand reveal">
+            <div class="service-badge">{index + 1}</div>
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section sand">
+    <div class="container grid three">
+      <div class="card">
+        <h3>How we make Blazers</h3>
+        <p>Safe burnable paper is processed into a slurry, formed into compact blocks, dried, and sold as recycled fire starters.</p>
+      </div>
+      <div class="card">
+        <h3>Transparency policy</h3>
+        <p>Every known fee is itemized before booking. If the scope changes, we pause and get approval before continuing.</p>
+      </div>
+      <div class="card">
+        <h3>Donation process</h3>
+        <p>Usable items are sorted for donation, resale, or refurbishing where practical, with credits communicated in your favor.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { externalLinks, googleForms, reviews } from '../data/site';
+---
+
+<BaseLayout title="Reviews" description="Iron Path Services customer reviews, review submission, Google reviews link, star ratings, and review of the week.">
+  <PageHero eyebrow="Reviews" title="A growing book of <em>trust.</em>" lead="The flip book is planned for a later update. For launch, reviews publish only after manual approval." />
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">Review of the Week</div>
+      <div class="card sand">
+        <h2>"{reviews[3].quote}"</h2>
+        <p><strong>{reviews[3].name}</strong> · {reviews[3].location} · {reviews[3].service}</p>
+      </div>
+      <div class="grid four" style="margin-top: 28px;">
+        {reviews.map((review) => (
+          <article class="card reveal">
+            <p aria-label="5 star rating">★★★★★</p>
+            <p style="font-family: 'Lora', Georgia, serif; font-style: italic;">"{review.quote}"</p>
+            <strong>{review.name}</strong>
+            <p>{review.location} · {review.service}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section sand">
+    <div class="container grid two" style="align-items: start;">
+      <div>
+        <div class="eyebrow">Submit a Review</div>
+        <h2>Manual approval, <em>then publish.</em></h2>
+        <p class="lead">Submitted reviews are routed to admin first. After approval, they can be added to the live review list and future flip book.</p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a class="btn" href={externalLinks.googleReview} target="_blank" rel="noreferrer">Leave a Google Review</a>
+          <a class="btn secondary" href={googleForms.customerReview} target="_blank" rel="noreferrer">Website Review Form</a>
+        </div>
+      </div>
+      <ContactForm type="review" title="Review Submission" intro="Your review will be sent for manual approval before it appears on the website." googleFormUrl={googleForms.customerReview} />
+    </div>
+  </section>
+</BaseLayout>

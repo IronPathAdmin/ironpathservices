@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { googleForms } from '../data/site';
+---
+
+<BaseLayout title="Local Businesses We Support" description="A launch-ready directory placeholder for Methow Valley businesses supported by Iron Path Services.">
+  <PageHero eyebrow="Local Businesses" title="The Referral Ecosystem <em>starts here.</em>" lead="We strive to support local businesses throughout the Methow Valley. This page will become a living directory as referral partners are approved." />
+
+  <section class="section">
+    <div class="container grid two" style="align-items: center;">
+      <div>
+        <div class="eyebrow">Now Accepting Partners</div>
+        <h2>Want to become a <em>supported business?</em></h2>
+        <p class="lead">
+          Iron Path Services is building a local referral ecosystem: a practical network of
+          Methow Valley businesses we can recommend when a neighbor needs the right fit.
+        </p>
+        <p>
+          If your business serves the valley with honest work, clear communication, and community
+          care, we invite you to apply. Approved partners will be added here with business details,
+          contact links, and a short note about why we support them.
+        </p>
+        <a class="btn" href={googleForms.referralPartner} target="_blank" rel="noreferrer">
+          Fill Out Referral Partner Application
+        </a>
+      </div>
+      <div class="card sand">
+        <h3>What this page will include</h3>
+        <ul>
+          <li>Business name, category, and service area</li>
+          <li>Website, phone, email, and social links</li>
+          <li>Logo or photo when available</li>
+          <li>Why Iron Path supports or recommends the business</li>
+          <li>Referral notes so customers know who to call and why</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section sand compact">
+    <div class="container">
+      <div class="eyebrow">How It Works</div>
+      <h2>Apply, align, <em>get listed.</em></h2>
+      <div class="grid three" style="margin-top: 28px;">
+        <article class="card reveal">
+          <h3>1. Apply</h3>
+          <p>Fill out the Referral Partner Application with your business details and best contact information.</p>
+        </article>
+        <article class="card reveal">
+          <h3>2. Connect</h3>
+          <p>We review fit, values, availability, and how referrals should be handled between businesses.</p>
+        </article>
+        <article class="card reveal">
+          <h3>3. Support Local</h3>
+          <p>Approved partners are listed here so customers can discover trusted local options.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section sand compact">
+    <div class="container" style="display: flex; justify-content: space-between; gap: 20px; align-items: center; flex-wrap: wrap;">
+      <div>
+        <div class="eyebrow">Referral Ecosystem</div>
+        <h2>Want to be listed?</h2>
+      </div>
+      <a class="btn" href={googleForms.referralPartner} target="_blank" rel="noreferrer">
+        Open Referral Partner Form
+      </a>
+    </div>
+  </section>
+</BaseLayout>

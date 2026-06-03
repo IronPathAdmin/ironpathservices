@@ -1,0 +1,68 @@
+---
+import { contact, serviceAreas } from '../data/site';
+---
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <a class="brand" href="/" aria-label="Iron Path Services home">
+        <img class="brand-mark" src="/assets/iron-path-mark.svg" alt="" aria-hidden="true" />
+        <span>
+          Iron Path Services
+          <small>A Path Forged In Trust</small>
+        </span>
+      </a>
+      <p style="line-height: 1.7; max-width: 380px;">
+        Locally owned services for the Methow Valley: junk removal, cleaning, secure shredding,
+        firewood, vending, and ATM placement.
+      </p>
+      <p style="font-family: 'Lora', Georgia, serif; font-style: italic; color: var(--bronze);">
+        Rooted in trust. Every branch leads back to community.
+      </p>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <a href={contact.phoneHref}>{contact.phone}</a>
+      <a href={`mailto:${contact.supportEmail}`}>{contact.supportEmail}</a>
+      <a href={contact.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a>
+      <a href={contact.instagram} target="_blank" rel="noreferrer">{contact.instagramLabel}</a>
+      <a href={contact.facebook} target="_blank" rel="noreferrer">{contact.facebookLabel}</a>
+    </div>
+    <div>
+      <h3>Explore</h3>
+      <a href="/products-services/">Products & Services</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="/initiatives/">Initiatives</a>
+      <a href="/stories/">Stories</a>
+      <a href="/reviews/">Reviews</a>
+      <a href="/get-a-quote/">Request a Free Estimate</a>
+    </div>
+    <div>
+      <h3>Service Area</h3>
+      <p style="line-height: 1.7; margin: 0 0 12px;">{serviceAreas.join(' · ')}</p>
+      <a href="/legal/privacy-policy/">Privacy Policy</a>
+      <a href="/legal/terms-of-service/">Terms of Service</a>
+    </div>
+    <div style="grid-column: 1 / -1;">
+      <form
+        class="js-smart-form"
+        data-form-type="newsletter"
+        data-admin-email={contact.adminEmail}
+        data-support-email={contact.supportEmail}
+        style="display: flex; gap: 12px; flex-wrap: wrap; align-items: end; background: rgba(245, 240, 232, 0.08); border: 1px solid rgba(245, 240, 232, 0.14); border-radius: 24px; padding: 18px;"
+      >
+        <div style="flex: 1 1 260px;">
+          <label for="footer-email" style="color: var(--sand);">Stay in the loop</label>
+          <input id="footer-email" name="email" type="email" placeholder="you@example.com" required />
+          <input type="hidden" name="message" value="Newsletter signup" />
+        </div>
+        <button class="btn" type="submit">Subscribe</button>
+        <p class="status" role="status" aria-live="polite" style="flex-basis: 100%; margin: 0;"></p>
+      </form>
+    </div>
+  </div>
+  <div class="legal-row">
+    <span>© 2026 Iron Path Services LLC · Winthrop, WA</span>
+    <span>Licensed & Insured · Washington State</span>
+  </div>
+</footer>
