@@ -21,6 +21,7 @@ export const googleForms = {
   communityNeed: 'https://forms.gle/Njyob5HgRTThAn256',
   customerReview: 'https://forms.gle/V3KNfNb3soMkNpeDA',
   imageApproval: 'https://forms.gle/7abciXX1tcqRWqZi6',
+  promotion: 'https://forms.gle/qnfBQw8S78fYFXPE9',
 };
 
 export const googleFormFinePrint =
