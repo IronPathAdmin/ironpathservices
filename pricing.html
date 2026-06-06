@@ -423,7 +423,7 @@ table.pt td:nth-child(2){font-family:'Playfair Display',serif;font-weight:700;fo
       <input type="email" class="mc-input" id="mcEmail" placeholder="your@email.com"/>
       <button class="mc-btn" onclick="mcSubmit()">Subscribe</button>
     </div>
-    <div class="mc-success" id="mcSuccess">Thanks! You're on the list. 🌲</div>
+    <div class="mc-success" id="mcSuccess">Thanks! Please send the email draft to finish joining the list.</div>
     <p style="font-size:10px;color:rgba(var(--color-methow-ember-rgb),0.35);margin-top:6px;font-family:'DM Sans',sans-serif">No spam. Unsubscribe anytime. Powered by Mailchimp.</p>
   </div>
 </div>
@@ -433,7 +433,7 @@ table.pt td:nth-child(2){font-family:'Playfair Display',serif;font-weight:700;fo
     <div class="foot-tagline">A Path Forged In Trust</div>
     <div class="foot-contact">
       <a href="tel:5098837231">(509) 883-7231</a>
-      <a href="mailto:support@ironpathservices.com">support@ironpathservices.com</a>
+      <a href="mailto:leads@ironpathservices.com">leads@ironpathservices.com</a>
       <a href="https://www.ironpathservices.com">IronPathServices.com</a>
       <a>Winthrop, WA 98862</a>
     </div>
@@ -451,13 +451,15 @@ table.pt td:nth-child(2){font-family:'Playfair Display',serif;font-weight:700;fo
     <li><a href="https://www.instagram.com/ironpathservices" target="_blank">Instagram</a></li>
     <li><a href="https://wa.me/15098837231" target="_blank">WhatsApp</a></li>
     <li><a href="tel:5098837231">(509) 883-7231</a></li>
-    <li><a href="mailto:support@ironpathservices.com">Email Us</a></li>
+    <li><a href="mailto:leads@ironpathservices.com">Email Us</a></li>
     <li><a href="pricing.html">Pricing Page</a></li>
   </ul></div>
   <div class="foot-bottom"><p>© 2026 Iron Path Services LLC · Winthrop, WA · All rights reserved</p><p>Licensed &amp; Insured · Washington State</p></div>
 </footer>
 
 <script>
+const LEADS_EMAIL='leads@ironpathservices.com';
+function sendLeadEmail(subject,body){window.location.href=`mailto:${LEADS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;}
 function showP(id,btn){
   document.querySelectorAll('.ppanel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.ptab').forEach(t=>t.classList.remove('active'));
@@ -469,6 +471,7 @@ function showP(id,btn){
 function mcSubmit(){
   const em=document.getElementById('mcEmail');
   if(!em||!em.value.includes('@')){if(em)em.style.borderColor='var(--rust)';return;}
+  sendLeadEmail('Iron Path Newsletter Signup',`Newsletter signup email: ${em.value.trim()}\nSubmitted From: ${document.title}`);
   document.getElementById('mcForm').style.display='none';
   document.getElementById('mcSuccess').style.display='block';
 }
