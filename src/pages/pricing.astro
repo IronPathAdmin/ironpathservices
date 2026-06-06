@@ -27,11 +27,65 @@ import { discounts, fees, pricingTables, promotions } from '../data/site';
       <div class="eyebrow">Promotions</div>
       <h2>Current <em>promotions.</em></h2>
       {promotions.length > 0 ? (
-        <div class="grid three" style="margin-top: 28px;">
+        <div class="promotion-grid" style="margin-top: 28px;">
           {promotions.map((promotion) => (
-            <article class="card reveal">
-              <h3>{promotion.title}</h3>
-              <p>{promotion.details}</p>
+            <article class="card reveal promotion-card">
+              <div>
+                <h3>{promotion.title}</h3>
+                <p>{promotion.details}</p>
+              </div>
+
+              {promotion.dates && (
+                <div class="promotion-dates" aria-label={`${promotion.title} important dates`}>
+                  {promotion.dates.map((date) => (
+                    <div>
+                      <span>{date.label}</span>
+                      <strong>{date.value}</strong>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {promotion.prizeOptions && (
+                <div>
+                  <h4>Prize choices</h4>
+                  <ul>
+                    {promotion.prizeOptions.map((option) => <li>{option}</li>)}
+                  </ul>
+                </div>
+              )}
+
+              {promotion.entrySteps && (
+                <div>
+                  <h4>How to enter</h4>
+                  <ul>
+                    {promotion.entrySteps.map((step) => <li>{step}</li>)}
+                  </ul>
+                </div>
+              )}
+
+              {promotion.bonusEntries && (
+                <div>
+                  <h4>Bonus entries</h4>
+                  <ul>
+                    {promotion.bonusEntries.map((entry) => <li>{entry}</li>)}
+                  </ul>
+                </div>
+              )}
+
+              {promotion.nominationDetails && (
+                <div class="promotion-callout">
+                  <h4>Nominate someone deserving</h4>
+                  <p>{promotion.nominationDetails}</p>
+                </div>
+              )}
+
+              {promotion.cta && (
+                <a class="btn" href={promotion.cta.href} target="_blank" rel="noreferrer">
+                  {promotion.cta.label}
+                </a>
+              )}
+
               <p class="fine-print">{promotion.finePrint}</p>
             </article>
           ))}
