@@ -20,6 +20,7 @@ export const googleForms = {
   referralPartner: 'https://forms.gle/SZZtc3cAAzJrhW3j6',
   communityNeed: 'https://forms.gle/Njyob5HgRTThAn256',
   customerReview: 'https://forms.gle/V3KNfNb3soMkNpeDA',
+  imageApproval: 'https://forms.gle/7abciXX1tcqRWqZi6',
 };
 
 export const googleFormFinePrint =
@@ -436,7 +437,7 @@ export const founderLetter = [
 export const storyCards = [
   {
     title: 'Job stories and pictures',
-    text: 'Before-and-after field notes will live here once real job photos are ready for launch.',
+    text: 'Follow along for before-and-after field notes, customer stories, and project highlights from the valley.',
   },
   {
     title: 'Community moments',

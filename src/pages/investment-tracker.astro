@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { googleForms } from '../data/site';
+import { googleFormFinePrint, googleForms } from '../data/site';
 
 const current = 50;
 const totalGoal = 30000;
@@ -48,6 +48,7 @@ const nextMilestone = milestones.find((milestone) => current < milestone.amount)
       <a class="btn" href={googleForms.communityNeed} target="_blank" rel="noreferrer">
         Submit a Community Need
       </a>
+      <p class="fine-print">{googleFormFinePrint}</p>
     </div>
 
     <div class="tracker-art" aria-hidden="true">

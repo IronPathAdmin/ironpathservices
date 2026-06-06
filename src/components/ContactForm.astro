@@ -11,7 +11,7 @@ interface Props {
 const {
   type = 'quote',
   title = 'Tell Us About Your Request',
-  intro = 'Use this embedded form for an email fallback, or open the official Google Form for Workspace routing.',
+  intro = 'Use this website form to send details by email, or open the official Google Form when available.',
   googleFormUrl,
 } = Astro.props;
 ---
@@ -97,7 +97,7 @@ const {
 
   <div class="form-note">
     Email fallback requests are addressed to {contact.leadsEmail}.
-    {googleFormUrl && ' For Google Workspace routing, use the official Google Form link below.'}
+    {googleFormUrl && ' For the official online intake, use the Google Form link below.'}
     {googleFormUrl && <span class="fine-print">{googleFormFinePrint}</span>}
   </div>
   <div style="display: flex; gap: 12px; flex-wrap: wrap;">

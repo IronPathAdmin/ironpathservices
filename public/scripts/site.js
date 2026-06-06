@@ -5,7 +5,7 @@ const googleFormEndpoints = {
   general: 'https://forms.gle/d1u58XK3wpbYDrcD6',
   volunteer: 'https://forms.gle/eTywiDqx76tG19zw5',
   evaluation: '',
-  image: '',
+  image: 'https://forms.gle/7abciXX1tcqRWqZi6',
 };
 
 function buildMailto(form, data) {
@@ -60,7 +60,7 @@ function initForms() {
 
       if (googleFormUrl && status) {
         status.textContent =
-          'Opening your email app. For Google Workspace routing, use the Google Form button on this form.';
+          'Opening your email app. You can also use the official Google Form button on this form.';
       } else if (status) {
         status.textContent = 'Opening your email app with the request addressed to leads@ironpathservices.com.';
       }

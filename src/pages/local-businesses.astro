@@ -1,11 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import { googleForms } from '../data/site';
+import { googleFormFinePrint, googleForms } from '../data/site';
 ---
 
-<BaseLayout title="Local Businesses We Support" description="A launch-ready directory placeholder for Methow Valley businesses supported by Iron Path Services.">
-  <PageHero eyebrow="Local Businesses" title="The Referral Ecosystem <em>starts here.</em>" lead="We strive to support local businesses throughout the Methow Valley. This page will become a living directory as referral partners are approved." />
+<BaseLayout title="Local Businesses We Support" description="Apply to join the Iron Path Services referral ecosystem for Methow Valley businesses.">
+  <PageHero eyebrow="Local Businesses" title="Grow local trust <em>together.</em>" lead="We are building a practical referral network for Methow Valley businesses that share our standards for honest work, clear communication, and neighbor-first service." />
 
   <section class="section">
     <div class="container grid two" style="align-items: center;">
@@ -18,21 +18,22 @@ import { googleForms } from '../data/site';
         </p>
         <p>
           If your business serves the valley with honest work, clear communication, and community
-          care, we invite you to apply. Approved partners will be added here with business details,
-          contact links, and a short note about why we support them.
+          care, we invite you to apply. Approved partners may be featured with business details,
+          contact links, and a short note about when we recommend them.
         </p>
         <a class="btn" href={googleForms.referralPartner} target="_blank" rel="noreferrer">
           Fill Out Referral Partner Application
         </a>
+        <p class="fine-print">{googleFormFinePrint}</p>
       </div>
       <div class="card sand">
-        <h3>What this page will include</h3>
+        <h3>Why apply?</h3>
         <ul>
-          <li>Business name, category, and service area</li>
-          <li>Website, phone, email, and social links</li>
-          <li>Logo or photo when available</li>
-          <li>Why Iron Path supports or recommends the business</li>
-          <li>Referral notes so customers know who to call and why</li>
+          <li>Be considered for customer referrals when Iron Path is not the right fit</li>
+          <li>Help neighbors find trusted, local options faster</li>
+          <li>Share your service area, specialty, and best contact path</li>
+          <li>Build a stronger valley network around clear standards</li>
+          <li>Stay connected for future partnership opportunities</li>
         </ul>
       </div>
     </div>
@@ -68,6 +69,7 @@ import { googleForms } from '../data/site';
       <a class="btn" href={googleForms.referralPartner} target="_blank" rel="noreferrer">
         Open Referral Partner Form
       </a>
+      <p class="fine-print" style="flex-basis: 100%; text-align: right;">{googleFormFinePrint}</p>
     </div>
   </section>
 </BaseLayout>
