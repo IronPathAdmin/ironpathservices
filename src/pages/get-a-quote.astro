@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import ContactForm from '../components/ContactForm.astro';
 import GoogleFormLinks from '../components/GoogleFormLinks.astro';
-import { contact, googleForms } from '../data/site';
+import { contact, googleFormFinePrint, googleForms } from '../data/site';
 ---
 
 <BaseLayout title="Get a Quote" description="Request a free estimate from Iron Path Services.">
@@ -38,6 +38,7 @@ import { contact, googleForms } from '../data/site';
         <h3>Review form</h3>
         <p>Reviews are collected on the Reviews page, then manually approved before publishing.</p>
         <a class="btn secondary" href={googleForms.customerReview} target="_blank" rel="noreferrer">Open Review Form</a>
+        <p class="fine-print">{googleFormFinePrint}</p>
       </div>
       <div class="card">
         <h3>Printable pricing PDF</h3>

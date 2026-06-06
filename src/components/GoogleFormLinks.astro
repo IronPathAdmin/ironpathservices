@@ -1,5 +1,5 @@
 ---
-import { formLinks } from '../data/site';
+import { formLinks, googleFormFinePrint } from '../data/site';
 
 interface Props {
   titles?: string[];
@@ -20,6 +20,7 @@ const links = titles?.length
       <a class="btn secondary" href={link.href} target="_blank" rel="noreferrer">
         Open Google Form
       </a>
+      <p class="fine-print">{googleFormFinePrint}</p>
     </article>
   ))}
 </div>

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import { googleForms, services } from '../data/site';
+import { googleFormFinePrint, googleForms, services } from '../data/site';
 
 const serviceForms = {
   cleaning: googleForms.generalQuote,
@@ -31,6 +31,7 @@ const serviceForms = {
                 <a class="btn" href={serviceForms[service.slug]} target="_blank" rel="noreferrer">Open Google Form</a>
                 <a class="btn secondary" href="/get-a-quote/">Estimate Page</a>
               </div>
+              <p class="fine-print">{googleFormFinePrint}</p>
             </div>
             <div>
               <div class="image-card" style={`--image-url: url('${service.image}');`} role="img" aria-label={`${service.title} image`}></div>

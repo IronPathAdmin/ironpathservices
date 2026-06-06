@@ -22,6 +22,9 @@ export const googleForms = {
   customerReview: 'https://forms.gle/V3KNfNb3soMkNpeDA',
 };
 
+export const googleFormFinePrint =
+  'May be required to log into google in order to fill out form due to ability to upload files. Thank you for your time and look forward to helping you!';
+
 export const externalLinks = {
   googleReview: 'https://g.page/r/CZXFURd6BbjgEAE/review',
 };

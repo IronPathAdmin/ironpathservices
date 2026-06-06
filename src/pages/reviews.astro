@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import ContactForm from '../components/ContactForm.astro';
-import { externalLinks, googleForms, reviews } from '../data/site';
+import { externalLinks, googleFormFinePrint, googleForms, reviews } from '../data/site';
 ---
 
 <BaseLayout title="Reviews" description="Iron Path Services customer reviews, review submission, Google reviews link, star ratings, and review of the week.">
@@ -38,6 +38,7 @@ import { externalLinks, googleForms, reviews } from '../data/site';
           <a class="btn" href={externalLinks.googleReview} target="_blank" rel="noreferrer">Leave a Google Review</a>
           <a class="btn secondary" href={googleForms.customerReview} target="_blank" rel="noreferrer">Website Review Form</a>
         </div>
+        <p class="fine-print">{googleFormFinePrint}</p>
       </div>
       <ContactForm type="review" title="Review Submission" intro="Your review will be sent for manual approval before it appears on the website." googleFormUrl={googleForms.customerReview} />
     </div>

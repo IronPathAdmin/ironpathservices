@@ -1,5 +1,5 @@
 ---
-import { contact, services } from '../data/site';
+import { contact, googleFormFinePrint, services } from '../data/site';
 
 interface Props {
   type?: 'quote' | 'review' | 'newsletter' | 'general' | 'volunteer' | 'evaluation' | 'image';
@@ -98,6 +98,7 @@ const {
   <div class="form-note">
     Email fallback requests are addressed to {contact.leadsEmail}.
     {googleFormUrl && ' For Google Workspace routing, use the official Google Form link below.'}
+    {googleFormUrl && <span class="fine-print">{googleFormFinePrint}</span>}
   </div>
   <div style="display: flex; gap: 12px; flex-wrap: wrap;">
     <button class="btn" type="submit">Send by Email</button>

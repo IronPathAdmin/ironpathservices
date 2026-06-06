@@ -702,6 +702,14 @@ textarea:focus {
   font-size: 14px;
 }
 
+.fine-print {
+  display: block;
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
 .status {
   margin-top: 14px;
   color: var(--forest);
