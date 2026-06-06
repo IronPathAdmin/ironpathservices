@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import { discounts, fees, pricingTables } from '../data/site';
+import { discounts, fees, pricingTables, promotions } from '../data/site';
 ---
 
 <BaseLayout title="Pricing" description="Transparent pricing, fees, add-ons, discounts, payment terms, and printable pricing PDF for Iron Path Services.">
@@ -43,6 +43,32 @@ import { discounts, fees, pricingTables } from '../data/site';
       </div>
     </section>
   ))}
+
+  <section class="section sand compact">
+    <div class="container">
+      <div class="eyebrow">Promotions</div>
+      <h2>Current <em>promotions.</em></h2>
+      {promotions.length > 0 ? (
+        <div class="grid three" style="margin-top: 28px;">
+          {promotions.map((promotion) => (
+            <article class="card reveal">
+              <h3>{promotion.title}</h3>
+              <p>{promotion.details}</p>
+              <p class="fine-print">{promotion.finePrint}</p>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="card" style="margin-top: 28px;">
+          <h3>No Promotions available at this time</h3>
+          <p>
+            Please check back for seasonal offers and service specials. If promotions are available,
+            they will be posted here with fine print included.
+          </p>
+        </div>
+      )}
+    </div>
+  </section>
 
   <section class="section sand">
     <div class="container grid two">

@@ -423,6 +423,12 @@ export const discounts = [
   ['Variable', 'Donation / resale credit'],
 ];
 
+export const promotions: Array<{
+  title: string;
+  details: string;
+  finePrint: string;
+}> = [];
+
 export const founderLetter = [
   'Iron Path Services was founded in March 2026 in the Methow Valley by three people who believed this place deserved a different kind of service company.',
   "I'm Benji, the founder and Strategy Architect. I came to the Methow the way a lot of people do: chasing something the rest of the country had stopped offering. Open country. Honest work. Neighbors who notice when your truck has not moved in a few days.",
