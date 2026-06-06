@@ -22,28 +22,6 @@ import { discounts, fees, pricingTables, promotions } from '../data/site';
     </div>
   </section>
 
-  {pricingTables.map((table) => (
-    <section class="section compact">
-      <div class="container">
-        <div class="eyebrow">{table.title}</div>
-        <h2>{table.title} <em>pricing.</em></h2>
-        <p class="lead">{table.note}</p>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Item</th><th>Rate</th><th>Notes</th></tr>
-            </thead>
-            <tbody>
-              {table.rows.map((row) => (
-                <tr>{row.map((cell) => <td>{cell}</td>)}</tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-  ))}
-
   <section class="section sand compact">
     <div class="container">
       <div class="eyebrow">Promotions</div>
@@ -69,6 +47,28 @@ import { discounts, fees, pricingTables, promotions } from '../data/site';
       )}
     </div>
   </section>
+
+  {pricingTables.map((table) => (
+    <section class="section compact">
+      <div class="container">
+        <div class="eyebrow">{table.title}</div>
+        <h2>{table.title} <em>pricing.</em></h2>
+        <p class="lead">{table.note}</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Item</th><th>Rate</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+              {table.rows.map((row) => (
+                <tr>{row.map((cell) => <td>{cell}</td>)}</tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  ))}
 
   <section class="section sand">
     <div class="container grid two">
