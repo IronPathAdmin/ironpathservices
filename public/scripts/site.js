@@ -9,8 +9,7 @@ const googleFormEndpoints = {
 };
 
 function buildMailto(form, data) {
-  const admin = form.dataset.adminEmail || 'admin@ironpathservices.com';
-  const support = form.dataset.supportEmail || 'support@ironpathservices.com';
+  const leads = form.dataset.leadsEmail || 'leads@ironpathservices.com';
   const type = form.dataset.formType || 'website';
   const subject = encodeURIComponent(`Iron Path Website ${type} request`);
   const body = encodeURIComponent(
@@ -18,7 +17,7 @@ function buildMailto(form, data) {
       .map(([key, value]) => `${key.replace(/_/g, ' ')}: ${value}`)
       .join('\n')
   );
-  return `mailto:${admin}?cc=${support}&subject=${subject}&body=${body}`;
+  return `mailto:${leads}?subject=${subject}&body=${body}`;
 }
 
 function initMenu() {
@@ -63,7 +62,7 @@ function initForms() {
         status.textContent =
           'Opening your email app. For Google Workspace routing, use the Google Form button on this form.';
       } else if (status) {
-        status.textContent = 'Opening your email app with the request addressed to Iron Path.';
+        status.textContent = 'Opening your email app with the request addressed to leads@ironpathservices.com.';
       }
 
       window.location.href = buildMailto(form, data);

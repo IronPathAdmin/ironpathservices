@@ -23,7 +23,7 @@ import { contact, serviceAreas } from '../data/site';
     <div>
       <h3>Contact</h3>
       <a href={contact.phoneHref}>{contact.phone}</a>
-      <a href={`mailto:${contact.supportEmail}`}>{contact.supportEmail}</a>
+      <a href={`mailto:${contact.leadsEmail}`}>{contact.leadsEmail}</a>
       <a href={contact.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a>
       <a href={contact.instagram} target="_blank" rel="noreferrer">{contact.instagramLabel}</a>
       <a href={contact.facebook} target="_blank" rel="noreferrer">{contact.facebookLabel}</a>
@@ -47,8 +47,7 @@ import { contact, serviceAreas } from '../data/site';
       <form
         class="js-smart-form"
         data-form-type="newsletter"
-        data-admin-email={contact.adminEmail}
-        data-support-email={contact.supportEmail}
+        data-leads-email={contact.leadsEmail}
         style="display: flex; gap: 12px; flex-wrap: wrap; align-items: end; background: rgba(245, 240, 232, 0.08); border: 1px solid rgba(245, 240, 232, 0.14); border-radius: 24px; padding: 18px;"
       >
         <div style="flex: 1 1 260px;">

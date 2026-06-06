@@ -19,8 +19,7 @@ const {
 <form
   class="form-box js-smart-form"
   data-form-type={type}
-  data-admin-email={contact.adminEmail}
-  data-support-email={contact.supportEmail}
+  data-leads-email={contact.leadsEmail}
   data-google-form={googleFormUrl}
 >
   <h3>{title}</h3>
@@ -97,7 +96,7 @@ const {
   </div>
 
   <div class="form-note">
-    Email fallback requests are addressed to {contact.adminEmail} and copied for operations review.
+    Email fallback requests are addressed to {contact.leadsEmail}.
     {googleFormUrl && ' For Google Workspace routing, use the official Google Form link below.'}
   </div>
   <div style="display: flex; gap: 12px; flex-wrap: wrap;">
