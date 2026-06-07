@@ -423,6 +423,54 @@ em {
   justify-self: start;
 }
 
+.promotion-socials {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.promotion-social {
+  display: grid;
+  gap: 4px;
+  border-radius: 18px;
+  padding: 16px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.promotion-social:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(28, 43, 30, 0.18);
+}
+
+.promotion-social.facebook {
+  background: linear-gradient(135deg, #1877f2, #0b4fb3);
+}
+
+.promotion-social.instagram {
+  background:
+    radial-gradient(circle at 15% 115%, #feda75, transparent 30%),
+    linear-gradient(135deg, #833ab4, #fd1d1d 55%, #fcb045);
+}
+
+.promotion-social span,
+.promotion-social em {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.promotion-social strong {
+  color: #ffffff;
+  font-size: 19px;
+  line-height: 1.15;
+}
+
 .promotion-status {
   margin-top: -2px;
   color: var(--copper);
@@ -1203,6 +1251,7 @@ textarea:focus {
 
   .notice-row,
   .promotion-dates,
+  .promotion-socials,
   .grid.two,
   .grid.three,
   .grid.four,

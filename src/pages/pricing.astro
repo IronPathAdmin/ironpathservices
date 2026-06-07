@@ -75,6 +75,22 @@ import { discounts, fees, googleFormFinePrint, googleForms, pricingTables, promo
               {promotion.entrySteps && (
                 <div>
                   <h4>How to enter</h4>
+                  {promotion.socialEntries && (
+                    <div class="promotion-socials">
+                      {promotion.socialEntries.map((social) => (
+                        <a
+                          class={`promotion-social ${social.platform}`}
+                          href={social.href}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <span>{social.label}</span>
+                          <strong>{social.handle}</strong>
+                          <em>{social.entries}</em>
+                        </a>
+                      ))}
+                    </div>
+                  )}
                   <ul>
                     {promotion.entrySteps.map((step) => <li>{step}</li>)}
                   </ul>

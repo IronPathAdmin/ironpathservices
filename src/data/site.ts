@@ -6,9 +6,9 @@ export const contact = {
   supportEmail: 'leads@ironpathservices.com',
   adminEmail: 'leads@ironpathservices.com',
   instagram: 'https://www.instagram.com/ironpathservices',
-  instagramLabel: '@ironpathservices',
+  instagramLabel: 'Instagram: @ironpathservices',
   facebook: 'https://www.facebook.com/share/1AdC4PEsEi/',
-  facebookLabel: 'Iron Path Services',
+  facebookLabel: 'Facebook: Iron Path Services',
 };
 
 export const googleForms = {
@@ -433,6 +433,13 @@ export const promotions: Array<{
   optionsHeading?: string;
   prizeOptions?: string[];
   offerDetails?: string[];
+  socialEntries?: Array<{
+    platform: 'facebook' | 'instagram';
+    label: string;
+    handle: string;
+    href: string;
+    entries: string;
+  }>;
   entrySteps?: string[];
   bonusEntries?: string[];
   nominationDetails?: string;
@@ -460,10 +467,24 @@ export const promotions: Array<{
       { label: 'Prize must be used by', value: 'August 31, 2026' },
     ],
     entrySteps: [
-      'Follow Iron Path Services on Facebook for +1 entry',
-      'Follow Iron Path Services on Instagram for +1 entry',
       'Like the giveaway post for +1 entry',
       'Comment "DONE" and tag 2 friends for +1 entry',
+    ],
+    socialEntries: [
+      {
+        platform: 'facebook',
+        label: 'Follow on Facebook',
+        handle: 'Iron Path Services',
+        href: contact.facebook,
+        entries: '+1 entry',
+      },
+      {
+        platform: 'instagram',
+        label: 'Follow on Instagram',
+        handle: '@ironpathservices',
+        href: contact.instagram,
+        entries: '+1 entry',
+      },
     ],
     bonusEntries: [
       'Share the giveaway post to your story for +3 entries',
