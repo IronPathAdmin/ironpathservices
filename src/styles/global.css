@@ -423,6 +423,37 @@ em {
   justify-self: start;
 }
 
+.promotion-status {
+  margin-top: -2px;
+  color: var(--copper);
+  font-weight: 800;
+}
+
+.promotion-code {
+  display: inline-grid;
+  justify-self: start;
+  gap: 4px;
+  border: 1px solid rgba(212, 96, 26, 0.34);
+  border-radius: 18px;
+  background: rgba(212, 96, 26, 0.1);
+  padding: 14px 18px;
+}
+
+.promotion-code span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.promotion-code strong {
+  color: var(--copper);
+  font-size: clamp(28px, 5vw, 46px);
+  line-height: 0.95;
+  letter-spacing: 0.03em;
+}
+
 .promotion-dates {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

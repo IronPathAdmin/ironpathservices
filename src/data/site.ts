@@ -428,7 +428,11 @@ export const promotions: Array<{
   title: string;
   details: string;
   finePrint: string;
+  status?: string;
+  promoCode?: string;
+  optionsHeading?: string;
   prizeOptions?: string[];
+  offerDetails?: string[];
   entrySteps?: string[];
   bonusEntries?: string[];
   nominationDetails?: string;
@@ -445,6 +449,7 @@ export const promotions: Array<{
     title: 'Summer Giveaway: win a free service',
     details:
       'One lucky winner will choose one prize from Iron Path Services: free junk removal, free house cleaning, or a $250 service credit toward any Iron Path service.',
+    optionsHeading: 'Prize choices',
     prizeOptions: [
       'Free junk removal up to one trailer load, equivalent to 2 truck loads',
       'Free house cleaning up to 3 hours',
@@ -475,6 +480,34 @@ export const promotions: Array<{
     },
     finePrint:
       'No purchase necessary. Must be 18 years or older and reside within Iron Path Services service area. Promotion is not sponsored, endorsed, administered by, or associated with Facebook or Instagram. One winner will be selected at random after entries close. Prize value not to exceed $250.',
+  },
+  {
+    title: 'Launch Special: $150 flat',
+    status: 'Launches Friday, June 12, 2026. First 30 customers only.',
+    details:
+      'Claim a $150 flat-rate launch special with no gas fees, no hidden charges, and no surprise add-ons.',
+    promoCode: 'FIRST30',
+    optionsHeading: 'Choose one',
+    prizeOptions: [
+      'Up to 1 full pickup truck load of junk removal, equivalent to approximately one standard pickup truck load',
+      'Up to 2 full hours of house cleaning',
+    ],
+    dates: [
+      { label: 'Launches', value: 'June 12, 2026' },
+      { label: 'Complete by', value: 'June 30, 2026' },
+    ],
+    offerDetails: [
+      'Limited to the first 30 customers',
+      'Available within 10 miles of Winthrop, WA',
+      'One service per promotional booking',
+      'Subject to scheduling availability',
+    ],
+    cta: {
+      label: 'Claim Launch Special',
+      href: googleForms.promotion,
+    },
+    finePrint:
+      'Enter promo code FIRST30 on the service request form. Offer must be scheduled and completed by June 30, 2026. Claim your spot before all 30 are gone.',
   },
 ];
 

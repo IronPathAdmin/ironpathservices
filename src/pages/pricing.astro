@@ -32,8 +32,16 @@ import { discounts, fees, googleFormFinePrint, googleForms, pricingTables, promo
             <article class="card reveal promotion-card">
               <div>
                 <h3>{promotion.title}</h3>
+                {promotion.status && <p class="promotion-status">{promotion.status}</p>}
                 <p>{promotion.details}</p>
               </div>
+
+              {promotion.promoCode && (
+                <div class="promotion-code" aria-label={`${promotion.title} promo code`}>
+                  <span>Promo code</span>
+                  <strong>{promotion.promoCode}</strong>
+                </div>
+              )}
 
               {promotion.dates && (
                 <div class="promotion-dates" aria-label={`${promotion.title} important dates`}>
@@ -48,9 +56,18 @@ import { discounts, fees, googleFormFinePrint, googleForms, pricingTables, promo
 
               {promotion.prizeOptions && (
                 <div>
-                  <h4>Prize choices</h4>
+                  <h4>{promotion.optionsHeading ?? 'Prize choices'}</h4>
                   <ul>
                     {promotion.prizeOptions.map((option) => <li>{option}</li>)}
+                  </ul>
+                </div>
+              )}
+
+              {promotion.offerDetails && (
+                <div>
+                  <h4>Offer details</h4>
+                  <ul>
+                    {promotion.offerDetails.map((detail) => <li>{detail}</li>)}
                   </ul>
                 </div>
               )}
