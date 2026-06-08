@@ -621,6 +621,94 @@ em {
   font-size: 14px;
 }
 
+.sustainable-section {
+  padding-top: 76px;
+  background:
+    linear-gradient(180deg, var(--paper), var(--sand));
+}
+
+.sustainable-panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 34px;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 8% 8%, rgba(212, 96, 26, 0.18), transparent 30%),
+    radial-gradient(circle at 92% 20%, rgba(46, 74, 48, 0.18), transparent 34%),
+    linear-gradient(135deg, rgba(245, 240, 232, 0.96), rgba(245, 240, 232, 0.72));
+  box-shadow: var(--shadow);
+  padding: clamp(28px, 5vw, 54px);
+}
+
+.sustainable-panel::after {
+  content: "";
+  position: absolute;
+  right: -90px;
+  bottom: -130px;
+  width: 360px;
+  height: 360px;
+  border: 1px solid rgba(46, 74, 48, 0.18);
+  border-radius: 999px;
+  background: rgba(46, 74, 48, 0.06);
+  pointer-events: none;
+}
+
+.sustainable-copy,
+.sustainable-proof-grid {
+  position: relative;
+  z-index: 1;
+}
+
+.sustainable-copy .lead {
+  margin-bottom: 26px;
+}
+
+.sustainable-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.sustainable-proof-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.sustainable-proof-card {
+  min-height: 100%;
+  border: 1px solid rgba(92, 51, 23, 0.18);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.48);
+  box-shadow: 0 2px 0 rgba(212, 96, 26, 0.72);
+  padding: 22px;
+}
+
+.sustainable-proof-card span {
+  display: inline-flex;
+  margin-bottom: 10px;
+  color: var(--copper);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sustainable-proof-card h3 {
+  font-size: clamp(22px, 2.2vw, 28px);
+  margin-bottom: 9px;
+}
+
+.sustainable-proof-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.62;
+}
+
 .page-hero {
   padding: 112px 24px 64px;
   background:
@@ -1230,6 +1318,10 @@ textarea:focus {
     max-width: 720px;
   }
 
+  .sustainable-panel {
+    grid-template-columns: 1fr;
+  }
+
   .tracker-art {
     min-height: 520px;
   }
@@ -1271,6 +1363,19 @@ textarea:focus {
 
   .lead {
     font-size: 16px;
+  }
+
+  .sustainable-section {
+    padding-top: 44px;
+  }
+
+  .sustainable-panel {
+    border-radius: 24px;
+    padding: 24px;
+  }
+
+  .sustainable-proof-grid {
+    grid-template-columns: 1fr;
   }
 
   .card,
