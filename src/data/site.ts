@@ -504,7 +504,7 @@ export const promotions: Array<{
   },
   {
     title: 'Launch Special: $150 flat',
-    status: 'Launches Friday, June 12, 2026. First 30 customers only.',
+    status: 'Now live. First 30 customers only.',
     details:
       'Claim a $150 flat-rate launch special with no gas fees, no hidden charges, and no surprise add-ons.',
     promoCode: 'FIRST30',
@@ -514,7 +514,7 @@ export const promotions: Array<{
       'Up to 2 full hours of house cleaning',
     ],
     dates: [
-      { label: 'Launches', value: 'June 12, 2026' },
+      { label: 'Available', value: 'Now' },
       { label: 'Complete by', value: 'June 30, 2026' },
     ],
     offerDetails: [

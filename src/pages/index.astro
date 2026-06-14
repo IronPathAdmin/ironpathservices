@@ -3,10 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ServiceTree from '../components/ServiceTree.astro';
 import ContactForm from '../components/ContactForm.astro';
 import GoogleFormLinks from '../components/GoogleFormLinks.astro';
-import { contact, faqs, googleForms, reviews, serviceAreas } from '../data/site';
+import { contact, faqs, googleForms, promotions, reviews, serviceAreas } from '../data/site';
+
+const launchPromotion = promotions.find((promotion) => promotion.promoCode === 'FIRST30');
 ---
 
-<BaseLayout title="Iron Path Services | Methow Valley" description="A complete Iron Path Services website overhaul for Methow Valley services, community initiatives, pricing, reviews, and quotes.">
+<BaseLayout title="Iron Path Services | Methow Valley" description="Iron Path Services' public Methow Valley roadmap, current launch promotion, and accountable local service commitments.">
   <section class="hero" style="--hero-image: url('/assets/img-firewood.jpg');">
     <div class="hero-content">
       <div class="eyebrow">Methow Valley's Trusted Team</div>
@@ -30,42 +32,185 @@ import { contact, faqs, googleForms, reviews, serviceAreas } from '../data/site'
     </div>
   </section>
 
-  <section class="section sand sustainable-section">
-    <div class="container sustainable-panel">
-      <div class="sustainable-copy">
-        <div class="eyebrow">Sustainable Valley</div>
-        <h2>Keeping the Methow <em>livable and thriving.</em></h2>
-        <p class="lead">
-          Our goal is bigger than completing jobs. We want Iron Path Services to help make the valley
-          a sustainable place to live, work, raise families, start businesses, and care for the land
-          that makes this community home.
-        </p>
-        <div class="sustainable-actions">
-          <a class="btn" href="/initiatives/">See Our Initiatives</a>
-          <a class="btn secondary" href="/investment-tracker/">View Community Tracker</a>
+  {launchPromotion && (
+    <section class="section launch-promo-section">
+      <div class="container launch-promo-panel">
+        <div class="launch-promo-copy">
+          <div class="eyebrow">Official Launch Promotion</div>
+          <p class="promotion-status">{launchPromotion.status}</p>
+          <h2><em>$150 flat</em> for early customers.</h2>
+          <p class="lead">
+            Choose up to one full pickup truck load of junk removal or up to two full hours
+            of house cleaning. No gas fees, no hidden charges, and no surprise add-ons.
+          </p>
+          <div class="launch-promo-code" aria-label="FIRST30 promotion code">
+            <span>Enter promo code</span>
+            <strong>{launchPromotion.promoCode}</strong>
+          </div>
+          <div class="sustainable-actions">
+            {launchPromotion.cta && (
+              <a class="btn" href={launchPromotion.cta.href} target="_blank" rel="noreferrer">
+                {launchPromotion.cta.label}
+              </a>
+            )}
+            <a class="btn secondary" href="/pricing/">Read Offer Details</a>
+          </div>
+        </div>
+        <div class="launch-promo-details">
+          <h3>Choose one:</h3>
+          <ul>
+            {launchPromotion.prizeOptions?.map((option) => <li>{option}</li>)}
+          </ul>
+          <div class="launch-promo-perks">
+            <span>No gas fees</span>
+            <span>No hidden charges</span>
+            <span>No surprise add-ons</span>
+          </div>
+          <h3>Offer details</h3>
+          <ul>
+            {launchPromotion.offerDetails?.map((detail) => <li>{detail}</li>)}
+            <li>Offer must be scheduled and completed by June 30, 2026.</li>
+          </ul>
         </div>
       </div>
-      <div class="sustainable-proof-grid">
-        <article class="sustainable-proof-card reveal">
-          <span>Reuse</span>
-          <h3>Second life before landfill</h3>
-          <p>We sort for donation, refurbishing, reclaimed firewood, and recycled fire starter blocks before disposal.</p>
+    </section>
+  )}
+
+  <section class="section sand sustainable-section promise-roadmap-section">
+    <div class="container sustainable-panel promise-roadmap-panel">
+      <div class="promise-intro">
+        <div class="eyebrow">Our Promise to the Methow</div>
+        <p class="promise-kicker">The Iron Path Valley Roadmap &middot; 2026-2030</p>
+        <h2>We wrote a <em>scoreboard.</em></h2>
+        <p class="lead">
+          We are not a franchise. We are not passing through. We live here, we work here,
+          and we plan to stay. This is our public commitment to the Methow Valley - with
+          real numbers, real deadlines, and a public scoreboard. Hold us to it.
+        </p>
+        <p class="status-note">
+          Every item below carries a status:
+          <span class="roadmap-status done" aria-label="Done">&#10003;</span> Done &middot;
+          <span class="roadmap-status in-progress" aria-label="In Progress">&#9679;</span> In Progress &middot;
+          <span class="roadmap-status planned" aria-label="Planned">&#9675;</span> Planned.
+          This page updates as we deliver.
+        </p>
+        <div class="sustainable-actions">
+          <a class="btn" href="/get-a-quote/">Get a Free Quote</a>
+          <a class="btn secondary" href="/investment-tracker/">See the Investment Tracker</a>
+          <a class="btn secondary" href="/initiatives/">Join a Cleanup Day</a>
+        </div>
+      </div>
+
+      <div class="promise-numbers">
+        <span class="promise-numbers-label">The numbers we are chasing</span>
+        <h3>By December 31, 2030, Iron Path Services will have:</h3>
+        <ul class="promise-metric-list">
+          <li><strong>250,000+ lbs</strong><span>of material kept out of the landfill</span></li>
+          <li><strong>$25,000+</strong><span>reinvested directly into Methow Valley needs</span></li>
+          <li><strong>20+ cleanup days</strong><span>completed with the community</span></li>
+          <li><strong>5+ local jobs</strong><span>created, hired from the valley and paid fairly</span></li>
+          <li><strong>100% published</strong><span>profits-pledge dollars shown line by line on the public Investment Tracker</span></li>
+        </ul>
+        <p>That is the destination. Here is the path.</p>
+      </div>
+
+      <div class="roadmap-year-grid">
+        <article class="roadmap-year-card reveal">
+          <div class="roadmap-year-heading">
+            <span>2026</span>
+            <h3>The Founding Year</h3>
+            <p>Earn trust. Prove the model. Show our work.</p>
+          </div>
+          <ul class="roadmap-list">
+            <li><span class="roadmap-status in-progress" aria-label="In Progress">&#9679;</span><div><strong>Donation-first sorting on every junk job.</strong> Before anything hits a landfill, it gets a second look: donate, refurbish, reclaim, recycle. Goal: <strong>15,000 lbs diverted in year one.</strong></div></li>
+            <li><span class="roadmap-status in-progress" aria-label="In Progress">&#9679;</span><div><strong>3% of net profit pledged to the valley</strong> - every dollar published on the live Investment Tracker the month it is given.</div></li>
+            <li><span class="roadmap-status planned" aria-label="Planned">&#9675;</span><div><strong>Launch Blazers&trade; fire starters</strong> - made from recycled valley paper waste and local sawdust. Waste in, warmth out.</div></li>
+            <li><span class="roadmap-status planned" aria-label="Planned">&#9675;</span><div><strong>2 community cleanup days</strong> before the year ends - riverbank, trailhead, or a neighbor in need. The community picks the targets.</div></li>
+            <li><span class="roadmap-status planned" aria-label="Planned">&#9675;</span><div><strong>Founding partner network of 10 local businesses</strong> - cross-referrals so no job in the valley goes unanswered.</div></li>
+            <li><span class="roadmap-status planned" aria-label="Planned">&#9675;</span><div><strong>First Red Carpet community photo walk</strong> - celebrating the people who make this valley what it is.</div></li>
+          </ul>
         </article>
-        <article class="sustainable-proof-card reveal">
-          <span>Reinvestment</span>
-          <h3>Profits pointed back home</h3>
-          <p>A meaningful share of profits is pledged toward valley needs, schools, parks, and local impact projects.</p>
+
+        <article class="roadmap-year-card reveal">
+          <div class="roadmap-year-heading">
+            <span>2027</span>
+            <h3>The Proof Year</h3>
+            <p>Publish the receipts. Put locals in charge of our giving.</p>
+          </div>
+          <ul class="roadmap-list">
+            <li><span class="roadmap-status planned" aria-label="Planned">&#9675;</span><div><strong>First annual Valley Impact Report</strong> - pounds diverted, dollars given, hours volunteered. Public, plain-language, every year after.</div></li>
+            <li><span class="roadmap-status planned" aria-label="Planned">&#9675;</span><div><strong>First Iron Path Community Grant: $1,000 minimum.</strong> Locals nominate. Locals vote. We just write the check.</div></li>
+            <li><span class="roadmap-status planned" aria-label="Planned">&#9675;</span><div><strong>Cumulative diversion goal: 50,000 lbs.</strong></div></li>
+            <li><span class="roadmap-status planned" aria-label="Planned">&#9675;</span><div><strong>4 community cleanup days</strong>, on a published seasonal calendar.</div></li>
+            <li><span class="roadmap-status planned" aria-label="Planned">&#9675;</span><div><strong>High Schooler Work Program launches</strong> - paid hands-on experience, mentorship, and a reference letter for <strong>3-5 Methow Valley students.</strong></div></li>
+            <li><span class="roadmap-status planned" aria-label="Planned">&#9675;</span><div><strong>Blazers&trade; in its first 3 local retail locations.</strong></div></li>
+          </ul>
         </article>
-        <article class="sustainable-proof-card reveal">
-          <span>Local economy</span>
-          <h3>Neighbors helping neighbors</h3>
-          <p>We support local partners, build referral relationships, and grow services that make daily life more reliable.</p>
+
+        <article class="roadmap-year-card reveal">
+          <div class="roadmap-year-heading">
+            <span>2028</span>
+            <h3>The Growth Year</h3>
+            <p>Create jobs. Reach the whole county. Give back bigger.</p>
+          </div>
+          <ul class="roadmap-list">
+            <li><span class="roadmap-status planned" aria-label="Planned">&#9675;</span><div><strong>First full-time local hire</strong> - a real job, fair pay, hired from the valley.</div></li>
+            <li><span class="roadmap-status planned" aria-label="Planned">&#9675;</span><div><strong>Free Senior &amp; Veteran Cleanout Days: 10 properties per year</strong>, no charge, no strings.</div></li>
+            <li><span class="roadmap-status planned" aria-label="Planned">&#9675;</span><div><strong>Full downvalley coverage</strong> - Brewster, Pateros, Okanogan, and Omak served as neighbors, not as mileage.</div></li>
+            <li><span class="roadmap-status planned" aria-label="Planned">&#9675;</span><div><strong>Cumulative diversion goal: 100,000 lbs.</strong></div></li>
+            <li><span class="roadmap-status planned" aria-label="Planned">&#9675;</span><div><strong>Annual community giving reaches $5,000+/year.</strong></div></li>
+            <li><span class="roadmap-status planned" aria-label="Planned">&#9675;</span><div><strong>First refurbished-goods resale event</strong> - rescued items back into valley homes at honest prices.</div></li>
+          </ul>
         </article>
-        <article class="sustainable-proof-card reveal">
-          <span>Stewardship</span>
-          <h3>Growth that respects place</h3>
-          <p>Every cleanup, delivery, and partnership is part of a longer effort to leave the Methow better than we found it.</p>
+
+        <article class="roadmap-year-card reveal">
+          <div class="roadmap-year-heading">
+            <span>2029</span>
+            <h3>The Infrastructure Year</h3>
+            <p>Build the engine that makes it permanent.</p>
+          </div>
+          <ul class="roadmap-list">
+            <li><span class="roadmap-status planned" aria-label="Planned">&#9675;</span><div><strong>Open the Iron Path Recovery Yard</strong> - a dedicated sorting, refurbishing, and firewood-processing site in the valley.</div></li>
+            <li><span class="roadmap-status planned" aria-label="Planned">&#9675;</span><div><strong>Diversion rate goal: 60% of everything we haul</strong> finds a second life instead of a landfill.</div></li>
+            <li><span class="roadmap-status planned" aria-label="Planned">&#9675;</span><div><strong>3+ local jobs created and sustained.</strong></div></li>
+            <li><span class="roadmap-status planned" aria-label="Planned">&#9675;</span><div><strong>Volunteer program expands to families</strong> - seasonal calendar, school partnerships, valley-wide cleanup events.</div></li>
+            <li><span class="roadmap-status planned" aria-label="Planned">&#9675;</span><div><strong>Cumulative giving passes $15,000.</strong></div></li>
+          </ul>
         </article>
+
+        <article class="roadmap-year-card reveal">
+          <div class="roadmap-year-heading">
+            <span>2030</span>
+            <h3>The Legacy Year</h3>
+            <p>Five years in. A valley institution, built by the valley.</p>
+          </div>
+          <ul class="roadmap-list">
+            <li><span class="roadmap-status planned" aria-label="Planned">&#9675;</span><div><strong>250,000 lbs diverted. $25,000 reinvested. 5+ local jobs.</strong></div></li>
+            <li><span class="roadmap-status planned" aria-label="Planned">&#9675;</span><div><strong>First named community project funded</strong> - a school program, a park improvement, a trail - chosen by you, built with Iron Path dollars.</div></li>
+            <li><span class="roadmap-status planned" aria-label="Planned">&#9675;</span><div><strong>The Iron Path Local Directory</strong> - a published guide to every trusted business in our referral network. If we cannot do the job, we know the neighbor who can.</div></li>
+            <li><span class="roadmap-status planned" aria-label="Planned">&#9675;</span><div><strong>Five Valley Impact Reports published.</strong> Five years of receipts.</div></li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="promise-accountability">
+        <div>
+          <span class="promise-numbers-label">How you hold us accountable</span>
+          <ol>
+            <li><strong>The Investment Tracker</strong> - every pledged dollar, published live at <a href="/investment-tracker/">ironpathservices.com/investment-tracker</a>.</li>
+            <li><strong>The Annual Valley Impact Report</strong> - released each January, starting 2027.</li>
+            <li><strong>This page</strong> - statuses update as goals are hit or missed. If we miss one, we will say so and tell you why. We would rather post an honest miss than a quiet excuse.</li>
+          </ol>
+        </div>
+        <div class="promise-closing">
+          <h3>A path forged in trust</h3>
+          <p>
+            Most companies write mission statements. We wrote a scoreboard. This valley gave three
+            people a place to build something. This roadmap is how we pay it back - measured in
+            pounds, dollars, jobs, and showing up.
+          </p>
+          <p><strong>Watch us. Better yet - walk it with us.</strong></p>
+        </div>
       </div>
     </div>
   </section>
