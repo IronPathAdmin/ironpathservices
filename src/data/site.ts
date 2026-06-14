@@ -454,6 +454,7 @@ export const promotions: Array<{
 }> = [
   {
     title: 'Summer Giveaway: win a free service',
+    status: 'Giveaway open now.',
     details:
       'One lucky winner will choose one prize from Iron Path Services: free junk removal, free house cleaning, or a $250 service credit toward any Iron Path service.',
     optionsHeading: 'Prize choices',

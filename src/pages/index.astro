@@ -4,8 +4,6 @@ import ServiceTree from '../components/ServiceTree.astro';
 import ContactForm from '../components/ContactForm.astro';
 import GoogleFormLinks from '../components/GoogleFormLinks.astro';
 import { contact, faqs, googleForms, promotions, reviews, serviceAreas } from '../data/site';
-
-const launchPromotion = promotions.find((promotion) => promotion.promoCode === 'FIRST30');
 ---
 
 <BaseLayout title="Iron Path Services | Methow Valley" description="Iron Path Services' public Methow Valley roadmap, current launch promotion, and accountable local service commitments.">
@@ -32,45 +30,39 @@ const launchPromotion = promotions.find((promotion) => promotion.promoCode === '
     </div>
   </section>
 
-  {launchPromotion && (
-    <section class="section launch-promo-section">
-      <div class="container launch-promo-panel">
-        <div class="launch-promo-copy">
-          <div class="eyebrow">Official Launch Promotion</div>
-          <p class="promotion-status">{launchPromotion.status}</p>
-          <h2><em>$150 flat</em> for early customers.</h2>
+  {promotions.length > 0 && (
+    <section class="section home-promo-banner-section">
+      <div class="container home-promo-banner">
+        <div class="home-promo-banner-heading">
+          <div class="eyebrow">Current Promotions</div>
+          <h2>Two ways to <em>save or win.</em></h2>
           <p class="lead">
-            Choose up to one full pickup truck load of junk removal or up to two full hours
-            of house cleaning. No gas fees, no hidden charges, and no surprise add-ons.
+            Claim the $150 FIRST30 launch special or enter the summer giveaway. Full terms
+            are posted on the pricing page.
           </p>
-          <div class="launch-promo-code" aria-label="FIRST30 promotion code">
-            <span>Enter promo code</span>
-            <strong>{launchPromotion.promoCode}</strong>
-          </div>
-          <div class="sustainable-actions">
-            {launchPromotion.cta && (
-              <a class="btn" href={launchPromotion.cta.href} target="_blank" rel="noreferrer">
-                {launchPromotion.cta.label}
-              </a>
-            )}
-            <a class="btn secondary" href="/pricing/">Read Offer Details</a>
-          </div>
+          <a class="btn secondary" href="/pricing/">See Promotion Details</a>
         </div>
-        <div class="launch-promo-details">
-          <h3>Choose one:</h3>
-          <ul>
-            {launchPromotion.prizeOptions?.map((option) => <li>{option}</li>)}
-          </ul>
-          <div class="launch-promo-perks">
-            <span>No gas fees</span>
-            <span>No hidden charges</span>
-            <span>No surprise add-ons</span>
-          </div>
-          <h3>Offer details</h3>
-          <ul>
-            {launchPromotion.offerDetails?.map((detail) => <li>{detail}</li>)}
-            <li>Offer must be scheduled and completed by June 30, 2026.</li>
-          </ul>
+        <div class="home-promo-banner-grid">
+          {promotions.map((promotion) => (
+            <article class={`home-promo-banner-card${promotion.promoCode === 'FIRST30' ? ' featured' : ''}`}>
+              {promotion.status && <p class="promotion-status">{promotion.status}</p>}
+              <h3>{promotion.title}</h3>
+              <p>{promotion.details}</p>
+              {promotion.promoCode && (
+                <div class="home-promo-code" aria-label={`${promotion.title} promo code`}>
+                  <span>Promo code</span>
+                  <strong>{promotion.promoCode}</strong>
+                </div>
+              )}
+              {promotion.dates && (
+                <ul class="home-promo-meta">
+                  {promotion.dates.slice(0, 2).map((date) => (
+                    <li><span>{date.label}</span><strong>{date.value}</strong></li>
+                  ))}
+                </ul>
+              )}
+            </article>
+          ))}
         </div>
       </div>
     </section>

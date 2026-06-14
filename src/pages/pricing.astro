@@ -2,6 +2,12 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import { discounts, fees, googleFormFinePrint, googleForms, pricingTables, promotions } from '../data/site';
+
+const currentPromotions = [...promotions].sort((a, b) => {
+  if (a.promoCode === 'FIRST30') return -1;
+  if (b.promoCode === 'FIRST30') return 1;
+  return 0;
+});
 ---
 
 <BaseLayout title="Pricing" description="Transparent pricing, fees, add-ons, discounts, payment terms, and printable pricing PDF for Iron Path Services.">
@@ -26,10 +32,14 @@ import { discounts, fees, googleFormFinePrint, googleForms, pricingTables, promo
     <div class="container">
       <div class="eyebrow">Promotions</div>
       <h2>Current <em>promotions.</em></h2>
-      {promotions.length > 0 ? (
+      <p class="lead">
+        The FIRST30 $150 flat launch special is now live here with full terms,
+        alongside the summer giveaway.
+      </p>
+      {currentPromotions.length > 0 ? (
         <div class="promotion-grid" style="margin-top: 28px;">
-          {promotions.map((promotion) => (
-            <article class="card reveal promotion-card">
+          {currentPromotions.map((promotion) => (
+            <article class={`card reveal promotion-card${promotion.promoCode === 'FIRST30' ? ' is-live' : ''}`}>
               <div>
                 <h3>{promotion.title}</h3>
                 {promotion.status && <p class="promotion-status">{promotion.status}</p>}
