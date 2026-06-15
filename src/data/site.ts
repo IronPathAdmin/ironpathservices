@@ -516,7 +516,7 @@ export const promotions: Array<{
     ],
     dates: [
       { label: 'Available', value: 'Now' },
-      { label: 'Complete by', value: 'June 30, 2026' },
+      { label: 'Complete by', value: 'August 30, 2026' },
     ],
     offerDetails: [
       'Limited to the first 30 customers',
@@ -529,7 +529,7 @@ export const promotions: Array<{
       href: googleForms.promotion,
     },
     finePrint:
-      'Enter promo code FIRST30 on the service request form. Offer must be scheduled and completed by June 30, 2026. Claim your spot before all 30 are gone.',
+      'Enter promo code FIRST30 on the service request form. Offer must be scheduled and completed by August 30, 2026. Claim your spot before all 30 are gone.',
   },
 ];
 
