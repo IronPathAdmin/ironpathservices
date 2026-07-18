@@ -17,8 +17,8 @@ Versioned public filenames prevent browsers and social platforms from reusing th
 
 | Surface | Implementation | Delivery asset | Coverage | Status |
 | --- | --- | --- | --- | --- |
-| Global header | `src/components/Header.astro` | `/assets/official-winged-torch-v2.svg` | Every website page | Official logo |
-| Global footer | `src/components/Footer.astro` | `/assets/official-winged-torch-v2.svg` | Every website page | Official logo |
+| Global header | `src/components/Header.astro` | `/assets/official-winged-torch-v2.svg` on a light brand-safe backing | Every website page | Official logo; full torch visible on dark header |
+| Global footer | `src/components/Footer.astro` | `/assets/official-winged-torch-v2.svg` on a light brand-safe backing | Every website page | Official logo; full torch visible on dark footer |
 | Modern browser favicon | `src/layouts/BaseLayout.astro` | `/favicon.svg` | Every website page | Official logo |
 | PNG favicon fallback | `src/layouts/BaseLayout.astro` | `/favicon-32x32.png` | Every website page | Official logo |
 | Apple home-screen icon | `src/layouts/BaseLayout.astro` | `/apple-touch-icon.png` | iPhone and iPad saved sites | Official logo |
@@ -53,3 +53,6 @@ Versioned public filenames prevent browsers and social platforms from reusing th
 4. Update the logo embedded on the pricing PDF cover.
 5. Confirm every row in the placement inventory points to the approved artwork.
 6. Run `npm run build` and inspect the generated metadata on at least one page.
+
+The charcoal torch body must not be placed directly on a dark background. Header, footer, and
+future dark-surface placements need the light brand-safe backing defined by `.brand-mark`.
