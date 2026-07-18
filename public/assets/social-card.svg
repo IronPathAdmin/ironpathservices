@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Iron Path Services</title>
+  <desc id="desc">The Iron Path Services name, tagline, and official winged-torch logo.</desc>
+  <rect width="1200" height="630" fill="#232e2d"/>
+  <rect x="780" width="420" height="630" fill="#f5f0e8"/>
+  <rect x="72" y="104" width="96" height="8" rx="4" fill="#d86c27"/>
+  <text x="72" y="238" fill="#fff" font-family="Georgia, 'Times New Roman', serif" font-size="86" font-weight="700">IRON PATH</text>
+  <text x="72" y="322" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="700" letter-spacing="13">SERVICES</text>
+  <text x="72" y="402" fill="#d86c27" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" letter-spacing="3">A PATH FORGED IN TRUST.</text>
+  <text x="72" y="492" fill="#fff" fill-opacity=".78" font-family="Arial, Helvetica, sans-serif" font-size="25">Local services for the Methow Valley</text>
+  <text x="72" y="540" fill="#fff" fill-opacity=".78" font-family="Arial, Helvetica, sans-serif" font-size="25">ironpathservices.com  |  (509) 883-7231</text>
+  <image href="iron-path-mark.svg" x="830" y="55" width="320" height="520" preserveAspectRatio="xMidYMid meet"/>
+</svg>
