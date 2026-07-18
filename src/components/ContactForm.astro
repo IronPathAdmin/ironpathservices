@@ -11,7 +11,7 @@ interface Props {
 const {
   type = 'quote',
   title = 'Tell Us About Your Request',
-  intro = 'Use this website form to send details by email, or open the official Google Form when available.',
+  intro = 'Complete this form and we will prepare an organized email for you to review and send, or open the official Google Form when available.',
   googleFormUrl,
 } = Astro.props;
 ---
@@ -96,12 +96,13 @@ const {
   </div>
 
   <div class="form-note">
-    Email fallback requests are addressed to {contact.leadsEmail}.
+    This website does not store your submission. Your email app will open with the request
+    addressed to {contact.leadsEmail}; review it and select Send.
     {googleFormUrl && ' For the official online intake, use the Google Form link below.'}
     {googleFormUrl && <span class="fine-print">{googleFormFinePrint}</span>}
   </div>
   <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-    <button class="btn" type="submit">Send by Email</button>
+    <button class="btn" type="submit">Open Organized Email</button>
     {googleFormUrl && (
       <a class="btn secondary" href={googleFormUrl} target="_blank" rel="noreferrer">
         Open Google Form
