@@ -455,85 +455,8 @@ export const promotions: Array<{
     href: string;
   };
 }> = [
-  {
-    title: 'Summer Giveaway: win a free service',
-    status: 'Giveaway open now.',
-    details:
-      'One lucky winner will choose one prize from Iron Path Services: free junk removal, free house cleaning, or a $250 service credit toward any Iron Path service.',
-    optionsHeading: 'Prize choices',
-    prizeOptions: [
-      'Free junk removal up to one trailer load, equivalent to 2 truck loads',
-      'Free house cleaning up to 3 hours',
-      '$250 credit toward any Iron Path service',
-    ],
-    dates: [
-      { label: 'Winner announced', value: 'July 13, 2026' },
-      { label: 'Prize must be used by', value: 'August 31, 2026' },
-    ],
-    entrySteps: [
-      'Like the giveaway post for +1 entry',
-      'Comment "DONE" and tag 2 friends for +1 entry',
-    ],
-    socialEntries: [
-      {
-        platform: 'facebook',
-        label: 'Follow on Facebook',
-        handle: 'Iron Path Services',
-        href: contact.facebook,
-        entries: '+1 entry',
-      },
-      {
-        platform: 'instagram',
-        label: 'Follow on Instagram',
-        handle: '@ironpathservices',
-        href: contact.instagram,
-        entries: '+1 entry',
-      },
-    ],
-    bonusEntries: [
-      'Share the giveaway post to your story for +3 entries',
-      'Request a free estimate for +3 entries',
-      'Join the email list for +2 entries',
-      'Nominate someone deserving through the Google Form for +2 entries',
-      'Post a photo of a cleaning project, cluttered room, junk pile, or dirty trash can and tag Iron Path Services for +3 entries',
-    ],
-    nominationDetails:
-      'If a nominated person is selected, the nominee receives their choice of free junk removal, free house cleaning, or a $250 service credit. The nominator receives 1 hour of cleaning or a $50 service credit.',
-    cta: {
-      label: 'Open Promotion Form',
-      href: googleForms.promotion,
-    },
-    finePrint:
-      'No purchase necessary. Must be 18 years or older and reside within Iron Path Services service area. Promotion is not sponsored, endorsed, administered by, or associated with Facebook or Instagram. One winner will be selected at random after entries close. Prize value not to exceed $250.',
-  },
-  {
-    title: 'Launch Special: $150 flat',
-    status: 'Now live. First 30 customers only.',
-    details:
-      'Claim a $150 flat-rate launch special with no gas fees, no hidden charges, and no surprise add-ons.',
-    promoCode: 'FIRST30',
-    optionsHeading: 'Choose one',
-    prizeOptions: [
-      'Up to 1 full pickup truck load of junk removal, equivalent to approximately one standard pickup truck load',
-      'Up to 2 full hours of house cleaning',
-    ],
-    dates: [
-      { label: 'Available', value: 'Now' },
-      { label: 'Complete by', value: 'August 30, 2026' },
-    ],
-    offerDetails: [
-      'Limited to the first 30 customers',
-      'Available within 10 miles of Winthrop, WA',
-      'One service per promotional booking',
-      'Subject to scheduling availability',
-    ],
-    cta: {
-      label: 'Claim Launch Special',
-      href: googleForms.promotion,
-    },
-    finePrint:
-      'Enter promo code FIRST30 on the service request form. Offer must be scheduled and completed by August 30, 2026. Claim your spot before all 30 are gone.',
-  },
+  // Temporarily cleared while promotions are being updated.
+  // Re-add entries here to restore the homepage banner and pricing promotions section.
 ];
 
 export const founderLetter = [
