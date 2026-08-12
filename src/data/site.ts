@@ -78,6 +78,7 @@ export const navItems = [
   { label: 'Home', href: '/' },
   { label: 'Services', href: '/products-services/' },
   { label: 'Pricing', href: '/pricing/' },
+  { label: 'Karaoke', href: '/karaoke/' },
   { label: 'Initiatives', href: '/initiatives/' },
   { label: 'Stories', href: '/stories/' },
   { label: 'About', href: '/about/' },
@@ -219,12 +220,14 @@ export const initiatives = [
   {
     title: 'The Red Carpet Initiative',
     summary:
-      'Community confidence, memorable local interaction, and photos for the website and social media.',
+      'A complimentary confidence-building spotlight: your moment to strut, be a star, and share positivity on Iron Path social channels.',
     details: [
-      'Impromptu Methow Valley model-walk moments to build confidence and connection.',
-      'Photography included for website and social media.',
-      'Results planned every other Sunday with daily sneak peeks.',
+      'Help people take their Red Carpet Moment with confidence and fun.',
+      'We capture the moment and share positivity on our social media.',
+      'Complimentary alongside Karaoke hosting — never an upsell.',
+      'See the Karaoke page for booking and Red Carpet details.',
     ],
+    href: '/karaoke/#red-carpet',
   },
   {
     title: 'Methow Valley Investment Strategy',
@@ -551,10 +554,67 @@ export const storyCards = [
   },
   {
     title: 'Community moments',
-    text: 'A home for Red Carpet Initiative moments, volunteer days, and local partnerships.',
+    text: 'A home for Karaoke nights, Red Carpet Initiative moments, volunteer days, and local partnerships.',
   },
   {
     title: 'Inspirational stories',
     text: 'Short reflections from the valley about work, service, reuse, and resilience.',
   },
 ];
+
+export const karaokePage = {
+  eyebrow: 'Karaoke Hosting',
+  title: 'An awesome karaoke night, <em>fully handled.</em>',
+  lead:
+    'Not an official service line — just a fun Iron Path offering. We bring the speakers, microphones, song list, setup, host, and everything else you need for a great night.',
+  note: 'Professional Karaoke Hosting · starting at $150',
+  includes: [
+    'Full sound system included',
+    'Wireless and wired microphones',
+    'Thousands of songs',
+    'Setup and teardown included',
+    'Reliable, friendly host',
+    'Speakers, karaoke list, and all needed gear',
+  ],
+  rates: [
+    {
+      label: 'Standard rate',
+      price: '$150 flat',
+      detail: 'Up to 4 hours of hosting',
+    },
+    {
+      label: 'Additional time',
+      price: '$35–50 / hour',
+      detail: 'After the first 4 hours',
+    },
+    {
+      label: 'Holiday or large events',
+      price: '$200+',
+      detail: 'Quoted for bigger nights and holidays',
+    },
+  ],
+  redCarpet: {
+    eyebrow: 'Complimentary',
+    title: 'A Red Carpet Moment',
+    summary:
+      'Help build community confidence with the Iron Path Red Carpet Initiative. Our goal is to give people their moment to strut their stuff and be a star — we post it on our social media and share positivity.',
+    details: [
+      'Your moment to shine, no pressure and all fun',
+      'Built to boost community confidence',
+      'Shared on Iron Path social channels with positivity first',
+      'Complimentary — included as a community add-on, not a paid upsell',
+    ],
+  },
+  howItWorks: [
+    ['Book the night', 'Tell us the date, location, and how long you want to go. We confirm availability and pricing up front.'],
+    ['We bring everything', 'Sound system, mics, song list, host, setup, and teardown — you focus on the guests.'],
+    ['Sing and celebrate', 'We keep the energy friendly and the playlist rolling so everyone gets a turn.'],
+    ['Optional Red Carpet Moment', 'Want the spotlight? Add a complimentary Red Carpet Moment and we help share the positivity.'],
+  ],
+  faqs: [
+    ['Is Karaoke an official Iron Path service?', 'No. Karaoke hosting is a fun community offering we provide separately from our core services.'],
+    ['What is included in the $150 rate?', 'Up to 4 hours with speakers, microphones, karaoke list, setup, teardown, and a reliable host.'],
+    ['What is a Red Carpet Moment?', 'A complimentary confidence-building spotlight where guests get their star moment. We may share it on social media to spread positivity.'],
+    ['Can you do holidays or large events?', 'Yes. Holiday and large-event hosting starts at $200+ and is quoted for the size of the night.'],
+  ],
+};

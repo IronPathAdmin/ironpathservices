@@ -2,7 +2,7 @@
 import { contact, googleFormFinePrint, services } from '../data/site';
 
 interface Props {
-  type?: 'quote' | 'review' | 'newsletter' | 'general' | 'volunteer' | 'evaluation' | 'image';
+  type?: 'quote' | 'review' | 'newsletter' | 'general' | 'volunteer' | 'evaluation' | 'image' | 'karaoke';
   title?: string;
   intro?: string;
   googleFormUrl?: string;
@@ -85,6 +85,44 @@ const {
         <div class="field">
           <label for="review-service">Service received</label>
           <input id="review-service" name="service_received" />
+        </div>
+      </>
+    )}
+
+    {type === 'karaoke' && (
+      <>
+        <div class="field">
+          <label for="karaoke-interest">I am interested in</label>
+          <select id="karaoke-interest" name="interest" required>
+            <option value="">Select an option</option>
+            <option>Karaoke hosting</option>
+            <option>Karaoke hosting + Red Carpet Moment</option>
+            <option>Red Carpet Moment only</option>
+            <option>Holiday or large event quote</option>
+            <option>Just asking a question</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="karaoke-date">Preferred date</label>
+          <input id="karaoke-date" name="preferred_date" type="date" />
+        </div>
+        <div class="field full">
+          <label for="karaoke-location">Event location or venue</label>
+          <input id="karaoke-location" name="preferred_location" placeholder="Address, venue, or town" />
+        </div>
+        <div class="field">
+          <label for="karaoke-duration">Estimated duration</label>
+          <select id="karaoke-duration" name="duration">
+            <option value="">Select duration</option>
+            <option>Up to 4 hours ($150)</option>
+            <option>4+ hours (add $35–50/hr)</option>
+            <option>Holiday or large event ($200+)</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="karaoke-guests">Approx. guest count</label>
+          <input id="karaoke-guests" name="guest_count" placeholder="Optional" />
         </div>
       </>
     )}

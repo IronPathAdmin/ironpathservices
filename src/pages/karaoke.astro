@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { contact, karaokePage } from '../data/site';
+---
+
+<BaseLayout
+  title="Karaoke Hosting & Red Carpet Moment"
+  description="Iron Path Karaoke hosting for the Methow Valley: full sound system, mics, thousands of songs, setup, and a friendly host starting at $150. Complimentary Red Carpet Moments included."
+>
+  <section class="karaoke-hero">
+    <div class="karaoke-hero-glow" aria-hidden="true"></div>
+    <div class="container karaoke-hero-inner">
+      <div class="eyebrow">{karaokePage.eyebrow}</div>
+      <h1 set:html={karaokePage.title} />
+      <p class="lead">{karaokePage.lead}</p>
+      <p class="karaoke-price-pill">{karaokePage.note}</p>
+      <div class="hero-actions">
+        <a class="btn" href="#karaoke-interest">Book Karaoke Hosting</a>
+        <a class="btn secondary" href="#red-carpet">See Red Carpet Moment</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section karaoke-bright">
+    <div class="container">
+      <div class="karaoke-section-intro">
+        <div class="eyebrow">Professional Karaoke Hosting</div>
+        <h2>Everything you need for an <em>awesome night.</em></h2>
+        <p class="lead">We provide speakers, microphones, the karaoke list, setup, hosting, and teardown — so your guests just show up and sing.</p>
+      </div>
+      <ul class="karaoke-include-grid">
+        {karaokePage.includes.map((item) => (
+          <li class="karaoke-include-card reveal">{item}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section sand">
+    <div class="container">
+      <div class="karaoke-section-intro">
+        <div class="eyebrow">Simple Rates</div>
+        <h2>Clear pricing. <em>No surprises.</em></h2>
+      </div>
+      <div class="karaoke-rate-grid">
+        {karaokePage.rates.map((rate) => (
+          <article class="karaoke-rate-card reveal">
+            <div class="eyebrow">{rate.label}</div>
+            <h3>{rate.price}</h3>
+            <p>{rate.detail}</p>
+          </article>
+        ))}
+      </div>
+      <p class="karaoke-rate-note">Starting at $150. Final quotes for holiday or large events are confirmed before booking.</p>
+    </div>
+  </section>
+
+  <section class="section karaoke-carpet" id="red-carpet">
+    <div class="container grid two" style="align-items: center;">
+      <div>
+        <div class="eyebrow">{karaokePage.redCarpet.eyebrow}</div>
+        <h2>{karaokePage.redCarpet.title}</h2>
+        <p class="lead">{karaokePage.redCarpet.summary}</p>
+        <div class="hero-actions" style="margin-top: 24px;">
+          <a class="btn" href="#karaoke-interest">Add a Red Carpet Moment</a>
+          <a class="btn secondary" href="/initiatives/">All initiatives</a>
+        </div>
+      </div>
+      <div class="karaoke-carpet-card">
+        <h3>Why it matters</h3>
+        <ul>
+          {karaokePage.redCarpet.details.map((detail) => <li>{detail}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section karaoke-bright">
+    <div class="container">
+      <div class="karaoke-section-intro">
+        <div class="eyebrow">How It Works</div>
+        <h2>From booking to <em>encore.</em></h2>
+      </div>
+      <div class="karaoke-steps">
+        {karaokePage.howItWorks.map(([title, text], index) => (
+          <article class="karaoke-step-card reveal">
+            <span class="karaoke-step-num" aria-hidden="true">{index + 1}</span>
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section sand">
+    <div class="container grid two" style="align-items: start;">
+      <div>
+        <div class="eyebrow">Share the Positivity</div>
+        <h2>Star moments on <em>social.</em></h2>
+        <p class="lead">
+          Red Carpet Moments are about confidence and community joy. When guests want the spotlight,
+          we help capture it and share the positivity on Iron Path social channels.
+        </p>
+        <div class="placeholder-photo karaoke-photo-slot">Karaoke &amp; Red Carpet gallery coming soon</div>
+        <p style="margin-top: 16px;">
+          Follow along on
+          <a href={contact.instagram} target="_blank" rel="noreferrer">{contact.instagramLabel}</a>
+          and
+          <a href={contact.facebook} target="_blank" rel="noreferrer">{contact.facebookLabel}</a>.
+        </p>
+      </div>
+      <div class="karaoke-faq-card">
+        <h3>Common questions</h3>
+        <ul>
+          {karaokePage.faqs.map(([question, answer]) => (
+            <li>
+              <strong>{question}</strong>
+              <br />
+              {answer}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section karaoke-book" id="karaoke-interest">
+    <div class="container grid two" style="align-items: start;">
+      <div>
+        <div class="eyebrow">Book the Night</div>
+        <h2>Ready for an <em>awesome karaoke night?</em></h2>
+        <p class="lead">
+          Tell us your event date, location, and whether you want a complimentary Red Carpet Moment.
+          We will follow up with availability and a clear quote.
+        </p>
+        <p>
+          Prefer to talk it through?
+          <a href={contact.phoneHref}>{contact.phone}</a>
+          ·
+          <a href={`mailto:${contact.leadsEmail}`}>{contact.leadsEmail}</a>
+        </p>
+      </div>
+      <ContactForm
+        type="karaoke"
+        title="Karaoke Hosting Request"
+        intro="Share your event details. We will prepare an organized email for you to review and send to leads@ironpathservices.com."
+      />
+    </div>
+  </section>
+</BaseLayout>
