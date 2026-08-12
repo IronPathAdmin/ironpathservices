@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { contact, karaokePage } from '../data/site';
+---
+
+<BaseLayout
+  title="Karaoke & Red Carpet Initiative"
+  description="Iron Path Services Karaoke nights in the Methow Valley featuring the Red Carpet Initiative: community singing, confidence-building model walks, and shareable photography."
+>
+  <PageHero eyebrow={karaokePage.eyebrow} title={karaokePage.title} lead={karaokePage.lead} />
+
+  <section class="section">
+    <div class="container grid three">
+      {karaokePage.whatToExpect.map((item) => (
+        <article class="card sand reveal">
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section dark" id="red-carpet">
+    <div class="container grid two" style="align-items: center;">
+      <div>
+        <div class="eyebrow">Featured Program</div>
+        <h2>{karaokePage.redCarpet.title}</h2>
+        <p class="lead">{karaokePage.redCarpet.summary}</p>
+        <div class="hero-actions" style="margin-top: 24px;">
+          <a class="btn" href="#karaoke-interest">Join the next night</a>
+          <a class="btn secondary" href="/initiatives/">All initiatives</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>What the carpet includes</h3>
+        <ul>
+          {karaokePage.redCarpet.details.map((detail) => <li>{detail}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section sand">
+    <div class="container">
+      <div class="eyebrow">How It Works</div>
+      <h2>From interest to <em>spotlight.</em></h2>
+      <div class="grid two" style="margin-top: 28px;">
+        {karaokePage.howItWorks.map(([title, text], index) => (
+          <article class="card reveal">
+            <div class="eyebrow">Step {index + 1}</div>
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid two" style="align-items: start;">
+      <div>
+        <div class="eyebrow">Community Photos</div>
+        <h2>Moments from the <em>path.</em></h2>
+        <p class="lead">
+          Red Carpet results are planned every other Sunday, with daily sneak peeks when the night produces
+          photos worth sharing. Want a shot used on the site? We ask first.
+        </p>
+        <div class="placeholder-photo" style="margin-top: 24px;">Karaoke &amp; Red Carpet photo gallery coming soon</div>
+        <p style="margin-top: 16px;">
+          Follow along on
+          <a href={contact.instagram} target="_blank" rel="noreferrer">{contact.instagramLabel}</a>
+          and
+          <a href={contact.facebook} target="_blank" rel="noreferrer">{contact.facebookLabel}</a>.
+        </p>
+      </div>
+      <div class="card sand">
+        <h3>Common questions</h3>
+        <ul>
+          {karaokePage.faqs.map(([question, answer]) => (
+            <li>
+              <strong>{question}</strong>
+              <br />
+              {answer}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark" id="karaoke-interest">
+    <div class="container grid two" style="align-items: start;">
+      <div>
+        <div class="eyebrow">Get Involved</div>
+        <h2>Reserve your spot on the <em>path.</em></h2>
+        <p class="lead">
+          Tell us whether you want to sing, walk the Red Carpet, cheer from the room, or host a night.
+          We will follow up with the next confirmed date and location.
+        </p>
+        <p>
+          Prefer to talk it through?
+          <a href={contact.phoneHref}>{contact.phone}</a>
+          ·
+          <a href={`mailto:${contact.leadsEmail}`}>{contact.leadsEmail}</a>
+        </p>
+      </div>
+      <ContactForm
+        type="karaoke"
+        title="Karaoke & Red Carpet Interest"
+        intro="Share a little about how you want to join. We will prepare an organized email for you to review and send to leads@ironpathservices.com."
+      />
+    </div>
+  </section>
+</BaseLayout>

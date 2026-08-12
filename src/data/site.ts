@@ -78,6 +78,7 @@ export const navItems = [
   { label: 'Home', href: '/' },
   { label: 'Services', href: '/products-services/' },
   { label: 'Pricing', href: '/pricing/' },
+  { label: 'Karaoke', href: '/karaoke/' },
   { label: 'Initiatives', href: '/initiatives/' },
   { label: 'Stories', href: '/stories/' },
   { label: 'About', href: '/about/' },
@@ -219,12 +220,14 @@ export const initiatives = [
   {
     title: 'The Red Carpet Initiative',
     summary:
-      'Community confidence, memorable local interaction, and photos for the website and social media.',
+      'Community confidence, memorable local interaction, and photos for the website and social media — featured on our Karaoke nights.',
     details: [
       'Impromptu Methow Valley model-walk moments to build confidence and connection.',
       'Photography included for website and social media.',
       'Results planned every other Sunday with daily sneak peeks.',
+      'See Karaoke nights for the full Red Carpet experience.',
     ],
+    href: '/karaoke/#red-carpet',
   },
   {
     title: 'Methow Valley Investment Strategy',
@@ -551,10 +554,54 @@ export const storyCards = [
   },
   {
     title: 'Community moments',
-    text: 'A home for Red Carpet Initiative moments, volunteer days, and local partnerships.',
+    text: 'A home for Karaoke nights, Red Carpet Initiative moments, volunteer days, and local partnerships.',
   },
   {
     title: 'Inspirational stories',
     text: 'Short reflections from the valley about work, service, reuse, and resilience.',
   },
 ];
+
+export const karaokePage = {
+  eyebrow: 'Community Karaoke',
+  title: 'Sing out loud. <em>Walk the carpet.</em>',
+  lead:
+    'Iron Path Karaoke nights bring the Methow Valley together for music, confidence, and community spotlight — powered by the Red Carpet Initiative.',
+  whatToExpect: [
+    {
+      title: 'Open mic energy',
+      text: 'Friendly Karaoke nights for neighbors, friends, and first-timers. No stage polish required — just show up and sing.',
+    },
+    {
+      title: 'Red Carpet moments',
+      text: 'Between songs, the Red Carpet Initiative creates short model-walk moments that celebrate real people from the valley.',
+    },
+    {
+      title: 'Photos you can share',
+      text: 'Photography is part of the night. Approved shots land on the website and social channels, with sneak peeks along the way.',
+    },
+  ],
+  redCarpet: {
+    title: 'The Red Carpet Initiative',
+    summary:
+      'Community confidence, memorable local interaction, and photos for the website and social media — built into Karaoke night.',
+    details: [
+      'Impromptu Methow Valley model-walk moments to build confidence and connection.',
+      'Photography included for website and social media.',
+      'Results planned every other Sunday with daily sneak peeks.',
+      'Participation is optional, consent-based, and always neighbor-first.',
+    ],
+  },
+  howItWorks: [
+    ['Tell us you are interested', 'Share your name, preferred contact, and whether you want to sing, walk the carpet, or both.'],
+    ['We confirm the next night', 'You hear back with date, location, and what to expect before the doors open.'],
+    ['Show up and join in', 'Sing a song, take a Red Carpet walk, cheer on neighbors, or just enjoy the room.'],
+    ['See the highlights', 'Approved photos and moments roll out on a steady cadence so the valley can celebrate together.'],
+  ],
+  faqs: [
+    ['Do I need singing experience?', 'No. Karaoke nights are built for first-timers and regulars alike.'],
+    ['What is the Red Carpet Initiative?', 'Short, confidence-building model-walk moments with photography for people who want to be featured.'],
+    ['Will photos be posted automatically?', 'No. Image use follows consent and approval before anything goes on the website or social media.'],
+    ['Can businesses host a night?', 'Yes. Venue and sponsorship conversations are welcome — use the interest form and select Host / partner a night.'],
+  ],
+};

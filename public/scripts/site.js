@@ -6,6 +6,7 @@ const googleFormEndpoints = {
   volunteer: 'https://forms.gle/eTywiDqx76tG19zw5',
   evaluation: '',
   image: 'https://forms.gle/7abciXX1tcqRWqZi6',
+  karaoke: '',
 };
 
 const formTypeLabels = {
@@ -16,6 +17,7 @@ const formTypeLabels = {
   volunteer: 'Volunteer Application',
   evaluation: 'Customer Evaluation',
   image: 'Image Submission',
+  karaoke: 'Karaoke & Red Carpet',
   website: 'Website Request',
 };
 
@@ -29,11 +31,21 @@ const fieldLabels = {
   address: 'Service address',
   rating: 'Star rating',
   service_received: 'Service received',
+  interest: 'Interest',
+  preferred_location: 'Preferred town or venue',
   message: 'Message',
 };
 
 const contactFields = ['name', 'email', 'phone', 'preferred_contact'];
-const jobFields = ['service', 'preferred_date', 'address', 'rating', 'service_received'];
+const jobFields = [
+  'service',
+  'preferred_date',
+  'address',
+  'rating',
+  'service_received',
+  'interest',
+  'preferred_location',
+];
 const knownFields = new Set([...contactFields, ...jobFields, 'message']);
 
 function readableValue(value) {
@@ -47,6 +59,9 @@ function formLabel(type) {
 
 function jobType(type, data) {
   if (type === 'quote') return readableValue(data.service).replace('Not provided', 'General Quote');
+  if (type === 'karaoke') {
+    return readableValue(data.interest).replace('Not provided', 'Karaoke & Red Carpet');
+  }
   return formLabel(type);
 }
 

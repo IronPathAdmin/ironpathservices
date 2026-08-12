@@ -46,6 +46,12 @@ Create these labels and nest each one under `Website Forms`:
 - Volunteer Application
 - Customer Evaluation
 - Image Submission
+- Karaoke & Red Carpet
+- Karaoke night
+- Red Carpet walk
+- Both Karaoke and Red Carpet
+- Host / partner a night
+- Just staying in the loop
 
 ## Create each job-type filter
 
@@ -66,6 +72,12 @@ Repeat the filter steps for each job type. In the **Subject** field, use the com
 | `Website Form | Volunteer Application |` | `Website Forms/Volunteer Application` |
 | `Website Form | Customer Evaluation |` | `Website Forms/Customer Evaluation` |
 | `Website Form | Image Submission |` | `Website Forms/Image Submission` |
+| `Website Form | Karaoke & Red Carpet |` | `Website Forms/Karaoke & Red Carpet` |
+| `Website Form | Karaoke night |` | `Website Forms/Karaoke night` |
+| `Website Form | Red Carpet walk |` | `Website Forms/Red Carpet walk` |
+| `Website Form | Both Karaoke and Red Carpet |` | `Website Forms/Both Karaoke and Red Carpet` |
+| `Website Form | Host / partner a night |` | `Website Forms/Host / partner a night` |
+| `Website Form | Just staying in the loop |` | `Website Forms/Just staying in the loop` |
 
 Each email body is plain text with separate **Form Details**, **Contact Information**, **Job Details**, and **Message** sections so it remains readable in Gmail and on phones.
 

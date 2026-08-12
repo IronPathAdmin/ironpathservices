@@ -2,7 +2,7 @@
 import { contact, googleFormFinePrint, services } from '../data/site';
 
 interface Props {
-  type?: 'quote' | 'review' | 'newsletter' | 'general' | 'volunteer' | 'evaluation' | 'image';
+  type?: 'quote' | 'review' | 'newsletter' | 'general' | 'volunteer' | 'evaluation' | 'image' | 'karaoke';
   title?: string;
   intro?: string;
   googleFormUrl?: string;
@@ -85,6 +85,30 @@ const {
         <div class="field">
           <label for="review-service">Service received</label>
           <input id="review-service" name="service_received" />
+        </div>
+      </>
+    )}
+
+    {type === 'karaoke' && (
+      <>
+        <div class="field">
+          <label for="karaoke-interest">I am interested in</label>
+          <select id="karaoke-interest" name="interest" required>
+            <option value="">Select an option</option>
+            <option>Karaoke night</option>
+            <option>Red Carpet walk</option>
+            <option>Both Karaoke and Red Carpet</option>
+            <option>Host / partner a night</option>
+            <option>Just staying in the loop</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="karaoke-date">Preferred date</label>
+          <input id="karaoke-date" name="preferred_date" type="date" />
+        </div>
+        <div class="field full">
+          <label for="karaoke-location">Preferred town or venue</label>
+          <input id="karaoke-location" name="preferred_location" placeholder="Winthrop, Twisp, or a venue name" />
         </div>
       </>
     )}

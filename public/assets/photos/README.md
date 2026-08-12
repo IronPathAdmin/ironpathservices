@@ -7,7 +7,7 @@ Recommended structure:
 - `team/` - founders, staff, portraits, group photos
 - `jobs/` - before/after photos and job stories
 - `firewood/` - bundles, Blazers, cords, delivery photos
-- `community/` - Red Carpet Initiative, volunteering, local events
+- `community/` - Karaoke nights, Red Carpet Initiative, volunteering, local events
 - `partners/` - local business logos and partner photos
 
 Recommended file naming:
