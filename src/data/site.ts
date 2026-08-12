@@ -583,6 +583,12 @@ export const karaokePage = {
       detail: 'Up to 4 hours of hosting',
     },
     {
+      label: '4-week recurring package',
+      price: '$500',
+      detail: 'Paid in advance · $125 per event · regular 4 hours each night',
+      featured: true,
+    },
+    {
       label: 'Additional time',
       price: '$35–50 / hour',
       detail: 'After the first 4 hours',
@@ -614,6 +620,7 @@ export const karaokePage = {
   faqs: [
     ['Is Karaoke an official Iron Path service?', 'No. Karaoke hosting is a fun community offering we provide separately from our core services.'],
     ['What is included in the $150 rate?', 'Up to 4 hours with speakers, microphones, karaoke list, setup, teardown, and a reliable host.'],
+    ['What is the 4-week recurring package?', 'Book four karaoke nights for $500 paid in advance — $125 per event, with the regular 4 hours of hosting each night.'],
     ['What is a Red Carpet Moment?', 'A complimentary confidence-building spotlight where guests get their star moment. We may share it on social media to spread positivity.'],
     ['Can you do holidays or large events?', 'Yes. Holiday and large-event hosting starts at $200+ and is quoted for the size of the night.'],
   ],

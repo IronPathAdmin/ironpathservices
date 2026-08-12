@@ -45,14 +45,14 @@ import { contact, karaokePage } from '../data/site';
       </div>
       <div class="karaoke-rate-grid">
         {karaokePage.rates.map((rate) => (
-          <article class="karaoke-rate-card reveal">
+          <article class={`karaoke-rate-card reveal${rate.featured ? ' featured' : ''}`}>
             <div class="eyebrow">{rate.label}</div>
             <h3>{rate.price}</h3>
             <p>{rate.detail}</p>
           </article>
         ))}
       </div>
-      <p class="karaoke-rate-note">Starting at $150. Final quotes for holiday or large events are confirmed before booking.</p>
+      <p class="karaoke-rate-note">Starting at $150 for a single night, or $500 prepaid for a 4-week package ($125 per event). Final quotes for holiday or large events are confirmed before booking.</p>
     </div>
   </section>
 
