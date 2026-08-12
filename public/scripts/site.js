@@ -32,7 +32,9 @@ const fieldLabels = {
   rating: 'Star rating',
   service_received: 'Service received',
   interest: 'Interest',
-  preferred_location: 'Preferred town or venue',
+  preferred_location: 'Event location or venue',
+  duration: 'Estimated duration',
+  guest_count: 'Approx. guest count',
   message: 'Message',
 };
 
@@ -45,6 +47,8 @@ const jobFields = [
   'service_received',
   'interest',
   'preferred_location',
+  'duration',
+  'guest_count',
 ];
 const knownFields = new Set([...contactFields, ...jobFields, 'message']);
 

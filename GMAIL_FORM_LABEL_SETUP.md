@@ -47,11 +47,11 @@ Create these labels and nest each one under `Website Forms`:
 - Customer Evaluation
 - Image Submission
 - Karaoke & Red Carpet
-- Karaoke night
-- Red Carpet walk
-- Both Karaoke and Red Carpet
-- Host / partner a night
-- Just staying in the loop
+- Karaoke hosting
+- Karaoke hosting + Red Carpet Moment
+- Red Carpet Moment only
+- Holiday or large event quote
+- Just asking a question
 
 ## Create each job-type filter
 
@@ -73,11 +73,11 @@ Repeat the filter steps for each job type. In the **Subject** field, use the com
 | `Website Form | Customer Evaluation |` | `Website Forms/Customer Evaluation` |
 | `Website Form | Image Submission |` | `Website Forms/Image Submission` |
 | `Website Form | Karaoke & Red Carpet |` | `Website Forms/Karaoke & Red Carpet` |
-| `Website Form | Karaoke night |` | `Website Forms/Karaoke night` |
-| `Website Form | Red Carpet walk |` | `Website Forms/Red Carpet walk` |
-| `Website Form | Both Karaoke and Red Carpet |` | `Website Forms/Both Karaoke and Red Carpet` |
-| `Website Form | Host / partner a night |` | `Website Forms/Host / partner a night` |
-| `Website Form | Just staying in the loop |` | `Website Forms/Just staying in the loop` |
+| `Website Form | Karaoke hosting |` | `Website Forms/Karaoke hosting` |
+| `Website Form | Karaoke hosting + Red Carpet Moment |` | `Website Forms/Karaoke hosting + Red Carpet Moment` |
+| `Website Form | Red Carpet Moment only |` | `Website Forms/Red Carpet Moment only` |
+| `Website Form | Holiday or large event quote |` | `Website Forms/Holiday or large event quote` |
+| `Website Form | Just asking a question |` | `Website Forms/Just asking a question` |
 
 Each email body is plain text with separate **Form Details**, **Contact Information**, **Job Details**, and **Message** sections so it remains readable in Gmail and on phones.
 
