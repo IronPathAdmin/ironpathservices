@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import { discounts, fees, googleFormFinePrint, googleForms, pricingTables, promotions } from '../data/site';
+import { discounts, fees, googleFormFinePrint, pricingTables, promotions } from '../data/site';
 
 const currentPromotions = [...promotions].sort((a, b) => {
   if (a.promoCode === 'FIRST30') return -1;
@@ -28,15 +28,14 @@ const currentPromotions = [...promotions].sort((a, b) => {
     </div>
   </section>
 
-  <section class="section sand compact">
-    <div class="container">
-      <div class="eyebrow">Promotions</div>
-      <h2>Current <em>promotions.</em></h2>
-      <p class="lead">
-        The FIRST30 $150 flat launch special is now live here with full terms,
-        alongside the summer giveaway.
-      </p>
-      {currentPromotions.length > 0 ? (
+  {currentPromotions.length > 0 && (
+    <section class="section sand compact">
+      <div class="container">
+        <div class="eyebrow">Promotions</div>
+        <h2>Current <em>promotions.</em></h2>
+        <p class="lead">
+          Seasonal offers and service specials are posted here with full terms and fine print.
+        </p>
         <div class="promotion-grid" style="margin-top: 28px;">
           {currentPromotions.map((promotion) => (
             <article class={`card reveal promotion-card${promotion.promoCode === 'FIRST30' ? ' is-live' : ''}`}>
@@ -136,21 +135,9 @@ const currentPromotions = [...promotions].sort((a, b) => {
             </article>
           ))}
         </div>
-      ) : (
-        <div class="card" style="margin-top: 28px;">
-          <h3>No Promotions available at this time</h3>
-          <p>
-            Please check back for seasonal offers and service specials. If promotions are available,
-            they will be posted here with fine print included.
-          </p>
-          <a class="btn secondary" href={googleForms.promotion} target="_blank" rel="noreferrer">
-            Open Promotion Form
-          </a>
-          <p class="fine-print">{googleFormFinePrint}</p>
-        </div>
-      )}
-    </div>
-  </section>
+      </div>
+    </section>
+  )}
 
   {pricingTables.map((table) => (
     <section class="section compact">
