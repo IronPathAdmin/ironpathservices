@@ -467,8 +467,8 @@ export const promotions: Array<{
       '$250 credit toward any Iron Path service',
     ],
     dates: [
-      { label: 'Winner announced', value: 'July 13, 2026' },
-      { label: 'Prize must be used by', value: 'August 31, 2026' },
+      { label: 'Winner announced', value: 'August 20, 2026' },
+      { label: 'Prize must be used by', value: 'November 30, 2026' },
     ],
     entrySteps: [
       'Like the giveaway post for +1 entry',
@@ -508,7 +508,7 @@ export const promotions: Array<{
   },
   {
     title: 'Launch Special: $150 flat',
-    status: 'Now live. First 30 customers only.',
+    status: 'Launch special. First 30 customers only.',
     details:
       'Claim a $150 flat-rate launch special with no gas fees, no hidden charges, and no surprise add-ons.',
     promoCode: 'FIRST30',
@@ -519,10 +519,11 @@ export const promotions: Array<{
     ],
     dates: [
       { label: 'Available', value: 'Now' },
-      { label: 'Complete by', value: 'August 30, 2026' },
+      { label: 'Schedule and complete by', value: 'November 30, 2026' },
     ],
     offerDetails: [
       'Limited to the first 30 customers',
+      'Must be scheduled and completed by November 30, 2026',
       'Available within 10 miles of Winthrop, WA',
       'One service per promotional booking',
       'Subject to scheduling availability',
@@ -532,7 +533,7 @@ export const promotions: Array<{
       href: googleForms.promotion,
     },
     finePrint:
-      'Enter promo code FIRST30 on the service request form. Offer must be scheduled and completed by August 30, 2026. Claim your spot before all 30 are gone.',
+      'Enter promo code FIRST30 on the service request form. Offer must be scheduled and completed by November 30, 2026. Claim your spot before all 30 are gone.',
   },
 ];
 
