@@ -1,0 +1,22 @@
+---
+import { tallyForms } from '../data/site';
+
+interface Props {
+  formKey?: keyof typeof tallyForms;
+  class?: string;
+  label?: string;
+}
+
+const { formKey = 'paperShredding', class: className = 'btn', label } = Astro.props;
+const form = tallyForms[formKey];
+---
+
+<a
+  class:list={['js-tally-popup', className]}
+  href={form.url}
+  data-tally-form-id={form.id}
+  target="_blank"
+  rel="noreferrer"
+>
+  {label ?? form.buttonLabel}
+</a>

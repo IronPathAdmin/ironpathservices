@@ -9,6 +9,13 @@ const googleFormEndpoints = {
   karaoke: '',
 };
 
+const tallyForms = {
+  paperShredding: {
+    id: '0QqM0Q',
+    url: 'https://tally.so/r/0QqM0Q',
+  },
+};
+
 const formTypeLabels = {
   quote: 'Quote Request',
   review: 'Customer Review',
@@ -117,6 +124,31 @@ function buildMailto(form, data) {
   return `mailto:${leads}?subject=${subject}&body=${body}`;
 }
 
+function openTallyPopup(formId, fallbackUrl) {
+  if (window.Tally && typeof window.Tally.openPopup === 'function') {
+    window.Tally.openPopup(formId, {
+      layout: 'modal',
+      width: 700,
+      autoClose: 5000,
+    });
+    return;
+  }
+
+  window.open(fallbackUrl, '_blank', 'noopener,noreferrer');
+}
+
+function initTallyPopups() {
+  document.querySelectorAll('.js-tally-popup').forEach((button) => {
+    button.addEventListener('click', (event) => {
+      const formId = button.getAttribute('data-tally-form-id') || tallyForms.paperShredding.id;
+      if (window.Tally && typeof window.Tally.openPopup === 'function') {
+        event.preventDefault();
+        openTallyPopup(formId, button.href || `https://tally.so/r/${formId}`);
+      }
+    });
+  });
+}
+
 function initMenu() {
   const button = document.querySelector('.menu-toggle');
   if (!button) return;
@@ -155,6 +187,14 @@ function initForms() {
       const googleFormUrl =
         form.dataset.googleForm || googleFormEndpoints[form.dataset.formType || 'general'];
 
+      if (form.dataset.formType === 'quote' && data.service === 'Document Shredding') {
+        if (status) {
+          status.textContent = 'Opening the Secure Paper Shredding Intake form.';
+        }
+        openTallyPopup(tallyForms.paperShredding.id, tallyForms.paperShredding.url);
+        return;
+      }
+
       if (googleFormUrl && status) {
         status.textContent =
           'Opening a neatly formatted email addressed to leads@ironpathservices.com. You can also use the official Google Form button.';
@@ -171,3 +211,4 @@ function initForms() {
 initMenu();
 initReveal();
 initForms();
+initTallyPopups();
