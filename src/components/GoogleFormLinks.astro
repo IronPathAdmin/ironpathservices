@@ -1,5 +1,6 @@
 ---
 import { formLinks, googleFormFinePrint } from '../data/site';
+import TallyPopupButton from './TallyPopupButton.astro';
 
 interface Props {
   titles?: string[];
@@ -17,10 +18,19 @@ const links = titles?.length
     <article class="card sand reveal">
       <h3>{link.title}</h3>
       <p>{link.description}</p>
-      <a class="btn secondary" href={link.href} target="_blank" rel="noreferrer">
-        Open Google Form
-      </a>
-      <p class="fine-print">{googleFormFinePrint}</p>
+      {'provider' in link && link.provider === 'tally' ? (
+        <>
+          <TallyPopupButton class="btn secondary" label={link.ctaLabel} />
+          <p class="fine-print">Opens the official Secure Document Shredding Request form. No Google login required.</p>
+        </>
+      ) : (
+        <>
+          <a class="btn secondary" href={link.href} target="_blank" rel="noreferrer">
+            Open Google Form
+          </a>
+          <p class="fine-print">{googleFormFinePrint}</p>
+        </>
+      )}
     </article>
   ))}
 </div>

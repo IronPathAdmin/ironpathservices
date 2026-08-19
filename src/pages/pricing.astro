@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import { discounts, fees, googleFormFinePrint, googleForms, pricingTables, promotions } from '../data/site';
+import TallyPopupButton from '../components/TallyPopupButton.astro';
 
 const currentPromotions = [...promotions].sort((a, b) => {
   if (a.promoCode === 'FIRST30') return -1;
@@ -170,6 +171,12 @@ const currentPromotions = [...promotions].sort((a, b) => {
             </tbody>
           </table>
         </div>
+        {table.title === 'Secure Paper Shredding' && (
+          <div style="margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+            <TallyPopupButton />
+            <p class="fine-print" style="margin: 0;">Opens the official Secure Document Shredding Request form. No Google login required.</p>
+          </div>
+        )}
       </div>
     </section>
   ))}

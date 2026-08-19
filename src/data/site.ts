@@ -11,11 +11,19 @@ export const contact = {
   facebookLabel: 'Facebook: Iron Path Services',
 };
 
+export const tallyForms = {
+  paperShredding: {
+    id: '0QqM0Q',
+    url: 'https://tally.so/r/0QqM0Q',
+    title: 'Secure Document Shredding Request',
+    buttonLabel: 'Open Shredding Intake',
+  },
+} as const;
+
 export const googleForms = {
   generalQuote: 'https://forms.gle/d1u58XK3wpbYDrcD6',
   firewoodOrder: 'https://forms.gle/WQLiw38JNapzAdTE6',
   vendingAtm: 'https://forms.gle/NkjWbquUTVtQyoUY9',
-  paperShredding: 'https://forms.gle/9bvEneuDMWGYH7677',
   volunteerProgram: 'https://forms.gle/eTywiDqx76tG19zw5',
   referralPartner: 'https://forms.gle/SZZtc3cAAzJrhW3j6',
   communityNeed: 'https://forms.gle/Njyob5HgRTThAn256',
@@ -31,7 +39,16 @@ export const externalLinks = {
   googleReview: 'https://g.page/r/CZXFURd6BbjgEAE/review',
 };
 
-export const formLinks = [
+export type FormLink = {
+  title: string;
+  href: string;
+  description: string;
+  provider?: 'google' | 'tally';
+  tallyId?: string;
+  ctaLabel?: string;
+};
+
+export const formLinks: FormLink[] = [
   {
     title: 'General Service Quote Request',
     href: googleForms.generalQuote,
@@ -49,8 +66,11 @@ export const formLinks = [
   },
   {
     title: 'Secure Paper Shredding',
-    href: googleForms.paperShredding,
+    href: tallyForms.paperShredding.url,
     description: 'Request secure paper shredding and certificates of destruction.',
+    provider: 'tally' as const,
+    tallyId: tallyForms.paperShredding.id,
+    ctaLabel: tallyForms.paperShredding.buttonLabel,
   },
   {
     title: 'Volunteer Program Application',

@@ -81,6 +81,12 @@ Repeat the filter steps for each job type. In the **Subject** field, use the com
 
 Each email body is plain text with separate **Form Details**, **Contact Information**, **Job Details**, and **Message** sections so it remains readable in Gmail and on phones.
 
+## Secure Paper Shredding (Tally)
+
+The Secure Paper Shredding Intake form is now a Tally form (`0QqM0Q`), not a website email form. Submissions are sent by Tally's own email notifications.
+
+In Tally, set notifications to `leads@ironpathservices.com`. Then create a Gmail filter for that form's subject or sender and apply `Website Forms/Document Shredding`.
+
 ## Current delivery behavior
 
 Selecting **Send by Email** opens the visitor's email application with the recipient, subject, and organized form body already filled in. The visitor must select **Send** in their email application. The website does not store the submission.

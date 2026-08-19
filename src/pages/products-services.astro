@@ -1,12 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
+import TallyPopupButton from '../components/TallyPopupButton.astro';
 import { googleFormFinePrint, googleForms, services } from '../data/site';
 
 const serviceForms = {
   cleaning: googleForms.generalQuote,
   'junk-removal': googleForms.generalQuote,
-  'document-shredding': googleForms.paperShredding,
   firewood: googleForms.firewoodOrder,
   'vending-atm': googleForms.vendingAtm,
 };
@@ -28,10 +28,18 @@ const serviceForms = {
                 {service.bullets.map((bullet) => <li>{bullet}</li>)}
               </ul>
               <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-                <a class="btn" href={serviceForms[service.slug]} target="_blank" rel="noreferrer">Open Google Form</a>
+                {service.slug === 'document-shredding' ? (
+                  <TallyPopupButton />
+                ) : (
+                  <a class="btn" href={serviceForms[service.slug as keyof typeof serviceForms]} target="_blank" rel="noreferrer">Open Google Form</a>
+                )}
                 <a class="btn secondary" href="/get-a-quote/">Estimate Page</a>
               </div>
-              <p class="fine-print">{googleFormFinePrint}</p>
+              {service.slug === 'document-shredding' ? (
+                <p class="fine-print">Opens the official Secure Document Shredding Request form. No Google login required.</p>
+              ) : (
+                <p class="fine-print">{googleFormFinePrint}</p>
+              )}
             </div>
             <div>
               <div class="image-card" style={`--image-url: url('${service.image}');`} role="img" aria-label={`${service.title} image`}></div>

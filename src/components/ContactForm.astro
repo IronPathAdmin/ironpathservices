@@ -1,5 +1,6 @@
 ---
 import { contact, googleFormFinePrint, services } from '../data/site';
+import TallyPopupButton from './TallyPopupButton.astro';
 
 interface Props {
   type?: 'quote' | 'review' | 'newsletter' | 'general' | 'volunteer' | 'evaluation' | 'image' | 'karaoke';
@@ -140,9 +141,15 @@ const {
     addressed to {contact.leadsEmail}; review it and select Send.
     {googleFormUrl && ' For the official online intake, use the Google Form link below.'}
     {googleFormUrl && <span class="fine-print">{googleFormFinePrint}</span>}
+    {type === 'quote' && (
+      <span class="fine-print">
+        If you select Document Shredding, the official Secure Paper Shredding Intake form will open instead.
+      </span>
+    )}
   </div>
   <div style="display: flex; gap: 12px; flex-wrap: wrap;">
     <button class="btn" type="submit">Open Organized Email</button>
+    {type === 'quote' && <TallyPopupButton class="btn secondary" />}
     {googleFormUrl && (
       <a class="btn secondary" href={googleFormUrl} target="_blank" rel="noreferrer">
         Open Google Form
