@@ -176,7 +176,7 @@ export const services = [
     title: 'Junk Removal',
     treeTitle: 'Junk Removal',
     slug: 'junk-removal',
-    image: '/assets/img-junkyard.jpg',
+    image: '/assets/photos/jobs/junk-load-1.jpg',
     summary:
       'Estate cleanouts, donation sorting, refurbishing, commercial cleanouts, and residential cleanouts.',
     description:
@@ -194,7 +194,7 @@ export const services = [
     title: 'Secure Paper Shredding',
     treeTitle: 'Secure Document Shredding',
     slug: 'document-shredding',
-    image: '/assets/img-pipes.jpg',
+    image: '/assets/photos/shredding/archive-paper-stacks.jpg',
     galleryReady: false,
     gallery: [
       {
@@ -600,14 +600,20 @@ export const storyCards = [
   {
     title: 'Job stories and pictures',
     text: 'Follow along for before-and-after field notes, customer stories, and project highlights from the valley.',
+    image: '/assets/photos/jobs/organ-in-truck.jpg',
+    imageAlt: 'A carefully wrapped and strapped load in the Iron Path truck bed',
   },
   {
     title: 'Community moments',
     text: 'A home for Karaoke nights, Red Carpet Initiative moments, volunteer days, and local partnerships.',
+    image: '/assets/photos/community/dinosaur-whimsy-1.jpg',
+    imageAlt: 'Iron Path community whimsy on a Methow Valley riverbank',
   },
   {
     title: 'Inspirational stories',
     text: 'Short reflections from the valley about work, service, reuse, and resilience.',
+    image: '/assets/photos/community/whimsical-sword.jpg',
+    imageAlt: 'A training sword in the Methow riverbed at golden hour',
   },
 ];
 
