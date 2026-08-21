@@ -2,26 +2,37 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import { founderLetter, initiatives } from '../data/site';
+
+const team = [
+  { name: 'Benji', role: 'Founder & Strategy Architect' },
+  { name: 'Adrian', role: 'Operations Architect' },
+];
 ---
 
 <BaseLayout title="About" description="A letter from Benji and the story of Iron Path Services in the Methow Valley.">
-  <PageHero eyebrow="Who We Are" title="A letter from <em>Benji.</em>" lead="Iron Path Services was founded in March 2026 in the Methow Valley by Benji and Adrian." />
+  <PageHero eyebrow="Who We Are" title="A letter from <em>Benji.</em>" lead="Iron Path Services was founded in March 2026 in the Methow Valley by Benji and Adrian, with Eloise the truck as the star of the show." />
 
   <section class="section">
     <div class="container grid two" style="align-items: start;">
-      <div>
-        <div class="placeholder-photo">Owner-operated team photo coming soon</div>
-        <div class="grid two" style="margin-top: 18px;">
-          {[
-            ['Benji', 'Founder & Strategy Architect'],
-            ['Adrian', 'Operations Architect'],
-          ].map(([name, role]) => (
-            <div class="card sand">
-              <h3>{name}</h3>
-              <p>{role}</p>
-            </div>
+      <div class="about-team">
+        <div class="grid two">
+          {team.map(({ name, role }) => (
+            <article class="about-team-slot">
+              <div class="placeholder-photo about-portrait-slot">{name} photo coming soon</div>
+              <div class="card sand">
+                <h3>{name}</h3>
+                <p>{role}</p>
+              </div>
+            </article>
           ))}
         </div>
+        <article class="about-team-slot about-eloise-slot">
+          <div class="placeholder-photo about-eloise-photo">Eloise photo coming soon</div>
+          <div class="card sand">
+            <h3>Eloise</h3>
+            <p>Our truck and the star of the show.</p>
+          </div>
+        </article>
       </div>
       <article class="card sand">
         {founderLetter.map((paragraph) => <p>{paragraph}</p>)}
