@@ -586,11 +586,11 @@ export const promotions: Array<{
 ];
 
 export const founderLetter = [
-  'Iron Path Services was founded in March 2026 in the Methow Valley by three people who believed this place deserved a different kind of service company.',
+  'Iron Path Services was founded in March 2026 in the Methow Valley by two people who believed this place deserved a different kind of service company.',
   "I'm Benji, the founder and Strategy Architect. I came to the Methow the way a lot of people do: chasing something the rest of the country had stopped offering. Open country. Honest work. Neighbors who notice when your truck has not moved in a few days.",
   `I was working as a server at Sun Mountain Lodge when the idea for Iron Path started taking shape: the valley needed reliable, professional services - ${serviceTagline} ${servicePromise}`,
-  'My partner Adrian, our Operations Architect, left Utah to build this with me. He runs financial operations overnight in another industry and brings the discipline and structure that keeps a young company from drifting. Sarah, our Client Experience Architect, rounds out the team with the kind of steady judgment you only get from people who have been doing the work for a long time.',
-  'Between the three of us, we own and run every part of this business - no absentee investors, no corporate playbook handed down from somewhere else.',
+  'My partner Adrian, our Operations Architect, left Utah to build this with me. He runs financial operations overnight in another industry and brings the discipline and structure that keeps a young company from drifting.',
+  'Between the two of us, we own and run every part of this business - no absentee investors, no corporate playbook handed down from somewhere else.',
   'The name Iron Path comes from what we believe service work actually is: a path you forge by showing up, doing it right, and earning trust one job at a time. Our tagline, A Path Forged In Trust, is not marketing. It is the standard we hold each other to.',
   "I will not pretend this is a finished story. We are a year-one company. We are learning fast, making mistakes faster, and writing the playbook as we go. But the direction is clear: build something durable, build it honestly, and build it here.",
   "If you have got a job that needs doing in the Methow Valley, we would be honored to earn it.",

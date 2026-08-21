@@ -5,17 +5,16 @@ import { founderLetter, initiatives } from '../data/site';
 ---
 
 <BaseLayout title="About" description="A letter from Benji and the story of Iron Path Services in the Methow Valley.">
-  <PageHero eyebrow="Who We Are" title="A letter from <em>Benji.</em>" lead="Iron Path Services was founded in March 2026 in the Methow Valley by Benji, Adrian, and Sarah." />
+  <PageHero eyebrow="Who We Are" title="A letter from <em>Benji.</em>" lead="Iron Path Services was founded in March 2026 in the Methow Valley by Benji and Adrian." />
 
   <section class="section">
     <div class="container grid two" style="align-items: start;">
       <div>
         <div class="placeholder-photo">Owner-operated team photo coming soon</div>
-        <div class="grid three" style="margin-top: 18px;">
+        <div class="grid two" style="margin-top: 18px;">
           {[
             ['Benji', 'Founder & Strategy Architect'],
             ['Adrian', 'Operations Architect'],
-            ['Sarah', 'Client Experience Architect'],
           ].map(([name, role]) => (
             <div class="card sand">
               <h3>{name}</h3>
