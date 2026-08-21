@@ -1,13 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import ContactForm from '../components/ContactForm.astro';
+import TallyEmbed from '../components/TallyEmbed.astro';
 import GoogleFormLinks from '../components/GoogleFormLinks.astro';
-import { contact, googleFormFinePrint, googleForms } from '../data/site';
+import ContactForm from '../components/ContactForm.astro';
+import TallyPopupButton from '../components/TallyPopupButton.astro';
+import { contact, googleFormFinePrint, googleForms, tallyForms } from '../data/site';
 ---
 
 <BaseLayout title="Get a Quote" description="Request a free estimate from Iron Path Services.">
-  <PageHero eyebrow="Get a Quote" title="Tell us what needs <em>doing.</em>" lead="No obligation, no pressure. Send details and we will follow up quickly with next steps." />
+  <PageHero eyebrow="Get a Quote" title="Tell us what needs <em>doing.</em>" lead="No obligation, no pressure. Fill out the official Get A Quote form and we will follow up quickly with next steps." />
 
   <section class="section">
     <div class="container grid two" style="align-items: start;">
@@ -20,15 +22,32 @@ import { contact, googleFormFinePrint, googleForms } from '../data/site';
         <p><a href={contact.instagram} target="_blank" rel="noreferrer">{contact.instagramLabel}</a></p>
         <p><a href={contact.facebook} target="_blank" rel="noreferrer">{contact.facebookLabel}</a></p>
       </div>
-      <ContactForm type="quote" title="Request a Free Estimate" googleFormUrl={googleForms.generalQuote} />
+      <div class="card sand">
+        <h3>Secure Paper Shredding</h3>
+        <p>Secure Paper Shredding jobs use the dedicated intake form instead of the general quote form.</p>
+        <TallyPopupButton class="btn secondary" />
+        <p class="fine-print">{tallyForms.paperShredding.finePrint}</p>
+      </div>
     </div>
   </section>
 
   <section class="section sand compact">
     <div class="container">
+      <div class="eyebrow">Official quote form</div>
+      <h2>Get a <em>quote.</em></h2>
+      <p class="lead">House Cleaning, Junk Removal, Firewood Services, Vending Machines &amp; ATMs, and general estimates all start here.</p>
+      <TallyEmbed formKey="getAQuote" />
+    </div>
+  </section>
+
+  <section class="section compact">
+    <div class="container">
       <div class="eyebrow">Official request forms</div>
       <h2>Send the right request <em>online.</em></h2>
-      <GoogleFormLinks columns="four" />
+      <GoogleFormLinks
+        columns="three"
+        titles={['Firewood Order', 'Vending / ATM Placement Inquiry', 'Secure Paper Shredding']}
+      />
     </div>
   </section>
 
