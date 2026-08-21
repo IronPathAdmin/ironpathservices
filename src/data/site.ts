@@ -158,7 +158,7 @@ export const services = [
     title: 'House Cleaning',
     treeTitle: 'House Cleaning',
     slug: 'cleaning',
-    image: '/assets/img-tractor.jpg',
+    image: '/assets/photos/jobs/house-cleaning.jpg',
     summary:
       'Move-out ready, estate clean outs, vacation rentals, Airbnb, commercial, and house cleaning.',
     description:
