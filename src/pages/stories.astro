@@ -11,7 +11,11 @@ import { storyCards } from '../data/site';
     <div class="container grid three">
       {storyCards.map((story) => (
         <article class="card sand reveal">
-          <div class="placeholder-photo" style="margin-bottom: 18px;">Field photo coming soon</div>
+          {story.image ? (
+            <div class="image-card" style={`--image-url: url('${story.image}'); margin-bottom: 18px;`} role="img" aria-label={story.imageAlt}></div>
+          ) : (
+            <div class="placeholder-photo" style="margin-bottom: 18px;">Field photo coming soon</div>
+          )}
           <h3>{story.title}</h3>
           <p>{story.text}</p>
         </article>

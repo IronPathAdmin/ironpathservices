@@ -16,9 +16,12 @@ Current files:
 - `team/adrian-operations.jpg` - Adrian portrait (About)
 - `team/eloise-truck.jpg` - Eloise the red work truck (About)
 - `jobs/junk-load-1.jpg` - fencing load in Eloise (Junk Removal)
-- `jobs/organ-in-truck.jpg` - wrapped furniture haul
-- `community/methow-1.jpg` through `methow-3.jpg` - valley landscapes
-- `community/` also holds sword and dinosaur whimsy shots for later community use
+- `jobs/organ-in-truck.jpg` - wrapped furniture haul (Stories)
+- `shredding/archive-paper-stacks.jpg` - Secure Paper Shredding service photo
+- `community/methow-1.jpg` through `methow-3.jpg` - valley landscapes (homepage hero and service area)
+- `community/dinosaur-whimsy-1.jpg` and `dinosaur-whimsy-2.jpg` - community/karaoke moments
+- `community/whimsical-sword.jpg` - Stories inspirational card
+- `community/` also holds additional sword shots for later community use
 
 Recommended file naming:
 
