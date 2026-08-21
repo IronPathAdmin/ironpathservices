@@ -4,7 +4,7 @@ import ServiceTree from '../components/ServiceTree.astro';
 import TallyEmbed from '../components/TallyEmbed.astro';
 import GoogleFormLinks from '../components/GoogleFormLinks.astro';
 import ReviewCard from '../components/ReviewCard.astro';
-import { communityPledge, contact, faqs, promotions, reviews, serviceAreas, servicePromise, serviceTagline, travelFeeNote } from '../data/site';
+import { communityPledge, contact, faqs, homePhotos, promotions, reviews, serviceAreas, servicePromise, serviceTagline, travelFeeNote } from '../data/site';
 ---
 
 <BaseLayout title="Iron Path Services | Methow Valley" description={`${serviceTagline} ${servicePromise}`}>
@@ -216,6 +216,29 @@ import { communityPledge, contact, faqs, promotions, reviews, serviceAreas, serv
         the branches stack for easy reading.
       </p>
       <ServiceTree />
+    </div>
+  </section>
+
+  <section class="section compact">
+    <div class="container">
+      <div class="eyebrow">From the Valley</div>
+      <h2>The work, the truck, <em>the path.</em></h2>
+      <p class="lead">Real Iron Path photos from jobs, Eloise, and the Methow Valley.</p>
+      <div class="home-photo-grid">
+        {homePhotos.map((photo) => (
+          <a
+            class={`home-photo-card${photo.featured ? ' featured' : ''}`}
+            href={photo.href}
+          >
+            <img
+              src={photo.src}
+              alt={photo.alt}
+              style={`object-position: ${photo.position};`}
+            />
+            <span>{photo.caption}</span>
+          </a>
+        ))}
+      </div>
     </div>
   </section>
 
