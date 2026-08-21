@@ -16,6 +16,8 @@ Recommended file naming:
 - Include location or use when helpful.
 - Examples:
   - `team/benji-founder.jpg`
+  - `team/adrian-operations.jpg`
+  - `team/eloise-truck.jpg`
   - `jobs/winthrop-estate-cleanout-before.jpg`
   - `jobs/winthrop-estate-cleanout-after.jpg`
   - `firewood/blazers-recycled-fire-starters.jpg`

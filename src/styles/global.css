@@ -1207,6 +1207,26 @@ em {
   padding: 24px;
 }
 
+.about-team {
+  display: grid;
+  gap: 18px;
+}
+
+.about-team-slot {
+  display: grid;
+  gap: 12px;
+}
+
+.about-portrait-slot {
+  min-height: 180px;
+  border-radius: 22px;
+}
+
+.about-eloise-photo {
+  min-height: 220px;
+  border-radius: 22px;
+}
+
 .table-wrap {
   overflow: visible;
   border: 1px solid var(--line);
