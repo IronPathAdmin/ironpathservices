@@ -1217,14 +1217,24 @@ em {
   gap: 12px;
 }
 
-.about-portrait-slot {
-  min-height: 180px;
+.about-photo {
+  width: 100%;
+  display: block;
+  object-fit: cover;
   border-radius: 22px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(245, 240, 232, 0.34);
+  background: rgba(46, 74, 48, 0.12);
+}
+
+.about-portrait-photo {
+  height: 280px;
+  object-position: center 18%;
 }
 
 .about-eloise-photo {
-  min-height: 220px;
-  border-radius: 22px;
+  height: 280px;
+  object-position: center 58%;
 }
 
 .table-wrap {
@@ -1847,6 +1857,12 @@ textarea:focus {
   .image-card {
     aspect-ratio: 16 / 10;
     border-radius: 20px;
+  }
+
+  .about-portrait-photo,
+  .about-eloise-photo {
+    height: 240px;
+  }
   }
 
   .service-gallery {

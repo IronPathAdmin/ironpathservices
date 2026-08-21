@@ -176,7 +176,7 @@ export const services = [
     title: 'Junk Removal',
     treeTitle: 'Junk Removal',
     slug: 'junk-removal',
-    image: '/assets/img-junkyard.jpg',
+    image: '/assets/photos/jobs/junk-load-1.jpg',
     summary:
       'Estate cleanouts, donation sorting, refurbishing, commercial cleanouts, and residential cleanouts.',
     description:

@@ -4,8 +4,22 @@ import PageHero from '../components/PageHero.astro';
 import { founderLetter, initiatives } from '../data/site';
 
 const team = [
-  { name: 'Benji', role: 'Founder & Strategy Architect' },
-  { name: 'Adrian', role: 'Operations Architect' },
+  {
+    name: 'Benji',
+    role: 'Founder & Strategy Architect',
+    image: '/assets/photos/team/benji-founder.jpg',
+    alt: 'Benji, Founder and Strategy Architect of Iron Path Services, standing by the Methow River',
+    width: 683,
+    height: 1014,
+  },
+  {
+    name: 'Adrian',
+    role: 'Operations Architect',
+    image: '/assets/photos/team/adrian-operations.jpg',
+    alt: 'Adrian, Operations Architect of Iron Path Services',
+    width: 788,
+    height: 1400,
+  },
 ];
 ---
 
@@ -16,9 +30,9 @@ const team = [
     <div class="container grid two" style="align-items: start;">
       <div class="about-team">
         <div class="grid two">
-          {team.map(({ name, role }) => (
+          {team.map(({ name, role, image, alt, width, height }) => (
             <article class="about-team-slot">
-              <div class="placeholder-photo about-portrait-slot">{name} photo coming soon</div>
+              <img class="about-photo about-portrait-photo" src={image} alt={alt} width={width} height={height} />
               <div class="card sand">
                 <h3>{name}</h3>
                 <p>{role}</p>
@@ -27,7 +41,13 @@ const team = [
           ))}
         </div>
         <article class="about-team-slot about-eloise-slot">
-          <div class="placeholder-photo about-eloise-photo">Eloise photo coming soon</div>
+          <img
+            class="about-photo about-eloise-photo"
+            src="/assets/photos/team/eloise-truck.jpg"
+            alt="Eloise, Iron Path's red work truck and the star of the show"
+            width="1800"
+            height="1350"
+          />
           <div class="card sand">
             <h3>Eloise</h3>
             <p>Our truck and the star of the show.</p>
