@@ -3,7 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ServiceTree from '../components/ServiceTree.astro';
 import TallyEmbed from '../components/TallyEmbed.astro';
 import GoogleFormLinks from '../components/GoogleFormLinks.astro';
-import { communityPledge, contact, faqs, promotions, reviews, serviceAreas, servicePromise, serviceTagline } from '../data/site';
+import ReviewCard from '../components/ReviewCard.astro';
+import { communityPledge, contact, faqs, promotions, reviews, serviceAreas, servicePromise, serviceTagline, travelFeeNote } from '../data/site';
 ---
 
 <BaseLayout title="Iron Path Services | Methow Valley" description={`${serviceTagline} ${servicePromise}`}>
@@ -36,7 +37,7 @@ import { communityPledge, contact, faqs, promotions, reviews, serviceAreas, serv
           <div class="eyebrow">Current Promotions</div>
           <h2>Two ways to <em>save or win.</em></h2>
           <p class="lead">
-            Claim the $150 FIRST30 launch special or enter the summer giveaway. Full terms
+            Claim the $150 FIRST30 launch special or enter the Iron Path Giveaway. Full terms
             are posted on the pricing page.
           </p>
           <a class="btn secondary" href="/pricing/">See Promotion Details</a>
@@ -228,8 +229,7 @@ import { communityPledge, contact, faqs, promotions, reviews, serviceAreas, serv
           {serviceAreas.map((area) => <li>{area}</li>)}
         </ul>
         <div class="form-note">
-          Winthrop & Twisp: no travel fee. Mazama/Carlton: +$30. Brewster/Pateros: +$60.
-          Beyond 60 miles from Winthrop: $2.25/mile. All fees disclosed upfront.
+          {travelFeeNote}
         </div>
       </div>
       <div class="image-card" style="--image-url: url('/assets/img-wrecked.jpg');" role="img" aria-label="Methow Valley service area image"></div>
@@ -272,13 +272,9 @@ import { communityPledge, contact, faqs, promotions, reviews, serviceAreas, serv
     <div class="container">
       <div class="eyebrow">Reviews</div>
       <h2>What people <em>say.</em></h2>
-      <div class="grid four" style="margin-top: 28px;">
+      <div class={`review-grid${reviews.length === 1 ? ' is-single' : ''}`} style="margin-top: 28px;">
         {reviews.map((review) => (
-          <div class="card reveal">
-            <p style="font-family: 'Lora', Georgia, serif; font-style: italic;">"{review.quote}"</p>
-            <strong>{review.name}</strong><br />
-            <span>{review.location} · {review.service}</span>
-          </div>
+          <ReviewCard review={review} featured={reviews.length === 1} />
         ))}
       </div>
     </div>
@@ -303,7 +299,7 @@ import { communityPledge, contact, faqs, promotions, reviews, serviceAreas, serv
       <GoogleFormLinks
         columns="three"
         titles={[
-          'Firewood Order',
+          'Firewood Services',
           'Vending / ATM Placement Inquiry',
           'Secure Paper Shredding',
         ]}

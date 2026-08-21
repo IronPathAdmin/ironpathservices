@@ -1264,6 +1264,33 @@ td:first-child {
   background: transparent;
 }
 
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.review-grid.is-single {
+  grid-template-columns: minmax(0, 720px);
+}
+
+.review-stars {
+  color: var(--bronze);
+  letter-spacing: 0.12em;
+  margin: 0 0 10px;
+}
+
+.review-quote {
+  font-family: 'Lora', Georgia, serif;
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.review-recommend {
+  margin-top: 12px;
+  color: var(--muted);
+}
+
 .form-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

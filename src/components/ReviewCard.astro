@@ -1,0 +1,25 @@
+---
+import type { Review } from '../data/site';
+
+interface Props {
+  review: Review;
+  featured?: boolean;
+}
+
+const { review, featured = false } = Astro.props;
+const emptyStars = Math.max(0, 5 - review.rating);
+---
+
+<article class:list={['card', 'reveal', 'review-card', featured && 'sand']}>
+  <p class="review-stars" aria-label={`${review.rating} star rating`}>
+    {'★'.repeat(review.rating)}{'☆'.repeat(emptyStars)}
+  </p>
+  <p class="review-quote">"{review.quote}"</p>
+  <strong>{review.name}</strong>
+  <p>{review.location} · {review.service} · {review.date}</p>
+  {review.recommend && (
+    <p class="review-recommend">
+      Would you recommend Iron Path to a friend or neighbor? <strong>{review.recommend}</strong>
+    </p>
+  )}
+</article>

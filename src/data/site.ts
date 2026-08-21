@@ -82,9 +82,9 @@ export const formLinks: FormLink[] = [
     finePrint: tallyForms.getAQuote.finePrint,
   },
   {
-    title: 'Firewood Order',
+    title: 'Firewood Services',
     href: googleForms.firewoodOrder,
-    description: 'Order campfire bundles, individual bundles, cords, and recycled fire products.',
+    description: 'Order Firewood Services: campfire bundles, individual bundles, cords, and recycled fire products.',
   },
   {
     title: 'Vending / ATM Placement Inquiry',
@@ -156,6 +156,7 @@ export const serviceAreas = [
 export const services = [
   {
     title: 'House Cleaning',
+    treeTitle: 'House Cleaning',
     slug: 'cleaning',
     image: '/assets/img-tractor.jpg',
     summary:
@@ -173,6 +174,7 @@ export const services = [
   },
   {
     title: 'Junk Removal',
+    treeTitle: 'Junk Removal',
     slug: 'junk-removal',
     image: '/assets/img-junkyard.jpg',
     summary:
@@ -190,6 +192,7 @@ export const services = [
   },
   {
     title: 'Secure Paper Shredding',
+    treeTitle: 'Secure Document Shredding',
     slug: 'document-shredding',
     image: '/assets/img-pipes.jpg',
     galleryReady: false,
@@ -221,6 +224,7 @@ export const services = [
   },
   {
     title: 'Firewood Services',
+    treeTitle: 'Firewood Services',
     slug: 'firewood',
     image: '/assets/img-firewood.jpg',
     summary:
@@ -237,6 +241,7 @@ export const services = [
   },
   {
     title: 'Vending Machines & ATMs',
+    treeTitle: 'Vending Machines & ATMs',
     slug: 'vending-atm',
     image: '/assets/img-vending.jpg',
     summary:
@@ -332,40 +337,32 @@ export const faqs = [
   ['Are there any hidden fees?', 'No. Travel fees, add-ons, fuel surcharges, and sales tax are disclosed upfront before you commit.'],
   ['How does Secure Paper Shredding work?', 'We offer secure on-site or off-site Secure Paper Shredding options and can provide a certificate of destruction when requested.'],
   ['Do you offer same-day service?', 'Often, depending on availability. Same-day priority is an add-on and is never promised unless we can actually deliver.'],
-  ['How far do you travel?', 'Winthrop and Twisp have no travel fee. Mazama and Carlton add $30. Brewster and Pateros add $60. Beyond 60 miles from Winthrop is $2.25 per mile.'],
+  ['How far do you travel?', 'Mazama, Winthrop, and Twisp have no travel fee. Carlton adds $30. Brewster and Pateros add $60. Beyond 60 miles from Winthrop is $2.25 per mile.'],
   ['What happens if I need to cancel?', 'Cancellations under 24 hours may be charged a flat dispatch fee. We disclose cancellation terms before booking.'],
   ['How do vending and ATM services work?', 'We supply, install, stock, maintain, and service the machine. Host locations receive 30% of net sales. ATM withdrawal fees are $3.50.'],
   ['Where do you service?', 'We serve Winthrop, Twisp, Mazama, Carlton, Methow, Pateros, Brewster, Monse, Ophir, Malott, Chillowist, Okanogan, Omak, and surrounding areas.'],
 ];
 
-export const reviews = [
+export type Review = {
+  name: string;
+  location: string;
+  service: string;
+  date: string;
+  rating: number;
+  quote: string;
+  recommend?: string;
+};
+
+export const reviews: Review[] = [
   {
-    name: 'Sarah M.',
+    name: 'Andrew B',
     location: 'Winthrop, WA',
     service: 'Junk Removal',
+    date: 'August 11, 2026',
+    rating: 5,
     quote:
-      'They showed up on time, worked clean, and left the property looking better than I expected. Straightforward pricing, no surprises.',
-  },
-  {
-    name: 'Tom R.',
-    location: 'Twisp, WA',
-    service: 'Cleanout',
-    quote:
-      'Great communication start to finish. They sent before and after photos, which I really appreciated.',
-  },
-  {
-    name: 'Linda K.',
-    location: 'Mazama, WA',
-    service: 'Firewood',
-    quote:
-      'Ordered firewood and they delivered exactly when they said. Dry, well-split, and stacked neatly.',
-  },
-  {
-    name: 'David W.',
-    location: 'Brewster, WA',
-    service: 'Property Work',
-    quote:
-      'Iron Path followed up after the job was done just to check in. That kind of integrity is rare.',
+      'The Iron Path team was responsive, easy to work across an array of pick-up, sorting, donating, disposal tasks. Would definitely use and recommend to others.',
+    recommend: 'Absolutely',
   },
 ];
 
@@ -449,12 +446,16 @@ export const pricingTables = [
   },
 ];
 
+export const travelFeeNote =
+  'Mazama, Winthrop, and Twisp: no travel fee. Carlton: +$30. Brewster/Pateros: +$60. Beyond 60 miles from Winthrop: $2.25/mile. All fees disclosed upfront.';
+
 export const fees = [
   ['Same-day priority service', '+$80'],
   ['After-hours service', '+15%'],
   ['Cancellation under 24 hours', '$40 flat'],
   ['No-show / lockout', '$60 flat'],
-  ['Mazama / Carlton travel', '+$30'],
+  ['Mazama, Winthrop, and Twisp travel', 'None'],
+  ['Carlton travel', '+$30'],
   ['Brewster / Pateros travel', '+$60'],
   ['Beyond 60 miles from Winthrop', '$2.25/mile'],
   ['Fuel below $4.10/gal', 'None'],
@@ -501,7 +502,88 @@ export const promotions: Array<{
     label: string;
     href: string;
   };
-}> = [];
+}> = [
+  {
+    title: 'Iron Path Giveaway',
+    status: 'Giveaway open now.',
+    details:
+      'One lucky winner will choose one prize from Iron Path Services: free junk removal, free house cleaning, or a $250 service credit toward any Iron Path service.',
+    optionsHeading: 'Prize choices',
+    prizeOptions: [
+      'Free junk removal up to one trailer load, equivalent to 2 truck loads',
+      'Free house cleaning up to 3 hours',
+      '$250 credit toward any Iron Path service',
+    ],
+    dates: [
+      { label: 'Winner announced', value: 'September 30, 2026' },
+      { label: 'Prize must be used by', value: 'October 31, 2026' },
+    ],
+    entrySteps: [
+      'Like the giveaway post for +1 entry',
+      'Comment "DONE" and tag 2 friends for +1 entry',
+    ],
+    socialEntries: [
+      {
+        platform: 'facebook',
+        label: 'Follow on Facebook',
+        handle: 'Iron Path Services',
+        href: contact.facebook,
+        entries: '+1 entry',
+      },
+      {
+        platform: 'instagram',
+        label: 'Follow on Instagram',
+        handle: '@ironpathservices',
+        href: contact.instagram,
+        entries: '+1 entry',
+      },
+    ],
+    bonusEntries: [
+      'Share the giveaway post to your story for +3 entries',
+      'Request a free estimate for +3 entries',
+      'Join the email list for +2 entries',
+      'Nominate someone deserving through the Google Form for +2 entries',
+      'Post a photo of a cleaning project, cluttered room, junk pile, or dirty trash can and tag Iron Path Services for +3 entries',
+    ],
+    nominationDetails:
+      'If a nominated person is selected, the nominee receives their choice of free junk removal, free house cleaning, or a $250 service credit. The nominator receives 1 hour of cleaning or a $50 service credit.',
+    cta: {
+      label: 'Open Promotion Form',
+      href: googleForms.promotion,
+    },
+    finePrint:
+      'No purchase necessary. Must be 18 years or older and reside within Iron Path Services service area. Promotion is not sponsored, endorsed, administered by, or associated with Facebook or Instagram. One winner will be selected at random after entries close. Prize value not to exceed $250.',
+  },
+  {
+    title: 'Launch Special: $150 flat',
+    status: 'Ending September 30, 2026 if we do not reach 30 jobs first!',
+    details:
+      'Claim a $150 flat-rate launch special with no gas fees, no hidden charges, and no surprise add-ons.',
+    promoCode: 'FIRST30',
+    optionsHeading: 'Choose one',
+    prizeOptions: [
+      'Up to 1 full pickup truck load of junk removal, equivalent to approximately one standard pickup truck load',
+      'Up to 2 full hours of house cleaning',
+    ],
+    dates: [
+      { label: 'Available', value: 'Now' },
+      { label: 'Ending', value: 'September 30, 2026 if 30 jobs are not reached first' },
+    ],
+    offerDetails: [
+      'Limited to the first 30 customers',
+      'Available within 10 miles of Winthrop, WA',
+      'One service per promotional booking',
+      'Subject to scheduling availability',
+      'Ends September 30, 2026 if we do not reach 30 jobs first',
+    ],
+    cta: {
+      label: 'Claim Launch Special',
+      href: googleForms.promotion,
+    },
+    finePrint:
+      'Enter promo code FIRST30 on the service request form. Offer ends September 30, 2026 if 30 jobs are not completed first. Claim your spot before all 30 are gone.',
+  },
+];
 
 export const founderLetter = [
   'Iron Path Services was founded in March 2026 in the Methow Valley by three people who believed this place deserved a different kind of service company.',
