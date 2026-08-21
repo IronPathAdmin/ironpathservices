@@ -17,8 +17,9 @@ const team = [
     role: 'Operations Architect',
     image: '/assets/photos/team/adrian-operations.jpg',
     alt: 'Adrian, Operations Architect of Iron Path Services',
-    width: 788,
-    height: 1400,
+    width: 1000,
+    height: 1493,
+    extraClass: 'is-adrian',
   },
 ];
 ---
@@ -30,9 +31,9 @@ const team = [
     <div class="container grid two" style="align-items: start;">
       <div class="about-team">
         <div class="grid two">
-          {team.map(({ name, role, image, alt, width, height }) => (
+          {team.map(({ name, role, image, alt, width, height, extraClass = '' }) => (
             <article class="about-team-slot">
-              <img class="about-photo about-portrait-photo" src={image} alt={alt} width={width} height={height} />
+              <img class={`about-photo about-portrait-photo ${extraClass}`.trim()} src={image} alt={alt} width={width} height={height} />
               <div class="card sand">
                 <h3>{name}</h3>
                 <p>{role}</p>
