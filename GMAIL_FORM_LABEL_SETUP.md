@@ -12,7 +12,7 @@ Examples:
 
 ```text
 Website Form | Junk Removal | Jane Doe
-Website Form | Cleaning Services | Alex Smith
+Website Form | House Cleaning | Alex Smith
 Website Form | Customer Review | customer@example.com
 Website Form | Newsletter Signup | customer@example.com
 ```
@@ -33,11 +33,11 @@ Gmail calls folders **labels**. The website cannot change private Gmail settings
 
 Create these labels and nest each one under `Website Forms`:
 
-- Cleaning Services
+- House Cleaning
 - Junk Removal
-- Document Shredding
-- Firewood Sales
-- Vending & ATM
+- Secure Paper Shredding
+- Firewood Services
+- Vending Machines & ATMs
 - Multiple services
 - General Quote
 - Customer Review
@@ -59,11 +59,11 @@ Repeat the filter steps for each job type. In the **Subject** field, use the com
 
 | Subject filter | Gmail label |
 | --- | --- |
-| `Website Form | Cleaning Services |` | `Website Forms/Cleaning Services` |
+| `Website Form | House Cleaning |` | `Website Forms/House Cleaning` |
 | `Website Form | Junk Removal |` | `Website Forms/Junk Removal` |
-| `Website Form | Document Shredding |` | `Website Forms/Document Shredding` |
-| `Website Form | Firewood Sales |` | `Website Forms/Firewood Sales` |
-| `Website Form | Vending & ATM |` | `Website Forms/Vending & ATM` |
+| `Website Form | Secure Paper Shredding |` | `Website Forms/Secure Paper Shredding` |
+| `Website Form | Firewood Services |` | `Website Forms/Firewood Services` |
+| `Website Form | Vending Machines & ATMs |` | `Website Forms/Vending Machines & ATMs` |
 | `Website Form | Multiple services |` | `Website Forms/Multiple services` |
 | `Website Form | General Quote |` | `Website Forms/General Quote` |
 | `Website Form | Customer Review |` | `Website Forms/Customer Review` |
@@ -83,9 +83,15 @@ Each email body is plain text with separate **Form Details**, **Contact Informat
 
 ## Secure Paper Shredding (Tally)
 
-The Secure Paper Shredding Intake form is now a Tally form (`0QqM0Q`), not a website email form. Submissions are sent by Tally's own email notifications.
+The Secure Paper Shredding Intake form is a Tally form (`0QqM0Q`), not a website email form. Submissions are sent by Tally's own email notifications.
 
-In Tally, set notifications to `leads@ironpathservices.com`. Then create a Gmail filter for that form's subject or sender and apply `Website Forms/Document Shredding`.
+In Tally, set notifications to `leads@ironpathservices.com`. Then create a Gmail filter for that form's subject or sender and apply `Website Forms/Secure Paper Shredding`.
+
+## Get A Quote (Tally)
+
+The general quote form is a Tally embed (`aQpZRB`) on the homepage and Get a Quote page. Submissions are sent by Tally's own email notifications.
+
+In Tally, set notifications to `leads@ironpathservices.com`. Then create a Gmail filter for that form's subject or sender and apply `Website Forms/General Quote` or a nested job-type label such as `Website Forms/House Cleaning`.
 
 ## Current delivery behavior
 

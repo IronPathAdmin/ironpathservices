@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import { discounts, fees, googleFormFinePrint, googleForms, pricingTables, promotions } from '../data/site';
+import { communityPledge, discounts, fees, googleFormFinePrint, googleForms, pricingTables, promotions } from '../data/site';
 import TallyPopupButton from '../components/TallyPopupButton.astro';
 
 const currentPromotions = [...promotions].sort((a, b) => {
@@ -18,8 +18,8 @@ const currentPromotions = [...promotions].sort((a, b) => {
     <div class="container">
       <div class="grid two">
         <div class="card sand">
-          <h3>Community Donation Pledge</h3>
-          <p>A meaningful percentage of profits is pledged toward Methow Valley businesses, schools, parks, and community needs.</p>
+          <h3>{communityPledge.title}</h3>
+          <p>{communityPledge.summary}</p>
         </div>
         <div class="card sand">
           <h3>Payment Policy</h3>
@@ -34,8 +34,8 @@ const currentPromotions = [...promotions].sort((a, b) => {
       <div class="eyebrow">Promotions</div>
       <h2>Current <em>promotions.</em></h2>
       <p class="lead">
-        The FIRST30 $150 flat launch special is now live here with full terms,
-        alongside the summer giveaway.
+        The FIRST30 $150 flat launch special is now live with full terms, alongside the Iron Path
+        Giveaway.
       </p>
       {currentPromotions.length > 0 ? (
         <div class="promotion-grid" style="margin-top: 28px;">
@@ -174,7 +174,7 @@ const currentPromotions = [...promotions].sort((a, b) => {
         {table.title === 'Secure Paper Shredding' && (
           <div style="margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
             <TallyPopupButton />
-            <p class="fine-print" style="margin: 0;">Opens the official Secure Document Shredding Request form. No Google login required.</p>
+            <p class="fine-print" style="margin: 0;">Opens the official Secure Paper Shredding Intake form. No Google login required.</p>
           </div>
         )}
       </div>

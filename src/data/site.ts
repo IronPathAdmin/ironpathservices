@@ -11,12 +11,34 @@ export const contact = {
   facebookLabel: 'Facebook: Iron Path Services',
 };
 
+export const serviceTagline =
+  'Junk Removal, House Cleaning, Secure Paper Shredding, Firewood Services, Vending Machines & ATMs.';
+
+export const servicePromise =
+  'Delivered by people who live here, work here, and care for the valley.';
+
+export const communityPledge = {
+  title: 'Community Donation Pledge',
+  summary:
+    '3% of Iron Path Services net profits is pledged back into the Methow Valley. 100% of funds donated to the valley fund goes to the valley.',
+};
+
 export const tallyForms = {
   paperShredding: {
     id: '0QqM0Q',
     url: 'https://tally.so/r/0QqM0Q',
-    title: 'Secure Document Shredding Request',
+    embedUrl: 'https://tally.so/embed/0QqM0Q',
+    title: 'Secure Paper Shredding Intake',
     buttonLabel: 'Open Shredding Intake',
+    finePrint: 'Opens the official Secure Paper Shredding Intake form. No Google login required.',
+  },
+  getAQuote: {
+    id: 'aQpZRB',
+    url: 'https://tally.so/r/aQpZRB',
+    embedUrl: 'https://tally.so/embed/aQpZRB',
+    title: 'Get A Quote!!',
+    buttonLabel: 'Get A Quote',
+    finePrint: 'Opens the official Get A Quote form. No Google login required.',
   },
 } as const;
 
@@ -44,20 +66,25 @@ export type FormLink = {
   href: string;
   description: string;
   provider?: 'google' | 'tally';
-  tallyId?: string;
+  tallyKey?: keyof typeof tallyForms;
   ctaLabel?: string;
+  finePrint?: string;
 };
 
 export const formLinks: FormLink[] = [
   {
     title: 'General Service Quote Request',
-    href: googleForms.generalQuote,
-    description: 'Use this for cleaning, junk removal, multi-service jobs, and general estimates.',
+    href: tallyForms.getAQuote.url,
+    description: 'Use this for House Cleaning, Junk Removal, multi-service jobs, and general estimates.',
+    provider: 'tally' as const,
+    tallyKey: 'getAQuote',
+    ctaLabel: tallyForms.getAQuote.buttonLabel,
+    finePrint: tallyForms.getAQuote.finePrint,
   },
   {
-    title: 'Firewood Order',
+    title: 'Firewood Services',
     href: googleForms.firewoodOrder,
-    description: 'Order campfire bundles, individual bundles, cords, and recycled fire products.',
+    description: 'Order Firewood Services: campfire bundles, individual bundles, cords, and recycled fire products.',
   },
   {
     title: 'Vending / ATM Placement Inquiry',
@@ -67,10 +94,11 @@ export const formLinks: FormLink[] = [
   {
     title: 'Secure Paper Shredding',
     href: tallyForms.paperShredding.url,
-    description: 'Request secure paper shredding and certificates of destruction.',
+    description: 'Request Secure Paper Shredding and certificates of destruction.',
     provider: 'tally' as const,
-    tallyId: tallyForms.paperShredding.id,
+    tallyKey: 'paperShredding',
     ctaLabel: tallyForms.paperShredding.buttonLabel,
+    finePrint: tallyForms.paperShredding.finePrint,
   },
   {
     title: 'Volunteer Program Application',
@@ -127,7 +155,8 @@ export const serviceAreas = [
 
 export const services = [
   {
-    title: 'Cleaning Services',
+    title: 'House Cleaning',
+    treeTitle: 'House Cleaning',
     slug: 'cleaning',
     image: '/assets/img-tractor.jpg',
     summary:
@@ -145,6 +174,7 @@ export const services = [
   },
   {
     title: 'Junk Removal',
+    treeTitle: 'Junk Removal',
     slug: 'junk-removal',
     image: '/assets/img-junkyard.jpg',
     summary:
@@ -161,28 +191,29 @@ export const services = [
     price: '$80-$160 minimum',
   },
   {
-    title: 'Document Shredding',
+    title: 'Secure Paper Shredding',
+    treeTitle: 'Secure Document Shredding',
     slug: 'document-shredding',
     image: '/assets/img-pipes.jpg',
     galleryReady: false,
     gallery: [
       {
         src: '/assets/photos/shredding/paper-record-stacks.jpg',
-        alt: 'Stacks of paper records prepared for secure shredding',
+        alt: 'Stacks of paper records prepared for Secure Paper Shredding',
       },
       {
         src: '/assets/photos/shredding/archive-paper-stacks.jpg',
-        alt: 'Bundled archive paperwork before secure destruction',
+        alt: 'Bundled archive paperwork before Secure Paper Shredding',
       },
       {
         src: '/assets/photos/shredding/colorful-shredded-paper.jpg',
-        alt: 'Colorful shredded paper after document destruction',
+        alt: 'Colorful shredded paper after Secure Paper Shredding',
       },
     ],
     summary:
       'On-site shredding, off-site shredding, security guarantee, and certificates of destruction.',
     description:
-      'Secure document destruction options for residents and businesses, with a clear chain of custody and a certificate of destruction when requested.',
+      'Secure Paper Shredding for residents and businesses, with a clear chain of custody and a certificate of destruction when requested.',
     bullets: [
       'On-site or off-site shredding options',
       'Security-first handling practices',
@@ -192,7 +223,8 @@ export const services = [
     price: 'From $40',
   },
   {
-    title: 'Firewood Sales',
+    title: 'Firewood Services',
+    treeTitle: 'Firewood Services',
     slug: 'firewood',
     image: '/assets/img-firewood.jpg',
     summary:
@@ -208,7 +240,8 @@ export const services = [
     price: 'From $5',
   },
   {
-    title: 'Vending & ATM',
+    title: 'Vending Machines & ATMs',
+    treeTitle: 'Vending Machines & ATMs',
     slug: 'vending-atm',
     image: '/assets/img-vending.jpg',
     summary:
@@ -251,12 +284,11 @@ export const initiatives = [
   },
   {
     title: 'Methow Valley Investment Strategy',
-    summary:
-      'A pledge to reinvest a meaningful percentage of profits into local businesses, schools, parks, and needs.',
+    summary: communityPledge.summary,
     details: [
-      'Launch tracker starts at $50.',
-      'Goals grow from $5,000 through $30,000 and beyond.',
-      'Funding priorities will be published as the program matures.',
+      '3% of Iron Path Services net profits is pledged back into the Methow Valley.',
+      '100% of funds donated to the valley fund goes to the valley.',
+      'Every pledged dollar is published on the live Investment Tracker.',
     ],
   },
   {
@@ -303,42 +335,34 @@ export const faqs = [
   ['How does the fuel surcharge work?', 'The surcharge is tied to current local regular unleaded prices and is disclosed before booking. Below $4.10 per gallon there is no surcharge; higher brackets are listed on the pricing page.'],
   ['How does payment work?', 'Payment timing is agreed before work begins. Accepted methods include cash, check, and on-site card payments. Quoted prices are final with no post-job additions.'],
   ['Are there any hidden fees?', 'No. Travel fees, add-ons, fuel surcharges, and sales tax are disclosed upfront before you commit.'],
-  ['How does document shredding work?', 'We offer secure on-site or off-site shredding options and can provide a certificate of destruction when requested.'],
+  ['How does Secure Paper Shredding work?', 'We offer secure on-site or off-site Secure Paper Shredding options and can provide a certificate of destruction when requested.'],
   ['Do you offer same-day service?', 'Often, depending on availability. Same-day priority is an add-on and is never promised unless we can actually deliver.'],
-  ['How far do you travel?', 'Winthrop and Twisp have no travel fee. Mazama and Carlton add $30. Brewster and Pateros add $60. Beyond 60 miles from Winthrop is $2.25 per mile.'],
+  ['How far do you travel?', 'Mazama, Winthrop, and Twisp have no travel fee. Carlton adds $30. Brewster and Pateros add $60. Beyond 60 miles from Winthrop is $2.25 per mile.'],
   ['What happens if I need to cancel?', 'Cancellations under 24 hours may be charged a flat dispatch fee. We disclose cancellation terms before booking.'],
   ['How do vending and ATM services work?', 'We supply, install, stock, maintain, and service the machine. Host locations receive 30% of net sales. ATM withdrawal fees are $3.50.'],
   ['Where do you service?', 'We serve Winthrop, Twisp, Mazama, Carlton, Methow, Pateros, Brewster, Monse, Ophir, Malott, Chillowist, Okanogan, Omak, and surrounding areas.'],
 ];
 
-export const reviews = [
+export type Review = {
+  name: string;
+  location: string;
+  service: string;
+  date: string;
+  rating: number;
+  quote: string;
+  recommend?: string;
+};
+
+export const reviews: Review[] = [
   {
-    name: 'Sarah M.',
+    name: 'Andrew B',
     location: 'Winthrop, WA',
     service: 'Junk Removal',
+    date: 'August 11, 2026',
+    rating: 5,
     quote:
-      'They showed up on time, worked clean, and left the property looking better than I expected. Straightforward pricing, no surprises.',
-  },
-  {
-    name: 'Tom R.',
-    location: 'Twisp, WA',
-    service: 'Cleanout',
-    quote:
-      'Great communication start to finish. They sent before and after photos, which I really appreciated.',
-  },
-  {
-    name: 'Linda K.',
-    location: 'Mazama, WA',
-    service: 'Firewood',
-    quote:
-      'Ordered firewood and they delivered exactly when they said. Dry, well-split, and stacked neatly.',
-  },
-  {
-    name: 'David W.',
-    location: 'Brewster, WA',
-    service: 'Property Work',
-    quote:
-      'Iron Path followed up after the job was done just to check in. That kind of integrity is rare.',
+      'The Iron Path team was responsive, easy to work across an array of pick-up, sorting, donating, disposal tasks. Would definitely use and recommend to others.',
+    recommend: 'Absolutely',
   },
 ];
 
@@ -360,7 +384,7 @@ export const pricingTables = [
     ],
   },
   {
-    title: 'Cleaning',
+    title: 'House Cleaning',
     note: 'All supplies and equipment are provided. Staff hold WA Food Worker Cards; IICRC certification targeted by September 30, 2026.',
     rows: [
       ['Standard clean', '$150', '2 hour base; supplies included'],
@@ -392,7 +416,7 @@ export const pricingTables = [
     ],
   },
   {
-    title: 'Firewood & Products',
+    title: 'Firewood Services',
     note: 'Seasoned and ready to burn. Delivery fees are confirmed at booking before you commit.',
     rows: [
       ['Salvaged wood bundle', '$5', 'Reclaimed scrap wood; kindling or rustic projects'],
@@ -409,7 +433,7 @@ export const pricingTables = [
     ],
   },
   {
-    title: 'Vending & ATM',
+    title: 'Vending Machines & ATMs',
     note: 'No upfront cost to host locations unless corporate setup is required and approved in advance.',
     rows: [
       ['Vending machine placement', 'No host cost', 'Machine supplied and installed'],
@@ -422,12 +446,16 @@ export const pricingTables = [
   },
 ];
 
+export const travelFeeNote =
+  'Mazama, Winthrop, and Twisp: no travel fee. Carlton: +$30. Brewster/Pateros: +$60. Beyond 60 miles from Winthrop: $2.25/mile. All fees disclosed upfront.';
+
 export const fees = [
   ['Same-day priority service', '+$80'],
   ['After-hours service', '+15%'],
   ['Cancellation under 24 hours', '$40 flat'],
   ['No-show / lockout', '$60 flat'],
-  ['Mazama / Carlton travel', '+$30'],
+  ['Mazama, Winthrop, and Twisp travel', 'None'],
+  ['Carlton travel', '+$30'],
   ['Brewster / Pateros travel', '+$60'],
   ['Beyond 60 miles from Winthrop', '$2.25/mile'],
   ['Fuel below $4.10/gal', 'None'],
@@ -476,7 +504,7 @@ export const promotions: Array<{
   };
 }> = [
   {
-    title: 'Summer Giveaway: win a free service',
+    title: 'Iron Path Giveaway',
     status: 'Giveaway open now.',
     details:
       'One lucky winner will choose one prize from Iron Path Services: free junk removal, free house cleaning, or a $250 service credit toward any Iron Path service.',
@@ -487,8 +515,8 @@ export const promotions: Array<{
       '$250 credit toward any Iron Path service',
     ],
     dates: [
-      { label: 'Winner announced', value: 'July 13, 2026' },
-      { label: 'Prize must be used by', value: 'August 31, 2026' },
+      { label: 'Winner announced', value: 'September 30, 2026' },
+      { label: 'Prize must be used by', value: 'October 31, 2026' },
     ],
     entrySteps: [
       'Like the giveaway post for +1 entry',
@@ -528,7 +556,7 @@ export const promotions: Array<{
   },
   {
     title: 'Launch Special: $150 flat',
-    status: 'Now live. First 30 customers only.',
+    status: 'Ending September 30, 2026 if we do not reach 30 jobs first!',
     details:
       'Claim a $150 flat-rate launch special with no gas fees, no hidden charges, and no surprise add-ons.',
     promoCode: 'FIRST30',
@@ -539,29 +567,30 @@ export const promotions: Array<{
     ],
     dates: [
       { label: 'Available', value: 'Now' },
-      { label: 'Complete by', value: 'August 30, 2026' },
+      { label: 'Ending', value: 'September 30, 2026 if 30 jobs are not reached first' },
     ],
     offerDetails: [
       'Limited to the first 30 customers',
       'Available within 10 miles of Winthrop, WA',
       'One service per promotional booking',
       'Subject to scheduling availability',
+      'Ends September 30, 2026 if we do not reach 30 jobs first',
     ],
     cta: {
       label: 'Claim Launch Special',
       href: googleForms.promotion,
     },
     finePrint:
-      'Enter promo code FIRST30 on the service request form. Offer must be scheduled and completed by August 30, 2026. Claim your spot before all 30 are gone.',
+      'Enter promo code FIRST30 on the service request form. Offer ends September 30, 2026 if 30 jobs are not completed first. Claim your spot before all 30 are gone.',
   },
 ];
 
 export const founderLetter = [
-  'Iron Path Services was founded in March 2026 in the Methow Valley by three people who believed this place deserved a different kind of service company.',
+  'Iron Path Services was founded in March 2026 in the Methow Valley by two people who believed this place deserved a different kind of service company.',
   "I'm Benji, the founder and Strategy Architect. I came to the Methow the way a lot of people do: chasing something the rest of the country had stopped offering. Open country. Honest work. Neighbors who notice when your truck has not moved in a few days.",
-  'I was working as a server at Sun Mountain Lodge when the idea for Iron Path started taking shape: the valley needed reliable, professional services - junk removal, cleaning, firewood, vending, ATMs - delivered by people who actually live here and plan to stay.',
-  'My partner Adrian, our Operations Architect, left Utah to build this with me. He runs financial operations overnight in another industry and brings the discipline and structure that keeps a young company from drifting. Sarah, our Client Experience Architect, rounds out the team with the kind of steady judgment you only get from people who have been doing the work for a long time.',
-  'Between the three of us, we own and run every part of this business - no absentee investors, no corporate playbook handed down from somewhere else.',
+  `I was working as a server at Sun Mountain Lodge when the idea for Iron Path started taking shape: the valley needed reliable, professional services - ${serviceTagline} ${servicePromise}`,
+  'My partner Adrian, our Operations Architect, left Utah to build this with me. He runs financial operations overnight in another industry and brings the discipline and structure that keeps a young company from drifting.',
+  'Between the two of us, we own and run every part of this business - no absentee investors, no corporate playbook handed down from somewhere else.',
   'The name Iron Path comes from what we believe service work actually is: a path you forge by showing up, doing it right, and earning trust one job at a time. Our tagline, A Path Forged In Trust, is not marketing. It is the standard we hold each other to.',
   "I will not pretend this is a finished story. We are a year-one company. We are learning fast, making mistakes faster, and writing the playbook as we go. But the direction is clear: build something durable, build it honestly, and build it here.",
   "If you have got a job that needs doing in the Methow Valley, we would be honored to earn it.",

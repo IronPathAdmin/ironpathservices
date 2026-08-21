@@ -1,5 +1,5 @@
 ---
-import { contact, serviceAreas } from '../data/site';
+import { contact, serviceAreas, servicePromise, serviceTagline } from '../data/site';
 ---
 
 <footer class="site-footer">
@@ -13,8 +13,7 @@ import { contact, serviceAreas } from '../data/site';
         </span>
       </a>
       <p style="line-height: 1.7; max-width: 380px;">
-        Locally owned services for the Methow Valley: junk removal, cleaning, secure shredding,
-        firewood, vending, and ATM placement.
+        Locally owned services for the Methow Valley: {serviceTagline} {servicePromise}
       </p>
       <p style="font-family: 'Lora', Georgia, serif; font-style: italic; color: var(--bronze);">
         Rooted in trust. Every branch leads back to community.

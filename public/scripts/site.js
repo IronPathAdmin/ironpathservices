@@ -1,8 +1,8 @@
 const googleFormEndpoints = {
-  quote: 'https://forms.gle/d1u58XK3wpbYDrcD6',
+  quote: '',
   review: 'https://forms.gle/V3KNfNb3soMkNpeDA',
   newsletter: '',
-  general: 'https://forms.gle/d1u58XK3wpbYDrcD6',
+  general: '',
   volunteer: 'https://forms.gle/eTywiDqx76tG19zw5',
   evaluation: '',
   image: 'https://forms.gle/7abciXX1tcqRWqZi6',
@@ -13,6 +13,10 @@ const tallyForms = {
   paperShredding: {
     id: '0QqM0Q',
     url: 'https://tally.so/r/0QqM0Q',
+  },
+  getAQuote: {
+    id: 'aQpZRB',
+    url: 'https://tally.so/r/aQpZRB',
   },
 };
 
@@ -187,7 +191,7 @@ function initForms() {
       const googleFormUrl =
         form.dataset.googleForm || googleFormEndpoints[form.dataset.formType || 'general'];
 
-      if (form.dataset.formType === 'quote' && data.service === 'Document Shredding') {
+      if (form.dataset.formType === 'quote' && data.service === 'Secure Paper Shredding') {
         if (status) {
           status.textContent = 'Opening the Secure Paper Shredding Intake form.';
         }
@@ -208,7 +212,19 @@ function initForms() {
   });
 }
 
+function initTallyEmbeds() {
+  if (window.Tally && typeof window.Tally.loadEmbeds === 'function') {
+    window.Tally.loadEmbeds();
+    return;
+  }
+
+  document.querySelectorAll('iframe[data-tally-src]:not([src])').forEach((iframe) => {
+    iframe.src = iframe.dataset.tallySrc;
+  });
+}
+
 initMenu();
 initReveal();
 initForms();
 initTallyPopups();
+initTallyEmbeds();

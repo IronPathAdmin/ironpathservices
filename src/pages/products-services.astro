@@ -2,22 +2,25 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import TallyPopupButton from '../components/TallyPopupButton.astro';
-import { googleFormFinePrint, googleForms, services } from '../data/site';
+import { googleFormFinePrint, googleForms, services, tallyForms } from '../data/site';
 
 const serviceForms = {
-  cleaning: googleForms.generalQuote,
-  'junk-removal': googleForms.generalQuote,
-  firewood: googleForms.firewoodOrder,
-  'vending-atm': googleForms.vendingAtm,
+  cleaning: { provider: 'tally' as const, formKey: 'getAQuote' as const },
+  'junk-removal': { provider: 'tally' as const, formKey: 'getAQuote' as const },
+  'document-shredding': { provider: 'tally' as const, formKey: 'paperShredding' as const },
+  firewood: { provider: 'google' as const, href: googleForms.firewoodOrder },
+  'vending-atm': { provider: 'google' as const, href: googleForms.vendingAtm },
 };
 ---
 
-<BaseLayout title="Products & Services" description="In-depth Iron Path Services offerings for cleaning, junk removal, secure document shredding, firewood, products, vending, and ATMs.">
+<BaseLayout title="Products & Services" description="In-depth Iron Path Services offerings for House Cleaning, Junk Removal, Secure Paper Shredding, Firewood Services, Vending Machines & ATMs.">
   <PageHero eyebrow="Products & Services" title="Practical services, <em>community-minded</em> products." lead="A deeper look at each active branch of Iron Path Services." />
 
   <section class="section">
     <div class="container grid" style="gap: 34px;">
-      {services.map((service) => (
+      {services.map((service) => {
+        const form = serviceForms[service.slug as keyof typeof serviceForms];
+        return (
         <article class="card reveal" id={service.slug}>
           <div class="grid two" style="align-items: center;">
             <div>
@@ -28,15 +31,15 @@ const serviceForms = {
                 {service.bullets.map((bullet) => <li>{bullet}</li>)}
               </ul>
               <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-                {service.slug === 'document-shredding' ? (
-                  <TallyPopupButton />
+                {form.provider === 'tally' ? (
+                  <TallyPopupButton formKey={form.formKey} />
                 ) : (
-                  <a class="btn" href={serviceForms[service.slug as keyof typeof serviceForms]} target="_blank" rel="noreferrer">Open Google Form</a>
+                  <a class="btn" href={form.href} target="_blank" rel="noreferrer">Open Google Form</a>
                 )}
                 <a class="btn secondary" href="/get-a-quote/">Estimate Page</a>
               </div>
-              {service.slug === 'document-shredding' ? (
-                <p class="fine-print">Opens the official Secure Document Shredding Request form. No Google login required.</p>
+              {form.provider === 'tally' ? (
+                <p class="fine-print">{tallyForms[form.formKey].finePrint}</p>
               ) : (
                 <p class="fine-print">{googleFormFinePrint}</p>
               )}
@@ -56,7 +59,8 @@ const serviceForms = {
             </div>
           </div>
         </article>
-      ))}
+        );
+      })}
     </div>
   </section>
 

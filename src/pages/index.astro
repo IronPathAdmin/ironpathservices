@@ -1,19 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ServiceTree from '../components/ServiceTree.astro';
-import ContactForm from '../components/ContactForm.astro';
+import TallyEmbed from '../components/TallyEmbed.astro';
 import GoogleFormLinks from '../components/GoogleFormLinks.astro';
-import { contact, faqs, googleForms, promotions, reviews, serviceAreas } from '../data/site';
+import ReviewCard from '../components/ReviewCard.astro';
+import { communityPledge, contact, faqs, promotions, reviews, serviceAreas, servicePromise, serviceTagline, travelFeeNote } from '../data/site';
 ---
 
-<BaseLayout title="Iron Path Services | Methow Valley" description="Iron Path Services' public Methow Valley roadmap, current launch promotion, and accountable local service commitments.">
+<BaseLayout title="Iron Path Services | Methow Valley" description={`${serviceTagline} ${servicePromise}`}>
   <section class="hero" style="--hero-image: url('/assets/img-firewood.jpg');">
     <div class="hero-content">
       <div class="eyebrow">Methow Valley's Trusted Team</div>
       <h1>A path forged <em>in trust.</em></h1>
       <p class="lead">
-        Junk removal, cleaning, secure shredding, firewood, vending, and ATMs - delivered by
-        people who live here, work here, and plan to stay.
+        {serviceTagline} {servicePromise}
       </p>
       <div class="hero-actions">
         <a class="btn" href="/get-a-quote/">Get a Free Quote</a>
@@ -26,7 +26,7 @@ import { contact, faqs, googleForms, promotions, reviews, serviceAreas } from '.
     <div class="notice-row">
       <div class="notice"><strong>Fuel Surcharge Notice</strong><span>Fuel charges are tied to Winthrop gas prices and disclosed before booking.</span></div>
       <div class="notice"><strong>Transparency Notice</strong><span>No hidden fees. You approve itemized pricing before work begins.</span></div>
-      <div class="notice"><strong>Community Donation Pledge</strong><span>A meaningful share of profits is pledged back into Methow Valley needs.</span></div>
+      <div class="notice"><strong>{communityPledge.title}</strong><span>{communityPledge.summary}</span></div>
     </div>
   </section>
 
@@ -37,7 +37,7 @@ import { contact, faqs, googleForms, promotions, reviews, serviceAreas } from '.
           <div class="eyebrow">Current Promotions</div>
           <h2>Two ways to <em>save or win.</em></h2>
           <p class="lead">
-            Claim the $150 FIRST30 launch special or enter the summer giveaway. Full terms
+            Claim the $150 FIRST30 launch special or enter the Iron Path Giveaway. Full terms
             are posted on the pricing page.
           </p>
           <a class="btn secondary" href="/pricing/">See Promotion Details</a>
@@ -197,7 +197,7 @@ import { contact, faqs, googleForms, promotions, reviews, serviceAreas } from '.
         <div class="promise-closing">
           <h3>A path forged in trust</h3>
           <p>
-            Most companies write mission statements. We wrote a scoreboard. This valley gave three
+            Most companies write mission statements. We wrote a scoreboard. This valley gave two
             people a place to build something. This roadmap is how we pay it back - measured in
             pounds, dollars, jobs, and showing up.
           </p>
@@ -229,8 +229,7 @@ import { contact, faqs, googleForms, promotions, reviews, serviceAreas } from '.
           {serviceAreas.map((area) => <li>{area}</li>)}
         </ul>
         <div class="form-note">
-          Winthrop & Twisp: no travel fee. Mazama/Carlton: +$30. Brewster/Pateros: +$60.
-          Beyond 60 miles from Winthrop: $2.25/mile. All fees disclosed upfront.
+          {travelFeeNote}
         </div>
       </div>
       <div class="image-card" style="--image-url: url('/assets/img-wrecked.jpg');" role="img" aria-label="Methow Valley service area image"></div>
@@ -273,29 +272,23 @@ import { contact, faqs, googleForms, promotions, reviews, serviceAreas } from '.
     <div class="container">
       <div class="eyebrow">Reviews</div>
       <h2>What people <em>say.</em></h2>
-      <div class="grid four" style="margin-top: 28px;">
+      <div class={`review-grid${reviews.length === 1 ? ' is-single' : ''}`} style="margin-top: 28px;">
         {reviews.map((review) => (
-          <div class="card reveal">
-            <p style="font-family: 'Lora', Georgia, serif; font-style: italic;">"{review.quote}"</p>
-            <strong>{review.name}</strong><br />
-            <span>{review.location} · {review.service}</span>
-          </div>
+          <ReviewCard review={review} featured={reviews.length === 1} />
         ))}
       </div>
     </div>
   </section>
 
   <section class="section">
-    <div class="container grid two" style="align-items: start;">
-      <div>
-        <div class="eyebrow">Get Started</div>
-        <h2>Request a free <em>estimate.</em></h2>
-        <p class="lead">
-          Send the details once. Your request goes to the Iron Path team so we can review the scope
-          and follow up with next steps.
-        </p>
-      </div>
-      <ContactForm type="quote" title="Tell Us About Your Job" googleFormUrl={googleForms.generalQuote} />
+    <div class="container">
+      <div class="eyebrow">Get Started</div>
+      <h2>Request a free <em>estimate.</em></h2>
+      <p class="lead">
+        Send the details once on the official Get A Quote form. Your request goes to the Iron Path
+        team so we can review the scope and follow up with next steps.
+      </p>
+      <TallyEmbed formKey="getAQuote" />
     </div>
   </section>
 
@@ -304,10 +297,9 @@ import { contact, faqs, googleForms, promotions, reviews, serviceAreas } from '.
       <div class="eyebrow">Official request forms</div>
       <h2>Choose the fastest <em>request path.</em></h2>
       <GoogleFormLinks
-        columns="four"
+        columns="three"
         titles={[
-          'General Service Quote Request',
-          'Firewood Order',
+          'Firewood Services',
           'Vending / ATM Placement Inquiry',
           'Secure Paper Shredding',
         ]}

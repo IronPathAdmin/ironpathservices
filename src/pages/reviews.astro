@@ -2,7 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import ContactForm from '../components/ContactForm.astro';
+import ReviewCard from '../components/ReviewCard.astro';
 import { externalLinks, googleFormFinePrint, googleForms, reviews } from '../data/site';
+
+const featuredReview = reviews[0];
 ---
 
 <BaseLayout title="Reviews" description="Iron Path Services customer reviews, review submission, Google reviews link, star ratings, and review of the week.">
@@ -10,21 +13,24 @@ import { externalLinks, googleFormFinePrint, googleForms, reviews } from '../dat
 
   <section class="section">
     <div class="container">
-      <div class="eyebrow">Review of the Week</div>
-      <div class="card sand">
-        <h2>"{reviews[3].quote}"</h2>
-        <p><strong>{reviews[3].name}</strong> · {reviews[3].location} · {reviews[3].service}</p>
-      </div>
-      <div class="grid four" style="margin-top: 28px;">
-        {reviews.map((review) => (
-          <article class="card reveal">
-            <p aria-label="5 star rating">★★★★★</p>
-            <p style="font-family: 'Lora', Georgia, serif; font-style: italic;">"{review.quote}"</p>
-            <strong>{review.name}</strong>
-            <p>{review.location} · {review.service}</p>
-          </article>
-        ))}
-      </div>
+      {featuredReview ? (
+        <>
+          <div class="eyebrow">Latest Review</div>
+          <ReviewCard review={featuredReview} featured />
+          {reviews.length > 1 && (
+            <div class="review-grid" style="margin-top: 28px;">
+              {reviews.slice(1).map((review) => (
+                <ReviewCard review={review} />
+              ))}
+            </div>
+          )}
+        </>
+      ) : (
+        <div class="card sand">
+          <h2>Reviews are on the way.</h2>
+          <p>Be the first to share your Iron Path experience. Submitted reviews are published after manual approval.</p>
+        </div>
+      )}
     </div>
   </section>
 
