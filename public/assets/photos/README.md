@@ -15,8 +15,10 @@ Current files:
 - `team/benji-founder.jpg` - Benji portrait (About)
 - `team/adrian-operations.jpg` - Adrian portrait (About)
 - `team/eloise-truck.jpg` - Eloise the red work truck (About)
+- `jobs/house-cleaning.jpg` - soapy faucet and glove (House Cleaning)
+- `jobs/house-cleaning-crew.jpg` and `house-cleaning-portrait.jpg` - extra cleaning shots for later
 - `jobs/junk-load-1.jpg` - fencing load in Eloise (Junk Removal)
-- `jobs/organ-in-truck.jpg` - wrapped furniture haul (Stories)
+- `jobs/organ-in-truck.jpg` - wrapped furniture haul (Stories and homepage)
 - `shredding/archive-paper-stacks.jpg` - Secure Paper Shredding service photo
 - `community/methow-1.jpg` through `methow-3.jpg` - valley landscapes (homepage hero and service area)
 - `community/dinosaur-whimsy-1.jpg` and `dinosaur-whimsy-2.jpg` - community/karaoke moments

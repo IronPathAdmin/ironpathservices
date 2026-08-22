@@ -158,7 +158,7 @@ export const services = [
     title: 'House Cleaning',
     treeTitle: 'House Cleaning',
     slug: 'cleaning',
-    image: '/assets/img-tractor.jpg',
+    image: '/assets/photos/jobs/house-cleaning.jpg',
     summary:
       'Move-out ready, estate clean outs, vacation rentals, Airbnb, commercial, and house cleaning.',
     description:
@@ -256,6 +256,45 @@ export const services = [
       'Machine options matched to your location',
     ],
     price: 'No upfront host cost',
+  },
+];
+
+export const homePhotos = [
+  {
+    src: '/assets/photos/team/eloise-truck.jpg',
+    alt: "Eloise, Iron Path's red work truck, loaded for a job in the Methow Valley",
+    caption: 'Eloise',
+    href: '/about/',
+    featured: true,
+    position: 'center 58%',
+  },
+  {
+    src: '/assets/photos/jobs/junk-load-1.jpg',
+    alt: "A Junk Removal load sorted in Eloise's truck bed",
+    caption: 'Junk Removal',
+    href: '/products-services/#junk-removal',
+    position: 'center 42%',
+  },
+  {
+    src: '/assets/photos/jobs/house-cleaning.jpg',
+    alt: 'House Cleaning in progress with soapy sponge and faucet',
+    caption: 'House Cleaning',
+    href: '/products-services/#cleaning',
+    position: 'center 38%',
+  },
+  {
+    src: '/assets/photos/shredding/archive-paper-stacks.jpg',
+    alt: 'Paper records prepared for Secure Paper Shredding',
+    caption: 'Secure Paper Shredding',
+    href: '/products-services/#document-shredding',
+    position: 'center 45%',
+  },
+  {
+    src: '/assets/photos/jobs/organ-in-truck.jpg',
+    alt: 'A wrapped furniture haul in Eloise during a job',
+    caption: 'On the job',
+    href: '/stories/',
+    position: 'center 50%',
   },
 ];
 
