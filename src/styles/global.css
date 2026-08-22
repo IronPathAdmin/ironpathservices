@@ -1124,6 +1124,32 @@ em {
   margin-right: auto;
 }
 
+.branch-card-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.branch-thumb {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 16px;
+  flex-shrink: 0;
+  border: 1px solid rgba(92, 51, 23, 0.18);
+  background: rgba(46, 74, 48, 0.12);
+}
+
+.branch-card:nth-child(2) .branch-thumb {
+  object-position: center 38%;
+}
+
+.branch-card:nth-child(3) .branch-thumb {
+  object-position: center 42%;
+}
+
 .service-badge {
   width: 42px;
   height: 42px;
@@ -1134,6 +1160,10 @@ em {
   border-radius: 999px;
   font-weight: 900;
   margin-bottom: 14px;
+}
+
+.branch-card-top .service-badge {
+  margin-bottom: 0;
 }
 
 .service-card-link {

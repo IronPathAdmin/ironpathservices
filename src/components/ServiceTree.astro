@@ -36,7 +36,10 @@ import { services } from '../data/site';
 
   {services.map((service, index) => (
     <article class="card sand branch-card reveal">
-      <div class="service-badge">{index + 1}</div>
+      <div class="branch-card-top">
+        <img class="branch-thumb" src={service.image} alt="" />
+        <div class="service-badge">{index + 1}</div>
+      </div>
       <h3><em>{service.treeTitle}</em></h3>
       <p>{service.summary}</p>
       <a class="service-card-link" href={`/products-services/#${service.slug}`}>Follow this branch -></a>
