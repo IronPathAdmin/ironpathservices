@@ -1,0 +1,40 @@
+---
+import { contact } from '../data/site';
+---
+
+<form
+  class="form-box js-smart-form"
+  data-form-type="recommend-service"
+  data-leads-email={contact.leadsEmail}
+>
+  <h3>Recommend a service</h3>
+  <p style="color: var(--muted); line-height: 1.7;">
+    Tell us what the valley needs next. We will review every idea.
+  </p>
+  <div class="form-grid">
+    <div class="field">
+      <label for="recommend-name">Full name</label>
+      <input id="recommend-name" name="name" autocomplete="name" required />
+    </div>
+    <div class="field">
+      <label for="recommend-email">Email</label>
+      <input id="recommend-email" name="email" type="email" autocomplete="email" required />
+    </div>
+    <div class="field full">
+      <label for="recommend-service">Service you would like to see</label>
+      <input id="recommend-service" name="recommended_service" placeholder="What should Iron Path offer?" required />
+    </div>
+    <div class="field full">
+      <label for="recommend-message">Why it would help (optional)</label>
+      <textarea id="recommend-message" name="message" placeholder="A short note is enough"></textarea>
+    </div>
+  </div>
+  <div class="form-note">
+    This website does not store your submission. Your email app will open with the request
+    addressed to {contact.leadsEmail}; review it and select Send.
+  </div>
+  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+    <button class="btn" type="submit">Send Recommendation</button>
+  </div>
+  <p class="status" role="status" aria-live="polite"></p>
+</form>

@@ -1211,6 +1211,12 @@ em {
   line-height: 1.7;
 }
 
+.future-services-list {
+  display: grid;
+  gap: 18px;
+  margin-top: 28px;
+}
+
 .image-card {
   min-height: 0;
   aspect-ratio: 4 / 3;

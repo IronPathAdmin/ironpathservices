@@ -302,6 +302,8 @@ export const secondaryServices: Service[] = [
 
 export const services: Service[] = [...primaryServices, ...secondaryServices];
 
+export const futureServices: Service[] = [];
+
 export const homePhotos = [
   {
     src: '/assets/photos/team/eloise-truck.jpg',

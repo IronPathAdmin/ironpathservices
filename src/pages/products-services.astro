@@ -3,7 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import PricingUpdateNotice from '../components/PricingUpdateNotice.astro';
 import ServiceDetail from '../components/ServiceDetail.astro';
-import { googleForms, primaryServices, secondaryServices } from '../data/site';
+import RecommendServiceForm from '../components/RecommendServiceForm.astro';
+import { futureServices, googleForms, primaryServices, secondaryServices } from '../data/site';
 
 const serviceForms = {
   cleaning: { provider: 'tally' as const, formKey: 'getAQuote' as const },
@@ -14,8 +15,8 @@ const serviceForms = {
 };
 ---
 
-<BaseLayout title="Products & Services" description="In-depth Iron Path Services offerings for House Cleaning, Junk Removal, Secure Paper Shredding, Firewood Services, Transit (coming soon), plus Vending Machines & ATMs.">
-  <PageHero eyebrow="Products & Services" title="Practical services, <em>community-minded</em> products." lead="A deeper look at each active branch of Iron Path Services, plus secondary offerings." />
+<BaseLayout title="Products & Services" description="In-depth Iron Path Services offerings for House Cleaning, Junk Removal, Secure Paper Shredding, Firewood Services, Transit (coming soon), plus Vending Machines & ATMs and future service ideas.">
+  <PageHero eyebrow="Products & Services" title="Practical services, <em>community-minded</em> products." lead="The main five, secondary offerings, and space to recommend what the valley needs next." />
 
   <section class="section compact">
     <div class="container">
@@ -25,6 +26,10 @@ const serviceForms = {
 
   <section class="section">
     <div class="container grid" style="gap: 34px;">
+      <div>
+        <div class="eyebrow">Main Services</div>
+        <h2>The core <em>branches.</em></h2>
+      </div>
       {primaryServices.map((service) => (
         <ServiceDetail service={service} form={serviceForms[service.slug as keyof typeof serviceForms]} />
       ))}
@@ -44,6 +49,31 @@ const serviceForms = {
       {secondaryServices.map((service) => (
         <ServiceDetail service={service} form={serviceForms[service.slug as keyof typeof serviceForms]} />
       ))}
+    </div>
+  </section>
+
+  <section class="section" id="future-services">
+    <div class="container grid two" style="align-items: start; gap: 34px;">
+      <div>
+        <div class="eyebrow">Possible Future Services</div>
+        <h2>What should we <em>offer next?</em></h2>
+        <p class="lead">
+          Iron Path grows with the valley. If you need something we do not offer yet, recommend
+          it. We read every idea.
+        </p>
+        {futureServices.length > 0 && (
+          <div class="future-services-list">
+            {futureServices.map((service) => (
+              <article class="card sand reveal">
+                <p class="coming-soon-badge">Under consideration</p>
+                <h3>{service.title}</h3>
+                <p>{service.summary}</p>
+              </article>
+            ))}
+          </div>
+        )}
+      </div>
+      <RecommendServiceForm />
     </div>
   </section>
 </BaseLayout>
