@@ -52,6 +52,7 @@ Create these labels and nest each one under `Website Forms`:
 - Red Carpet Moment only
 - Holiday or large event quote
 - Just asking a question
+- Service Recommendation
 
 ## Create each job-type filter
 
@@ -78,6 +79,7 @@ Repeat the filter steps for each job type. In the **Subject** field, use the com
 | `Website Form | Red Carpet Moment only |` | `Website Forms/Red Carpet Moment only` |
 | `Website Form | Holiday or large event quote |` | `Website Forms/Holiday or large event quote` |
 | `Website Form | Just asking a question |` | `Website Forms/Just asking a question` |
+| `Website Form | Service Recommendation |` | `Website Forms/Service Recommendation` |
 
 Each email body is plain text with separate **Form Details**, **Contact Information**, **Job Details**, and **Message** sections so it remains readable in Gmail and on phones.
 

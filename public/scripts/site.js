@@ -7,6 +7,7 @@ const googleFormEndpoints = {
   evaluation: '',
   image: 'https://forms.gle/7abciXX1tcqRWqZi6',
   karaoke: '',
+  'recommend-service': '',
 };
 
 const tallyForms = {
@@ -29,6 +30,7 @@ const formTypeLabels = {
   evaluation: 'Customer Evaluation',
   image: 'Image Submission',
   karaoke: 'Karaoke & Red Carpet',
+  'recommend-service': 'Service Recommendation',
   website: 'Website Request',
 };
 
@@ -46,6 +48,7 @@ const fieldLabels = {
   preferred_location: 'Event location or venue',
   duration: 'Estimated duration',
   guest_count: 'Approx. guest count',
+  recommended_service: 'Recommended service',
   message: 'Message',
 };
 
@@ -60,6 +63,7 @@ const jobFields = [
   'preferred_location',
   'duration',
   'guest_count',
+  'recommended_service',
 ];
 const knownFields = new Set([...contactFields, ...jobFields, 'message']);
 

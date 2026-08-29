@@ -12,7 +12,7 @@ export const contact = {
 };
 
 export const serviceTagline =
-  'Junk Removal, House Cleaning, Secure Paper Shredding, Firewood Services, Vending Machines & ATMs.';
+  'Junk Removal, House Cleaning, Secure Paper Shredding, Firewood Services, Transit (coming soon).';
 
 export const servicePromise =
   'Delivered by people who live here, work here, and care for the valley.';
@@ -156,11 +156,27 @@ export const serviceAreas = [
   'Omak',
 ];
 
-export const services = [
+export type Service = {
+  title: string;
+  treeTitle: string;
+  slug: string;
+  image: string;
+  summary: string;
+  description: string;
+  bullets: string[];
+  price?: string;
+  tier: 'primary' | 'secondary';
+  comingSoon?: boolean;
+  galleryReady?: boolean;
+  gallery?: Array<{ src: string; alt: string }>;
+};
+
+export const primaryServices: Service[] = [
   {
     title: 'House Cleaning',
     treeTitle: 'House Cleaning',
     slug: 'cleaning',
+    tier: 'primary',
     image: '/assets/photos/jobs/house-cleaning.jpg',
     summary:
       'Move-out ready, estate clean outs, vacation rentals, Airbnb, commercial, and house cleaning.',
@@ -179,6 +195,7 @@ export const services = [
     title: 'Junk Removal',
     treeTitle: 'Junk Removal',
     slug: 'junk-removal',
+    tier: 'primary',
     image: '/assets/photos/jobs/junk-load-1.jpg',
     summary:
       'Estate cleanouts, donation sorting, refurbishing, commercial cleanouts, and residential cleanouts.',
@@ -197,6 +214,7 @@ export const services = [
     title: 'Secure Paper Shredding',
     treeTitle: 'Secure Document Shredding',
     slug: 'document-shredding',
+    tier: 'primary',
     image: '/assets/photos/shredding/archive-paper-stacks.jpg',
     galleryReady: false,
     gallery: [
@@ -229,6 +247,7 @@ export const services = [
     title: 'Firewood Services',
     treeTitle: 'Firewood Services',
     slug: 'firewood',
+    tier: 'primary',
     image: '/assets/img-firewood.jpg',
     summary:
       'Blazers fire starters, recycled wood bundles, individual bundles, and campfire bundles.',
@@ -243,9 +262,28 @@ export const services = [
     price: 'From $5',
   },
   {
+    title: 'Transit',
+    treeTitle: 'Transit',
+    slug: 'transit',
+    tier: 'primary',
+    comingSoon: true,
+    image: '/assets/photos/team/eloise-truck.jpg',
+    summary: 'Coming soon. Local transit from a team that already lives and works these roads.',
+    description:
+      'Iron Path Transit is on the way. We will share routes, booking, and details here when the service launches.',
+    bullets: [
+      'Coming soon to the Methow Valley',
+      'Details will be posted when the service launches',
+    ],
+  },
+];
+
+export const secondaryServices: Service[] = [
+  {
     title: 'Vending Machines & ATMs',
     treeTitle: 'Vending Machines & ATMs',
     slug: 'vending-atm',
+    tier: 'secondary',
     image: '/assets/img-vending.jpg',
     summary:
       'Commercial vending machines, ATMs, 30% host revenue, and several machine options.',
@@ -261,6 +299,10 @@ export const services = [
     price: 'No upfront host cost',
   },
 ];
+
+export const services: Service[] = [...primaryServices, ...secondaryServices];
+
+export const futureServices: Service[] = [];
 
 export const homePhotos = [
   {
@@ -381,7 +423,8 @@ export const faqs = [
   ['Do you offer same-day service?', 'Often, depending on availability. Same-day priority is an add-on and is never promised unless we can actually deliver.'],
   ['How far do you travel?', 'Travel fees depend on your location and are disclosed before booking. Mazama, Winthrop, and Twisp typically have no travel fee.'],
   ['What happens if I need to cancel?', 'Cancellations under 24 hours may be charged a flat dispatch fee. We disclose cancellation terms before booking.'],
-  ['How do vending and ATM services work?', 'We supply, install, stock, maintain, and service the machine. Host locations receive a share of net sales. ATM withdrawal fees are disclosed before placement.'],
+  ['When will Transit launch?', 'Transit is coming soon. We will post routes, booking, and details on the Services page when it launches.'],
+  ['How do vending and ATM services work?', 'We supply, install, stock, maintain, and service the machine. Host locations receive a share of net sales. ATM withdrawal fees are disclosed before placement. Vending Machines and ATMs are listed under Secondary Services.'],
   ['Where do you service?', 'We serve Winthrop, Twisp, Mazama, Carlton, Methow, Pateros, Brewster, Monse, Ophir, Malott, Chillowist, Okanogan, Omak, and surrounding areas.'],
 ];
 

@@ -1186,6 +1186,37 @@ em {
   text-decoration: none;
 }
 
+.coming-soon-badge {
+  display: inline-block;
+  margin: 0 0 10px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(212, 96, 26, 0.14);
+  color: var(--bronze);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.secondary-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 420px));
+  gap: 22px;
+  margin-top: 28px;
+}
+
+.secondary-service-card p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.future-services-list {
+  display: grid;
+  gap: 18px;
+  margin-top: 28px;
+}
+
 .image-card {
   min-height: 0;
   aspect-ratio: 4 / 3;
