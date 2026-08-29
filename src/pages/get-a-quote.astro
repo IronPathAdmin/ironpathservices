@@ -5,6 +5,7 @@ import TallyEmbed from '../components/TallyEmbed.astro';
 import GoogleFormLinks from '../components/GoogleFormLinks.astro';
 import ContactForm from '../components/ContactForm.astro';
 import TallyPopupButton from '../components/TallyPopupButton.astro';
+import PricingUpdateNotice from '../components/PricingUpdateNotice.astro';
 import { contact, googleFormFinePrint, googleForms, tallyForms } from '../data/site';
 ---
 
@@ -59,11 +60,7 @@ import { contact, googleFormFinePrint, googleForms, tallyForms } from '../data/s
         <a class="btn secondary" href={googleForms.customerReview} target="_blank" rel="noreferrer">Open Review Form</a>
         <p class="fine-print">{googleFormFinePrint}</p>
       </div>
-      <div class="card">
-        <h3>Printable pricing PDF</h3>
-        <p>Download the official Iron Path Services pricing guide for current rates, fees, and service details.</p>
-        <a class="btn secondary" href="/downloads/ironpath-customer-pricing.pdf" download>Download PDF</a>
-      </div>
+      <PricingUpdateNotice showQuoteButton={false} />
     </div>
   </section>
 

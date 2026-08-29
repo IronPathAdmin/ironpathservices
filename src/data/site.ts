@@ -17,6 +17,9 @@ export const serviceTagline =
 export const servicePromise =
   'Delivered by people who live here, work here, and care for the valley.';
 
+export const pricingUpdateNotice =
+  'Thank you for your patience, we are adjusting prices to better serve you and be more affordable. They will be up Monday August 31st. We look forward to serving you!';
+
 export const communityPledge = {
   title: 'Community Donation Pledge',
   summary:
@@ -252,7 +255,7 @@ export const services = [
       'Commercial vending machine placement',
       'Commercial ATM placement',
       '30% net revenue share to host locations',
-      'ATM fees set at $3.50 per withdrawal',
+      'ATM withdrawal fees disclosed before placement',
       'Machine options matched to your location',
     ],
     price: 'No upfront host cost',
@@ -371,14 +374,14 @@ export const processSteps = [
 
 export const faqs = [
   ['Are you licensed and insured?', 'Yes. Iron Path Services is fully insured and operates as a legitimate local business.'],
-  ['How does the fuel surcharge work?', 'The surcharge is tied to current local regular unleaded prices and is disclosed before booking. Below $4.10 per gallon there is no surcharge; higher brackets are listed on the pricing page.'],
+  ['How does the fuel surcharge work?', 'The surcharge is tied to current local regular unleaded prices and is disclosed before booking.'],
   ['How does payment work?', 'Payment timing is agreed before work begins. Accepted methods include cash, check, and on-site card payments. Quoted prices are final with no post-job additions.'],
   ['Are there any hidden fees?', 'No. Travel fees, add-ons, fuel surcharges, and sales tax are disclosed upfront before you commit.'],
   ['How does Secure Paper Shredding work?', 'We offer secure on-site or off-site Secure Paper Shredding options and can provide a certificate of destruction when requested.'],
   ['Do you offer same-day service?', 'Often, depending on availability. Same-day priority is an add-on and is never promised unless we can actually deliver.'],
-  ['How far do you travel?', 'Mazama, Winthrop, and Twisp have no travel fee. Carlton adds $30. Brewster and Pateros add $60. Beyond 60 miles from Winthrop is $2.25 per mile.'],
+  ['How far do you travel?', 'Travel fees depend on your location and are disclosed before booking. Mazama, Winthrop, and Twisp typically have no travel fee.'],
   ['What happens if I need to cancel?', 'Cancellations under 24 hours may be charged a flat dispatch fee. We disclose cancellation terms before booking.'],
-  ['How do vending and ATM services work?', 'We supply, install, stock, maintain, and service the machine. Host locations receive 30% of net sales. ATM withdrawal fees are $3.50.'],
+  ['How do vending and ATM services work?', 'We supply, install, stock, maintain, and service the machine. Host locations receive a share of net sales. ATM withdrawal fees are disclosed before placement.'],
   ['Where do you service?', 'We serve Winthrop, Twisp, Mazama, Carlton, Methow, Pateros, Brewster, Monse, Ophir, Malott, Chillowist, Okanogan, Omak, and surrounding areas.'],
 ];
 
@@ -486,7 +489,7 @@ export const pricingTables = [
 ];
 
 export const travelFeeNote =
-  'Mazama, Winthrop, and Twisp: no travel fee. Carlton: +$30. Brewster/Pateros: +$60. Beyond 60 miles from Winthrop: $2.25/mile. All fees disclosed upfront.';
+  'Travel fees depend on your location and are disclosed before booking. Mazama, Winthrop, and Twisp typically have no travel fee.';
 
 export const fees = [
   ['Same-day priority service', '+$80'],
@@ -661,7 +664,7 @@ export const karaokePage = {
   title: 'An awesome karaoke night, <em>fully handled.</em>',
   lead:
     'Not an official service line — just a fun Iron Path offering. We bring the speakers, microphones, song list, setup, host, and everything else you need for a great night.',
-  note: 'Professional Karaoke Hosting · starting at $150',
+  note: 'Professional Karaoke Hosting · quote confirmed before booking',
   includes: [
     'Full sound system included',
     'Wireless and wired microphones',
@@ -713,9 +716,9 @@ export const karaokePage = {
   ],
   faqs: [
     ['Is Karaoke an official Iron Path service?', 'No. Karaoke hosting is a fun community offering we provide separately from our core services.'],
-    ['What is included in the $150 rate?', 'Up to 4 hours with speakers, microphones, karaoke list, setup, teardown, and a reliable host.'],
-    ['What is the 4-week recurring package?', 'Book four karaoke nights for $500 paid in advance — $125 per event, with the regular 4 hours of hosting each night.'],
+    ['What is included in a standard night?', 'Up to 4 hours with speakers, microphones, karaoke list, setup, teardown, and a reliable host. We confirm a written quote before booking.'],
+    ['What is the 4-week recurring package?', 'Book four karaoke nights paid in advance, with the regular 4 hours of hosting each night. We confirm availability and pricing up front.'],
     ['What is a Red Carpet Moment?', 'A complimentary confidence-building spotlight where guests get their star moment. We may share it on social media to spread positivity.'],
-    ['Can you do holidays or large events?', 'Yes. Holiday and large-event hosting starts at $200+ and is quoted for the size of the night.'],
+    ['Can you do holidays or large events?', 'Yes. Holiday and large-event hosting is quoted for the size of the night.'],
   ],
 };

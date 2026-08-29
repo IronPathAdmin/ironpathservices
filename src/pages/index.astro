@@ -4,7 +4,7 @@ import ServiceTree from '../components/ServiceTree.astro';
 import TallyEmbed from '../components/TallyEmbed.astro';
 import GoogleFormLinks from '../components/GoogleFormLinks.astro';
 import ReviewCard from '../components/ReviewCard.astro';
-import { communityPledge, contact, faqs, homePhotos, promotions, reviews, serviceAreas, servicePromise, serviceTagline, travelFeeNote } from '../data/site';
+import { communityPledge, contact, faqs, homePhotos, pricingUpdateNotice, promotions, reviews, serviceAreas, servicePromise, serviceTagline, travelFeeNote } from '../data/site';
 ---
 
 <BaseLayout title="Iron Path Services | Methow Valley" description={`${serviceTagline} ${servicePromise}`}>
@@ -23,6 +23,10 @@ import { communityPledge, contact, faqs, homePhotos, promotions, reviews, servic
   </section>
 
   <section class="container">
+    <div class="notice pricing-update-home">
+      <strong>Pricing Update</strong>
+      <span>{pricingUpdateNotice}</span>
+    </div>
     <div class="notice-row">
       <div class="notice"><strong>Fuel Surcharge Notice</strong><span>Fuel charges are tied to Winthrop gas prices and disclosed before booking.</span></div>
       <div class="notice"><strong>Transparency Notice</strong><span>No hidden fees. You approve itemized pricing before work begins.</span></div>

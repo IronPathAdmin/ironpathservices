@@ -1,0 +1,20 @@
+---
+import { pricingUpdateNotice } from '../data/site';
+
+interface Props {
+  showQuoteButton?: boolean;
+}
+
+const { showQuoteButton = true } = Astro.props;
+---
+
+<div class="card sand pricing-update-notice">
+  <div class="eyebrow">Pricing Update</div>
+  <h2>Thank you for your <em>patience.</em></h2>
+  <p class="lead">{pricingUpdateNotice}</p>
+  {showQuoteButton && (
+    <div class="hero-actions" style="margin-top: 20px;">
+      <a class="btn" href="/get-a-quote/">Request a Quote</a>
+    </div>
+  )}
+</div>

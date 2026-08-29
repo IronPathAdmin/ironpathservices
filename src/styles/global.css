@@ -601,9 +601,19 @@ em {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
+  margin-top: 14px;
+  position: relative;
+  z-index: 2;
+}
+
+.pricing-update-home {
   margin-top: -46px;
   position: relative;
   z-index: 2;
+}
+
+.pricing-update-notice .lead {
+  max-width: 52rem;
 }
 
 .notice {

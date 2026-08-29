@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
+import PricingUpdateNotice from '../components/PricingUpdateNotice.astro';
 import TallyPopupButton from '../components/TallyPopupButton.astro';
 import { googleFormFinePrint, googleForms, services, tallyForms } from '../data/site';
 
@@ -16,6 +17,12 @@ const serviceForms = {
 <BaseLayout title="Products & Services" description="In-depth Iron Path Services offerings for House Cleaning, Junk Removal, Secure Paper Shredding, Firewood Services, Vending Machines & ATMs.">
   <PageHero eyebrow="Products & Services" title="Practical services, <em>community-minded</em> products." lead="A deeper look at each active branch of Iron Path Services." />
 
+  <section class="section compact">
+    <div class="container">
+      <PricingUpdateNotice />
+    </div>
+  </section>
+
   <section class="section">
     <div class="container grid" style="gap: 34px;">
       {services.map((service) => {
@@ -24,7 +31,6 @@ const serviceForms = {
         <article class="card reveal" id={service.slug}>
           <div class="grid two" style="align-items: center;">
             <div>
-              <div class="eyebrow">{service.price}</div>
               <h2>{service.title}</h2>
               <p class="lead">{service.description}</p>
               <ul>
