@@ -1,0 +1,64 @@
+---
+import TallyPopupButton from './TallyPopupButton.astro';
+import { googleFormFinePrint, tallyForms, type Service } from '../data/site';
+
+type ServiceForm =
+  | { provider: 'tally'; formKey: keyof typeof tallyForms }
+  | { provider: 'google'; href: string };
+
+interface Props {
+  service: Service;
+  form?: ServiceForm;
+}
+
+const { service, form } = Astro.props;
+---
+
+<article class="card reveal" id={service.slug}>
+  <div class="grid two" style="align-items: center;">
+    <div>
+      {service.comingSoon ? (
+        <p class="coming-soon-badge">Coming soon</p>
+      ) : service.tier === 'secondary' ? (
+        <div class="eyebrow">Secondary Service</div>
+      ) : null}
+      <h2>{service.title}</h2>
+      <p class="lead">{service.description}</p>
+      <ul>
+        {service.bullets.map((bullet) => <li>{bullet}</li>)}
+      </ul>
+      {service.comingSoon ? (
+        <p class="form-note">This service is not bookable yet. Check back when {service.title} launches.</p>
+      ) : form ? (
+        <>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            {form.provider === 'tally' ? (
+              <TallyPopupButton formKey={form.formKey} />
+            ) : (
+              <a class="btn" href={form.href} target="_blank" rel="noreferrer">Open Google Form</a>
+            )}
+            <a class="btn secondary" href="/get-a-quote/">Estimate Page</a>
+          </div>
+          {form.provider === 'tally' ? (
+            <p class="fine-print">{tallyForms[form.formKey].finePrint}</p>
+          ) : (
+            <p class="fine-print">{googleFormFinePrint}</p>
+          )}
+        </>
+      ) : null}
+    </div>
+    <div>
+      <div class="image-card" style={`--image-url: url('${service.image}');`} role="img" aria-label={`${service.title} image`}></div>
+      {service.galleryReady && service.gallery && (
+        <div class="service-gallery" aria-label={`${service.title} image gallery`}>
+          {service.gallery.map((image) => (
+            <figure class="service-gallery-item">
+              <div class="service-gallery-image" style={`--image-url: url('${image.src}');`} role="img" aria-label={image.alt}></div>
+              <figcaption>{image.alt}</figcaption>
+            </figure>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+</article>

@@ -4,7 +4,7 @@ import ServiceTree from '../components/ServiceTree.astro';
 import TallyEmbed from '../components/TallyEmbed.astro';
 import GoogleFormLinks from '../components/GoogleFormLinks.astro';
 import ReviewCard from '../components/ReviewCard.astro';
-import { communityPledge, contact, faqs, homePhotos, pricingUpdateNotice, promotions, reviews, serviceAreas, servicePromise, serviceTagline, travelFeeNote } from '../data/site';
+import { communityPledge, contact, faqs, homePhotos, pricingUpdateNotice, promotions, reviews, secondaryServices, serviceAreas, servicePromise, serviceTagline, travelFeeNote } from '../data/site';
 ---
 
 <BaseLayout title="Iron Path Services | Methow Valley" description={`${serviceTagline} ${servicePromise}`}>
@@ -220,6 +220,30 @@ import { communityPledge, contact, faqs, homePhotos, pricingUpdateNotice, promot
         the branches stack for easy reading.
       </p>
       <ServiceTree />
+    </div>
+  </section>
+
+  <section class="section compact sand" id="secondary-services">
+    <div class="container">
+      <div class="eyebrow">Secondary Services</div>
+      <h2>Also available <em>when you need them.</em></h2>
+      <p class="lead">
+        Vending Machines and ATMs stay on the menu, listed separately from the main service
+        branches.
+      </p>
+      <div class="secondary-services-grid">
+        {secondaryServices.map((service) => (
+          <article class="card reveal secondary-service-card">
+            <div class="branch-card-top">
+              <img class="branch-thumb" src={service.image} alt="" />
+              <div class="eyebrow" style="margin: 0;">Secondary</div>
+            </div>
+            <h3>{service.title}</h3>
+            <p>{service.summary}</p>
+            <a class="service-card-link" href={`/products-services/#${service.slug}`}>See this service -></a>
+          </article>
+        ))}
+      </div>
     </div>
   </section>
 

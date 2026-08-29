@@ -55,7 +55,9 @@ const {
           <label for="quote-service">Service needed</label>
           <select id="quote-service" name="service" required>
             <option value="">Select a service</option>
-            {services.map((service) => <option>{service.title}</option>)}
+            {services.map((service) => (
+              <option>{service.comingSoon ? `${service.title} (coming soon)` : service.title}</option>
+            ))}
             <option>Multiple services</option>
             <option>Not sure yet</option>
           </select>
