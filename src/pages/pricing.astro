@@ -1,63 +1,93 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import { communityPledge, googleFormFinePrint, googleForms, pricingUpdateNotice, promotions } from '../data/site';
-
-const currentPromotions = [...promotions].sort((a, b) => {
-  if (a.promoCode === 'FIRST30') return -1;
-  if (b.promoCode === 'FIRST30') return 1;
-  return 0;
-});
+import PricingTable from '../components/PricingTable.astro';
+import TallyPopupButton from '../components/TallyPopupButton.astro';
+import {
+  commercialDiscounts,
+  commercialPriceGroups,
+  communityGiveBack,
+  communityGivingDiscounts,
+  communityPledge,
+  discountCapNote,
+  discounts,
+  fees,
+  generalPriceGroups,
+  googleFormFinePrint,
+  invoiceOrderNote,
+  paymentPolicy,
+  paymentProcessingNote,
+  pricingDownloads,
+  promotions,
+  salesTax,
+  salesTaxNote,
+} from '../data/site';
 ---
 
-<BaseLayout title="Pricing" description="Iron Path Services is adjusting prices to be more affordable. New rates will be posted Monday, August 31st.">
-  <PageHero eyebrow="Pricing Update" title="New rates coming <em>Monday.</em>" lead={pricingUpdateNotice} />
+<BaseLayout title="Pricing" description="Official Iron Path Services general and commercial pricing, fees, discounts, taxes, and printable rate sheets.">
+  <PageHero
+    eyebrow="Official Pricing"
+    title="No surprises. <em>Ever.</em>"
+    lead="The public rates match the official General and Commercial pricing guides. Every surcharge, discount, and tax that could appear on an invoice is listed before work begins."
+  />
 
   <section class="section compact">
     <div class="container">
-      <a class="btn" href="/get-a-quote/">Request a Quote</a>
+      <div class="pricing-jump">
+        <a class="btn" href="#general-pricing">General Pricing</a>
+        <a class="btn secondary" href="#commercial-pricing">Commercial Pricing</a>
+        <a class="btn secondary" href="#fees">Fees & Taxes</a>
+        <a class="btn secondary" href="#pricing-downloads">Download PDFs</a>
+      </div>
     </div>
   </section>
 
-  <section class="section sand compact">
+  <section class="section">
     <div class="container">
       <div class="grid two">
-        <div class="card">
+        <div class="card sand">
           <h3>{communityPledge.title}</h3>
           <p>{communityPledge.summary}</p>
         </div>
-        <div class="card">
+        <div class="card sand">
           <h3>Payment Policy</h3>
-          <p>Accepted methods include cash, check, and on-site card payments. Invoice timing is agreed before work begins, and quoted prices are final with no post-job additions.</p>
+          <p>{paymentPolicy}</p>
+          <p class="form-note">{invoiceOrderNote}</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section compact">
+  <section class="section sand compact" id="pricing-downloads">
     <div class="container">
-      <div class="eyebrow">Promotions</div>
-      <h2>Current <em>promotions.</em></h2>
-      <p class="lead">
-        The FIRST30 $150 flat launch special is now live with full terms, alongside the Iron Path
-        Giveaway.
-      </p>
-      {currentPromotions.length > 0 ? (
+      <div class="eyebrow">Printable PDFs</div>
+      <h2>Download the official <em>rate sheets.</em></h2>
+      <div class="grid two" style="margin-top: 28px;">
+        {pricingDownloads.map((download) => (
+          <article class="card">
+            <h3>{download.title}</h3>
+            <p>{download.description}</p>
+            <a class="btn" href={download.href} download>Download PDF</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {promotions.length > 0 && (
+    <section class="section compact">
+      <div class="container">
+        <div class="eyebrow">Promotions</div>
+        <h2>Current <em>promotions.</em></h2>
+        <p class="lead">The Iron Path Giveaway is still open. The $150 FIRST30 launch special has ended.</p>
         <div class="promotion-grid" style="margin-top: 28px;">
-          {currentPromotions.map((promotion) => (
-            <article class={`card reveal promotion-card${promotion.promoCode === 'FIRST30' ? ' is-live' : ''}`}>
+          {promotions.map((promotion) => (
+            <article class="card reveal promotion-card">
               <div>
                 <h3>{promotion.title}</h3>
                 {promotion.status && <p class="promotion-status">{promotion.status}</p>}
                 <p>{promotion.details}</p>
               </div>
-
-              {promotion.promoCode && (
-                <div class="promotion-code" aria-label={`${promotion.title} promo code`}>
-                  <span>Promo code</span>
-                  <strong>{promotion.promoCode}</strong>
-                </div>
-              )}
 
               {promotion.dates && (
                 <div class="promotion-dates" aria-label={`${promotion.title} important dates`}>
@@ -75,15 +105,6 @@ const currentPromotions = [...promotions].sort((a, b) => {
                   <h4>{promotion.optionsHeading ?? 'Prize choices'}</h4>
                   <ul>
                     {promotion.prizeOptions.map((option) => <li>{option}</li>)}
-                  </ul>
-                </div>
-              )}
-
-              {promotion.offerDetails && (
-                <div>
-                  <h4>Offer details</h4>
-                  <ul>
-                    {promotion.offerDetails.map((detail) => <li>{detail}</li>)}
                   </ul>
                 </div>
               )}
@@ -142,19 +163,113 @@ const currentPromotions = [...promotions].sort((a, b) => {
             </article>
           ))}
         </div>
-      ) : (
-        <div class="card" style="margin-top: 28px;">
-          <h3>No Promotions available at this time</h3>
-          <p>
-            Please check back for seasonal offers and service specials. If promotions are available,
-            they will be posted here with fine print included.
-          </p>
-          <a class="btn secondary" href={googleForms.promotion} target="_blank" rel="noreferrer">
-            Open Promotion Form
-          </a>
-          <p class="fine-print">{googleFormFinePrint}</p>
+      </div>
+    </section>
+  )}
+
+  <section class="section compact" id="general-pricing">
+    <div class="container">
+      <div class="eyebrow">General Pricing Guide</div>
+      <h2>Residential and <em>local rates.</em></h2>
+      <p class="lead">These tables match the official General Pricing Guide. Written estimates are still confirmed before work begins.</p>
+    </div>
+  </section>
+
+  {generalPriceGroups.map((group) => (
+    <section class="section compact" id={group.id}>
+      <div class="container">
+        <div class="eyebrow">{group.title}</div>
+        <h2>{group.title} <em>{group.em}</em></h2>
+        <p class="lead">{group.note}</p>
+        <div class="price-table-stack">
+          {group.tables.map((table) => (
+            <PricingTable title={table.title} columns={table.columns} rows={table.rows} />
+          ))}
         </div>
-      )}
+        {group.tally === 'paperShredding' && (
+          <div style="margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+            <TallyPopupButton />
+            <p class="fine-print" style="margin: 0;">Opens the official Secure Paper Shredding Intake form. No Google login required.</p>
+          </div>
+        )}
+      </div>
+    </section>
+  ))}
+
+  <section class="section sand compact" id="commercial-pricing">
+    <div class="container">
+      <div class="eyebrow">Commercial Pricing</div>
+      <h2>Business and <em>property rates.</em></h2>
+      <p class="lead">For business, office, and commercial-property clients. Residential rates and terms are in the General Pricing Guide.</p>
+    </div>
+  </section>
+
+  {commercialPriceGroups.map((group) => (
+    <section class="section compact" id={group.id}>
+      <div class="container">
+        <div class="eyebrow">{group.title}</div>
+        <h2>{group.title} <em>{group.em}</em></h2>
+        <p class="lead">{group.note}</p>
+        <div class="price-table-stack">
+          {group.tables.map((table) => (
+            <PricingTable title={table.title} columns={table.columns} rows={table.rows} />
+          ))}
+        </div>
+        {group.tally === 'paperShredding' && (
+          <div style="margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+            <TallyPopupButton />
+            <p class="fine-print" style="margin: 0;">Opens the official Secure Paper Shredding Intake form. No Google login required.</p>
+          </div>
+        )}
+      </div>
+    </section>
+  ))}
+
+  <section class="section sand" id="give-back">
+    <div class="container">
+      <div class="eyebrow">Community Give-Back</div>
+      <h2>Add a gift to the <em>valley fund.</em></h2>
+      <p class="lead">{communityGiveBack.note}</p>
+      <PricingTable columns={['Tier', 'Amount']} rows={communityGiveBack.rows} />
+    </div>
+  </section>
+
+  <section class="section" id="fees">
+    <div class="container grid two">
+      <div>
+        <div class="eyebrow">Fees & Taxes</div>
+        <h2>Always disclosed <em>upfront.</em></h2>
+        <PricingTable columns={['Fee', 'Amount']} rows={fees} />
+        <p class="form-note">{paymentProcessingNote}</p>
+      </div>
+      <div>
+        <div class="eyebrow">Discounts</div>
+        <h2>Programs that <em>give back.</em></h2>
+        <p class="lead">{discountCapNote}</p>
+        <PricingTable title="General discounts" columns={['Discount', 'Amount']} rows={discounts} />
+        <PricingTable title="Community giving discount" columns={['Donation Level', 'Discount']} rows={communityGivingDiscounts} />
+        <p class="form-note">100% of the donation goes to the Methow Valley Fund.</p>
+        <PricingTable title="Commercial discounts" columns={['Discount', 'Amount']} rows={commercialDiscounts} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section sand compact">
+    <div class="container">
+      <div class="eyebrow">Sales Tax</div>
+      <h2>Combined rate by <em>location.</em></h2>
+      <p class="lead">{salesTaxNote}</p>
+      <PricingTable columns={['Location', 'Combined Rate']} rows={salesTax} />
+    </div>
+  </section>
+
+  <section class="section green compact">
+    <div class="container" style="display: flex; justify-content: space-between; gap: 20px; align-items: center; flex-wrap: wrap;">
+      <div>
+        <div class="eyebrow">Need a quote?</div>
+        <h2>Rates are public. <em>Your job is unique.</em></h2>
+      </div>
+      <a class="btn" href="/get-a-quote/">Request a Quote</a>
     </div>
   </section>
 </BaseLayout>

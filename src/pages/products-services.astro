@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import PricingUpdateNotice from '../components/PricingUpdateNotice.astro';
 import ServiceDetail from '../components/ServiceDetail.astro';
 import RecommendServiceForm from '../components/RecommendServiceForm.astro';
 import { futureServices, googleForms, primaryServices, secondaryServices } from '../data/site';
@@ -17,12 +16,6 @@ const serviceForms = {
 
 <BaseLayout title="Products & Services" description="In-depth Iron Path Services offerings for House Cleaning, Junk Removal, Secure Paper Shredding, Firewood Services, Transit (coming soon), plus Vending Machines & ATMs and future service ideas.">
   <PageHero eyebrow="Products & Services" title="Practical services, <em>community-minded</em> products." lead="The main five, secondary offerings, and space to recommend what the valley needs next." />
-
-  <section class="section compact">
-    <div class="container">
-      <PricingUpdateNotice />
-    </div>
-  </section>
 
   <section class="section">
     <div class="container grid" style="gap: 34px;">

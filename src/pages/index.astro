@@ -4,7 +4,7 @@ import ServiceTree from '../components/ServiceTree.astro';
 import TallyEmbed from '../components/TallyEmbed.astro';
 import GoogleFormLinks from '../components/GoogleFormLinks.astro';
 import ReviewCard from '../components/ReviewCard.astro';
-import { communityPledge, contact, faqs, homePhotos, pricingUpdateNotice, promotions, reviews, serviceAreas, servicePromise, serviceTagline, travelFeeNote } from '../data/site';
+import { communityPledge, contact, faqs, homePhotos, promotions, reviews, serviceAreas, servicePromise, serviceTagline, travelFeeNote } from '../data/site';
 ---
 
 <BaseLayout title="Iron Path Services | Methow Valley" description={`${serviceTagline} ${servicePromise}`}>
@@ -23,10 +23,6 @@ import { communityPledge, contact, faqs, homePhotos, pricingUpdateNotice, promot
   </section>
 
   <section class="container">
-    <div class="notice pricing-update-home">
-      <strong>Pricing Update</strong>
-      <span>{pricingUpdateNotice}</span>
-    </div>
     <div class="notice-row">
       <div class="notice"><strong>Fuel Surcharge Notice</strong><span>Fuel charges are tied to Winthrop gas prices and disclosed before booking.</span></div>
       <div class="notice"><strong>Transparency Notice</strong><span>No hidden fees. You approve itemized pricing before work begins.</span></div>
@@ -39,16 +35,16 @@ import { communityPledge, contact, faqs, homePhotos, pricingUpdateNotice, promot
       <div class="container home-promo-banner">
         <div class="home-promo-banner-heading">
           <div class="eyebrow">Current Promotions</div>
-          <h2>Two ways to <em>save or win.</em></h2>
+          <h2>Enter the Iron Path <em>Giveaway.</em></h2>
           <p class="lead">
-            Claim the $150 FIRST30 launch special or enter the Iron Path Giveaway. Full terms
-            are posted on the pricing page.
+            One winner, three prize choices. The $150 FIRST30 launch special has ended. Full
+            giveaway terms are posted on the pricing page.
           </p>
           <a class="btn secondary" href="/pricing/">See Promotion Details</a>
         </div>
         <div class="home-promo-banner-grid">
           {promotions.map((promotion) => (
-            <article class={`home-promo-banner-card${promotion.promoCode === 'FIRST30' ? ' featured' : ''}`}>
+            <article class="home-promo-banner-card">
               {promotion.status && <p class="promotion-status">{promotion.status}</p>}
               <h3>{promotion.title}</h3>
               <p>{promotion.details}</p>

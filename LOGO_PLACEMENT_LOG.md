@@ -26,7 +26,8 @@ Versioned public filenames prevent browsers and social platforms from reusing th
 | Open Graph preview | `src/layouts/BaseLayout.astro` | `/assets/social-card-v2.png` | Facebook, Slack, Messages, and other link previews | Official logo |
 | X/Twitter preview | `src/layouts/BaseLayout.astro` | `/assets/social-card-v2.png` | X/Twitter link previews | Official logo |
 | Search-engine business identity | `src/layouts/BaseLayout.astro` LocalBusiness JSON-LD | `/icon-512.png` | Search engines and structured-data consumers | Official logo |
-| Downloadable pricing guide | `public/downloads/ironpath-customer-pricing.pdf` | Official mark embedded on page 1 | Pricing and quote download links | Official logo |
+| Downloadable general pricing guide | `public/downloads/ironpath-general-pricing.pdf` | Official mark embedded on page 1 | Pricing page download | Official logo |
+| Downloadable commercial pricing guide | `public/downloads/ironpath-commercial-pricing.pdf` | Official mark embedded on page 1 | Pricing page download | Official logo |
 
 ## Generated assets
 

@@ -17,14 +17,32 @@ export const serviceTagline =
 export const servicePromise =
   'Delivered by people who live here, work here, and care for the valley.';
 
-export const pricingUpdateNotice =
-  'Thank you for your patience, we are adjusting prices to better serve you and be more affordable. They will be up Monday August 31st. We look forward to serving you!';
-
 export const communityPledge = {
   title: 'Community Donation Pledge',
   summary:
     '3% of Iron Path Services net profits is pledged back into the Methow Valley. 100% of funds donated to the valley fund goes to the valley.',
 };
+
+export const paymentPolicy =
+  'Accepted methods include cash, check, bank transfer/ACH, debit, Venmo, CashApp, and credit card invoice. A 3% payment processing fee applies to Venmo, CashApp, and credit card invoices. It is never applied to cash, check, bank transfer/ACH, or debit cards. Invoice timing is agreed before work begins.';
+
+export const invoiceOrderNote =
+  'Every invoice is calculated in this order: Subtotal → Discounts applied → Sales Tax → Payment Processing Fee (if applicable) → Total.';
+
+export const discountCapNote = 'Discounts can stack. Combined discount is capped at 30% maximum.';
+
+export const pricingDownloads = [
+  {
+    title: 'General Pricing Guide',
+    href: '/downloads/ironpath-general-pricing.pdf',
+    description: 'Residential rates, add-ons, karaoke, fees, discounts, and taxes.',
+  },
+  {
+    title: 'Commercial Pricing',
+    href: '/downloads/ironpath-commercial-pricing.pdf',
+    description: 'Business, office, and commercial-property rates and terms.',
+  },
+];
 
 export const tallyForms = {
   paperShredding: {
@@ -189,7 +207,7 @@ export const primaryServices: Service[] = [
       'Commercial, office, and retail cleaning',
       'Deep house cleaning and recurring service',
     ],
-    price: 'From $150',
+    price: 'From $175',
   },
   {
     title: 'Junk Removal',
@@ -208,7 +226,7 @@ export const primaryServices: Service[] = [
       'Commercial and residential cleanouts',
       'Responsible disposal with clear limitations',
     ],
-    price: '$80-$160 minimum',
+    price: 'From $85',
   },
   {
     title: 'Secure Paper Shredding',
@@ -241,7 +259,7 @@ export const primaryServices: Service[] = [
       'Certificate of destruction available',
       'Paper waste routed toward recycled fire starter production when safe',
     ],
-    price: 'From $40',
+    price: 'From $35',
   },
   {
     title: 'Firewood Services',
@@ -293,7 +311,7 @@ export const secondaryServices: Service[] = [
       'Commercial vending machine placement',
       'Commercial ATM placement',
       '30% net revenue share to host locations',
-      'ATM withdrawal fees disclosed before placement',
+      'ATM withdrawal fees disclosed before placement; Event ATM coming soon',
       'Machine options matched to your location',
     ],
     price: 'No upfront host cost',
@@ -416,15 +434,15 @@ export const processSteps = [
 
 export const faqs = [
   ['Are you licensed and insured?', 'Yes. Iron Path Services is fully insured and operates as a legitimate local business.'],
-  ['How does the fuel surcharge work?', 'The surcharge is tied to current local regular unleaded prices and is disclosed before booking.'],
-  ['How does payment work?', 'Payment timing is agreed before work begins. Accepted methods include cash, check, and on-site card payments. Quoted prices are final with no post-job additions.'],
-  ['Are there any hidden fees?', 'No. Travel fees, add-ons, fuel surcharges, and sales tax are disclosed upfront before you commit.'],
-  ['How does Secure Paper Shredding work?', 'We offer secure on-site or off-site Secure Paper Shredding options and can provide a certificate of destruction when requested.'],
-  ['Do you offer same-day service?', 'Often, depending on availability. Same-day priority is an add-on and is never promised unless we can actually deliver.'],
-  ['How far do you travel?', 'Travel fees depend on your location and are disclosed before booking. Mazama, Winthrop, and Twisp typically have no travel fee.'],
-  ['What happens if I need to cancel?', 'Cancellations under 24 hours may be charged a flat dispatch fee. We disclose cancellation terms before booking.'],
-  ['When will Transit launch?', 'Transit is coming soon. We will post routes, booking, and details on the Services page when it launches.'],
-  ['How do vending and ATM services work?', 'We supply, install, stock, maintain, and service the machine. Host locations receive a share of net sales. ATM withdrawal fees are disclosed before placement. Vending Machines and ATMs are listed under Secondary Services.'],
+  ['How does the fuel surcharge work?', 'The surcharge is tiered by local gas price at 0%, 3%, 5%, or 8% and is disclosed before booking.'],
+  ['How does payment work?', 'Payment timing is agreed before work begins. Cash, check, bank transfer/ACH, and debit have no processing fee. Venmo, CashApp, and credit card invoices include a 3% processing fee, itemized on the invoice. Quoted prices are final with no post-job additions.'],
+  ['Are there any hidden fees?', 'No. Travel fees, add-ons, fuel surcharges, sales tax, and any payment processing fee are disclosed upfront before you commit.'],
+  ['How does Secure Paper Shredding work?', 'Pick-up and on-site witnessed shredding only — no drop-off location is currently available. A certificate of destruction is $5 or complimentary depending on the job.'],
+  ['Do you offer same-day service?', 'Often, depending on availability. Same-day priority is +$80 and is only offered when it is the only remaining slot.'],
+  ['How far do you travel?', 'Mazama, Winthrop, and Twisp have no travel fee. Carlton adds $30. Brewster and Pateros add $60. Beyond 60 miles from Winthrop is $2.25 per mile.'],
+  ['What happens if I need to cancel?', 'Cancellations under 24 hours are $40 flat. A no-show or lockout is $60 flat.'],
+  ['When will Transit launch?', 'Iron Path Transit is coming soon for Twisp, Winthrop, and Mazama. Pricing will be announced when the service launches.'],
+  ['How do vending and ATM services work?', 'We supply, install, stock, maintain, and service the machine. Host locations receive 30% of net sales. Event ATM service is coming soon. Vending Machines and ATMs are listed under Secondary Services.'],
   ['Where do you service?', 'We serve Winthrop, Twisp, Mazama, Carlton, Methow, Pateros, Brewster, Monse, Ophir, Malott, Chillowist, Okanogan, Omak, and surrounding areas.'],
 ];
 
@@ -451,114 +469,402 @@ export const reviews: Review[] = [
   },
 ];
 
-export const pricingTables = [
+export type PriceTable = {
+  title?: string;
+  columns: string[];
+  rows: string[][];
+};
+
+export type PriceGroup = {
+  id: string;
+  title: string;
+  em: string;
+  note: string;
+  tally?: 'paperShredding';
+  tables: PriceTable[];
+};
+
+const junkAddOnRows: string[][] = [
+  ['Stairs / Difficult Access', '+$20–$50 / floor'],
+  ['Dense / Heavy Material Surcharge', '+$80–$150'],
+  ['Appliance Refrigerant Disposal (legally required)', '+$20–$60'],
+  ['Commercial Hazmat Coordination', '+$50–$150'],
+  ['EPA-Compliant Certified Disposal', 'Included'],
+  ['Long Carry (50ft+ from truck)', '+$20–$40'],
+  ['Extra Stop (additional pickup location, same job)', '+$40 flat'],
+  ['E-Waste Disposal (TVs, monitors)', '+$15–$30 / item'],
+  ['Paint / Chemical / Propane Tank Disposal', '+$15–$40 / item'],
+  ['Locked Gate / Access Coordination', '+$20 flat'],
+];
+
+export const generalPriceGroups: PriceGroup[] = [
   {
+    id: 'junk-removal',
     title: 'Junk Removal',
-    note: 'Load size is assessed on-site before work begins. Dump fees and hauling labor are included.',
-    rows: [
-      ['Residential minimum pickup', '$80-$160', '1-2 items; includes dump fees and labor'],
-      ['Residential truck bed load', '$180', 'Silverado 1500 standard bed'],
-      ['Residential 1/4 trailer load', '$280', 'Roughly one room of clutter'],
-      ['Residential 1/2 trailer load', '$480', 'Garage or basement cleanout'],
-      ['Residential 3/4 trailer load', '$700', 'Multi-room cleanout'],
-      ['Residential full trailer load', '$900', 'Whole-house or estate clearing'],
-      ['Commercial minimum pickup', '$120-$200', '1-2 items; business or site'],
-      ['Commercial truck bed load', '$220', 'Silverado 1500 standard bed'],
-      ['Commercial full trailer load', '$1,080', 'On-site assessment'],
-      ['Large items', '$50-$1,000+', 'Mattresses, couches, appliances, pianos, hot tubs, sheds'],
+    em: 'estimates.',
+    note: 'Prices below are estimates. Reach out for an official quote. Larger item fees may apply on top of the minimum.',
+    tables: [
+      {
+        title: 'Load size',
+        columns: ['Tier', 'Price'],
+        rows: [
+          ['Minimum', '$85'],
+          ['Truck Bed', '$180'],
+          ['Truck Bed + Trailer 1/4', '$280'],
+          ['Truck Bed + Trailer 1/2', '$480'],
+          ['Truck Bed + Trailer 3/4', '$660'],
+          ['Truck Bed + Trailer Full', '$800'],
+        ],
+      },
+      {
+        title: 'Large items',
+        columns: ['Item', 'Price'],
+        rows: [
+          ['Mattress / Box Spring', '$50'],
+          ['Couch / Loveseat', '$100–$160'],
+          ['Refrigerator', '$100'],
+          ['Washer / Dryer', '$90'],
+          ['Hot Tub (cut & haul)', '$480–$800'],
+          ['Upright Piano', '$380–$700'],
+          ['Small Shed Demolition', 'From $520'],
+          ['Concrete / Dirt / Roofing', 'By weight — quoted on-site'],
+        ],
+      },
+      {
+        title: 'Add-on fees',
+        columns: ['Add-On', 'Price'],
+        rows: junkAddOnRows,
+      },
     ],
   },
   {
+    id: 'house-cleaning',
     title: 'House Cleaning',
-    note: 'All supplies and equipment are provided. Staff hold WA Food Worker Cards; IICRC certification targeted by September 30, 2026.',
-    rows: [
-      ['Standard clean', '$150', '2 hour base; supplies included'],
-      ['Deep clean', '$300', '3 hour base; supplies included'],
-      ['Move-out clean', '$360', '4 hour base; supplies included'],
-      ['Additional cleaner hours', '$50/hr', 'Beyond base time'],
-      ['Commercial space', '$0.15-$0.35/sq ft', 'Quoted by scope'],
-      ['Lodge / STR turnover', '$30-$50/room', 'Same-day turnaround when available'],
-      ['Office / retail recurring contract', 'Custom quote', 'Recurring scope'],
-      ['Post-construction cleanup', 'Custom quote', 'Per scope'],
-      ['First-time / heavily soiled condition fee', '+$50-$100', 'Communicated before work begins'],
-      ['Pet hair / animal fee', '+$20-$50', 'Communicated before work begins'],
-      ['Interior window cleaning', '+$20-$40', 'Communicated before work begins'],
+    em: 'packages.',
+    note: 'Standard, deep, and move-out packages include the listed labor hours. Additional time is $90/hr.',
+    tables: [
+      {
+        title: 'Packages',
+        columns: ['Package', 'Price', 'Labor-Hrs'],
+        rows: [
+          ['Standard Clean', '$175', 'Up to 2'],
+          ['Deep Clean', '$380', 'Up to 4'],
+          ['Move-Out Clean', '$460', 'Up to 5'],
+          ['Additional Cleaning Time', '$90/hr', 'Beyond included hours'],
+        ],
+      },
+      {
+        title: 'Add-on / condition fees',
+        columns: ['Add-On', 'Price'],
+        rows: [
+          ['Customer-Supplied Cleaning Products', '–$25'],
+          ['Heavily Soiled / First-Time Condition', '+$50–$100'],
+          ['Pet Hair / Animal Condition', '+$20–$50'],
+          ['Inside Oven', '+$25'],
+          ['Inside Fridge', '+$25'],
+          ['Interior Cabinets (emptied)', '+$30–$50'],
+          ['Laundry (blankets/linens only, per load)', '+$15 / load'],
+          ['Baseboards / Wall Spot-Cleaning', '+$20–$35'],
+          ['Blinds Cleaning', '+$2 / blind'],
+        ],
+      },
+      {
+        title: 'Window cleaning',
+        columns: ['Service', 'Price'],
+        rows: [
+          ['Interior / Exterior / Both', '$3 / $4 / $6 per window'],
+          ['Screens · Tracks · Sliding Door · French Door', '$2.50 · $4 · $12 · $2/pane'],
+          ['Hard Water Treatment · 2nd Floor · 3rd Floor', '+$20/pane · +$2 · +$5 per window'],
+        ],
+      },
     ],
   },
   {
-    title: 'Secure Paper Shredding',
-    note: 'Drop-off, pick-up, or on-site mobile destruction. Shredded paper is recycled into Iron Path Blazers when possible.',
-    rows: [
-      ['Small drop-off', '$40 minimum', 'Covers up to 16 lbs; $1.25/lb above 16 lbs'],
-      ['One-time purge special', '$80 flat', 'Up to 60 lbs; no weighing'],
-      ['Pick-up by weight', '$50 minimum', '$40 base + $1.50/lb above 7 lbs'],
-      ['72-gallon bin pickup', '$240', 'Full secure bin collected for off-site destruction'],
-      ['Small on-site mobile', '$80 flat', '1-3 bankers boxes; witnessed destruction'],
-      ['On-site mobile, 4+ boxes', '$80 + $20/box after box 3', 'Base plus per-box scaling'],
-      ['72-gallon bin on-site', '$280', 'Full bin destroyed at your location'],
-      ['Certificate of destruction', '$10', 'Free on orders over $100'],
-      ['Recurring business service', 'Custom quote', 'Weekly, biweekly, or monthly'],
-    ],
-  },
-  {
+    id: 'firewood',
     title: 'Firewood Services',
-    note: 'Seasoned and ready to burn. Delivery fees are confirmed at booking before you commit.',
-    rows: [
-      ['Salvaged wood bundle', '$5', 'Reclaimed scrap wood; kindling or rustic projects'],
-      ['Campfire bundle', '$10', 'Single seasoned bundle; pickup or delivery'],
-      ['Half cord', '$200', 'Seasoned; residential or commercial'],
-      ['Full cord', '$360', 'Seasoned; residential or commercial'],
-      ['Bulk order, 10+ cords', '10% off', 'Applied automatically'],
-      ['Blazers single', '$4.99', '100% recycled paper-pulp fire starter block'],
-      ['Blazers 3-pack', '$10.99', '$3.66 each'],
-      ['Blazers 5-pack', '$16.99', '$3.40 each'],
-      ['Blazers 10-pack', '$30.99', '$3.10 each'],
-      ['Blazers 20-pack', '$50.99', '$2.55 each'],
-      ['Refurbished products', 'Varies', 'Reclaimed and restored items from junk removal jobs'],
+    em: 'rates.',
+    note: 'Delivery included for Mazama, Winthrop, and Twisp. Carlton, Methow, Brewster, and Pateros use the standard travel fee.',
+    tables: [
+      {
+        title: 'Seasoned firewood',
+        columns: ['Item', 'Price'],
+        rows: [
+          ['Campfire Bundle (seasoned, pick-up or delivery)', '$10'],
+          ['Half Cord (seasoned)', '$235'],
+          ['Full Cord (seasoned)', '$425'],
+          ['Bulk Order (10+ cords)', '10% off — automatic'],
+        ],
+      },
+      {
+        title: 'Wood processing (cut & split customer-supplied wood — no felling)',
+        columns: ['Rate', 'Price'],
+        rows: [
+          ['Per Cord', '$75–$90'],
+          ['Per Hour, Labor', '$50 / hr'],
+          ['Per Hour, Customer Supplies Equipment', '$35 / hr'],
+        ],
+      },
+      {
+        title: 'Wood processing add-ons',
+        columns: ['Add-On', 'Price'],
+        rows: [
+          ['Stack-in-Place (vs. dump-and-leave)', '+$20 / cord'],
+          ['Debris Haul-Away (post-processing)', '+$40–$60 / load'],
+        ],
+      },
+      {
+        title: 'Retail — Green Initiative',
+        columns: ['Product', 'Price'],
+        rows: [
+          ['Salvaged Wood Bundle', '$5'],
+          ['Campfire Bundle (retail)', '$10'],
+          ['Iron Path Blazers — Single', '$4.99'],
+          ['Iron Path Blazers — 3-Pack', '$10.99'],
+          ['Iron Path Blazers — 5-Pack', '$16.99'],
+          ['Iron Path Blazers — 10-Pack', '$30.99'],
+          ['Iron Path Blazers — 20-Pack', '$50.99'],
+        ],
+      },
     ],
   },
   {
-    title: 'Vending Machines & ATMs',
-    note: 'No upfront cost to host locations unless corporate setup is required and approved in advance.',
-    rows: [
-      ['Vending machine placement', 'No host cost', 'Machine supplied and installed'],
-      ['ATM placement', 'No host cost', 'ATM supplied and installed'],
-      ['Restocking and maintenance', 'Included', 'Handled by Iron Path'],
-      ['Host location revenue', '30%', 'Net sales share'],
-      ['ATM withdrawal fee', '$3.50', 'Per withdrawal'],
-      ['Standard contract term', '12 months', 'Flexible terms available'],
+    id: 'document-shredding',
+    title: 'Secure Paper Shredding',
+    em: 'pricing.',
+    note: 'Pick-up and on-site service only — no drop-off location is currently available.',
+    tally: 'paperShredding',
+    tables: [
+      {
+        columns: ['Item', 'Price'],
+        rows: [
+          ['Bankers Box (pick-up)', '$14 / box'],
+          ['77-Gallon Locked Bin (pick-up)', '$1.50 / lb'],
+          ['On-Site / Witnessed Mobile Shredding', '$1.50/lb + $30 flat'],
+          ['Minimum Service Charge (one-time pickups)', '$35'],
+          ['Recurring Monthly Bin Service (1 bin)', '$50 / month'],
+          ['Large Volume (10+ boxes / 300+ lbs)', '10% off'],
+          ['Certificate of Destruction — paper / emailed', '$5 / Complimentary'],
+          ['Bin Weight Overage (over rated bin capacity)', '+$2 / lb over limit'],
+        ],
+      },
+    ],
+  },
+  {
+    id: 'secondary-services',
+    title: 'Secondary services',
+    em: 'and more.',
+    note: 'You need something done, just ask. Karaoke Hosting is not an official core service. Iron Path Transit and Event ATM are coming soon.',
+    tables: [
+      {
+        title: 'Karaoke Hosting',
+        columns: ['Option', 'Price'],
+        rows: [
+          ['Flat rate (up to 4 hrs)', '$150'],
+          ['Additional time', '$35–$50 / hr'],
+          ['4-week prepaid package', '$500 ($125/event)'],
+          ['Holiday / large events', '$200+ (quoted)'],
+        ],
+      },
+      {
+        title: 'Hourly services',
+        columns: ['Service', 'Price'],
+        rows: [['General labor (per person)', '$40 / hr']],
+      },
+      {
+        title: 'Moving',
+        columns: ['Item', 'Price'],
+        rows: [
+          ['Labor (per person)', '$40 / hr'],
+          ['Vehicle Add-On', '$150 flat'],
+          ['Furniture Disassembly / Reassembly', '+$25–$40 / item'],
+          ['Long Carry (50ft+ or extra flights)', '+$20–$40'],
+          ['Packing / Unpacking Labor', '+$40 / hr'],
+        ],
+      },
+      {
+        title: 'Event ATM',
+        columns: ['Status', 'Price'],
+        rows: [['Event ATM', 'Not available yet — Coming Soon']],
+      },
+      {
+        title: 'Vending Machines & ATMs',
+        columns: ['Item', 'Details'],
+        rows: [
+          ['Vending machine placement', 'No host cost'],
+          ['ATM placement', 'No host cost · Event ATM coming soon'],
+          ['Restocking and maintenance', 'Included'],
+          ['Host location revenue', '30% of net sales'],
+          ['Standard contract term', '12 months · flexible terms available'],
+        ],
+      },
     ],
   },
 ];
+
+export const commercialPriceGroups: PriceGroup[] = [
+  {
+    id: 'commercial-junk',
+    title: 'Commercial Junk Removal',
+    em: 'rates.',
+    note: 'Large item pricing shown below is the commercial rate (flat +25% over residential). Base truck/trailer tiers are quoted per scope.',
+    tables: [
+      {
+        title: 'Large items',
+        columns: ['Item', 'Commercial Price'],
+        rows: [
+          ['Mattress / Box Spring', '$65'],
+          ['Couch / Loveseat', '$125–$200'],
+          ['Refrigerator', '$125'],
+          ['Washer / Dryer', '$115'],
+          ['Hot Tub (cut & haul)', '$600–$1,000'],
+          ['Upright Piano', '$475–$875'],
+          ['Small Shed Demolition', 'From $650'],
+          ['Concrete / Dirt / Roofing', 'By weight — quoted on-site'],
+        ],
+      },
+      {
+        title: 'Add-on fees',
+        columns: ['Add-On', 'Price'],
+        rows: [
+          ...junkAddOnRows,
+          ['Custom Jobs (manpower)', '$40 / hr per person + item pricing'],
+        ],
+      },
+    ],
+  },
+  {
+    id: 'commercial-cleaning',
+    title: 'Commercial House Cleaning',
+    em: 'quotes.',
+    note: 'Commercial spaces are quoted by scope. Recurring commercial service of 6+ months qualifies for an additional 15% discount, applied across all commercial lines.',
+    tables: [
+      {
+        columns: ['Service', 'Price'],
+        rows: [
+          ['Commercial Space', '$0.15–$0.35 / sq ft — quoted by scope'],
+          ['Lodge / STR Turnover', '$30–$50 / room — quoted by scope'],
+          ['Office / Retail Recurring Contract', 'Custom quote'],
+          ['Post-Construction Cleanup', 'Custom quote / per scope'],
+        ],
+      },
+    ],
+  },
+  {
+    id: 'commercial-firewood',
+    title: 'Firewood — Retail',
+    em: 'wholesale.',
+    note: 'Wholesale campfire bundles require a 10-unit minimum.',
+    tables: [
+      {
+        columns: ['Product', 'Price'],
+        rows: [
+          ['Campfire Bundle (retail)', '$10'],
+          ['Campfire Bundle — Wholesale (gas stations/stores, 10-unit min)', '$3.75 each'],
+          ['Half Cord / Full Cord (commercial)', '$235 / $425'],
+        ],
+      },
+    ],
+  },
+  {
+    id: 'commercial-karaoke',
+    title: 'Karaoke Hosting',
+    em: 'for events.',
+    note: 'Not an official core service. Quotes are confirmed before booking.',
+    tables: [
+      {
+        columns: ['Option', 'Price'],
+        rows: [
+          ['Flat rate (up to 4 hrs)', '$150'],
+          ['Additional time', '$35–$50 / hr'],
+          ['Holiday / large events', '$200+ (quoted)'],
+        ],
+      },
+    ],
+  },
+  {
+    id: 'commercial-shredding',
+    title: 'Secure Paper Shredding — Commercial',
+    em: 'contracts.',
+    note: 'Recurring commercial service of 6+ months qualifies for an additional 15% discount, applied across all commercial lines.',
+    tally: 'paperShredding',
+    tables: [
+      {
+        columns: ['Item', 'Price'],
+        rows: [
+          ['77-Gallon Locked Bin (pick-up)', '$1.50 / lb'],
+          ['On-Site / Witnessed Mobile Shredding', '$1.50/lb + $30 flat'],
+          ['Large Volume (10+ boxes / 300+ lbs)', '10% off'],
+          ['Recurring Business Service (weekly/biweekly/monthly)', 'Custom quote'],
+          ['Certificate of Destruction — paper / emailed', '$5 / Complimentary'],
+        ],
+      },
+    ],
+  },
+];
+
+export const communityGiveBack = {
+  note: '100% of the selected donation goes to the Methow Valley Fund. Add a donation to any service.',
+  rows: [
+    ['Neighbor', '$2'],
+    ['Community Supporter', '$5'],
+    ['Valley Builder', '$10'],
+    ['Community Champion', '$20'],
+    ['Custom Amount', 'Your choice'],
+  ] as string[][],
+};
 
 export const travelFeeNote =
-  'Travel fees depend on your location and are disclosed before booking. Mazama, Winthrop, and Twisp typically have no travel fee.';
+  'Mazama, Winthrop, and Twisp: no travel fee. Carlton: +$30. Brewster/Pateros: +$60. Beyond 60 miles from Winthrop: $2.25/mile. All fees disclosed upfront.';
 
 export const fees = [
-  ['Same-day priority service', '+$80'],
-  ['After-hours service', '+15%'],
-  ['Cancellation under 24 hours', '$40 flat'],
-  ['No-show / lockout', '$60 flat'],
-  ['Mazama, Winthrop, and Twisp travel', 'None'],
-  ['Carlton travel', '+$30'],
-  ['Brewster / Pateros travel', '+$60'],
-  ['Beyond 60 miles from Winthrop', '$2.25/mile'],
-  ['Fuel below $4.10/gal', 'None'],
-  ['Fuel $4.10-$4.75/gal', '+3%'],
-  ['Fuel $4.76-$5.25/gal', '+5%'],
-  ['Fuel above $5.25/gal', '+8%'],
+  ['Same-Day Priority (only when it is the only slot)', '+$80'],
+  ['After-Hours Service', '+15%'],
+  ['Cancellation Under 24 Hours', '$40 flat'],
+  ['No-Show / Lockout', '$60 flat'],
+  ['Travel — Mazama / Winthrop / Twisp', 'None'],
+  ['Travel — Carlton', '+$30'],
+  ['Travel — Brewster / Pateros', '+$60'],
+  ['Travel — beyond 60 mi from Winthrop', '$2.25 / mile'],
+  ['Fuel Surcharge (tiered by local gas price)', '0% / +3% / +5% / +8%'],
+  ['Payment Processing Fee (Venmo, CashApp, credit card invoice)', '3%'],
 ];
 
+export const paymentProcessingNote =
+  'Not applied to cash, check, or bank transfer/ACH. Never applied to debit cards (per federal law). Itemized as a separate line on every invoice: Subtotal / Payment Processing Fee (3%) / Total.';
+
 export const discounts = [
-  ['$15 credit', 'Pay in full upfront'],
-  ['$25 credit', 'Referral credit after a completed paid job'],
-  ['10% forever', 'VIP loyalty after 5 completed visits'],
-  ['10% off', 'Senior discount, 65+'],
-  ['10% off', 'Veteran / military'],
-  ['$10 credit', 'Verified Google review credit'],
-  ['10% per visit', 'Recurring weekly or biweekly cleaning'],
-  ['Variable', 'Donation / resale credit'],
+  ['Community Service (Senior, Veteran/Military, First Responder, Teacher/Educator)', '15%'],
+  ['New Customer', '10%'],
+  ['Multi-Service Bundle (2+ services booked together)', '12%'],
+  ['Referral — Referrer / Referred', '$20 off / $10 off'],
+  ['Recurring Commercial Service (6+ months)', '15%'],
+  ['Loyalty (repeat customer)', '10%'],
 ];
+
+export const commercialDiscounts = [
+  ['New Customer', '10%'],
+  ['Multi-Service Bundle (2+ services booked together)', '12%'],
+  ['Recurring Commercial Service (6+ months, all commercial lines)', '15%'],
+  ['Community Giving Discount (Methow Valley Fund donation)', '2–5%'],
+];
+
+export const communityGivingDiscounts = [
+  ['Qualifying donation', '2% off'],
+  ['Larger donation', '3% off'],
+  ['Major / community-supporting donation', '5% off'],
+];
+
+export const salesTax = [
+  ['Winthrop', '8.5%'],
+  ['Twisp', '8.7%'],
+  ['Pateros', '8.6%'],
+  ['Brewster', '8.4%'],
+  ['Okanogan Co. Unincorporated', '8.0%'],
+  ['Colville Tribes PTBA', '8.4%'],
+];
+
+export const salesTaxNote =
+  'Locations not listed above will have the combined rate of the closest listed location applied.';
 
 export const promotions: Array<{
   title: string;
@@ -639,35 +945,6 @@ export const promotions: Array<{
     finePrint:
       'No purchase necessary. Must be 18 years or older and reside within Iron Path Services service area. Promotion is not sponsored, endorsed, administered by, or associated with Facebook or Instagram. One winner will be selected at random after entries close. Prize value not to exceed $250.',
   },
-  {
-    title: 'Launch Special: $150 flat',
-    status: 'Ending September 30, 2026 if we do not reach 30 jobs first!',
-    details:
-      'Claim a $150 flat-rate launch special with no gas fees, no hidden charges, and no surprise add-ons.',
-    promoCode: 'FIRST30',
-    optionsHeading: 'Choose one',
-    prizeOptions: [
-      'Up to 1 full pickup truck load of junk removal, equivalent to approximately one standard pickup truck load',
-      'Up to 2 full hours of house cleaning',
-    ],
-    dates: [
-      { label: 'Available', value: 'Now' },
-      { label: 'Ending', value: 'September 30, 2026 if 30 jobs are not reached first' },
-    ],
-    offerDetails: [
-      'Limited to the first 30 customers',
-      'Available within 10 miles of Winthrop, WA',
-      'One service per promotional booking',
-      'Subject to scheduling availability',
-      'Ends September 30, 2026 if we do not reach 30 jobs first',
-    ],
-    cta: {
-      label: 'Claim Launch Special',
-      href: googleForms.promotion,
-    },
-    finePrint:
-      'Enter promo code FIRST30 on the service request form. Offer ends September 30, 2026 if 30 jobs are not completed first. Claim your spot before all 30 are gone.',
-  },
 ];
 
 export const founderLetter = [
@@ -707,7 +984,7 @@ export const karaokePage = {
   title: 'An awesome karaoke night, <em>fully handled.</em>',
   lead:
     'Not an official service line — just a fun Iron Path offering. We bring the speakers, microphones, song list, setup, host, and everything else you need for a great night.',
-  note: 'Professional Karaoke Hosting · quote confirmed before booking',
+  note: 'Professional Karaoke Hosting · starting at $150',
   includes: [
     'Full sound system included',
     'Wireless and wired microphones',
@@ -759,9 +1036,9 @@ export const karaokePage = {
   ],
   faqs: [
     ['Is Karaoke an official Iron Path service?', 'No. Karaoke hosting is a fun community offering we provide separately from our core services.'],
-    ['What is included in a standard night?', 'Up to 4 hours with speakers, microphones, karaoke list, setup, teardown, and a reliable host. We confirm a written quote before booking.'],
-    ['What is the 4-week recurring package?', 'Book four karaoke nights paid in advance, with the regular 4 hours of hosting each night. We confirm availability and pricing up front.'],
+    ['What is included in the $150 rate?', 'Up to 4 hours with speakers, microphones, karaoke list, setup, teardown, and a reliable host.'],
+    ['What is the 4-week recurring package?', 'Book four karaoke nights for $500 paid in advance — $125 per event, with the regular 4 hours of hosting each night.'],
     ['What is a Red Carpet Moment?', 'A complimentary confidence-building spotlight where guests get their star moment. We may share it on social media to spread positivity.'],
-    ['Can you do holidays or large events?', 'Yes. Holiday and large-event hosting is quoted for the size of the night.'],
+    ['Can you do holidays or large events?', 'Yes. Holiday and large-event hosting starts at $200+ and is quoted for the size of the night.'],
   ],
 };
