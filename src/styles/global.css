@@ -1387,6 +1387,219 @@ em {
   gap: 12px;
 }
 
+.pricing-accordion {
+  display: grid;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.pricing-fold,
+.pricing-subfold,
+.policy-block,
+#pricing-downloads,
+#policies,
+#current-promotions {
+  scroll-margin-top: 92px;
+}
+
+.pricing-fold,
+.pricing-subfold {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--paper);
+  overflow: hidden;
+}
+
+.pricing-fold {
+  box-shadow: 0 2px 0 var(--bronze);
+}
+
+.pricing-fold > summary,
+.pricing-subfold > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: var(--brown);
+}
+
+.pricing-fold > summary:hover,
+.pricing-subfold > summary:hover {
+  background: rgba(212, 96, 26, 0.06);
+}
+
+.pricing-fold > summary::-webkit-details-marker,
+.pricing-subfold > summary::-webkit-details-marker,
+.pricing-fold > summary::marker,
+.pricing-subfold > summary::marker {
+  display: none;
+  content: "";
+}
+
+.pricing-fold > summary::after,
+.pricing-subfold > summary::after {
+  content: "+";
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(92, 51, 23, 0.28);
+  color: var(--bronze);
+  font-size: 18px;
+  line-height: 1;
+}
+
+.pricing-fold[open] > summary,
+.pricing-subfold[open] > summary {
+  border-bottom: 1px solid var(--line);
+  background: rgba(212, 96, 26, 0.08);
+}
+
+.pricing-fold[open] > summary::after,
+.pricing-subfold[open] > summary::after {
+  content: "–";
+}
+
+.pricing-fold > summary:focus-visible,
+.pricing-subfold > summary:focus-visible {
+  outline: 2px solid var(--bronze);
+  outline-offset: -2px;
+}
+
+.pricing-fold-panel,
+.pricing-subfold-panel {
+  padding: 20px 22px 24px;
+}
+
+.pricing-fold-panel {
+  display: grid;
+  gap: 12px;
+}
+
+.pricing-fold-panel > .lead,
+.pricing-subfold-panel > .lead {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.pricing-subfold {
+  border-radius: 18px;
+  box-shadow: none;
+}
+
+.pricing-subfold > summary {
+  font-size: 12px;
+  padding: 14px 18px;
+}
+
+.pricing-subfold-panel .lead {
+  max-width: none;
+}
+
+.pricing-fee-grid,
+.pricing-fee-extra {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 8px;
+}
+
+.pricing-fold-panel h3,
+.policy-block h3 {
+  margin: 0 0 12px;
+  font-size: 22px;
+}
+
+.pricing-inline-cta {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.pricing-inline-cta .fine-print {
+  margin: 0;
+}
+
+.policy-stack {
+  display: grid;
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.policy-block {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 24px 26px;
+  box-shadow: 0 2px 0 var(--bronze);
+  overflow-wrap: break-word;
+}
+
+.policy-block p,
+.policy-block li,
+.policy-block span {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.policy-points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.policy-points li {
+  display: grid;
+  gap: 2px;
+}
+
+.policy-points strong {
+  color: var(--brown);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.policy-label {
+  margin: 20px 0 10px;
+  color: var(--brown);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.invoice-order {
+  margin: 0;
+  padding-left: 22px;
+  display: grid;
+  gap: 6px;
+}
+
+.invoice-order li {
+  color: var(--brown);
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.pricing-download-grid {
+  margin-top: 28px;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
@@ -1953,7 +2166,9 @@ textarea:focus {
   .grid.four,
   .footer-grid,
   .form-grid,
-  .grid.five {
+  .grid.five,
+  .pricing-fee-grid,
+  .pricing-fee-extra {
     grid-template-columns: 1fr;
   }
 

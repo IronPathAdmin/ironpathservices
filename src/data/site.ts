@@ -21,13 +21,41 @@ export const communityPledge = {
   title: 'Community Donation Pledge',
   summary:
     '3% of Iron Path Services net profits is pledged back into the Methow Valley. 100% of funds donated to the valley fund goes to the valley.',
+  points: [
+    {
+      label: '3% of net profits',
+      text: 'Pledged back into the Methow Valley.',
+    },
+    {
+      label: 'Valley fund',
+      text: '100% of funds donated to the valley fund goes to the valley.',
+    },
+  ],
 };
 
 export const paymentPolicy =
   'Accepted methods include cash, check, bank transfer/ACH, debit, Venmo, CashApp, and credit card invoice. A 3% payment processing fee applies to Venmo, CashApp, and credit card invoices. It is never applied to cash, check, bank transfer/ACH, or debit cards. Invoice timing is agreed before work begins.';
 
-export const invoiceOrderNote =
-  'Every invoice is calculated in this order: Subtotal → Discounts applied → Sales Tax → Payment Processing Fee (if applicable) → Total.';
+export const paymentMethodGroups = [
+  {
+    label: 'No processing fee',
+    methods: 'Cash, check, bank transfer/ACH, and debit',
+  },
+  {
+    label: '3% processing fee',
+    methods: 'Venmo, CashApp, and credit card invoices',
+  },
+];
+
+export const invoiceOrderSteps = [
+  'Subtotal',
+  'Discounts applied',
+  'Sales Tax',
+  'Payment Processing Fee (if applicable)',
+  'Total',
+];
+
+export const invoiceOrderNote = `Every invoice is calculated in this order: ${invoiceOrderSteps.join(' → ')}.`;
 
 export const discountCapNote = 'Discounts can stack. Combined discount is capped at 30% maximum.';
 

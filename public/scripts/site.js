@@ -227,8 +227,41 @@ function initTallyEmbeds() {
   });
 }
 
+function initPricingAccordion() {
+  const root = document.querySelector('[data-pricing-accordion]');
+  if (!root) return;
+
+  const topFolds = Array.from(root.querySelectorAll(':scope > details'));
+
+  topFolds.forEach((fold) => {
+    fold.addEventListener('toggle', () => {
+      if (!fold.open) return;
+      topFolds.forEach((other) => {
+        if (other !== fold) other.open = false;
+      });
+    });
+  });
+
+  const openFromHash = () => {
+    const id = decodeURIComponent(location.hash.replace(/^#/, ''));
+    if (!id) return;
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    let node = target;
+    while (node && node !== document.body) {
+      if (node instanceof HTMLDetailsElement) node.open = true;
+      node = node.parentElement;
+    }
+  };
+
+  openFromHash();
+  window.addEventListener('hashchange', openFromHash);
+}
+
 initMenu();
 initReveal();
 initForms();
 initTallyPopups();
 initTallyEmbeds();
+initPricingAccordion();

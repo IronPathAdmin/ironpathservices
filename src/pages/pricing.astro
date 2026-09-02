@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import PricingTable from '../components/PricingTable.astro';
-import TallyPopupButton from '../components/TallyPopupButton.astro';
+import PriceGroupFold from '../components/PriceGroupFold.astro';
 import {
   commercialDiscounts,
   commercialPriceGroups,
@@ -14,8 +14,8 @@ import {
   fees,
   generalPriceGroups,
   googleFormFinePrint,
-  invoiceOrderNote,
-  paymentPolicy,
+  invoiceOrderSteps,
+  paymentMethodGroups,
   paymentProcessingNote,
   pricingDownloads,
   promotions,
@@ -33,49 +33,112 @@ import {
 
   <section class="section compact">
     <div class="container">
-      <div class="pricing-jump">
-        <a class="btn" href="#general-pricing">General Pricing</a>
-        <a class="btn secondary" href="#commercial-pricing">Commercial Pricing</a>
-        <a class="btn secondary" href="#fees">Fees & Taxes</a>
-        <a class="btn secondary" href="#pricing-downloads">Download PDFs</a>
+      <div class="eyebrow">Rate sheets</div>
+      <h2>Open the rates you <em>need.</em></h2>
+      <p class="lead">Buttons open the matching tables here instead of sending you down the page.</p>
+
+      <div class="pricing-accordion" data-pricing-accordion>
+        <details class="pricing-fold" id="general-pricing" name="pricing-rates">
+          <summary>General Pricing</summary>
+          <div class="pricing-fold-panel">
+            <p class="lead">Residential and local rates from the official General Pricing Guide. Written estimates are still confirmed before work begins.</p>
+            {generalPriceGroups.map((group) => (
+              <PriceGroupFold group={group} />
+            ))}
+          </div>
+        </details>
+
+        <details class="pricing-fold" id="commercial-pricing" name="pricing-rates">
+          <summary>Commercial Pricing</summary>
+          <div class="pricing-fold-panel">
+            <p class="lead">Business, office, and commercial-property rates. Residential rates and terms are in General Pricing.</p>
+            {commercialPriceGroups.map((group) => (
+              <PriceGroupFold group={group} />
+            ))}
+          </div>
+        </details>
+
+        <details class="pricing-fold" id="fees" name="pricing-rates">
+          <summary>Fees &amp; Taxes</summary>
+          <div class="pricing-fold-panel">
+            <p class="lead">Always disclosed upfront. Discounts can stack, and the combined discount is capped at 30%.</p>
+            <div class="pricing-fee-grid">
+              <div>
+                <h3>Fees</h3>
+                <PricingTable columns={['Fee', 'Amount']} rows={fees} />
+                <p class="form-note">{paymentProcessingNote}</p>
+              </div>
+              <div>
+                <h3>Discounts</h3>
+                <p class="form-note">{discountCapNote}</p>
+                <PricingTable title="General discounts" columns={['Discount', 'Amount']} rows={discounts} />
+                <PricingTable title="Community giving discount" columns={['Donation Level', 'Discount']} rows={communityGivingDiscounts} />
+                <p class="form-note">100% of the donation goes to the Methow Valley Fund.</p>
+                <PricingTable title="Commercial discounts" columns={['Discount', 'Amount']} rows={commercialDiscounts} />
+              </div>
+            </div>
+            <div class="pricing-fee-extra">
+              <div>
+                <h3>Sales tax</h3>
+                <p class="form-note">{salesTaxNote}</p>
+                <PricingTable columns={['Location', 'Combined Rate']} rows={salesTax} />
+              </div>
+              <div>
+                <h3>Community give-back</h3>
+                <p class="form-note">{communityGiveBack.note}</p>
+                <PricingTable columns={['Tier', 'Amount']} rows={communityGiveBack.rows} />
+              </div>
+            </div>
+          </div>
+        </details>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section sand compact" id="policies">
     <div class="container">
-      <div class="grid two">
-        <div class="card sand">
-          <h3>{communityPledge.title}</h3>
-          <p>{communityPledge.summary}</p>
-        </div>
-        <div class="card sand">
+      <div class="eyebrow">Policies</div>
+      <h2>How billing and giving <em>work.</em></h2>
+      <div class="policy-stack">
+        <article class="policy-block">
           <h3>Payment Policy</h3>
-          <p>{paymentPolicy}</p>
-          <p class="form-note">{invoiceOrderNote}</p>
-        </div>
-      </div>
-    </div>
-  </section>
+          <ul class="policy-points">
+            {paymentMethodGroups.map((group) => (
+              <li>
+                <strong>{group.label}</strong>
+                <span>{group.methods}</span>
+              </li>
+            ))}
+            <li>
+              <strong>Timing</strong>
+              <span>Invoice timing is agreed before work begins.</span>
+            </li>
+          </ul>
+          <p class="policy-label">Invoice order</p>
+          <ol class="invoice-order">
+            {invoiceOrderSteps.map((step) => (
+              <li>{step}</li>
+            ))}
+          </ol>
+        </article>
 
-  <section class="section sand compact" id="pricing-downloads">
-    <div class="container">
-      <div class="eyebrow">Printable PDFs</div>
-      <h2>Download the official <em>rate sheets.</em></h2>
-      <div class="grid two" style="margin-top: 28px;">
-        {pricingDownloads.map((download) => (
-          <article class="card">
-            <h3>{download.title}</h3>
-            <p>{download.description}</p>
-            <a class="btn" href={download.href} download>Download PDF</a>
-          </article>
-        ))}
+        <article class="policy-block">
+          <h3>{communityPledge.title}</h3>
+          <ul class="policy-points">
+            {communityPledge.points.map((point) => (
+              <li>
+                <strong>{point.label}</strong>
+                <span>{point.text}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
       </div>
     </div>
   </section>
 
   {promotions.length > 0 && (
-    <section class="section compact">
+    <section class="section compact" id="current-promotions">
       <div class="container">
         <div class="eyebrow">Promotions</div>
         <h2>Current <em>promotions.</em></h2>
@@ -167,102 +230,6 @@ import {
     </section>
   )}
 
-  <section class="section compact" id="general-pricing">
-    <div class="container">
-      <div class="eyebrow">General Pricing Guide</div>
-      <h2>Residential and <em>local rates.</em></h2>
-      <p class="lead">These tables match the official General Pricing Guide. Written estimates are still confirmed before work begins.</p>
-    </div>
-  </section>
-
-  {generalPriceGroups.map((group) => (
-    <section class="section compact" id={group.id}>
-      <div class="container">
-        <div class="eyebrow">{group.title}</div>
-        <h2>{group.title} <em>{group.em}</em></h2>
-        <p class="lead">{group.note}</p>
-        <div class="price-table-stack">
-          {group.tables.map((table) => (
-            <PricingTable title={table.title} columns={table.columns} rows={table.rows} />
-          ))}
-        </div>
-        {group.tally === 'paperShredding' && (
-          <div style="margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
-            <TallyPopupButton />
-            <p class="fine-print" style="margin: 0;">Opens the official Secure Paper Shredding Intake form. No Google login required.</p>
-          </div>
-        )}
-      </div>
-    </section>
-  ))}
-
-  <section class="section sand compact" id="commercial-pricing">
-    <div class="container">
-      <div class="eyebrow">Commercial Pricing</div>
-      <h2>Business and <em>property rates.</em></h2>
-      <p class="lead">For business, office, and commercial-property clients. Residential rates and terms are in the General Pricing Guide.</p>
-    </div>
-  </section>
-
-  {commercialPriceGroups.map((group) => (
-    <section class="section compact" id={group.id}>
-      <div class="container">
-        <div class="eyebrow">{group.title}</div>
-        <h2>{group.title} <em>{group.em}</em></h2>
-        <p class="lead">{group.note}</p>
-        <div class="price-table-stack">
-          {group.tables.map((table) => (
-            <PricingTable title={table.title} columns={table.columns} rows={table.rows} />
-          ))}
-        </div>
-        {group.tally === 'paperShredding' && (
-          <div style="margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
-            <TallyPopupButton />
-            <p class="fine-print" style="margin: 0;">Opens the official Secure Paper Shredding Intake form. No Google login required.</p>
-          </div>
-        )}
-      </div>
-    </section>
-  ))}
-
-  <section class="section sand" id="give-back">
-    <div class="container">
-      <div class="eyebrow">Community Give-Back</div>
-      <h2>Add a gift to the <em>valley fund.</em></h2>
-      <p class="lead">{communityGiveBack.note}</p>
-      <PricingTable columns={['Tier', 'Amount']} rows={communityGiveBack.rows} />
-    </div>
-  </section>
-
-  <section class="section" id="fees">
-    <div class="container grid two">
-      <div>
-        <div class="eyebrow">Fees & Taxes</div>
-        <h2>Always disclosed <em>upfront.</em></h2>
-        <PricingTable columns={['Fee', 'Amount']} rows={fees} />
-        <p class="form-note">{paymentProcessingNote}</p>
-      </div>
-      <div>
-        <div class="eyebrow">Discounts</div>
-        <h2>Programs that <em>give back.</em></h2>
-        <p class="lead">{discountCapNote}</p>
-        <PricingTable title="General discounts" columns={['Discount', 'Amount']} rows={discounts} />
-        <PricingTable title="Community giving discount" columns={['Donation Level', 'Discount']} rows={communityGivingDiscounts} />
-        <p class="form-note">100% of the donation goes to the Methow Valley Fund.</p>
-        <PricingTable title="Commercial discounts" columns={['Discount', 'Amount']} rows={commercialDiscounts} />
-      </div>
-    </div>
-  </section>
-
-  <section class="section sand compact">
-    <div class="container">
-      <div class="eyebrow">Sales Tax</div>
-      <h2>Combined rate by <em>location.</em></h2>
-      <p class="lead">{salesTaxNote}</p>
-      <PricingTable columns={['Location', 'Combined Rate']} rows={salesTax} />
-    </div>
-  </section>
-
   <section class="section green compact">
     <div class="container" style="display: flex; justify-content: space-between; gap: 20px; align-items: center; flex-wrap: wrap;">
       <div>
@@ -270,6 +237,22 @@ import {
         <h2>Rates are public. <em>Your job is unique.</em></h2>
       </div>
       <a class="btn" href="/get-a-quote/">Request a Quote</a>
+    </div>
+  </section>
+
+  <section class="section compact" id="pricing-downloads">
+    <div class="container">
+      <div class="eyebrow">Printable PDFs</div>
+      <h2>Download the official <em>rate sheets.</em></h2>
+      <div class="grid two pricing-download-grid">
+        {pricingDownloads.map((download) => (
+          <article class="card">
+            <h3>{download.title}</h3>
+            <p>{download.description}</p>
+            <a class="btn" href={download.href} download>Download PDF</a>
+          </article>
+        ))}
+      </div>
     </div>
   </section>
 </BaseLayout>
