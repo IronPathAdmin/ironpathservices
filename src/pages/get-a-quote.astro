@@ -5,7 +5,6 @@ import TallyEmbed from '../components/TallyEmbed.astro';
 import GoogleFormLinks from '../components/GoogleFormLinks.astro';
 import ContactForm from '../components/ContactForm.astro';
 import TallyPopupButton from '../components/TallyPopupButton.astro';
-import PricingUpdateNotice from '../components/PricingUpdateNotice.astro';
 import { contact, googleFormFinePrint, googleForms, tallyForms } from '../data/site';
 ---
 
@@ -60,7 +59,11 @@ import { contact, googleFormFinePrint, googleForms, tallyForms } from '../data/s
         <a class="btn secondary" href={googleForms.customerReview} target="_blank" rel="noreferrer">Open Review Form</a>
         <p class="fine-print">{googleFormFinePrint}</p>
       </div>
-      <PricingUpdateNotice showQuoteButton={false} />
+      <div class="card">
+        <h3>Official pricing</h3>
+        <p>Public rates now match the official General and Commercial pricing guides, including fees, discounts, and taxes.</p>
+        <a class="btn secondary" href="/pricing/">View Pricing</a>
+      </div>
     </div>
   </section>
 

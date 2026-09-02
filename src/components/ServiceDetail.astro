@@ -19,6 +19,8 @@ const { service, form } = Astro.props;
     <div>
       {service.comingSoon ? (
         <p class="coming-soon-badge">Coming soon</p>
+      ) : service.price ? (
+        <div class="eyebrow">{service.price}</div>
       ) : service.tier === 'secondary' ? (
         <div class="eyebrow">Secondary Service</div>
       ) : null}

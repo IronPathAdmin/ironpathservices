@@ -1371,6 +1371,22 @@ em {
   background: var(--paper);
 }
 
+.price-table-stack {
+  display: grid;
+  gap: 28px;
+}
+
+.price-table-title {
+  margin: 0 0 12px;
+  font-size: 1.15rem;
+}
+
+.pricing-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;

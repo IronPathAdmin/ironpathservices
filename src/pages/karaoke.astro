@@ -1,13 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
-import PricingUpdateNotice from '../components/PricingUpdateNotice.astro';
 import { contact, karaokePage } from '../data/site';
 ---
 
 <BaseLayout
   title="Karaoke Hosting & Red Carpet Moment"
-  description="Iron Path Karaoke hosting for the Methow Valley: full sound system, mics, thousands of songs, setup, and a friendly host. Complimentary Red Carpet Moments included."
+  description="Iron Path Karaoke hosting for the Methow Valley: full sound system, mics, thousands of songs, setup, and a friendly host starting at $150. Complimentary Red Carpet Moments included."
 >
   <section class="karaoke-hero">
     <div class="karaoke-hero-glow" aria-hidden="true"></div>
@@ -42,9 +41,18 @@ import { contact, karaokePage } from '../data/site';
     <div class="container">
       <div class="karaoke-section-intro">
         <div class="eyebrow">Simple Rates</div>
-        <h2>Clear quotes. <em>No surprises.</em></h2>
+        <h2>Clear pricing. <em>No surprises.</em></h2>
       </div>
-      <PricingUpdateNotice />
+      <div class="karaoke-rate-grid">
+        {karaokePage.rates.map((rate) => (
+          <article class={`karaoke-rate-card reveal${rate.featured ? ' featured' : ''}`}>
+            <div class="eyebrow">{rate.label}</div>
+            <h3>{rate.price}</h3>
+            <p>{rate.detail}</p>
+          </article>
+        ))}
+      </div>
+      <p class="karaoke-rate-note">Starting at $150 for a single night, or $500 prepaid for a 4-week package ($125 per event). Final quotes for holiday or large events are confirmed before booking.</p>
     </div>
   </section>
 
