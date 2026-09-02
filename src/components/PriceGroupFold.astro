@@ -1,0 +1,29 @@
+---
+import PricingTable from './PricingTable.astro';
+import TallyPopupButton from './TallyPopupButton.astro';
+import type { PriceGroup } from '../data/site';
+
+interface Props {
+  group: PriceGroup;
+}
+
+const { group } = Astro.props;
+---
+
+<details class="pricing-subfold" id={group.id}>
+  <summary>{group.title}</summary>
+  <div class="pricing-subfold-panel">
+    <p class="lead">{group.note}</p>
+    <div class="price-table-stack">
+      {group.tables.map((table) => (
+        <PricingTable title={table.title} columns={table.columns} rows={table.rows} />
+      ))}
+    </div>
+    {group.tally === 'paperShredding' && (
+      <div class="pricing-inline-cta">
+        <TallyPopupButton />
+        <p class="fine-print">Opens the official Secure Paper Shredding Intake form. No Google login required.</p>
+      </div>
+    )}
+  </div>
+</details>
