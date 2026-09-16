@@ -8,13 +8,14 @@ import { futureServices, googleForms, primaryServices, secondaryServices } from 
 const serviceForms = {
   cleaning: { provider: 'tally' as const, formKey: 'getAQuote' as const },
   'junk-removal': { provider: 'tally' as const, formKey: 'getAQuote' as const },
+  moving: { provider: 'tally' as const, formKey: 'getAQuote' as const },
   'document-shredding': { provider: 'tally' as const, formKey: 'paperShredding' as const },
   firewood: { provider: 'google' as const, href: googleForms.firewoodOrder },
   'vending-atm': { provider: 'google' as const, href: googleForms.vendingAtm },
 };
 ---
 
-<BaseLayout title="Products & Services" description="In-depth Iron Path Services offerings for House Cleaning, Junk Removal, Secure Paper Shredding, Firewood Services, Transit (coming soon), plus Vending Machines & ATMs and future service ideas.">
+<BaseLayout title="Products & Services" description="In-depth Iron Path Services offerings for Junk Removal, House Cleaning, Moving Services, Firewood Services, and Secure Paper Shredding, plus Vending Machines & ATMs, Transit (coming soon), and future service ideas.">
   <PageHero eyebrow="Products & Services" title="Practical services, <em>community-minded</em> products." lead="The main five, secondary offerings, and space to recommend what the valley needs next." />
 
   <section class="section">
