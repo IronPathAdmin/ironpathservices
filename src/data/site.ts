@@ -12,7 +12,7 @@ export const contact = {
 };
 
 export const serviceTagline =
-  'Junk Removal, House Cleaning, Secure Paper Shredding, Firewood Services, Transit (coming soon).';
+  'Junk Removal, House Cleaning, Moving Services, Firewood Services, Secure Paper Shredding.';
 
 export const servicePromise =
   'Delivered by people who live here, work here, and care for the valley.';
@@ -124,7 +124,7 @@ export const formLinks: FormLink[] = [
   {
     title: 'General Service Quote Request',
     href: tallyForms.getAQuote.url,
-    description: 'Use this for House Cleaning, Junk Removal, multi-service jobs, and general estimates.',
+    description: 'Use this for House Cleaning, Junk Removal, Moving Services, multi-service jobs, and general estimates.',
     provider: 'tally' as const,
     tallyKey: 'getAQuote',
     ctaLabel: tallyForms.getAQuote.buttonLabel,
@@ -219,6 +219,25 @@ export type Service = {
 
 export const primaryServices: Service[] = [
   {
+    title: 'Junk Removal',
+    treeTitle: 'Junk Removal',
+    slug: 'junk-removal',
+    tier: 'primary',
+    image: '/assets/photos/jobs/junk-load-1.jpg',
+    summary:
+      'Estate cleanouts, donation sorting, refurbishing, commercial cleanouts, and residential cleanouts.',
+    description:
+      'Fast, respectful removal for homes and businesses. We sort for donation or resale where practical and disclose every fee before we start.',
+    bullets: [
+      'Furniture, appliances, electronics, and household items',
+      'Garage, attic, basement, and estate cleanouts',
+      'Donation sorting and second-life refurbishing',
+      'Commercial and residential cleanouts',
+      'Responsible disposal with clear limitations',
+    ],
+    price: 'From $85',
+  },
+  {
     title: 'House Cleaning',
     treeTitle: 'House Cleaning',
     slug: 'cleaning',
@@ -238,23 +257,41 @@ export const primaryServices: Service[] = [
     price: 'From $175',
   },
   {
-    title: 'Junk Removal',
-    treeTitle: 'Junk Removal',
-    slug: 'junk-removal',
+    title: 'Moving Services',
+    treeTitle: 'Moving Services',
+    slug: 'moving',
     tier: 'primary',
-    image: '/assets/photos/jobs/junk-load-1.jpg',
+    image: '/assets/photos/jobs/organ-in-truck.jpg',
     summary:
-      'Estate cleanouts, donation sorting, refurbishing, commercial cleanouts, and residential cleanouts.',
+      'Local moves, hourly labor, vehicle help, packing, and furniture disassembly.',
     description:
-      'Fast, respectful removal for homes and businesses. We sort for donation or resale where practical and disclose every fee before we start.',
+      'Local moving help for homes and small businesses. We bring the labor, the truck when you need it, and a written hourly rate before we start.',
     bullets: [
-      'Furniture, appliances, electronics, and household items',
-      'Garage, attic, basement, and estate cleanouts',
-      'Donation sorting and second-life refurbishing',
-      'Commercial and residential cleanouts',
-      'Responsible disposal with clear limitations',
+      'Hourly labor for loading, unloading, and carrying',
+      'Vehicle add-on when you need Iron Path to haul',
+      'Furniture disassembly and reassembly',
+      'Packing and unpacking help',
+      'Long-carry and extra-flight add-ons disclosed before work begins',
     ],
-    price: 'From $85',
+    price: 'From $40/hr',
+  },
+  {
+    title: 'Firewood Services',
+    treeTitle: 'Firewood Services',
+    slug: 'firewood',
+    tier: 'primary',
+    image: '/assets/img-firewood.jpg',
+    summary:
+      'Blazers fire starters, recycled wood bundles, individual bundles, and campfire bundles.',
+    description:
+      'Seasonal firewood and recycled fire products built around reuse: safe burnable wood becomes discounted bundles, and paper waste becomes Blazers.',
+    bullets: [
+      'Campfire bundles and individual fire bundles',
+      'Recycled wood bundles when available',
+      'Blazers 100% recycled fire starter blocks',
+      'Delivery and stacking options by location',
+    ],
+    price: 'From $5',
   },
   {
     title: 'Secure Paper Shredding',
@@ -289,39 +326,6 @@ export const primaryServices: Service[] = [
     ],
     price: 'From $35',
   },
-  {
-    title: 'Firewood Services',
-    treeTitle: 'Firewood Services',
-    slug: 'firewood',
-    tier: 'primary',
-    image: '/assets/img-firewood.jpg',
-    summary:
-      'Blazers fire starters, recycled wood bundles, individual bundles, and campfire bundles.',
-    description:
-      'Seasonal firewood and recycled fire products built around reuse: safe burnable wood becomes discounted bundles, and paper waste becomes Blazers.',
-    bullets: [
-      'Campfire bundles and individual fire bundles',
-      'Recycled wood bundles when available',
-      'Blazers 100% recycled fire starter blocks',
-      'Delivery and stacking options by location',
-    ],
-    price: 'From $5',
-  },
-  {
-    title: 'Transit',
-    treeTitle: 'Transit',
-    slug: 'transit',
-    tier: 'primary',
-    comingSoon: true,
-    image: '/assets/photos/team/eloise-truck.jpg',
-    summary: 'Coming soon. Local transit from a team that already lives and works these roads.',
-    description:
-      'Iron Path Transit is on the way. We will share routes, booking, and details here when the service launches.',
-    bullets: [
-      'Coming soon to the Methow Valley',
-      'Details will be posted when the service launches',
-    ],
-  },
 ];
 
 export const secondaryServices: Service[] = [
@@ -343,6 +347,21 @@ export const secondaryServices: Service[] = [
       'Machine options matched to your location',
     ],
     price: 'No upfront host cost',
+  },
+  {
+    title: 'Transit',
+    treeTitle: 'Transit',
+    slug: 'transit',
+    tier: 'secondary',
+    comingSoon: true,
+    image: '/assets/photos/team/eloise-truck.jpg',
+    summary: 'Coming soon. Local transit from a team that already lives and works these roads.',
+    description:
+      'Iron Path Transit is on the way. We will share routes, booking, and details here when the service launches.',
+    bullets: [
+      'Coming soon to the Methow Valley',
+      'Details will be posted when the service launches',
+    ],
   },
 ];
 
@@ -383,8 +402,8 @@ export const homePhotos = [
   {
     src: '/assets/photos/jobs/organ-in-truck.jpg',
     alt: 'A wrapped furniture haul in Eloise during a job',
-    caption: 'On the job',
-    href: '/stories/',
+    caption: 'Moving Services',
+    href: '/products-services/#moving',
     position: 'center 50%',
   },
 ];
@@ -469,7 +488,8 @@ export const faqs = [
   ['Do you offer same-day service?', 'Often, depending on availability. Same-day priority is +$80 and is only offered when it is the only remaining slot.'],
   ['How far do you travel?', 'Mazama, Winthrop, and Twisp have no travel fee. Carlton adds $30. Brewster and Pateros add $60. Beyond 60 miles from Winthrop is $2.25 per mile.'],
   ['What happens if I need to cancel?', 'Cancellations under 24 hours are $40 flat. A no-show or lockout is $60 flat.'],
-  ['When will Transit launch?', 'Iron Path Transit is coming soon for Twisp, Winthrop, and Mazama. Pricing will be announced when the service launches.'],
+  ['Do you offer moving help?', 'Yes. Moving Services is one of our main five: hourly labor, a vehicle add-on when you need the truck, packing help, and furniture disassembly. Rates are on the pricing page.'],
+  ['When will Transit launch?', 'Iron Path Transit is coming soon for Twisp, Winthrop, and Mazama. It is listed under Secondary Services. Pricing will be announced when the service launches.'],
   ['How do vending and ATM services work?', 'We supply, install, stock, maintain, and service the machine. Host locations receive 30% of net sales. Event ATM service is coming soon. Vending Machines and ATMs are listed under Secondary Services.'],
   ['Where do you service?', 'We serve Winthrop, Twisp, Mazama, Carlton, Methow, Pateros, Brewster, Monse, Ophir, Malott, Chillowist, Okanogan, Omak, and surrounding areas.'],
 ];
@@ -608,6 +628,24 @@ export const generalPriceGroups: PriceGroup[] = [
     ],
   },
   {
+    id: 'moving',
+    title: 'Moving Services',
+    em: 'rates.',
+    note: 'Hourly labor is billed per person. Vehicle add-on, packing, and furniture work are quoted before the move starts.',
+    tables: [
+      {
+        columns: ['Item', 'Price'],
+        rows: [
+          ['Labor (per person)', '$40 / hr'],
+          ['Vehicle Add-On', '$150 flat'],
+          ['Furniture Disassembly / Reassembly', '+$25–$40 / item'],
+          ['Long Carry (50ft+ or extra flights)', '+$20–$40'],
+          ['Packing / Unpacking Labor', '+$40 / hr'],
+        ],
+      },
+    ],
+  },
+  {
     id: 'firewood',
     title: 'Firewood Services',
     em: 'rates.',
@@ -697,17 +735,6 @@ export const generalPriceGroups: PriceGroup[] = [
         title: 'Hourly services',
         columns: ['Service', 'Price'],
         rows: [['General labor (per person)', '$40 / hr']],
-      },
-      {
-        title: 'Moving',
-        columns: ['Item', 'Price'],
-        rows: [
-          ['Labor (per person)', '$40 / hr'],
-          ['Vehicle Add-On', '$150 flat'],
-          ['Furniture Disassembly / Reassembly', '+$25–$40 / item'],
-          ['Long Carry (50ft+ or extra flights)', '+$20–$40'],
-          ['Packing / Unpacking Labor', '+$40 / hr'],
-        ],
       },
       {
         title: 'Event ATM',
