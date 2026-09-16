@@ -295,7 +295,7 @@ export const primaryServices: Service[] = [
   },
   {
     title: 'Secure Paper Shredding',
-    treeTitle: 'Secure Document Shredding',
+    treeTitle: 'Secure Paper Shredding',
     slug: 'document-shredding',
     tier: 'primary',
     image: '/assets/photos/shredding/archive-paper-stacks.jpg',
