@@ -4,31 +4,36 @@ import PageHero from '../components/PageHero.astro';
 import PricingTable from '../components/PricingTable.astro';
 import PriceGroupFold from '../components/PriceGroupFold.astro';
 import {
+  afterHoursNote,
   commercialDiscounts,
   commercialPriceGroups,
   communityGiveBack,
   communityGivingDiscounts,
   communityPledge,
   discountCapNote,
+  discountDiscretionNote,
   discounts,
   fees,
   generalPriceGroups,
   googleFormFinePrint,
   invoiceOrderSteps,
+  mileageFeeNote,
+  mileageFees,
   paymentMethodGroups,
   paymentProcessingNote,
   pricingDownloads,
+  pricingReviewNote,
   promotions,
   salesTax,
   salesTaxNote,
 } from '../data/site';
 ---
 
-<BaseLayout title="Pricing" description="Official Iron Path Services general and commercial pricing, fees, discounts, taxes, and printable rate sheets.">
+<BaseLayout title="Pricing" description="Official Iron Path Services residential and commercial pricing, fees, discounts, taxes, and printable rate sheets. Rates are reviewed every 6 months.">
   <PageHero
     eyebrow="Official Pricing"
     title="No surprises. <em>Ever.</em>"
-    lead="The public rates match the official General and Commercial pricing guides. Every surcharge, discount, and tax that could appear on an invoice is listed before work begins."
+    lead="The public rates match the official Residential and Commercial pricing guides dated September 17, 2026. Rates are reviewed every 6 months. Every mileage fee, discount, and tax that could appear on an invoice is listed before work begins."
   />
 
   <section class="section compact">
@@ -39,9 +44,9 @@ import {
 
       <div class="pricing-accordion" data-pricing-accordion>
         <details class="pricing-fold" id="general-pricing" name="pricing-rates">
-          <summary>General Pricing</summary>
+          <summary>Residential Pricing</summary>
           <div class="pricing-fold-panel">
-            <p class="lead">Residential and local rates from the official General Pricing Guide. Written estimates are still confirmed before work begins.</p>
+            <p class="lead">Residential and local rates from the official Residential Pricing Guide. Written estimates are still confirmed before work begins.</p>
             {generalPriceGroups.map((group) => (
               <PriceGroupFold group={group} />
             ))}
@@ -51,7 +56,7 @@ import {
         <details class="pricing-fold" id="commercial-pricing" name="pricing-rates">
           <summary>Commercial Pricing</summary>
           <div class="pricing-fold-panel">
-            <p class="lead">Business, office, and commercial-property rates. Residential rates and terms are in General Pricing.</p>
+            <p class="lead">Business, office, and commercial-property rates. Residential rates and terms are in Residential Pricing.</p>
             {commercialPriceGroups.map((group) => (
               <PriceGroupFold group={group} />
             ))}
@@ -66,12 +71,17 @@ import {
               <div>
                 <h3>Fees</h3>
                 <PricingTable columns={['Fee', 'Amount']} rows={fees} />
+                <p class="form-note">{afterHoursNote}</p>
                 <p class="form-note">{paymentProcessingNote}</p>
+                <h3>Mileage</h3>
+                <p class="form-note">{mileageFeeNote}</p>
+                <PricingTable columns={['Distance from Winthrop base', 'Rate']} rows={mileageFees} />
               </div>
               <div>
                 <h3>Discounts</h3>
                 <p class="form-note">{discountCapNote}</p>
-                <PricingTable title="General discounts" columns={['Discount', 'Amount']} rows={discounts} />
+                <p class="form-note">{discountDiscretionNote}</p>
+                <PricingTable title="Residential discounts" columns={['Discount', 'Amount']} rows={discounts} />
                 <PricingTable title="Community giving discount" columns={['Donation Level', 'Discount']} rows={communityGivingDiscounts} />
                 <p class="form-note">100% of the donation goes to the Methow Valley Fund.</p>
                 <PricingTable title="Commercial discounts" columns={['Discount', 'Amount']} rows={commercialDiscounts} />
@@ -244,6 +254,7 @@ import {
     <div class="container">
       <div class="eyebrow">Printable PDFs</div>
       <h2>Download the official <em>rate sheets.</em></h2>
+      <p class="lead">{pricingReviewNote}</p>
       <div class="grid two pricing-download-grid">
         {pricingDownloads.map((download) => (
           <article class="card">

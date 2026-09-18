@@ -59,16 +59,24 @@ export const invoiceOrderNote = `Every invoice is calculated in this order: ${in
 
 export const discountCapNote = 'Discounts can stack. Combined discount is capped at 30% maximum.';
 
+export const discountDiscretionNote =
+  'Discounts are applied at Iron Path’s discretion and are not guaranteed on every job.';
+
+export const pricingEffectiveDate = 'September 17, 2026';
+
+export const pricingReviewNote =
+  'Official rates are reviewed every 6 months. The current sheets are dated September 17, 2026. The next review is March 2027.';
+
 export const pricingDownloads = [
   {
-    title: 'General Pricing Guide',
+    title: 'Residential Pricing Guide',
     href: '/downloads/ironpath-general-pricing.pdf',
-    description: 'Residential rates, add-ons, karaoke, fees, discounts, and taxes.',
+    description: 'Residential rates, add-ons, karaoke, fees, discounts, and taxes. Dated September 17, 2026.',
   },
   {
-    title: 'Commercial Pricing',
+    title: 'Commercial Pricing Guide',
     href: '/downloads/ironpath-commercial-pricing.pdf',
-    description: 'Business, office, and commercial-property rates and terms.',
+    description: 'Business, office, and commercial-property rates and terms. Dated September 17, 2026.',
   },
 ];
 
@@ -265,13 +273,13 @@ export const primaryServices: Service[] = [
     summary:
       'Local moves, hourly labor, vehicle help, packing, and furniture disassembly.',
     description:
-      'Local moving help for homes and small businesses. We bring the labor, the truck when you need it, and a written hourly rate before we start.',
+      'Local moving help for homes and small businesses. Choose hourly labor or truck-bed tiers, with a written rate before we start.',
     bullets: [
       'Hourly labor for loading, unloading, and carrying',
       'Vehicle add-on when you need Iron Path to haul',
+      'Truck-bed load tiers as an alternative to hourly billing',
       'Furniture disassembly and reassembly',
-      'Packing and unpacking help',
-      'Long-carry and extra-flight add-ons disclosed before work begins',
+      'Packing, unpacking, and long-carry add-ons disclosed before work begins',
     ],
     price: 'From $40/hr',
   },
@@ -481,12 +489,12 @@ export const processSteps = [
 
 export const faqs = [
   ['Are you licensed and insured?', 'Yes. Iron Path Services is fully insured and operates as a legitimate local business.'],
-  ['How does the fuel surcharge work?', 'The surcharge is tiered by local gas price at 0%, 3%, 5%, or 8% and is disclosed before booking.'],
+  ['How does travel pricing work?', 'Mileage is billed from our Winthrop base to the job: $1.00/mi under 30 miles, $1.50/mi under 40, $2.00/mi under 50, $2.50/mi under 60, and $3.00/mi over 60. There is no separate fuel surcharge.'],
   ['How does payment work?', 'Payment timing is agreed before work begins. Cash, check, bank transfer/ACH, and debit have no processing fee. Venmo, CashApp, and credit card invoices include a 3% processing fee, itemized on the invoice. Quoted prices are final with no post-job additions.'],
-  ['Are there any hidden fees?', 'No. Travel fees, add-ons, fuel surcharges, sales tax, and any payment processing fee are disclosed upfront before you commit.'],
-  ['How does Secure Paper Shredding work?', 'Pick-up and on-site witnessed shredding only — no drop-off location is currently available. A certificate of destruction is $5 or complimentary depending on the job.'],
+  ['Are there any hidden fees?', 'No. Mileage, add-ons, sales tax, and any payment processing fee are disclosed upfront before you commit.'],
+  ['How does Secure Paper Shredding work?', 'Pick-up and on-site witnessed shredding only — no drop-off location is currently available. A digital certificate of destruction is included on every job. A mailed physical certificate is $5 on request.'],
   ['Do you offer same-day service?', 'Often, depending on availability. Same-day priority is +$80 and is only offered when it is the only remaining slot.'],
-  ['How far do you travel?', 'Mazama, Winthrop, and Twisp have no travel fee. Carlton adds $30. Brewster and Pateros add $60. Beyond 60 miles from Winthrop is $2.25 per mile.'],
+  ['How far do you travel?', 'We serve the Methow Valley and Okanogan County from Winthrop. Travel is a mileage fee based on distance from our base, disclosed before booking.'],
   ['What happens if I need to cancel?', 'Cancellations under 24 hours are $40 flat. A no-show or lockout is $60 flat.'],
   ['Do you offer moving help?', 'Yes. Moving Services is one of our main five: hourly labor, a vehicle add-on when you need the truck, packing help, and furniture disassembly. Rates are on the pricing page.'],
   ['When will Transit launch?', 'Iron Path Transit is coming soon for Twisp, Winthrop, and Mazama. It is listed under Secondary Services. Pricing will be announced when the service launches.'],
@@ -535,7 +543,20 @@ export type PriceGroup = {
 const junkAddOnRows: string[][] = [
   ['Stairs / Difficult Access', '+$20–$50 / floor'],
   ['Dense / Heavy Material Surcharge', '+$80–$150'],
-  ['Appliance Refrigerant Disposal (legally required)', '+$20–$60'],
+  ['Appliance Refrigerant Disposal', '+$20–$60 / item'],
+  ['Hazmat Coordination', '+$50–$150'],
+  ['EPA-Compliant Certified Disposal', 'Included'],
+  ['Long Carry (50ft+ from truck)', '+$20–$40'],
+  ['Extra Stop (additional pickup location, same job)', '+$40 flat'],
+  ['E-Waste Disposal (TVs, monitors)', '+$15–$30 / item'],
+  ['Paint / Chemical / Propane Tank Disposal', '+$15–$40 / item'],
+  ['Locked Gate / Access Coordination', '+$20 flat'],
+];
+
+const commercialJunkAddOnRows: string[][] = [
+  ['Stairs / Difficult Access', '+$20–$50 / floor'],
+  ['Dense / Heavy Material Surcharge', '+$80–$150'],
+  ['Appliance Refrigerant Disposal', '+$20–$60 / item'],
   ['Commercial Hazmat Coordination', '+$50–$150'],
   ['EPA-Compliant Certified Disposal', 'Included'],
   ['Long Carry (50ft+ from truck)', '+$20–$40'],
@@ -543,6 +564,29 @@ const junkAddOnRows: string[][] = [
   ['E-Waste Disposal (TVs, monitors)', '+$15–$30 / item'],
   ['Paint / Chemical / Propane Tank Disposal', '+$15–$40 / item'],
   ['Locked Gate / Access Coordination', '+$20 flat'],
+  ['Custom Jobs (manpower)', '$40 / hr per person + item pricing'],
+];
+
+const residentialMovingTiers: string[][] = [
+  ['Truck Bed', '$180'],
+  ['Truck Bed + 1/4', '$280'],
+  ['Truck Bed + 1/2', '$480'],
+  ['Truck Bed + 3/4', '$660'],
+  ['Truck Bed + Full', '$800'],
+];
+
+const commercialMovingTiers: string[][] = [
+  ['Truck Bed', '$400'],
+  ['Truck Bed + 1/4', '$600'],
+  ['Truck Bed + 1/2', '$800'],
+  ['Truck Bed + 3/4', '$1,000'],
+  ['Truck Bed + Full', '$1,200'],
+];
+
+const movingAddOnRows: string[][] = [
+  ['Furniture Disassembly / Reassembly', '+$25–$40 / item'],
+  ['Long Carry (50ft+ or extra flights)', '+$20–$40'],
+  ['Packing / Unpacking Labor', '+$40 / hr'],
 ];
 
 export const generalPriceGroups: PriceGroup[] = [
@@ -589,7 +633,7 @@ export const generalPriceGroups: PriceGroup[] = [
     id: 'house-cleaning',
     title: 'House Cleaning',
     em: 'packages.',
-    note: 'Standard, deep, and move-out packages include the listed labor hours. Additional time is $90/hr.',
+    note: 'Standard, deep, and move-out packages include the listed labor hours and supplies. Additional time is $90/hr.',
     tables: [
       {
         title: 'Packages',
@@ -620,9 +664,16 @@ export const generalPriceGroups: PriceGroup[] = [
         title: 'Window cleaning',
         columns: ['Service', 'Price'],
         rows: [
-          ['Interior / Exterior / Both', '$3 / $4 / $6 per window'],
-          ['Screens · Tracks · Sliding Door · French Door', '$2.50 · $4 · $12 · $2/pane'],
-          ['Hard Water Treatment · 2nd Floor · 3rd Floor', '+$20/pane · +$2 · +$5 per window'],
+          ['Interior', '$3–$5 / window (size-based)'],
+          ['Exterior', '$4–$6 / window (size-based)'],
+          ['Interior + Exterior', '$6–$10 / window (size-based)'],
+          ['Screens', '$2.50 / screen'],
+          ['Track Detailing', '$4 / track'],
+          ['Glass Sliding Door', '$12 / door'],
+          ['French / Divided-Light Doors', '$2 / pane'],
+          ['Hard Water Stain Treatment', '+$20 / pane'],
+          ['2nd-Floor Premium', '+$2 / window'],
+          ['3rd-Floor Premium', '+$5 / window'],
         ],
       },
     ],
@@ -631,17 +682,25 @@ export const generalPriceGroups: PriceGroup[] = [
     id: 'moving',
     title: 'Moving Services',
     em: 'rates.',
-    note: 'Hourly labor is billed per person. Vehicle add-on, packing, and furniture work are quoted before the move starts.',
+    note: 'Choose hourly labor or truck-bed tiers. Option 2 mirrors Junk Removal truck-bed pricing. Add-ons apply to either option and are quoted before the move starts.',
     tables: [
       {
+        title: 'Option 1: Hourly',
         columns: ['Item', 'Price'],
         rows: [
-          ['Labor (per person)', '$40 / hr'],
-          ['Vehicle Add-On', '$150 flat'],
-          ['Furniture Disassembly / Reassembly', '+$25–$40 / item'],
-          ['Long Carry (50ft+ or extra flights)', '+$20–$40'],
-          ['Packing / Unpacking Labor', '+$40 / hr'],
+          ['Moving Labor (per person)', '$40 / hr'],
+          ['Vehicle Add-On', '$200 flat'],
         ],
+      },
+      {
+        title: 'Option 2: Truck-bed tiers',
+        columns: ['Tier', 'Price'],
+        rows: residentialMovingTiers,
+      },
+      {
+        title: 'Add-on fees (either option)',
+        columns: ['Add-On', 'Price'],
+        rows: movingAddOnRows,
       },
     ],
   },
@@ -649,7 +708,7 @@ export const generalPriceGroups: PriceGroup[] = [
     id: 'firewood',
     title: 'Firewood Services',
     em: 'rates.',
-    note: 'Delivery included for Mazama, Winthrop, and Twisp. Carlton, Methow, Brewster, and Pateros use the standard travel fee.',
+    note: 'Free delivery to Mazama, Winthrop, and Twisp. Delivery to Carlton, Methow, Brewster, and Pateros uses the standard mileage fee.',
     tables: [
       {
         title: 'Seasoned firewood',
@@ -697,7 +756,7 @@ export const generalPriceGroups: PriceGroup[] = [
     id: 'document-shredding',
     title: 'Secure Paper Shredding',
     em: 'pricing.',
-    note: 'Pick-up and on-site service only — no drop-off location is currently available.',
+    note: 'Pick-up and on-site service only — no drop-off location is currently available. Recurring business bin service and large-volume pricing are on Commercial Pricing.',
     tally: 'paperShredding',
     tables: [
       {
@@ -707,9 +766,8 @@ export const generalPriceGroups: PriceGroup[] = [
           ['77-Gallon Locked Bin (pick-up)', '$1.50 / lb'],
           ['On-Site / Witnessed Mobile Shredding', '$1.50/lb + $30 flat'],
           ['Minimum Service Charge (one-time pickups)', '$35'],
-          ['Recurring Monthly Bin Service (1 bin)', '$50 / month'],
-          ['Large Volume (10+ boxes / 300+ lbs)', '10% off'],
-          ['Certificate of Destruction — paper / emailed', '$5 / Complimentary'],
+          ['Certificate of Destruction — Digital (emailed)', 'Free — included on every job'],
+          ['Certificate of Destruction — Physical (mailed)', '$5 on request'],
           ['Bin Weight Overage (over rated bin capacity)', '+$2 / lb over limit'],
         ],
       },
@@ -737,9 +795,12 @@ export const generalPriceGroups: PriceGroup[] = [
         rows: [['General labor (per person)', '$40 / hr']],
       },
       {
-        title: 'Event ATM',
-        columns: ['Status', 'Price'],
-        rows: [['Event ATM', 'Not available yet — Coming Soon']],
+        title: 'Coming soon',
+        columns: ['Service', 'Status'],
+        rows: [
+          ['Event ATM', 'Not available yet — Coming Soon'],
+          ['Iron Path Transit', 'Coming soon — pricing announced at launch'],
+        ],
       },
       {
         title: 'Vending Machines & ATMs',
@@ -761,8 +822,13 @@ export const commercialPriceGroups: PriceGroup[] = [
     id: 'commercial-junk',
     title: 'Commercial Junk Removal',
     em: 'rates.',
-    note: 'Large item pricing shown below is the commercial rate (flat +25% over residential). Base truck/trailer tiers are quoted per scope.',
+    note: 'Truck-bed tiers are flat commercial rates. Larger item fees may apply on top of the load price.',
     tables: [
+      {
+        title: 'Load size',
+        columns: ['Tier', 'Price'],
+        rows: commercialMovingTiers,
+      },
       {
         title: 'Large items',
         columns: ['Item', 'Commercial Price'],
@@ -780,9 +846,36 @@ export const commercialPriceGroups: PriceGroup[] = [
       {
         title: 'Add-on fees',
         columns: ['Add-On', 'Price'],
+        rows: commercialJunkAddOnRows,
+      },
+    ],
+  },
+  {
+    id: 'commercial-moving',
+    title: 'Commercial Moving',
+    em: 'rates.',
+    note: 'Choose hourly labor or truck-bed tiers. Option 2 mirrors Commercial Junk Removal truck-bed pricing.',
+    tables: [
+      {
+        title: 'Option 1: Hourly',
+        columns: ['Item', 'Price'],
         rows: [
-          ...junkAddOnRows,
-          ['Custom Jobs (manpower)', '$40 / hr per person + item pricing'],
+          ['Moving Labor (per person)', '$40 / hr'],
+          ['Vehicle Add-On', '$300 flat'],
+        ],
+      },
+      {
+        title: 'Option 2: Truck-bed tiers',
+        columns: ['Tier', 'Price'],
+        rows: commercialMovingTiers,
+      },
+      {
+        title: 'Add-on fees (either option)',
+        columns: ['Add-On', 'Price'],
+        rows: [
+          ['Furniture / Equipment Disassembly / Reassembly', '+$25–$40 / item'],
+          ['Long Carry (50ft+ or extra flights)', '+$20–$40'],
+          ['Packing / Unpacking Labor', '+$40 / hr'],
         ],
       },
     ],
@@ -796,10 +889,10 @@ export const commercialPriceGroups: PriceGroup[] = [
       {
         columns: ['Service', 'Price'],
         rows: [
-          ['Commercial Space', '$0.15–$0.35 / sq ft — quoted by scope'],
-          ['Lodge / STR Turnover', '$30–$50 / room — quoted by scope'],
+          ['Commercial Space Cleaning', '$0.15–$0.35 / sq ft'],
+          ['Lodge / STR Turnover', '$100+ / room'],
           ['Office / Retail Recurring Contract', 'Custom quote'],
-          ['Post-Construction Cleanup', 'Custom quote / per scope'],
+          ['Post-Construction Cleanup', 'Custom quote'],
         ],
       },
     ],
@@ -815,7 +908,9 @@ export const commercialPriceGroups: PriceGroup[] = [
         rows: [
           ['Campfire Bundle (retail)', '$10'],
           ['Campfire Bundle — Wholesale (gas stations/stores, 10-unit min)', '$3.75 each'],
-          ['Half Cord / Full Cord (commercial)', '$235 / $425'],
+          ['Half Cord (seasoned)', '$235'],
+          ['Full Cord (seasoned)', '$425'],
+          ['Bulk Order (10+ cords)', '10% off — automatic'],
         ],
       },
     ],
@@ -829,9 +924,10 @@ export const commercialPriceGroups: PriceGroup[] = [
       {
         columns: ['Option', 'Price'],
         rows: [
-          ['Flat rate (up to 4 hrs)', '$150'],
-          ['Additional time', '$35–$50 / hr'],
-          ['Holiday / large events', '$200+ (quoted)'],
+          ['Standard Event (up to 4 hrs)', '$150'],
+          ['Additional Hours', '$35–$50 / hr'],
+          ['Prepaid 4-Week Package', '$500 ($125/event)'],
+          ['Holiday / Large Event', '$200+ (quoted)'],
         ],
       },
     ],
@@ -844,13 +940,27 @@ export const commercialPriceGroups: PriceGroup[] = [
     tally: 'paperShredding',
     tables: [
       {
+        title: 'Base pricing',
         columns: ['Item', 'Price'],
         rows: [
+          ['Bankers Box Pick-Up', '$14 / box'],
+          ['Minimum Service Charge', '$28 — 2-box minimum on one-time pickups'],
           ['77-Gallon Locked Bin (pick-up)', '$1.50 / lb'],
           ['On-Site / Witnessed Mobile Shredding', '$1.50/lb + $30 flat'],
+          ['Certificate of Destruction — Digital (emailed)', 'Free — included on every job'],
+          ['Certificate of Destruction — Physical (mailed)', '$5 on request'],
+          ['Bin Weight Overage (over rated bin capacity)', '+$2 / lb over limit'],
+        ],
+      },
+      {
+        title: 'Recurring bin service',
+        columns: ['Service', 'Price'],
+        rows: [
+          ['Monthly', '$60 / month'],
+          ['Biweekly', '$120 / month'],
+          ['Weekly', '$240 / month'],
           ['Large Volume (10+ boxes / 300+ lbs)', '10% off'],
           ['Recurring Business Service (weekly/biweekly/monthly)', 'Custom quote'],
-          ['Certificate of Destruction — paper / emailed', '$5 / Complimentary'],
         ],
       },
     ],
@@ -869,20 +979,29 @@ export const communityGiveBack = {
 };
 
 export const travelFeeNote =
-  'Mazama, Winthrop, and Twisp: no travel fee. Carlton: +$30. Brewster/Pateros: +$60. Beyond 60 miles from Winthrop: $2.25/mile. All fees disclosed upfront.';
+  'Mileage is billed from our Winthrop base to the job: $1.00/mi under 30 miles, $1.50/mi under 40, $2.00/mi under 50, $2.50/mi under 60, and $3.00/mi over 60. There is no separate fuel surcharge.';
 
 export const fees = [
   ['Same-Day Priority (only when it is the only slot)', '+$80'],
-  ['After-Hours Service', '+15%'],
+  ['After-Hours Service (before 7 AM or after 6 PM)', '+15%'],
   ['Cancellation Under 24 Hours', '$40 flat'],
   ['No-Show / Lockout', '$60 flat'],
-  ['Travel — Mazama / Winthrop / Twisp', 'None'],
-  ['Travel — Carlton', '+$30'],
-  ['Travel — Brewster / Pateros', '+$60'],
-  ['Travel — beyond 60 mi from Winthrop', '$2.25 / mile'],
-  ['Fuel Surcharge (tiered by local gas price)', '0% / +3% / +5% / +8%'],
   ['Payment Processing Fee (Venmo, CashApp, credit card invoice)', '3%'],
 ];
+
+export const afterHoursNote =
+  'After-hours is +15% of the job total for work before 7 AM or after 6 PM. Jobs that finish up to 1 hour past 6 PM are not subject to the surcharge.';
+
+export const mileageFees = [
+  ['Under 30 miles', '$1.00 / mile'],
+  ['Under 40 miles', '$1.50 / mile'],
+  ['Under 50 miles', '$2.00 / mile'],
+  ['Under 60 miles', '$2.50 / mile'],
+  ['Over 60 miles', '$3.00 / mile'],
+];
+
+export const mileageFeeNote =
+  'Mileage is the only travel fee. We no longer charge a separate fuel surcharge.';
 
 export const paymentProcessingNote =
   'Not applied to cash, check, or bank transfer/ACH. Never applied to debit cards (per federal law). Itemized as a separate line on every invoice: Subtotal / Payment Processing Fee (3%) / Total.';
@@ -899,7 +1018,9 @@ export const discounts = [
 export const commercialDiscounts = [
   ['New Customer', '10%'],
   ['Multi-Service Bundle (2+ services booked together)', '12%'],
+  ['Referral — Referrer / Referred', '$20 off / $10 off'],
   ['Recurring Commercial Service (6+ months, all commercial lines)', '15%'],
+  ['Loyalty (repeat customer)', '10%'],
   ['Community Giving Discount (Methow Valley Fund donation)', '2–5%'],
 ];
 
