@@ -1125,7 +1125,7 @@ export const promotions: Array<{
 
 export const founderLetter = [
   'Iron Path Services was founded in March 2026 in the Methow Valley by two people who believed this place deserved a different kind of service company.',
-  "I'm Benji, the founder and Strategy Architect. I came to the Methow the way a lot of people do: chasing something the rest of the country had stopped offering. Open country. Honest work. Neighbors who notice when your truck has not moved in a few days.",
+  "I'm Benji, the founder and Chief Strategy Architect. I came to the Methow the way a lot of people do: chasing something the rest of the country had stopped offering. Open country. Honest work. Neighbors who notice when your truck has not moved in a few days.",
   `I was working as a server at Sun Mountain Lodge when the idea for Iron Path started taking shape: the valley needed reliable, professional services - ${serviceTagline} ${servicePromise}`,
   'My partner Adrian, our Chief Field Operations Coordinator, left Utah to build this with me. He runs financial operations overnight in another industry and brings the discipline and structure that keeps a young company from drifting.',
   'Between the two of us, we own and run every part of this business - no absentee investors, no corporate playbook handed down from somewhere else.',
