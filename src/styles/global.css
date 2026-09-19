@@ -363,6 +363,11 @@ em {
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
 }
 
+.faq-grid a {
+  color: var(--copper);
+  font-weight: 700;
+}
+
 .card {
   background: var(--paper);
   border: 1px solid var(--line);

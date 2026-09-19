@@ -488,18 +488,46 @@ export const processSteps = [
 ];
 
 export const faqs = [
-  ['Are you licensed and insured?', 'Yes. Iron Path Services is fully insured and operates as a legitimate local business.'],
-  ['How does travel pricing work?', 'Mileage is billed from our Winthrop base to the job: $1.00/mi under 30 miles, $1.50/mi under 40, $2.00/mi under 50, $2.50/mi under 60, and $3.00/mi over 60. There is no separate fuel surcharge.'],
-  ['How does payment work?', 'Payment timing is agreed before work begins. Cash, check, bank transfer/ACH, and debit have no processing fee. Venmo, CashApp, and credit card invoices include a 3% processing fee, itemized on the invoice. Quoted prices are final with no post-job additions.'],
-  ['Are there any hidden fees?', 'No. Mileage, add-ons, sales tax, and any payment processing fee are disclosed upfront before you commit.'],
-  ['How does Secure Paper Shredding work?', 'Pick-up and on-site witnessed shredding only — no drop-off location is currently available. A digital certificate of destruction is included on every job. A mailed physical certificate is $5 on request.'],
-  ['Do you offer same-day service?', 'Often, depending on availability. Same-day priority is +$80 and is only offered when it is the only remaining slot.'],
-  ['How far do you travel?', 'We serve the Methow Valley and Okanogan County from Winthrop. Travel is a mileage fee based on distance from our base, disclosed before booking.'],
-  ['What happens if I need to cancel?', 'Cancellations under 24 hours are $40 flat. A no-show or lockout is $60 flat.'],
-  ['Do you offer moving help?', 'Yes. Moving Services is one of our main five: hourly labor, a vehicle add-on when you need the truck, packing help, and furniture disassembly. Rates are on the pricing page.'],
-  ['When will Transit launch?', 'Iron Path Transit is coming soon for Twisp, Winthrop, and Mazama. It is listed under Secondary Services. Pricing will be announced when the service launches.'],
-  ['How do vending and ATM services work?', 'We supply, install, stock, maintain, and service the machine. Host locations receive 30% of net sales. Event ATM service is coming soon. Vending Machines and ATMs are listed under Secondary Services.'],
-  ['Where do you service?', 'We serve Winthrop, Twisp, Mazama, Carlton, Methow, Pateros, Brewster, Monse, Ophir, Malott, Chillowist, Okanogan, Omak, and surrounding areas.'],
+  [
+    'What services do you offer?',
+    'We offer Junk Removal, House Cleaning, Firewood Services, Secure Paper Shredding, and Moving — for both residential and commercial customers. Karaoke Hosting and hourly custom labor are also available, and Iron Path Transit shuttle service is coming soon.',
+  ],
+  [
+    'What areas do you service?',
+    'We serve Winthrop, Twisp, Mazama, Okanogan, Omak, Carlton, Brewster, Pateros, and surrounding areas. Travel is charged based on mileage from our Winthrop base, per our standard mileage fee schedule.',
+  ],
+  [
+    'Are you licensed and insured?',
+    'Yes, Iron Path Services is licensed and insured to operate across our service area.',
+  ],
+  [
+    'Do you offer discounts?',
+    'Yes — we offer discounts for seniors, veterans, first responders, teachers, new customers, and customers who bundle multiple services. Discounts can stack, up to a maximum combined amount, and are applied at our discretion. Reach out for current rates.',
+  ],
+  [
+    'What happens to the items you remove?',
+    'We prioritize donation and recycling whenever possible, and any e-waste like TVs or monitors goes to a certified e-waste recycler rather than a landfill.',
+  ],
+  [
+    'How do I book a service?',
+    `You can call or text us at <a href="${contact.phoneHref}">${contact.phone}</a>, email <a href="mailto:${contact.leadsEmail}">${contact.leadsEmail}</a>, or book through our website at <a href="/">ironpathservices.com</a>.`,
+  ],
+  [
+    'What are your hours?',
+    "We're generally available during standard business hours, but we may be reachable outside of that too — just leave a message and we'll follow up as soon as we can.",
+  ],
+  [
+    'Do you handle commercial accounts?',
+    'Yes — we offer commercial Junk Removal, House Cleaning, Secure Paper Shredding, Firewood, and Moving, along with discounts for recurring commercial accounts.',
+  ],
+  [
+    'Do you offer free estimates?',
+    "Yes — reach out with details about your job and we'll get you an estimate, no obligation.",
+  ],
+  [
+    'What payment methods do you accept?',
+    'We accept cash, check, bank transfer, debit card, credit card, Venmo, and CashApp. A processing fee applies to credit card, Venmo, and CashApp payments — it is not applied to cash, check, or debit.',
+  ],
 ];
 
 export type Review = {

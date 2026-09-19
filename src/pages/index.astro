@@ -280,11 +280,11 @@ import { communityPledge, contact, faqs, homePhotos, promotions, reviews, servic
     <div class="container">
       <div class="eyebrow">Common Questions</div>
       <h2>FAQ</h2>
-      <div class="grid two" style="margin-top: 28px;">
-        {faqs.slice(0, 6).map(([question, answer]) => (
+      <div class="grid two faq-grid" style="margin-top: 28px;">
+        {faqs.map(([question, answer]) => (
           <div class="card reveal">
             <h3>{question}</h3>
-            <p>{answer}</p>
+            <p set:html={answer} />
           </div>
         ))}
       </div>
