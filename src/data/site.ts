@@ -1177,6 +1177,8 @@ export const entrepreneurJourney = {
   author: 'Benji',
   role: 'Founder & Chief Strategy Architect',
   dateLabel: 'Year one · Methow Valley',
+  note:
+    'These are not written with AI or from a random person. This is Benjamin DeSomer sharing his genuine and honest thoughts, feelings, and experiences on the hardest journey he has ever made.',
   paragraphs: founderLetter,
 };
 

@@ -1273,6 +1273,26 @@ em {
   max-width: 42em;
 }
 
+.story-journey-note {
+  font-family: "Lora", Georgia, serif;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--muted);
+  border-left: 3px solid var(--copper);
+  padding-left: 14px;
+}
+
+.story-feature-copy .story-journey-note {
+  margin-top: 14px;
+}
+
+.story-journey-note strong {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  color: var(--brown);
+}
+
 .story-feature .service-card-link {
   margin-top: 18px;
 }

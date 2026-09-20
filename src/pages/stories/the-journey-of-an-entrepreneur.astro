@@ -24,6 +24,7 @@ import { entrepreneurJourney } from '../../data/site';
         </div>
       </aside>
       <article class="card sand story-journey-article">
+        <p class="story-journey-note"><strong>Note:</strong> {entrepreneurJourney.note}</p>
         {entrepreneurJourney.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
         <p>
           <strong>- {entrepreneurJourney.author}</strong>
