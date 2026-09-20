@@ -7,21 +7,6 @@ import { entrepreneurJourney, storyCards } from '../../data/site';
 <BaseLayout title="Stories" description="Iron Path Services community blog for job stories, community moments, and inspirational stories.">
   <PageHero eyebrow="Stories" title="The Iron Path <em>community blog.</em>" lead="Stories from the field, community moments, photos, and reflections from the path we are building in the Methow Valley." />
 
-  <section class="section compact" aria-labelledby="entrepreneur-journey-heading">
-    <div class="container">
-      <a class="story-feature card sand reveal" href={entrepreneurJourney.href}>
-        <div class="story-feature-image image-card" style={`--image-url: url('${entrepreneurJourney.image}');`} role="img" aria-label={entrepreneurJourney.imageAlt}></div>
-        <div class="story-feature-copy">
-          <div class="eyebrow">{entrepreneurJourney.eyebrow}</div>
-          <h2 id="entrepreneur-journey-heading" set:html={entrepreneurJourney.heroTitle} />
-          <p>{entrepreneurJourney.teaser}</p>
-          <p class="story-journey-note"><strong>Note:</strong> {entrepreneurJourney.note}</p>
-          <span class="service-card-link">Read the story -></span>
-        </div>
-      </a>
-    </div>
-  </section>
-
   <section class="section">
     <div class="container grid three">
       {storyCards.map((story) => (
@@ -35,6 +20,26 @@ import { entrepreneurJourney, storyCards } from '../../data/site';
           <p>{story.text}</p>
         </article>
       ))}
+    </div>
+  </section>
+
+  <section class="section sand" aria-labelledby="entrepreneur-journey-heading">
+    <div class="container">
+      <div class="story-inner-blog-intro">
+        <div class="eyebrow">{entrepreneurJourney.seriesEyebrow}</div>
+        <h2 id="entrepreneur-journey-heading" set:html={entrepreneurJourney.heroTitle} />
+        <p class="lead">{entrepreneurJourney.seriesLead}</p>
+      </div>
+      <a class="story-feature card reveal" href={entrepreneurJourney.href}>
+        <div class="story-feature-image image-card" style={`--image-url: url('${entrepreneurJourney.image}');`} role="img" aria-label={entrepreneurJourney.imageAlt}></div>
+        <div class="story-feature-copy">
+          <div class="eyebrow">{entrepreneurJourney.eyebrow}</div>
+          <h3>{entrepreneurJourney.title}</h3>
+          <p>{entrepreneurJourney.teaser}</p>
+          <p class="story-journey-note"><strong>Note:</strong> {entrepreneurJourney.note}</p>
+          <span class="service-card-link">Open this series -></span>
+        </div>
+      </a>
     </div>
   </section>
 </BaseLayout>
