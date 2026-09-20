@@ -1164,15 +1164,12 @@ export const founderLetter = [
 
 export const entrepreneurJourney = {
   href: '/stories/the-journey-of-an-entrepreneur/',
-  seriesEyebrow: 'A blog within the blog',
-  seriesLead:
-    'A connected series inside the Iron Path community blog. Benjamin DeSomer writing from the work of building this company.',
   eyebrow: 'From the founder',
   title: 'The Journey of an Entrepreneur',
   heroTitle: 'The Journey of an <em>Entrepreneur.</em>',
   teaser:
     "Benji's notes from building Iron Path in the Methow Valley: starting at Sun Mountain Lodge, forging a path in trust, and writing the playbook as we go.",
-  lead: 'A series from the Iron Path community blog. Notes from year one: how Iron Path started, why we built it here, and the path we are still forging.',
+  lead: 'Notes from year one: how Iron Path started, why we built it here, and the path we are still forging.',
   image: '/assets/photos/community/benji-sword-walking.jpg',
   imageAlt: 'Benji walking along a Methow Valley riverbank, carrying a training sword at golden hour',
   portrait: '/assets/photos/team/benji-founder.jpg',

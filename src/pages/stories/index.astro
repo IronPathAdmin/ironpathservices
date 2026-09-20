@@ -25,19 +25,14 @@ import { entrepreneurJourney, storyCards } from '../../data/site';
 
   <section class="section sand" aria-labelledby="entrepreneur-journey-heading">
     <div class="container">
-      <div class="story-inner-blog-intro">
-        <div class="eyebrow">{entrepreneurJourney.seriesEyebrow}</div>
-        <h2 id="entrepreneur-journey-heading" set:html={entrepreneurJourney.heroTitle} />
-        <p class="lead">{entrepreneurJourney.seriesLead}</p>
-      </div>
       <a class="story-feature card reveal" href={entrepreneurJourney.href}>
         <div class="story-feature-image image-card" style={`--image-url: url('${entrepreneurJourney.image}');`} role="img" aria-label={entrepreneurJourney.imageAlt}></div>
         <div class="story-feature-copy">
           <div class="eyebrow">{entrepreneurJourney.eyebrow}</div>
-          <h3>{entrepreneurJourney.title}</h3>
+          <h2 id="entrepreneur-journey-heading" set:html={entrepreneurJourney.heroTitle} />
           <p>{entrepreneurJourney.teaser}</p>
           <p class="story-journey-note"><strong>Note:</strong> {entrepreneurJourney.note}</p>
-          <span class="service-card-link">Open this series -></span>
+          <span class="service-card-link">Read the story -></span>
         </div>
       </a>
     </div>
