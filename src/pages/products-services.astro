@@ -11,7 +11,7 @@ const serviceForms = {
   moving: { provider: 'tally' as const, formKey: 'getAQuote' as const },
   'document-shredding': { provider: 'tally' as const, formKey: 'paperShredding' as const },
   firewood: { provider: 'google' as const, href: googleForms.firewoodOrder },
-  'vending-atm': { provider: 'google' as const, href: googleForms.vendingAtm },
+  'vending-atm': { provider: 'tally' as const, formKey: 'vendingAtm' as const },
 };
 ---
 
