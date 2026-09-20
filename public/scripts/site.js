@@ -23,6 +23,10 @@ const tallyForms = {
     id: 'xXGB8v',
     url: 'https://tally.so/r/xXGB8v',
   },
+  vendingAtm: {
+    id: 'ja8GNa',
+    url: 'https://tally.so/r/ja8GNa',
+  },
 };
 
 const formTypeLabels = {

@@ -3,7 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import ContactForm from '../components/ContactForm.astro';
 import GoogleFormLinks from '../components/GoogleFormLinks.astro';
-import { googleForms } from '../data/site';
+import TallyEmbed from '../components/TallyEmbed.astro';
+import TallyPopupButton from '../components/TallyPopupButton.astro';
+import { googleForms, tallyForms } from '../data/site';
 ---
 
 <BaseLayout title="Work With Us" description="B2B opportunities with Iron Path Services, vending and ATM placement, referral partnerships, and website partner options.">
@@ -32,6 +34,25 @@ import { googleForms } from '../data/site';
         <p class="lead">Share the partnership you have in mind. Your request goes to the leads inbox so the team can review fit and next steps.</p>
       </div>
       <ContactForm type="general" title="B2B Inquiry" googleFormUrl={googleForms.referralPartner} />
+    </div>
+  </section>
+
+  <section class="section compact" id="vending-atm">
+    <div class="container grid two" style="align-items: start;">
+      <div>
+        <div class="eyebrow">Vending Machines &amp; ATMs</div>
+        <h2>Host a machine at <em>no upfront cost.</em></h2>
+        <p class="lead">
+          Iron Path places and maintains ATMs and vending machines at local businesses. Fill out
+          the placement inquiry and we will follow up to talk through space, power, and foot
+          traffic.
+        </p>
+        <div class="hero-actions" style="margin-top: 24px;">
+          <TallyPopupButton formKey="vendingAtm" class="btn" />
+        </div>
+        <p class="fine-print">{tallyForms.vendingAtm.finePrint}</p>
+      </div>
+      <TallyEmbed formKey="vendingAtm" />
     </div>
   </section>
 

@@ -105,6 +105,14 @@ export const tallyForms = {
     buttonLabel: 'Book Karaoke Hosting',
     finePrint: 'Opens the official Karaoke Hosting booking form. No Google login required.',
   },
+  vendingAtm: {
+    id: 'ja8GNa',
+    url: 'https://tally.so/r/ja8GNa',
+    embedUrl: 'https://tally.so/embed/ja8GNa',
+    title: 'Vending / ATM Placement Inquiry',
+    buttonLabel: 'Inquire About Placement',
+    finePrint: 'Opens the official Vending / ATM Placement Inquiry form. No Google login required.',
+  },
 } as const;
 
 export const googleForms = {
@@ -153,8 +161,12 @@ export const formLinks: FormLink[] = [
   },
   {
     title: 'Vending / ATM Placement Inquiry',
-    href: googleForms.vendingAtm,
+    href: tallyForms.vendingAtm.url,
     description: 'Start a host-location conversation for vending machines or ATMs.',
+    provider: 'tally' as const,
+    tallyKey: 'vendingAtm',
+    ctaLabel: tallyForms.vendingAtm.buttonLabel,
+    finePrint: tallyForms.vendingAtm.finePrint,
   },
   {
     title: 'Secure Paper Shredding',
