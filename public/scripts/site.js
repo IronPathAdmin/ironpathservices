@@ -19,6 +19,10 @@ const tallyForms = {
     id: 'aQpZRB',
     url: 'https://tally.so/r/aQpZRB',
   },
+  karaokeHosting: {
+    id: 'xXGB8v',
+    url: 'https://tally.so/r/xXGB8v',
+  },
 };
 
 const formTypeLabels = {
