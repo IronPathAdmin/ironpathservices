@@ -23,18 +23,27 @@ import { entrepreneurJourney } from '../../data/site';
           <p class="story-journey-date">{entrepreneurJourney.dateLabel}</p>
         </div>
       </aside>
-      <article class="card sand story-journey-article">
+      <div class="story-journey-feed">
         <p class="story-journey-note"><strong>Note:</strong> {entrepreneurJourney.note}</p>
-        {entrepreneurJourney.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
-        <p>
-          <strong>- {entrepreneurJourney.author}</strong>
-          <br />
-          {entrepreneurJourney.role}, Iron Path Services
-        </p>
+        {entrepreneurJourney.posts.length ? (
+          <div class="story-journey-posts">
+            {entrepreneurJourney.posts.map((post) => (
+              <article class="card sand story-journey-article">
+                <div class="eyebrow">{post.dateLabel}</div>
+                <h2>{post.title}</h2>
+                {post.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+              </article>
+            ))}
+          </div>
+        ) : (
+          <article class="card sand story-journey-article">
+            <p>{entrepreneurJourney.emptyState}</p>
+          </article>
+        )}
         <p>
           <a class="service-card-link" href="/stories/">Back to Stories -></a>
         </p>
-      </article>
+      </div>
     </div>
   </section>
 </BaseLayout>

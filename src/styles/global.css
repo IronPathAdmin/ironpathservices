@@ -1242,6 +1242,8 @@ em {
   grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
   gap: 28px;
   align-items: center;
+  height: auto;
+  margin-top: 32px;
   text-decoration: none;
   color: inherit;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -1309,9 +1311,24 @@ em {
   gap: 12px;
 }
 
+.story-journey-feed {
+  display: grid;
+  gap: 22px;
+}
+
+.story-journey-posts {
+  display: grid;
+  gap: 18px;
+}
+
 .story-journey-date {
   margin-top: 8px !important;
   font-size: 14px;
+}
+
+.story-journey-article h2 {
+  font-size: clamp(28px, 3.2vw, 38px);
+  margin-bottom: 14px;
 }
 
 .story-journey-article p + p {
