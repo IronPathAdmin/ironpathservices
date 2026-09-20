@@ -95,6 +95,12 @@ The general quote form is a Tally embed (`aQpZRB`) on the homepage and Get a Quo
 
 In Tally, set notifications to `leads@ironpathservices.com`. Then create a Gmail filter for that form's subject or sender and apply `Website Forms/General Quote` or a nested job-type label such as `Website Forms/House Cleaning`.
 
+## Karaoke Hosting (Tally)
+
+The Karaoke Hosting booking inquiry is a Tally form (`xXGB8v`) on the Karaoke page. Book buttons open it as a popup; the booking section also embeds it. Submissions are sent by Tally's own email notifications.
+
+In Tally, set notifications to `leads@ironpathservices.com`. Then create a Gmail filter for that form's subject or sender and apply `Website Forms/Karaoke Hosting`.
+
 ## Current delivery behavior
 
 Selecting **Send by Email** opens the visitor's email application with the recipient, subject, and organized form body already filled in. The visitor must select **Send** in their email application. The website does not store the submission.

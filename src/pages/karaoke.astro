@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ContactForm from '../components/ContactForm.astro';
-import { contact, karaokePage } from '../data/site';
+import TallyEmbed from '../components/TallyEmbed.astro';
+import TallyPopupButton from '../components/TallyPopupButton.astro';
+import { contact, karaokePage, tallyForms } from '../data/site';
 ---
 
 <BaseLayout
@@ -16,7 +17,7 @@ import { contact, karaokePage } from '../data/site';
       <p class="lead">{karaokePage.lead}</p>
       <p class="karaoke-price-pill">{karaokePage.note}</p>
       <div class="hero-actions">
-        <a class="btn" href="#karaoke-interest">Book Karaoke Hosting</a>
+        <TallyPopupButton formKey="karaokeHosting" class="btn" label="Book Karaoke Hosting" />
         <a class="btn secondary" href="#red-carpet">See Red Carpet Moment</a>
       </div>
     </div>
@@ -63,7 +64,7 @@ import { contact, karaokePage } from '../data/site';
         <h2>{karaokePage.redCarpet.title}</h2>
         <p class="lead">{karaokePage.redCarpet.summary}</p>
         <div class="hero-actions" style="margin-top: 24px;">
-          <a class="btn" href="#karaoke-interest">Add a Red Carpet Moment</a>
+          <TallyPopupButton formKey="karaokeHosting" class="btn" label="Add a Red Carpet Moment" />
           <a class="btn secondary" href="/initiatives/">All initiatives</a>
         </div>
       </div>
@@ -146,12 +147,12 @@ import { contact, karaokePage } from '../data/site';
           ·
           <a href={`mailto:${contact.leadsEmail}`}>{contact.leadsEmail}</a>
         </p>
+        <div class="hero-actions" style="margin-top: 24px;">
+          <TallyPopupButton formKey="karaokeHosting" class="btn" />
+        </div>
+        <p class="fine-print">{tallyForms.karaokeHosting.finePrint}</p>
       </div>
-      <ContactForm
-        type="karaoke"
-        title="Karaoke Hosting Request"
-        intro="Share your event details. We will prepare an organized email for you to review and send to leads@ironpathservices.com."
-      />
+      <TallyEmbed formKey="karaokeHosting" />
     </div>
   </section>
 </BaseLayout>

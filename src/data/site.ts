@@ -97,6 +97,14 @@ export const tallyForms = {
     buttonLabel: 'Get A Quote',
     finePrint: 'Opens the official Get A Quote form. No Google login required.',
   },
+  karaokeHosting: {
+    id: 'xXGB8v',
+    url: 'https://tally.so/r/xXGB8v',
+    embedUrl: 'https://tally.so/embed/xXGB8v',
+    title: 'Karaoke Hosting — Booking Inquiry',
+    buttonLabel: 'Book Karaoke Hosting',
+    finePrint: 'Opens the official Karaoke Hosting booking form. No Google login required.',
+  },
 } as const;
 
 export const googleForms = {
@@ -156,6 +164,15 @@ export const formLinks: FormLink[] = [
     tallyKey: 'paperShredding',
     ctaLabel: tallyForms.paperShredding.buttonLabel,
     finePrint: tallyForms.paperShredding.finePrint,
+  },
+  {
+    title: 'Karaoke Hosting Booking Inquiry',
+    href: tallyForms.karaokeHosting.url,
+    description: 'Book a karaoke night: event details, preferred date, add-ons, and recurring packages.',
+    provider: 'tally' as const,
+    tallyKey: 'karaokeHosting',
+    ctaLabel: tallyForms.karaokeHosting.buttonLabel,
+    finePrint: tallyForms.karaokeHosting.finePrint,
   },
   {
     title: 'Volunteer Program Application',
