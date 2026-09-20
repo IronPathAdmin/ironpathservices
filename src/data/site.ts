@@ -1162,6 +1162,26 @@ export const founderLetter = [
   "If you have got a job that needs doing in the Methow Valley, we would be honored to earn it.",
 ];
 
+export const entrepreneurJourney = {
+  href: '/stories/the-journey-of-an-entrepreneur/',
+  eyebrow: 'From the founder',
+  title: 'The Journey of an Entrepreneur',
+  heroTitle: 'The Journey of an <em>Entrepreneur.</em>',
+  teaser:
+    "Benji's notes from building Iron Path in the Methow Valley: starting at Sun Mountain Lodge, forging a path in trust, and writing the playbook as we go.",
+  lead: 'Notes from year one: how Iron Path started, why we built it here, and the path we are still forging.',
+  image: '/assets/photos/community/benji-sword-walking.jpg',
+  imageAlt: 'Benji walking along a Methow Valley riverbank, carrying a training sword at golden hour',
+  portrait: '/assets/photos/team/benji-founder.jpg',
+  portraitAlt: 'Benji, Founder and Chief Strategy Architect of Iron Path Services, standing by the Methow River',
+  author: 'Benji',
+  role: 'Founder & Chief Strategy Architect',
+  dateLabel: 'Year one · Methow Valley',
+  note:
+    'These are not written with AI or from a random person. This is Benjamin DeSomer sharing his genuine and honest thoughts, feelings, and experiences on the hardest journey he has ever made.',
+  paragraphs: founderLetter,
+};
+
 export const storyCards = [
   {
     title: 'Job stories and pictures',

@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import { entrepreneurJourney } from '../../data/site';
+---
+
+<BaseLayout title={entrepreneurJourney.title} description={entrepreneurJourney.teaser}>
+  <PageHero eyebrow="Stories" title={entrepreneurJourney.heroTitle} lead={entrepreneurJourney.lead} />
+
+  <section class="section">
+    <div class="container story-journey">
+      <aside class="story-journey-aside">
+        <img
+          class="about-photo about-portrait-photo"
+          src={entrepreneurJourney.portrait}
+          alt={entrepreneurJourney.portraitAlt}
+          width="683"
+          height="1014"
+        />
+        <div class="card sand">
+          <h3>{entrepreneurJourney.author}</h3>
+          <p>{entrepreneurJourney.role}</p>
+          <p class="story-journey-date">{entrepreneurJourney.dateLabel}</p>
+        </div>
+      </aside>
+      <article class="card sand story-journey-article">
+        <p class="story-journey-note"><strong>Note:</strong> {entrepreneurJourney.note}</p>
+        {entrepreneurJourney.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+        <p>
+          <strong>- {entrepreneurJourney.author}</strong>
+          <br />
+          {entrepreneurJourney.role}, Iron Path Services
+        </p>
+        <p>
+          <a class="service-card-link" href="/stories/">Back to Stories -></a>
+        </p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>
