@@ -129,6 +129,14 @@ export const tallyForms = {
     buttonLabel: 'Submit a Community Need',
     finePrint: 'Opens the official Methow Valley Community Need Submission. No Google login required.',
   },
+  mediaRelease: {
+    id: 'dWJQ7o',
+    url: 'https://tally.so/r/dWJQ7o',
+    embedUrl: 'https://tally.so/embed/dWJQ7o',
+    title: 'Iron Path - Media Release',
+    buttonLabel: 'Sign Media Release',
+    finePrint: 'Opens the official Iron Path Media Release. No Google login required.',
+  },
 } as const;
 
 export const googleForms = {
@@ -229,6 +237,15 @@ export const formLinks: FormLink[] = [
     title: 'Customer Review Submission',
     href: googleForms.customerReview,
     description: 'Submit a customer review for manual approval before publishing.',
+  },
+  {
+    title: 'Iron Path Media Release',
+    href: tallyForms.mediaRelease.url,
+    description: 'Grant permission for Iron Path to use job or event photos, video, and recordings in marketing.',
+    provider: 'tally' as const,
+    tallyKey: 'mediaRelease',
+    ctaLabel: tallyForms.mediaRelease.buttonLabel,
+    finePrint: tallyForms.mediaRelease.finePrint,
   },
 ];
 

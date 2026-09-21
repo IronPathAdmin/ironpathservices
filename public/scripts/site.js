@@ -35,6 +35,10 @@ const tallyForms = {
     id: 'ob8lJP',
     url: 'https://tally.so/r/ob8lJP',
   },
+  mediaRelease: {
+    id: 'dWJQ7o',
+    url: 'https://tally.so/r/dWJQ7o',
+  },
 };
 
 const formTypeLabels = {
