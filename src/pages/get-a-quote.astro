@@ -5,7 +5,7 @@ import TallyEmbed from '../components/TallyEmbed.astro';
 import GoogleFormLinks from '../components/GoogleFormLinks.astro';
 import ContactForm from '../components/ContactForm.astro';
 import TallyPopupButton from '../components/TallyPopupButton.astro';
-import { contact, googleFormFinePrint, googleForms, tallyForms } from '../data/site';
+import { contact, tallyForms } from '../data/site';
 ---
 
 <BaseLayout title="Get a Quote" description="Request a free estimate from Iron Path Services.">
@@ -56,8 +56,8 @@ import { contact, googleFormFinePrint, googleForms, tallyForms } from '../data/s
       <div class="card">
         <h3>Review form</h3>
         <p>Reviews are collected on the Reviews page, then manually approved before publishing.</p>
-        <a class="btn secondary" href={googleForms.customerReview} target="_blank" rel="noreferrer">Open Review Form</a>
-        <p class="fine-print">{googleFormFinePrint}</p>
+        <TallyPopupButton formKey="customerReview" class="btn secondary" />
+        <p class="fine-print">{tallyForms.customerReview.finePrint}</p>
       </div>
       <div class="card">
         <h3>Official pricing</h3>

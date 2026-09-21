@@ -1,9 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import ContactForm from '../components/ContactForm.astro';
 import ReviewCard from '../components/ReviewCard.astro';
-import { externalLinks, googleFormFinePrint, googleForms, reviews } from '../data/site';
+import TallyEmbed from '../components/TallyEmbed.astro';
+import TallyPopupButton from '../components/TallyPopupButton.astro';
+import { externalLinks, reviews, tallyForms } from '../data/site';
 
 const featuredReview = reviews[0];
 ---
@@ -34,19 +35,22 @@ const featuredReview = reviews[0];
     </div>
   </section>
 
-  <section class="section sand">
+  <section class="section sand" id="submit-review">
     <div class="container grid two" style="align-items: start;">
       <div>
         <div class="eyebrow">Submit a Review</div>
         <h2>Manual approval, <em>then publish.</em></h2>
-        <p class="lead">Submitted reviews are routed to the team. After approval, they can be added to the live review list and customer highlights.</p>
-        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-          <a class="btn" href={externalLinks.googleReview} target="_blank" rel="noreferrer">Leave a Google Review</a>
-          <a class="btn secondary" href={googleForms.customerReview} target="_blank" rel="noreferrer">Website Review Form</a>
+        <p class="lead">
+          Fill out the official Customer Review Submission and we will review it before it appears
+          on the website. You can also leave a public Google review.
+        </p>
+        <div class="hero-actions" style="margin-top: 24px;">
+          <TallyPopupButton formKey="customerReview" class="btn" />
+          <a class="btn secondary" href={externalLinks.googleReview} target="_blank" rel="noreferrer">Leave a Google Review</a>
         </div>
-        <p class="fine-print">{googleFormFinePrint}</p>
+        <p class="fine-print">{tallyForms.customerReview.finePrint}</p>
       </div>
-      <ContactForm type="review" title="Review Submission" intro="Your review will be sent for manual approval before it appears on the website." googleFormUrl={googleForms.customerReview} />
+      <TallyEmbed formKey="customerReview" />
     </div>
   </section>
 </BaseLayout>
