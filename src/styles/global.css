@@ -781,10 +781,18 @@ em {
   z-index: 1;
 }
 
+.home-promo-banner.is-single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .home-promo-banner-heading {
   display: grid;
   align-content: center;
   gap: 16px;
+}
+
+.home-promo-banner.is-single .home-promo-banner-heading {
+  max-width: 720px;
 }
 
 .home-promo-banner-heading h2 {
@@ -2701,14 +2709,24 @@ textarea:focus {
   color: var(--sand);
 }
 
+.karaoke-book-inner {
+  max-width: 720px;
+}
+
+.karaoke-book h2,
+.karaoke-book h3,
+.karaoke-carpet h2,
+.karaoke-carpet h3 {
+  color: var(--sand);
+}
+
 .karaoke-book .lead,
 .karaoke-book a {
   color: rgba(245, 240, 232, 0.88);
 }
 
-.karaoke-book .form-box {
-  background: rgba(255, 253, 248, 0.96);
-  color: var(--ink);
+.karaoke-book .fine-print {
+  color: rgba(245, 240, 232, 0.7);
 }
 
 @keyframes karaoke-pulse {

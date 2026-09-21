@@ -1221,60 +1221,7 @@ export const promotions: Array<{
     label: string;
     href: string;
   };
-}> = [
-  {
-    title: 'Iron Path Giveaway',
-    status: 'Giveaway open now.',
-    details:
-      'One lucky winner will choose one prize from Iron Path Services: free junk removal, free house cleaning, or a $250 service credit toward any Iron Path service.',
-    optionsHeading: 'Prize choices',
-    prizeOptions: [
-      'Free junk removal up to one trailer load, equivalent to 2 truck loads',
-      'Free house cleaning up to 3 hours',
-      '$250 credit toward any Iron Path service',
-    ],
-    dates: [
-      { label: 'Winner announced', value: 'September 30, 2026' },
-      { label: 'Prize must be used by', value: 'October 31, 2026' },
-    ],
-    entrySteps: [
-      'Like the giveaway post for +1 entry',
-      'Comment "DONE" and tag 2 friends for +1 entry',
-    ],
-    socialEntries: [
-      {
-        platform: 'facebook',
-        label: 'Follow on Facebook',
-        handle: 'Iron Path Services',
-        href: contact.facebook,
-        entries: '+1 entry',
-      },
-      {
-        platform: 'instagram',
-        label: 'Follow on Instagram',
-        handle: '@ironpathservices',
-        href: contact.instagram,
-        entries: '+1 entry',
-      },
-    ],
-    bonusEntries: [
-      'Share the giveaway post to your story for +3 entries',
-      'Request a free estimate for +3 entries',
-      'Join the email list for +2 entries',
-      'Nominate someone deserving through the nomination form for +2 entries',
-      'Post a photo of a cleaning project, cluttered room, junk pile, or dirty trash can and tag Iron Path Services for +3 entries',
-    ],
-    nominationDetails:
-      'If a nominated person is selected, the nominee receives their choice of free junk removal, free house cleaning, or a $250 service credit. The nominator receives 1 hour of cleaning or a $50 service credit.',
-    tallyKey: 'giveawayNomination',
-    cta: {
-      label: tallyForms.giveawayNomination.buttonLabel,
-      href: tallyForms.giveawayNomination.url,
-    },
-    finePrint:
-      'No purchase necessary. Must be 18 years or older and reside within Iron Path Services service area. Promotion is not sponsored, endorsed, administered by, or associated with Facebook or Instagram. One winner will be selected at random after entries close. Prize value not to exceed $250.',
-  },
-];
+}> = [];
 
 export const founderLetter = [
   'Iron Path Services was founded in March 2026 in the Methow Valley by two people who believed this place deserved a different kind of service company.',

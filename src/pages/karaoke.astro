@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import TallyEmbed from '../components/TallyEmbed.astro';
 import TallyPopupButton from '../components/TallyPopupButton.astro';
 import { contact, karaokePage, tallyForms } from '../data/site';
 ---
@@ -133,26 +132,23 @@ import { contact, karaokePage, tallyForms } from '../data/site';
   </section>
 
   <section class="section karaoke-book" id="karaoke-interest">
-    <div class="container grid two" style="align-items: start;">
-      <div>
-        <div class="eyebrow">Book the Night</div>
-        <h2>Ready for an <em>awesome karaoke night?</em></h2>
-        <p class="lead">
-          Tell us your event date, location, and whether you want a complimentary Red Carpet Moment.
-          We will follow up with availability and a clear quote.
-        </p>
-        <p>
-          Prefer to talk it through?
-          <a href={contact.phoneHref}>{contact.phone}</a>
-          ·
-          <a href={`mailto:${contact.leadsEmail}`}>{contact.leadsEmail}</a>
-        </p>
-        <div class="hero-actions" style="margin-top: 24px;">
-          <TallyPopupButton formKey="karaokeHosting" class="btn" />
-        </div>
-        <p class="fine-print">{tallyForms.karaokeHosting.finePrint}</p>
+    <div class="container karaoke-book-inner">
+      <div class="eyebrow">Book the Night</div>
+      <h2>Ready for an <em>awesome karaoke night?</em></h2>
+      <p class="lead">
+        Tell us your event date, location, and whether you want a complimentary Red Carpet Moment.
+        We will follow up with availability and a clear quote.
+      </p>
+      <p>
+        Prefer to talk it through?
+        <a href={contact.phoneHref}>{contact.phone}</a>
+        ·
+        <a href={`mailto:${contact.leadsEmail}`}>{contact.leadsEmail}</a>
+      </p>
+      <div class="hero-actions" style="margin-top: 24px;">
+        <TallyPopupButton formKey="karaokeHosting" class="btn" />
       </div>
-      <TallyEmbed formKey="karaokeHosting" />
+      <p class="fine-print">{tallyForms.karaokeHosting.finePrint}</p>
     </div>
   </section>
 </BaseLayout>

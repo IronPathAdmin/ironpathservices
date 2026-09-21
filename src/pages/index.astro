@@ -5,7 +5,7 @@ import TallyEmbed from '../components/TallyEmbed.astro';
 import GoogleFormLinks from '../components/GoogleFormLinks.astro';
 import ReviewCard from '../components/ReviewCard.astro';
 import TallyPopupButton from '../components/TallyPopupButton.astro';
-import { communityPledge, contact, faqs, homePhotos, promotions, reviews, serviceAreas, servicePromise, serviceTagline, travelFeeNote } from '../data/site';
+import { communityPledge, contact, faqs, homePhotos, reviews, serviceAreas, servicePromise, serviceTagline, travelFeeNote } from '../data/site';
 ---
 
 <BaseLayout title="Iron Path Services | Methow Valley" description={`${serviceTagline} ${servicePromise}`}>
@@ -31,46 +31,22 @@ import { communityPledge, contact, faqs, homePhotos, promotions, reviews, servic
     </div>
   </section>
 
-  {promotions.length > 0 && (
-    <section class="section home-promo-banner-section">
-      <div class="container home-promo-banner">
-        <div class="home-promo-banner-heading">
-          <div class="eyebrow">Current Promotions</div>
-          <h2>Enter the Iron Path <em>Giveaway.</em></h2>
-          <p class="lead">
-            One winner, three prize choices. The $150 FIRST30 launch special has ended. Full
-            giveaway terms are posted on the pricing page.
-          </p>
-          <div class="hero-actions">
-            <TallyPopupButton formKey="giveawayNomination" class="btn" />
-            <a class="btn secondary" href="/pricing/#current-promotions">See Promotion Details</a>
-          </div>
-        </div>
-        <div class="home-promo-banner-grid">
-          {promotions.map((promotion) => (
-            <article class="home-promo-banner-card">
-              {promotion.status && <p class="promotion-status">{promotion.status}</p>}
-              <h3>{promotion.title}</h3>
-              <p>{promotion.details}</p>
-              {promotion.promoCode && (
-                <div class="home-promo-code" aria-label={`${promotion.title} promo code`}>
-                  <span>Promo code</span>
-                  <strong>{promotion.promoCode}</strong>
-                </div>
-              )}
-              {promotion.dates && (
-                <ul class="home-promo-meta">
-                  {promotion.dates.slice(0, 2).map((date) => (
-                    <li><span>{date.label}</span><strong>{date.value}</strong></li>
-                  ))}
-                </ul>
-              )}
-            </article>
-          ))}
+  <section class="section home-promo-banner-section">
+    <div class="container home-promo-banner is-single">
+      <div class="home-promo-banner-heading">
+        <div class="eyebrow">Fall/Winter Giveaway</div>
+        <h2>Nominate someone who could use a <em>hand.</em></h2>
+        <p class="lead">
+          Know someone in the Methow Valley who has had a hard year? Nominate them for a free
+          Iron Path service. One nominee will be selected.
+        </p>
+        <div class="hero-actions">
+          <TallyPopupButton formKey="giveawayNomination" class="btn" />
+          <a class="btn secondary" href="/pricing/#giveaway-nomination">See Giveaway Details</a>
         </div>
       </div>
-    </section>
-  )}
+    </div>
+  </section>
 
   <section class="section sand sustainable-section promise-roadmap-section">
     <div class="container sustainable-panel promise-roadmap-panel">
