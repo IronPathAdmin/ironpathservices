@@ -1,7 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import { googleFormFinePrint, googleForms } from '../data/site';
+import TallyEmbed from '../components/TallyEmbed.astro';
+import TallyPopupButton from '../components/TallyPopupButton.astro';
+import { tallyForms } from '../data/site';
 ---
 
 <BaseLayout title="Local Businesses We Support" description="Apply to join the Iron Path Services referral ecosystem for Methow Valley businesses.">
@@ -21,10 +23,8 @@ import { googleFormFinePrint, googleForms } from '../data/site';
           care, we invite you to apply. Approved partners may be featured with business details,
           contact links, and a short note about when we recommend them.
         </p>
-        <a class="btn" href={googleForms.referralPartner} target="_blank" rel="noreferrer">
-          Fill Out Referral Partner Application
-        </a>
-        <p class="fine-print">{googleFormFinePrint}</p>
+        <TallyPopupButton formKey="referralPartner" class="btn" />
+        <p class="fine-print">{tallyForms.referralPartner.finePrint}</p>
       </div>
       <div class="card sand">
         <h3>Why apply?</h3>
@@ -60,16 +60,22 @@ import { googleFormFinePrint, googleForms } from '../data/site';
     </div>
   </section>
 
-  <section class="section sand compact">
-    <div class="container" style="display: flex; justify-content: space-between; gap: 20px; align-items: center; flex-wrap: wrap;">
+  <section class="section compact" id="referral-partner">
+    <div class="container grid two" style="align-items: start;">
       <div>
         <div class="eyebrow">Referral Ecosystem</div>
-        <h2>Want to be listed?</h2>
+        <h2>Want to be <em>listed?</em></h2>
+        <p class="lead">
+          Own or run a local business that regularly connects with people who need property,
+          cleanup, or estate support? Apply and we will follow up to talk through how referrals
+          work.
+        </p>
+        <div class="hero-actions" style="margin-top: 24px;">
+          <TallyPopupButton formKey="referralPartner" class="btn" />
+        </div>
+        <p class="fine-print">{tallyForms.referralPartner.finePrint}</p>
       </div>
-      <a class="btn" href={googleForms.referralPartner} target="_blank" rel="noreferrer">
-        Open Referral Partner Form
-      </a>
-      <p class="fine-print" style="flex-basis: 100%; text-align: right;">{googleFormFinePrint}</p>
+      <TallyEmbed formKey="referralPartner" />
     </div>
   </section>
 </BaseLayout>

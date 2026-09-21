@@ -153,6 +153,14 @@ export const tallyForms = {
     buttonLabel: 'Nominate Someone',
     finePrint: 'Opens the official Fall/Winter Giveaway nomination form. No Google login required.',
   },
+  referralPartner: {
+    id: '9qA2eQ',
+    url: 'https://tally.so/r/9qA2eQ',
+    embedUrl: 'https://tally.so/embed/9qA2eQ',
+    title: 'Referral Partner Application',
+    buttonLabel: 'Apply as a Referral Partner',
+    finePrint: 'Opens the official Referral Partner Application. No Google login required.',
+  },
 } as const;
 
 export const googleForms = {
@@ -241,8 +249,12 @@ export const formLinks: FormLink[] = [
   },
   {
     title: 'Referral Partner Application',
-    href: googleForms.referralPartner,
+    href: tallyForms.referralPartner.url,
     description: 'Apply to join the local referral ecosystem.',
+    provider: 'tally' as const,
+    tallyKey: 'referralPartner',
+    ctaLabel: tallyForms.referralPartner.buttonLabel,
+    finePrint: tallyForms.referralPartner.finePrint,
   },
   {
     title: 'Methow Valley Community Need Submission',
