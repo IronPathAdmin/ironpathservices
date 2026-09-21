@@ -70,7 +70,7 @@ import { contact, googleFormFinePrint, googleForms, tallyForms } from '../data/s
   <section class="section">
     <div class="container">
       <div class="eyebrow">Additional Forms</div>
-      <h2>Evaluation, volunteer, and image <em>approval.</em></h2>
+      <h2>Evaluation, volunteer, and media <em>release.</em></h2>
       <div class="grid three" style="margin-top: 28px; align-items: start;">
         <ContactForm type="evaluation" title="Evaluation Form" intro="Use this for post-job feedback, site evaluations, or service improvement notes." />
         <div class="card">
@@ -79,13 +79,31 @@ import { contact, googleFormFinePrint, googleForms, tallyForms } from '../data/s
           <TallyPopupButton formKey="volunteerProgram" class="btn secondary" />
           <p class="fine-print">{tallyForms.volunteerProgram.finePrint}</p>
         </div>
-        <ContactForm
-          type="image"
-          title="Image Approval Form"
-          intro="Use this to approve or restrict use of photos for website and social media. Depending on the job and what is being documented, we may also provide an on-site approval form."
-          googleFormUrl={googleForms.imageApproval}
-        />
+        <div class="card">
+          <h3>Media Release</h3>
+          <p>Grant permission for Iron Path to use job or event photos, video, and recordings in marketing.</p>
+          <TallyPopupButton formKey="mediaRelease" class="btn secondary" />
+          <p class="fine-print">{tallyForms.mediaRelease.finePrint}</p>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <section class="section sand" id="media-release">
+    <div class="container grid two" style="align-items: start;">
+      <div>
+        <div class="eyebrow">Media Release</div>
+        <h2>Approve photos and video <em>in writing.</em></h2>
+        <p class="lead">
+          Public use of identifiable images needs a signed release. Fill out the official Iron Path
+          Media Release and we will keep it with the job or event record.
+        </p>
+        <div class="hero-actions" style="margin-top: 24px;">
+          <TallyPopupButton formKey="mediaRelease" class="btn" />
+        </div>
+        <p class="fine-print">{tallyForms.mediaRelease.finePrint}</p>
+      </div>
+      <TallyEmbed formKey="mediaRelease" />
     </div>
   </section>
 </BaseLayout>
