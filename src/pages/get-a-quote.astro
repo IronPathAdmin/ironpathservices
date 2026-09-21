@@ -35,7 +35,7 @@ import { contact, googleFormFinePrint, googleForms, tallyForms } from '../data/s
     <div class="container">
       <div class="eyebrow">Official quote form</div>
       <h2>Get a <em>quote.</em></h2>
-      <p class="lead">House Cleaning, Junk Removal, Moving Services, Firewood Services, and general estimates all start here. Vending Machines &amp; ATMs remain available as a secondary service. Transit is coming soon.</p>
+      <p class="lead">House Cleaning, Junk Removal, Moving Services, and general estimates all start here. Firewood orders use the dedicated order form. Vending Machines &amp; ATMs remain available as a secondary service. Transit is coming soon.</p>
       <TallyEmbed formKey="getAQuote" />
     </div>
   </section>
@@ -104,6 +104,24 @@ import { contact, googleFormFinePrint, googleForms, tallyForms } from '../data/s
         <p class="fine-print">{tallyForms.mediaRelease.finePrint}</p>
       </div>
       <TallyEmbed formKey="mediaRelease" />
+    </div>
+  </section>
+
+  <section class="section" id="firewood-order">
+    <div class="container grid two" style="align-items: start;">
+      <div>
+        <div class="eyebrow">Firewood Services</div>
+        <h2>Order seasoned firewood <em>for the season.</em></h2>
+        <p class="lead">
+          Campfire bundles, half cords, and full cords. Delivery is billed from our Winthrop base,
+          and stack-in-place is available if you want it stacked.
+        </p>
+        <div class="hero-actions" style="margin-top: 24px;">
+          <TallyPopupButton formKey="firewoodOrder" class="btn" />
+        </div>
+        <p class="fine-print">{tallyForms.firewoodOrder.finePrint}</p>
+      </div>
+      <TallyEmbed formKey="firewoodOrder" />
     </div>
   </section>
 </BaseLayout>

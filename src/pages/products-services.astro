@@ -3,14 +3,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import ServiceDetail from '../components/ServiceDetail.astro';
 import RecommendServiceForm from '../components/RecommendServiceForm.astro';
-import { futureServices, googleForms, primaryServices, secondaryServices } from '../data/site';
+import { futureServices, primaryServices, secondaryServices } from '../data/site';
 
 const serviceForms = {
   cleaning: { provider: 'tally' as const, formKey: 'getAQuote' as const },
   'junk-removal': { provider: 'tally' as const, formKey: 'getAQuote' as const },
   moving: { provider: 'tally' as const, formKey: 'getAQuote' as const },
   'document-shredding': { provider: 'tally' as const, formKey: 'paperShredding' as const },
-  firewood: { provider: 'google' as const, href: googleForms.firewoodOrder },
+  firewood: { provider: 'tally' as const, formKey: 'firewoodOrder' as const },
   'vending-atm': { provider: 'tally' as const, formKey: 'vendingAtm' as const },
 };
 ---

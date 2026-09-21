@@ -39,6 +39,14 @@ const tallyForms = {
     id: 'dWJQ7o',
     url: 'https://tally.so/r/dWJQ7o',
   },
+  firewoodOrder: {
+    id: 'yP8eOg',
+    url: 'https://tally.so/r/yP8eOg',
+  },
+  giveawayNomination: {
+    id: 'A7MWkD',
+    url: 'https://tally.so/r/A7MWkD',
+  },
 };
 
 const formTypeLabels = {
