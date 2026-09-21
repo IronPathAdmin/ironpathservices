@@ -47,6 +47,10 @@ const tallyForms = {
     id: 'A7MWkD',
     url: 'https://tally.so/r/A7MWkD',
   },
+  referralPartner: {
+    id: '9qA2eQ',
+    url: 'https://tally.so/r/9qA2eQ',
+  },
 };
 
 const formTypeLabels = {
