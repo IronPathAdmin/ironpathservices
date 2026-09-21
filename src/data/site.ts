@@ -137,6 +137,22 @@ export const tallyForms = {
     buttonLabel: 'Sign Media Release',
     finePrint: 'Opens the official Iron Path Media Release. No Google login required.',
   },
+  firewoodOrder: {
+    id: 'yP8eOg',
+    url: 'https://tally.so/r/yP8eOg',
+    embedUrl: 'https://tally.so/embed/yP8eOg',
+    title: 'Firewood Order',
+    buttonLabel: 'Order Firewood',
+    finePrint: 'Opens the official Firewood Order form. No Google login required.',
+  },
+  giveawayNomination: {
+    id: 'A7MWkD',
+    url: 'https://tally.so/r/A7MWkD',
+    embedUrl: 'https://tally.so/embed/A7MWkD',
+    title: 'Fall/Winter Giveaway — Nominate a Deserving Person',
+    buttonLabel: 'Nominate Someone',
+    finePrint: 'Opens the official Fall/Winter Giveaway nomination form. No Google login required.',
+  },
 } as const;
 
 export const googleForms = {
@@ -180,8 +196,12 @@ export const formLinks: FormLink[] = [
   },
   {
     title: 'Firewood Services',
-    href: googleForms.firewoodOrder,
+    href: tallyForms.firewoodOrder.url,
     description: 'Order Firewood Services: campfire bundles, individual bundles, cords, and recycled fire products.',
+    provider: 'tally' as const,
+    tallyKey: 'firewoodOrder',
+    ctaLabel: tallyForms.firewoodOrder.buttonLabel,
+    finePrint: tallyForms.firewoodOrder.finePrint,
   },
   {
     title: 'Vending / ATM Placement Inquiry',
@@ -246,6 +266,15 @@ export const formLinks: FormLink[] = [
     tallyKey: 'mediaRelease',
     ctaLabel: tallyForms.mediaRelease.buttonLabel,
     finePrint: tallyForms.mediaRelease.finePrint,
+  },
+  {
+    title: 'Fall/Winter Giveaway Nomination',
+    href: tallyForms.giveawayNomination.url,
+    description: 'Nominate someone in the Methow Valley for a free Iron Path service.',
+    provider: 'tally' as const,
+    tallyKey: 'giveawayNomination',
+    ctaLabel: tallyForms.giveawayNomination.buttonLabel,
+    finePrint: tallyForms.giveawayNomination.finePrint,
   },
 ];
 
@@ -1163,6 +1192,7 @@ export const promotions: Array<{
     label: string;
     value: string;
   }>;
+  tallyKey?: keyof typeof tallyForms;
   cta?: {
     label: string;
     href: string;
@@ -1207,14 +1237,15 @@ export const promotions: Array<{
       'Share the giveaway post to your story for +3 entries',
       'Request a free estimate for +3 entries',
       'Join the email list for +2 entries',
-      'Nominate someone deserving through the Google Form for +2 entries',
+      'Nominate someone deserving through the nomination form for +2 entries',
       'Post a photo of a cleaning project, cluttered room, junk pile, or dirty trash can and tag Iron Path Services for +3 entries',
     ],
     nominationDetails:
       'If a nominated person is selected, the nominee receives their choice of free junk removal, free house cleaning, or a $250 service credit. The nominator receives 1 hour of cleaning or a $50 service credit.',
+    tallyKey: 'giveawayNomination',
     cta: {
-      label: 'Open Promotion Form',
-      href: googleForms.promotion,
+      label: tallyForms.giveawayNomination.buttonLabel,
+      href: tallyForms.giveawayNomination.url,
     },
     finePrint:
       'No purchase necessary. Must be 18 years or older and reside within Iron Path Services service area. Promotion is not sponsored, endorsed, administered by, or associated with Facebook or Instagram. One winner will be selected at random after entries close. Prize value not to exceed $250.',

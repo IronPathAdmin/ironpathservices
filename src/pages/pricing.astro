@@ -3,6 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import PricingTable from '../components/PricingTable.astro';
 import PriceGroupFold from '../components/PriceGroupFold.astro';
+import TallyPopupButton from '../components/TallyPopupButton.astro';
+import TallyEmbed from '../components/TallyEmbed.astro';
 import {
   afterHoursNote,
   commercialDiscounts,
@@ -26,6 +28,7 @@ import {
   promotions,
   salesTax,
   salesTaxNote,
+  tallyForms,
 } from '../data/site';
 ---
 
@@ -223,15 +226,25 @@ import {
                 </div>
               )}
 
-              {promotion.cta && (
+              {promotion.tallyKey ? (
+                <TallyPopupButton
+                  formKey={promotion.tallyKey}
+                  class="btn"
+                  label={promotion.cta?.label}
+                />
+              ) : promotion.cta ? (
                 <a class="btn" href={promotion.cta.href} target="_blank" rel="noreferrer">
                   {promotion.cta.label}
                 </a>
-              )}
+              ) : null}
 
               <div>
                 <p class="fine-print">{promotion.finePrint}</p>
-                <p class="fine-print">{googleFormFinePrint}</p>
+                {promotion.tallyKey ? (
+                  <p class="fine-print">{tallyForms[promotion.tallyKey].finePrint}</p>
+                ) : (
+                  <p class="fine-print">{googleFormFinePrint}</p>
+                )}
               </div>
             </article>
           ))}
@@ -239,6 +252,24 @@ import {
       </div>
     </section>
   )}
+
+  <section class="section sand compact" id="giveaway-nomination">
+    <div class="container grid two" style="align-items: start;">
+      <div>
+        <div class="eyebrow">Fall/Winter Giveaway</div>
+        <h2>Nominate someone who could use a <em>hand.</em></h2>
+        <p class="lead">
+          Know someone in the Methow Valley who has had a hard year? Nominate them for a free
+          Iron Path service. One nominee will be selected.
+        </p>
+        <div class="hero-actions" style="margin-top: 24px;">
+          <TallyPopupButton formKey="giveawayNomination" class="btn" />
+        </div>
+        <p class="fine-print">{tallyForms.giveawayNomination.finePrint}</p>
+      </div>
+      <TallyEmbed formKey="giveawayNomination" />
+    </div>
+  </section>
 
   <section class="section green compact">
     <div class="container" style="display: flex; justify-content: space-between; gap: 20px; align-items: center; flex-wrap: wrap;">

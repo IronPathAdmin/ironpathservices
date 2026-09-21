@@ -4,6 +4,7 @@ import ServiceTree from '../components/ServiceTree.astro';
 import TallyEmbed from '../components/TallyEmbed.astro';
 import GoogleFormLinks from '../components/GoogleFormLinks.astro';
 import ReviewCard from '../components/ReviewCard.astro';
+import TallyPopupButton from '../components/TallyPopupButton.astro';
 import { communityPledge, contact, faqs, homePhotos, promotions, reviews, serviceAreas, servicePromise, serviceTagline, travelFeeNote } from '../data/site';
 ---
 
@@ -40,7 +41,10 @@ import { communityPledge, contact, faqs, homePhotos, promotions, reviews, servic
             One winner, three prize choices. The $150 FIRST30 launch special has ended. Full
             giveaway terms are posted on the pricing page.
           </p>
-          <a class="btn secondary" href="/pricing/">See Promotion Details</a>
+          <div class="hero-actions">
+            <TallyPopupButton formKey="giveawayNomination" class="btn" />
+            <a class="btn secondary" href="/pricing/#current-promotions">See Promotion Details</a>
+          </div>
         </div>
         <div class="home-promo-banner-grid">
           {promotions.map((promotion) => (
