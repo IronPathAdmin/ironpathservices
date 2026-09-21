@@ -31,6 +31,10 @@ const tallyForms = {
     id: 'Eko8p4',
     url: 'https://tally.so/r/Eko8p4',
   },
+  communityNeed: {
+    id: 'ob8lJP',
+    url: 'https://tally.so/r/ob8lJP',
+  },
 };
 
 const formTypeLabels = {

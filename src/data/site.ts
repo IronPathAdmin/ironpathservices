@@ -121,6 +121,14 @@ export const tallyForms = {
     buttonLabel: 'Apply to Volunteer',
     finePrint: 'Opens the official Volunteer Program Application. No Google login required.',
   },
+  communityNeed: {
+    id: 'ob8lJP',
+    url: 'https://tally.so/r/ob8lJP',
+    embedUrl: 'https://tally.so/embed/ob8lJP',
+    title: 'Methow Valley Community Need Submission',
+    buttonLabel: 'Submit a Community Need',
+    finePrint: 'Opens the official Methow Valley Community Need Submission. No Google login required.',
+  },
 } as const;
 
 export const googleForms = {
@@ -210,8 +218,12 @@ export const formLinks: FormLink[] = [
   },
   {
     title: 'Methow Valley Community Need Submission',
-    href: googleForms.communityNeed,
-    description: 'Submit a community need for the investment strategy tracker.',
+    href: tallyForms.communityNeed.url,
+    description: 'Submit a community need for Community Giving, sponsorship, or a future volunteer day.',
+    provider: 'tally' as const,
+    tallyKey: 'communityNeed',
+    ctaLabel: tallyForms.communityNeed.buttonLabel,
+    finePrint: tallyForms.communityNeed.finePrint,
   },
   {
     title: 'Customer Review Submission',
