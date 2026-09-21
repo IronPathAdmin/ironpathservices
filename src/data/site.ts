@@ -113,6 +113,14 @@ export const tallyForms = {
     buttonLabel: 'Inquire About Placement',
     finePrint: 'Opens the official Vending / ATM Placement Inquiry form. No Google login required.',
   },
+  volunteerProgram: {
+    id: 'Eko8p4',
+    url: 'https://tally.so/r/Eko8p4',
+    embedUrl: 'https://tally.so/embed/Eko8p4',
+    title: 'Volunteer Program Application',
+    buttonLabel: 'Apply to Volunteer',
+    finePrint: 'Opens the official Volunteer Program Application. No Google login required.',
+  },
 } as const;
 
 export const googleForms = {
@@ -188,8 +196,12 @@ export const formLinks: FormLink[] = [
   },
   {
     title: 'Volunteer Program Application',
-    href: googleForms.volunteerProgram,
+    href: tallyForms.volunteerProgram.url,
     description: 'Apply for the Iron Path Volunteer Program.',
+    provider: 'tally' as const,
+    tallyKey: 'volunteerProgram',
+    ctaLabel: tallyForms.volunteerProgram.buttonLabel,
+    finePrint: tallyForms.volunteerProgram.finePrint,
   },
   {
     title: 'Referral Partner Application',

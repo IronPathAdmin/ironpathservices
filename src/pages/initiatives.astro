@@ -2,7 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import GoogleFormLinks from '../components/GoogleFormLinks.astro';
-import { initiatives } from '../data/site';
+import TallyEmbed from '../components/TallyEmbed.astro';
+import TallyPopupButton from '../components/TallyPopupButton.astro';
+import { initiatives, tallyForms } from '../data/site';
 ---
 
 <BaseLayout title="Initiatives" description="Iron Path Services community initiatives: Green Initiative, Red Carpet Initiative, investment strategy, volunteer program, referral ecosystem, and SolarPunk vision.">
@@ -17,11 +19,15 @@ import { initiatives } from '../data/site';
           <ul>
             {initiative.details.map((detail) => <li>{detail}</li>)}
           </ul>
-          {'href' in initiative && initiative.href && (
+          {initiative.title === 'Iron Path Volunteer Program' ? (
+            <p style="margin-top: 16px;">
+              <TallyPopupButton formKey="volunteerProgram" class="btn secondary" />
+            </p>
+          ) : 'href' in initiative && initiative.href ? (
             <p style="margin-top: 16px;">
               <a class="btn secondary" href={initiative.href}>Book Karaoke &amp; Red Carpet</a>
             </p>
-          )}
+          ) : null}
         </article>
       ))}
     </div>
@@ -46,7 +52,26 @@ import { initiatives } from '../data/site';
     </div>
   </section>
 
-  <section class="section sand">
+  <section class="section sand" id="volunteer">
+    <div class="container grid two" style="align-items: start;">
+      <div>
+        <div class="eyebrow">Volunteer Program</div>
+        <h2>Serve the valley <em>with us.</em></h2>
+        <p class="lead">
+          The Iron Path Volunteer Program is for high schoolers, families, and neighbors who want
+          real service work, events, and community outreach. Fill out the application and we will
+          follow up about upcoming opportunities.
+        </p>
+        <div class="hero-actions" style="margin-top: 24px;">
+          <TallyPopupButton formKey="volunteerProgram" class="btn" />
+        </div>
+        <p class="fine-print">{tallyForms.volunteerProgram.finePrint}</p>
+      </div>
+      <TallyEmbed formKey="volunteerProgram" />
+    </div>
+  </section>
+
+  <section class="section">
     <div class="container">
       <div class="eyebrow">Community Forms</div>
       <h2>Volunteer or submit a <em>community need.</em></h2>
