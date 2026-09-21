@@ -161,6 +161,14 @@ export const tallyForms = {
     buttonLabel: 'Apply as a Referral Partner',
     finePrint: 'Opens the official Referral Partner Application. No Google login required.',
   },
+  customerReview: {
+    id: '686rgk',
+    url: 'https://tally.so/r/686rgk',
+    embedUrl: 'https://tally.so/embed/686rgk',
+    title: 'Customer Review Submission',
+    buttonLabel: 'Submit a Review',
+    finePrint: 'Opens the official Customer Review Submission. No Google login required.',
+  },
 } as const;
 
 export const googleForms = {
@@ -267,8 +275,12 @@ export const formLinks: FormLink[] = [
   },
   {
     title: 'Customer Review Submission',
-    href: googleForms.customerReview,
+    href: tallyForms.customerReview.url,
     description: 'Submit a customer review for manual approval before publishing.',
+    provider: 'tally' as const,
+    tallyKey: 'customerReview',
+    ctaLabel: tallyForms.customerReview.buttonLabel,
+    finePrint: tallyForms.customerReview.finePrint,
   },
   {
     title: 'Iron Path Media Release',

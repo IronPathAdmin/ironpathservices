@@ -51,6 +51,10 @@ const tallyForms = {
     id: '9qA2eQ',
     url: 'https://tally.so/r/9qA2eQ',
   },
+  customerReview: {
+    id: '686rgk',
+    url: 'https://tally.so/r/686rgk',
+  },
 };
 
 const formTypeLabels = {
