@@ -23,6 +23,10 @@ import { initiatives, tallyForms } from '../data/site';
             <p style="margin-top: 16px;">
               <TallyPopupButton formKey="volunteerProgram" class="btn secondary" />
             </p>
+          ) : initiative.title === 'Methow Valley Investment Strategy' ? (
+            <p style="margin-top: 16px;">
+              <TallyPopupButton formKey="communityNeed" class="btn secondary" />
+            </p>
           ) : 'href' in initiative && initiative.href ? (
             <p style="margin-top: 16px;">
               <a class="btn secondary" href={initiative.href}>Book Karaoke &amp; Red Carpet</a>
@@ -71,7 +75,26 @@ import { initiatives, tallyForms } from '../data/site';
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="community-need">
+    <div class="container grid two" style="align-items: start;">
+      <div>
+        <div class="eyebrow">Community Need</div>
+        <h2>Know someone who could use a <em>hand?</em></h2>
+        <p class="lead">
+          Iron Path keeps an ongoing list of valley needs for Community Giving, sponsorship
+          consideration, or a future volunteer day. Tell us what you are seeing and we will
+          follow up.
+        </p>
+        <div class="hero-actions" style="margin-top: 24px;">
+          <TallyPopupButton formKey="communityNeed" class="btn" />
+        </div>
+        <p class="fine-print">{tallyForms.communityNeed.finePrint}</p>
+      </div>
+      <TallyEmbed formKey="communityNeed" />
+    </div>
+  </section>
+
+  <section class="section sand">
     <div class="container">
       <div class="eyebrow">Community Forms</div>
       <h2>Volunteer or submit a <em>community need.</em></h2>

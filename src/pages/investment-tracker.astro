@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { googleFormFinePrint, googleForms } from '../data/site';
+import TallyPopupButton from '../components/TallyPopupButton.astro';
+import { tallyForms } from '../data/site';
 
 const current = 50;
 const totalGoal = 30000;
@@ -46,10 +47,8 @@ const nextMilestone = milestones.find((milestone) => current < milestone.amount)
           <small>of ${totalGoal.toLocaleString()} goal</small>
         </div>
       </div>
-      <a class="btn" href={googleForms.communityNeed} target="_blank" rel="noreferrer">
-        Submit a Community Need
-      </a>
-      <p class="fine-print">{googleFormFinePrint}</p>
+      <TallyPopupButton formKey="communityNeed" class="btn" />
+      <p class="fine-print">{tallyForms.communityNeed.finePrint}</p>
     </div>
 
     <div class="tracker-art" aria-hidden="true">
