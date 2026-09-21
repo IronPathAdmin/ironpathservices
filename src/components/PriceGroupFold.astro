@@ -1,7 +1,7 @@
 ---
 import PricingTable from './PricingTable.astro';
 import TallyPopupButton from './TallyPopupButton.astro';
-import type { PriceGroup } from '../data/site';
+import { tallyForms, type PriceGroup } from '../data/site';
 
 interface Props {
   group: PriceGroup;
@@ -19,10 +19,10 @@ const { group } = Astro.props;
         <PricingTable title={table.title} columns={table.columns} rows={table.rows} />
       ))}
     </div>
-    {group.tally === 'paperShredding' && (
+    {group.tally && (
       <div class="pricing-inline-cta">
-        <TallyPopupButton />
-        <p class="fine-print">Opens the official Secure Paper Shredding Intake form. No Google login required.</p>
+        <TallyPopupButton formKey={group.tally} />
+        <p class="fine-print">{tallyForms[group.tally].finePrint}</p>
       </div>
     )}
   </div>

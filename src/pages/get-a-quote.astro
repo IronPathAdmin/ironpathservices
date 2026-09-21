@@ -35,8 +35,26 @@ import { contact, googleFormFinePrint, googleForms, tallyForms } from '../data/s
     <div class="container">
       <div class="eyebrow">Official quote form</div>
       <h2>Get a <em>quote.</em></h2>
-      <p class="lead">House Cleaning, Junk Removal, Moving Services, Firewood Services, and general estimates all start here. Vending Machines &amp; ATMs remain available as a secondary service. Transit is coming soon.</p>
+      <p class="lead">House Cleaning, Junk Removal, Moving Services, and general estimates all start here. Firewood orders use the dedicated Firewood Order form. Vending Machines &amp; ATMs remain available as a secondary service. Transit is coming soon.</p>
       <TallyEmbed formKey="getAQuote" />
+    </div>
+  </section>
+
+  <section class="section compact" id="firewood">
+    <div class="container grid two" style="align-items: start;">
+      <div>
+        <div class="eyebrow">Firewood Order</div>
+        <h2>Order seasoned firewood <em>for pickup or delivery.</em></h2>
+        <p class="lead">
+          Campfire bundles, half cords, and full cords. Delivery is billed by mileage from our
+          Winthrop base, and stack-in-place is available as an add-on.
+        </p>
+        <div class="hero-actions" style="margin-top: 24px;">
+          <TallyPopupButton formKey="firewoodOrder" class="btn" />
+        </div>
+        <p class="fine-print">{tallyForms.firewoodOrder.finePrint}</p>
+      </div>
+      <TallyEmbed formKey="firewoodOrder" />
     </div>
   </section>
 

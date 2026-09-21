@@ -137,6 +137,14 @@ export const tallyForms = {
     buttonLabel: 'Sign Media Release',
     finePrint: 'Opens the official Iron Path Media Release. No Google login required.',
   },
+  firewoodOrder: {
+    id: 'yP8eOg',
+    url: 'https://tally.so/r/yP8eOg',
+    embedUrl: 'https://tally.so/embed/yP8eOg',
+    title: 'Firewood Order',
+    buttonLabel: 'Order Firewood',
+    finePrint: 'Opens the official Firewood Order form. No Google login required.',
+  },
 } as const;
 
 export const googleForms = {
@@ -180,8 +188,12 @@ export const formLinks: FormLink[] = [
   },
   {
     title: 'Firewood Services',
-    href: googleForms.firewoodOrder,
+    href: tallyForms.firewoodOrder.url,
     description: 'Order Firewood Services: campfire bundles, individual bundles, cords, and recycled fire products.',
+    provider: 'tally' as const,
+    tallyKey: 'firewoodOrder',
+    ctaLabel: tallyForms.firewoodOrder.buttonLabel,
+    finePrint: tallyForms.firewoodOrder.finePrint,
   },
   {
     title: 'Vending / ATM Placement Inquiry',
@@ -634,7 +646,7 @@ export type PriceGroup = {
   title: string;
   em: string;
   note: string;
-  tally?: 'paperShredding';
+  tally?: keyof typeof tallyForms;
   tables: PriceTable[];
 };
 
@@ -807,6 +819,7 @@ export const generalPriceGroups: PriceGroup[] = [
     title: 'Firewood Services',
     em: 'rates.',
     note: 'Free delivery to Mazama, Winthrop, and Twisp. Delivery to Carlton, Methow, Brewster, and Pateros uses the standard mileage fee.',
+    tally: 'firewoodOrder',
     tables: [
       {
         title: 'Seasoned firewood',
@@ -1000,6 +1013,7 @@ export const commercialPriceGroups: PriceGroup[] = [
     title: 'Firewood — Retail',
     em: 'wholesale.',
     note: 'Wholesale campfire bundles require a 10-unit minimum.',
+    tally: 'firewoodOrder',
     tables: [
       {
         columns: ['Product', 'Price'],
