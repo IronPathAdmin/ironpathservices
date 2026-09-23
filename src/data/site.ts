@@ -934,10 +934,10 @@ export const generalPriceGroups: PriceGroup[] = [
         title: 'Karaoke Hosting',
         columns: ['Option', 'Price'],
         rows: [
-          ['Flat rate (up to 4 hrs)', '$150'],
-          ['Additional time', '$35–$50 / hr'],
-          ['4-week prepaid package', '$500 ($125/event)'],
-          ['Holiday / large events', '$200+ (quoted)'],
+          ['Flat rate (up to 4 hrs)', '$250'],
+          ['Additional time', '$45–$65 / hr'],
+          ['4-night prepaid package', '$800 ($200/event)'],
+          ['Holiday / large events', '$400+ (quoted)'],
         ],
       },
       {
@@ -1075,10 +1075,10 @@ export const commercialPriceGroups: PriceGroup[] = [
       {
         columns: ['Option', 'Price'],
         rows: [
-          ['Standard Event (up to 4 hrs)', '$150'],
-          ['Additional Hours', '$35–$50 / hr'],
-          ['Prepaid 4-Week Package', '$500 ($125/event)'],
-          ['Holiday / Large Event', '$200+ (quoted)'],
+          ['Standard Event (up to 4 hrs)', '$250'],
+          ['Additional Hours', '$45–$65 / hr'],
+          ['Prepaid 4-Night Package', '$800 ($200/event)'],
+          ['Holiday / Large Event', '$400+ (quoted)'],
         ],
       },
     ],
@@ -1285,7 +1285,7 @@ export const karaokePage = {
   title: 'An awesome karaoke night, <em>fully handled.</em>',
   lead:
     'Not an official service line — just a fun Iron Path offering. We bring the speakers, microphones, song list, setup, host, and everything else you need for a great night.',
-  note: 'Professional Karaoke Hosting · starting at $150',
+  note: 'Professional Karaoke Hosting · starting at $250',
   includes: [
     'Full sound system included',
     'Wireless and wired microphones',
@@ -1297,23 +1297,23 @@ export const karaokePage = {
   rates: [
     {
       label: 'Standard rate',
-      price: '$150 flat',
+      price: '$250 flat',
       detail: 'Up to 4 hours of hosting',
     },
     {
-      label: '4-week recurring package',
-      price: '$500',
-      detail: 'Paid in advance · $125 per event · regular 4 hours each night',
+      label: '4-night package',
+      price: '$800',
+      detail: 'Paid in advance · $200 per event · regular 4 hours each night',
       featured: true,
     },
     {
       label: 'Additional time',
-      price: '$35–50 / hour',
+      price: '$45–65 / hour',
       detail: 'After the first 4 hours',
     },
     {
       label: 'Holiday or large events',
-      price: '$200+',
+      price: '$400+',
       detail: 'Quoted for bigger nights and holidays',
     },
   ],
@@ -1337,9 +1337,9 @@ export const karaokePage = {
   ],
   faqs: [
     ['Is Karaoke an official Iron Path service?', 'No. Karaoke hosting is a fun community offering we provide separately from our core services.'],
-    ['What is included in the $150 rate?', 'Up to 4 hours with speakers, microphones, karaoke list, setup, teardown, and a reliable host.'],
-    ['What is the 4-week recurring package?', 'Book four karaoke nights for $500 paid in advance — $125 per event, with the regular 4 hours of hosting each night.'],
+    ['What is included in the $250 rate?', 'Up to 4 hours with speakers, microphones, karaoke list, setup, teardown, and a reliable host.'],
+    ['What is the 4-night package?', 'Book four karaoke nights for $800 paid in advance — $200 per event, with the regular 4 hours of hosting each night.'],
     ['What is a Red Carpet Moment?', 'A complimentary confidence-building spotlight where guests get their star moment. We may share it on social media to spread positivity.'],
-    ['Can you do holidays or large events?', 'Yes. Holiday and large-event hosting starts at $200+ and is quoted for the size of the night.'],
+    ['Can you do holidays or large events?', 'Yes. Holiday and large-event hosting starts at $400+ and is quoted for the size of the night.'],
   ],
 };
